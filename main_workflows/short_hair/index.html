@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Short Hair - Hair Tool 2 Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Short Hair";
+        var mkdocs_page_input_path = "main_workflows/short_hair.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Hair Tool 2 Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hair Workflows</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Generating from surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../interactive_groom/">Interactive grooming</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Short Hair</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How To use</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remeshing-modes">Remeshing Modes:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#defining-uvs">Defining UVs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#manual-uv-assignment">Manual UV assignment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set-uvs-using-vertex-groups">Set UVs using Vertex Groups</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#coloring-strands">Coloring Strands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-sampled-vert-color">Using Sampled Vert Color</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-sampled-uvs">Using Sampled UV's</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#how-setup-uniform-hair-density">How setup uniform hair density?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#i-need-denser-hair">I need denser hair</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#i-want-to-use-uvsweights-from-my-base-mesh-on-hair">I want to use UVs/Weights from my base mesh on Hair</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shell_hair/">Shell Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../convert_generate_hair/">Convert / Generate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../curve_tool/">Curve tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editing_profile/">Curve Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../geometry_hair/">Generating Hair Geometry</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hair_library/">Hair Library</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hair_animation/">Animation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../character_creator_workflow/">Character Creator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../recommended_addons/">Recommended addons</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Hair Tool 2 Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Hair Workflows &raquo;</li>
+      <li>Short Hair</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="short-hair-modeling-tool">Short Hair Modeling Tool<a class="headerlink" href="#short-hair-modeling-tool" title="Permanent link">&para;</a></h2>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/short_hair/short_hair_demo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p>In this modeling technique we are instancing haircards on mesh edges (haircard count will be the same as character mesh edges count). Useful for creation of fur.</p>
+<blockquote>
+<p><strong>Note</strong> Short Hair modeling requires <strong>Blender 3.3</strong> or above.</p>
+</blockquote>
+<p>The main advantages:</p>
+<ul>
+<li>easy to setup - one click solution</li>
+<li>easy to tweak with blender sculpting tools (or with poly modeling)</li>
+<li>haircards distribution based on source character mesh topology - you will automatically get denser hair in more important areas: head, hands  (but this can be con - depending on situation)</li>
+</ul>
+<p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_side_panel.jpeg" /></p>
+<p>The main cons:</p>
+<ul>
+<li>no easy way to control density - since density is based on source character mesh topology (you cant drive it with e.g. vertex group)</li>
+<li>hair source mesh has to have same topology as hair guide mesh. This mean you may have to start combing from scratch if change base mesh topology (but there is workaround I will show later)</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: You can tweak haircards density by changing base mesh topology - eg. by using remesh modifier or adaptive tessellation in blender sculpt mode.</p>
+</blockquote>
+<h4 id="how-to-use">How To use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Select your character. Let's assume it is named: <strong>Body</strong>
+<img alt="Short Hair Setup" src="../../img/short_hair/short_hair_setup.jpg" /></li>
+<li>Use Ctrl+Shift+H menu -&gt; 'Setup Short Hair'</li>
+<li>Alternatively you can use: right sidebar (N key) -&gt; Hair Tool Tab -&gt; Short Hair panel -&gt; 'Setup Short Hair'</li>
+<li>Two new objects will be added: <strong>Body_short_hair</strong> (hair object) and <strong>Body_hair_guide</strong> (drawn as bounding box)</li>
+<li>Select hair guide object (bounding box) and go into sculpt mode</li>
+<li>that is it, you can now sculpt hair by sculpting guide mesh (polygonal modeling can be used too)</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong> To finalize Short hair use 'Convert Short Hair to Mesh' from Hair Tool Ctrl+Shift+H menu. This will correctly tranfser UVs from modifier to mesh data</p>
+</blockquote>
+<h4 id="remeshing-modes">Remeshing Modes:<a class="headerlink" href="#remeshing-modes" title="Permanent link">&para;</a></h4>
+<p>When you use 'Setup Short Hair' operator, you will have option to remesh base geometry (or leave it as it is). Since haircards are spawned on each mesh edge, then source mesh topology has big influence on Short Hair look</p>
+<p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_remeshing_modes.jpg" />
+<em>Three main modes of remeshing starting from left: Diamonds, Triangulated Diamonds, Triangulated Cells</em></p>
+<p>Base Suzanne is made from around 1000 edges. Meaning Short Hair will spawn 1000 haircards (planes or ribbons)</p>
+<ul>
+<li>Diamond Topology will create 2000 edges</li>
+<li>Diamond Triangulated will create 3000 edges</li>
+<li>Triangulated Cells will output 4600 edges!</li>
+</ul>
+<p>Cells remeshing - gives highest poly-count but the resulting topology is organic and thanks to this haircards will also be distributed in natural way.
+Diamonds topology, on the other hand, has visible repeating pattern and it may show through on generated haircards. Triangulation of Diamonds helps slightly, but it is not as good as Cells Topology</p>
+<blockquote>
+<p><strong>Note 1</strong>: If you want denser haircards you can add subdivision modifier to your base mesh, but resulting edges count will quadruple</p>
+<p><strong>Note 2</strong>: I did not test it, but using Dynotopo topology from sculpt mode may actually be nice way to get organic and controllable mesh</p>
+</blockquote>
+<h4 id="defining-uvs">Defining UVs<a class="headerlink" href="#defining-uvs" title="Permanent link">&para;</a></h4>
+<p>UV workflow for Short Hair is similar to Curve UVs.</p>
+<ul>
+<li>Select Short Hair object</li>
+<li>open UV Image Editor and press ‘Hair UV’ button located in top header bar - on far right</li>
+<li>then draw UV boxes like it is shown in <a href="../../uv_material/#defining-uvs"><strong>Defining UVs</strong></a>.</li>
+<li>The only difference, compared to curves, is that UV mirroring is automatically enabled.</li>
+</ul>
+<p>Uv Region defined above can be distributed/assigned to hair-cards in two ways - using Vertex Groups as UV mask, or manually.</p>
+<h5 id="manual-uv-assignment">Manual UV assignment<a class="headerlink" href="#manual-uv-assignment" title="Permanent link">&para;</a></h5>
+<p>You can manually select mesh parts and assign uv regions to it <a href="../../uv_material/#set-uv-region">Set UV Region</a>:</p>
+<ul>
+<li>Select Short Hair object, and go into Edit Mode (using Tab key)</li>
+<li>Select edges for which you want to assign new UV regions</li>
+<li>Use Ctrl + Shift + H menu -&gt; <a href="../../uv_material/#set-uv-region">Set UV Region</a>, and pick UVs that you want to assign to selection.</li>
+<li>Short Hair Cards generated at these edges will receive new UVs.</li>
+</ul>
+<h5 id="set-uvs-using-vertex-groups">Set UVs using Vertex Groups<a class="headerlink" href="#set-uvs-using-vertex-groups" title="Permanent link">&para;</a></h5>
+<p>Semi-automatic way of assigning UVs using Vertex groups (access from right Sidebar -&gt; Hair Tool Tab -&gt; Short Hair panel)</p>
+<p><img alt="Short Hair Vert Group Setup" src="../../img/short_hair/short_hair_vg_mask.jpeg" />
+<em>We have [L]eft and [R]ight vertex groups. We can use these to assign different UV regions</em></p>
+<p><img alt="Short Hair Vert Group Setup" src="../../img/short_hair/short_hair_vg_mask_example.jpeg" />
+<em>With above setup, UV_1 region will be assigned to hair-cards on [L]eft, and UV_2 region on [R]ight</em></p>
+<blockquote>
+<p><strong>Note</strong>: First entry (Base UV) in vert Group layers is always used as 'Background' layer - meaning UV regions assigned to it, will be distributed on whole character body. Following vertex groups will cover this base layer, with theirs own UV regions.</p>
+</blockquote>
+<h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/short_hair_params.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p>You can change Short Hair parameters by going into modifiers tab.</p>
+<p><em><strong>Use Guide Object</strong> - You may want to use the modifier without Hair Guide object. This boolean parameter helps to turn off Guide object, without breaking modifier behavior</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/deformer_mesh.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Guide Object</strong> - Haircards will follow Guide Object deformations. It does not matter if you modify Deformer object in sculpt mode or in Edit mode, but you <b>can't change Deformer object topology</b>. Deformer object topology has to be the same as base hair object, but shape can (and should) be different. In video above all modification performed on Deformer object are stored in Shape Key - this gives you more control on the shape of the mesh in non destructive way</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/short_hair_res.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Strand Resolution</strong> - Add additional subdivision along strands length</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/hair_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Placement Mask</strong> - select vertex group to mask the Short Hair effect</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/short_hair/short_hair_length.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<p><em><strong>Puff</strong> - Push hair outside of surface. Helps to draw haircards when guide mesh is exactly the same as base mesh, thus haircards would have zero length and they would be invisible</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/short_hair/straight_vs_bent.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<p><em><strong>Bend Factor</strong> - Make strands straight (0) or bent (1). Works only when segments count is bigger than 1</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/short_hair/bent_shape.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<p><em><strong>Bend Shape</strong> - Bending is happening mostly on roots (0) or at tips (1) of hairstrands. Works only when segments count is bigger than 1, and Bend Factor is non zero</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/length_multiplier.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Length Multiplier</strong> - Additional multiplier to hairstrands length. It affect longest strands the most. Use value below 1 to shorten the hairstrands</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/length_increase.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Length increase</strong> - Add length to hairstrands in uniform way. It affect all strands the same</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/length_unify.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Length Unify</strong> - Equalize strands lengths. Affect the shortest strands the most, meaning shorter strands will get longer until they match longest stands length</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/length_rand.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Length Randomize</strong> - Randomize strands lengths</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/short_hair_noise.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Noise</strong> - Helps to break the even look of haircards</em>
+&nbsp;</p>
+<h4 id="coloring-strands">Coloring Strands<a class="headerlink" href="#coloring-strands" title="Permanent link">&para;</a></h4>
+<p>Short Hair cards can be colored using vertex color or texture from character body. Both method require setting 'Sampled Object' input - from which we will pick color or/and uv data.</p>
+<h5 id="using-sampled-vert-color">Using Sampled Vert Color<a class="headerlink" href="#using-sampled-vert-color" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/short_hair/short_hair_vert_col.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<ul>
+<li><strong>Sampled Color</strong> - Enter vert color name from sampled base mesh (usually character object) to generate Vert Color layer named <strong>SampledCol</strong>  - it can be used to tint the hair color*
+&nbsp;</li>
+</ul>
+<h5 id="using-sampled-uvs">Using Sampled UV's<a class="headerlink" href="#using-sampled-uvs" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/short_hair/short_hair_sampled_uv.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<ul>
+<li><strong>Sampled Color</strong> - Enter UV name from sampled base mesh (usually character object) to generate uv layer named <strong>SampledUV</strong>  - it can be used to tint the hair color*
+&nbsp;</li>
+</ul>
+<h4 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h4>
+<h5 id="how-setup-uniform-hair-density">How setup uniform hair density?<a class="headerlink" href="#how-setup-uniform-hair-density" title="Permanent link">&para;</a></h5>
+<p>You can use <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/remesh.html">remesh modifier</a> to make the base topology even. Generating Short Hair from that should give uniform look</p>
+<h5 id="i-need-denser-hair">I need denser hair<a class="headerlink" href="#i-need-denser-hair" title="Permanent link">&para;</a></h5>
+<p>There is no way to control Short Hair density. But you can add subdivision modifier to increase the density. This will however bump up haircards count Four Times, for each subdivision.</p>
+<blockquote>
+<p><strong>Note 1</strong> You have to add subdivision modifier to both Body (above Short Hair mod), and Hair Deformer object or Short Hair won't work correctly.</p>
+<p><strong>Note 2</strong> You can also try using <a href="https://docs.blender.org/manual/en/latest/sculpt_paint/sculpting/tool_settings/dyntopo.html">Dyntopo</a> in Blender sculpting mode, to add more geometry in places where you want more hair</p>
+</blockquote>
+<h5 id="i-want-to-use-uvsweights-from-my-base-mesh-on-hair">I want to use UVs/Weights from my base mesh on Hair<a class="headerlink" href="#i-want-to-use-uvsweights-from-my-base-mesh-on-hair" title="Permanent link">&para;</a></h5>
+<p>Use <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/modify/data_transfer.html">Data Transfer</a> modifier, after you finalized your Short Hair.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../interactive_groom/" class="btn btn-neutral float-left" title="Interactive grooming"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../shell_hair/" class="btn btn-neutral float-right" title="Shell Hair">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../interactive_groom/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../shell_hair/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

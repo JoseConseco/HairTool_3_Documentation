@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Curve tools - Hair Tool 2 Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Curve tools";
+        var mkdocs_page_input_path = "curve_tool.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Hair Tool 2 Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hair Workflows</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_drawing/">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Generating from surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/interactive_groom/">Interactive grooming</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/short_hair/">Short Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/shell_hair/">Shell Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_modeling/">Hair Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_system/">Hair System</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../convert_generate_hair/">Convert / Generate</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Curve tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#curve-simplify">Curve Simplify</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resample-curve">Resample Curve</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#smooth-curve">Smooth Curve</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adjust-length">Adjust Length</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#straighten-curve">Straighten Curve</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#smooth-tilt">Smooth Tilt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#taper-curve">Taper Curve</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#radius-from-length">Radius from length</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#align-curve-tilt">Align Curve tilt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomize-curve-tilt">Randomize Curve Tilt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#select-tipsroots">Select Tips/Roots</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#slice-using-mesh">Slice Using Mesh</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editing_profile/">Curve Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../geometry_hair/">Generating Hair Geometry</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_library/">Hair Library</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_animation/">Animation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../character_creator_workflow/">Character Creator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../recommended_addons/">Recommended addons</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Hair Tool 2 Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Tools &raquo;</li>
+      <li>Curve tools</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="ribbon-operations">Ribbon operations:<a class="headerlink" href="#ribbon-operations" title="Permanent link">&para;</a></h2>
+<h3 id="curve-simplify">Curve Simplify<a class="headerlink" href="#curve-simplify" title="Permanent link">&para;</a></h3>
+<p><img alt="Curve Simplify" src="../img/curvesimplify.gif" />
+<em><strong>Curve Simplify-</strong> Allows to reduce point count. Good for reducing polycount on hairs</em></p>
+<h3 id="resample-curve">Resample Curve<a class="headerlink" href="#resample-curve" title="Permanent link">&para;</a></h3>
+<p><img alt="Resample Curve" src="../img/resamplecurve_new.gif" />
+<em><strong>Resample Curve</strong>. Allows to increase/decrease number of points each curve is made of</em></p>
+<p><strong>Parameters (F9):</strong></p>
+<ul>
+<li><strong>Points per strand</strong> - How many points each spline will have after resampling</li>
+<li><strong>Offset to tip</strong> - Move spline points more toward tip</li>
+<li><strong>Offset to root</strong> - Move spline points more toward root</li>
+<li><strong>Equal point count</strong> - When disabled, shorter splines will have less points</li>
+<li><strong>Uniform Spacing</strong> - Equalize distance between points when resampling</li>
+</ul>
+<h3 id="smooth-curve">Smooth Curve<a class="headerlink" href="#smooth-curve" title="Permanent link">&para;</a></h3>
+<p><img alt="Smooth Curve" src="../img/smoothcurve.gif" />
+<em><strong>Smooth Curve</strong> - smooth strand points (eg. to reduce noise)</em></p>
+<h3 id="adjust-length">Adjust Length<a class="headerlink" href="#adjust-length" title="Permanent link">&para;</a></h3>
+<p><img alt="Smooth Curve" src="../img/adjust_length.gif" /></p>
+<h3 id="straighten-curve">Straighten Curve<a class="headerlink" href="#straighten-curve" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../video/hair_straighten.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Straighten Curve</strong> - Straighten strands. You can control influence of straighten over strand length, with: transition offset and contrast parameters</em></p>
+<h3 id="smooth-tilt">Smooth Tilt<a class="headerlink" href="#smooth-tilt" title="Permanent link">&para;</a></h3>
+<p><img alt="Smooth Tilt" src="../img/smoothtilt1.gif" />
+<em><strong>Smooth Tilt</strong> does what is says</em></p>
+<h3 id="taper-curve">Taper Curve<a class="headerlink" href="#taper-curve" title="Permanent link">&para;</a></h3>
+<p><img alt="Taper Curve" src="../img/tapercurve.gif" /></p>
+<p><em><strong>Taper Curve -</strong> change strands radius over length</em></p>
+<h3 id="radius-from-length">Radius from length<a class="headerlink" href="#radius-from-length" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../video/length_radius.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p><em><strong>Radius from length -</strong> change strands radius depending on its length. You can control min and max radius; transition: threshold and smoothness</em></p>
+<h3 id="align-curve-tilt">Align Curve tilt<a class="headerlink" href="#align-curve-tilt" title="Permanent link">&para;</a></h3>
+<p><img alt="Align Curve tilt" src="../img/tiltalign.gif" />
+<em><strong>Align Curve tilt</strong> - lets you align cure tilt to target object surface.</em></p>
+<h3 id="randomize-curve-tilt">Randomize Curve Tilt<a class="headerlink" href="#randomize-curve-tilt" title="Permanent link">&para;</a></h3>
+<p><img alt="Randomize Curve Tilt" src="../img/titlrandomize.gif" />
+<em><strong>Randomize Curve Tilt</strong> - change curve tilt over its length</em></p>
+<h3 id="select-tipsroots">Select Tips/Roots<a class="headerlink" href="#select-tipsroots" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../video/select_tips.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Select Tips/Roots</strong> - lets you select first/last points on curves. You have option to randomize selection, or limit it by strand length.</em></p>
+<h3 id="slice-using-mesh">Slice Using Mesh<a class="headerlink" href="#slice-using-mesh" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../video/SliceWithMesh.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p><em><strong>Slice Using Mesh</strong> - you can cut curves using mesh. Option is located at the very bottom of HTool pie menu</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../convert_generate_hair/" class="btn btn-neutral float-left" title="Convert / Generate"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mesh_ribbons_ops/" class="btn btn-neutral float-right" title="Mesh tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../convert_generate_hair/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../mesh_ribbons_ops/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

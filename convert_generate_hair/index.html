@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Convert / Generate - Hair Tool 2 Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Convert / Generate";
+        var mkdocs_page_input_path = "convert_generate_hair.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Hair Tool 2 Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hair Workflows</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_drawing/">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Generating from surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/interactive_groom/">Interactive grooming</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/short_hair/">Short Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/shell_hair/">Shell Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_modeling/">Hair Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_system/">Hair System</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Convert / Generate</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#curve-ribbons-to-mesh-ribbons">Curve ribbons to mesh ribbons</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#finalize-hair">Finalize Hair</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-to-curve">Particle Hairs to Curve</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-from-curve">Particle Hairs From Curve</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generate-braids">Generate Braids</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generate-curly-hair">Generate Curly hair</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../curve_tool/">Curve tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../editing_profile/">Curve Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../geometry_hair/">Generating Hair Geometry</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_library/">Hair Library</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_animation/">Animation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../character_creator_workflow/">Character Creator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../recommended_addons/">Recommended addons</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Hair Tool 2 Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Tools &raquo;</li>
+      <li>Convert / Generate</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="convert-generate-operations">Convert / Generate operations<a class="headerlink" href="#convert-generate-operations" title="Permanent link">&para;</a></h2>
+<p>User can convert:</p>
+<ul>
+<li>Particle Hair to curves,</li>
+<li>Curves to Particle Hair,</li>
+<li>Curve ribbons to Mesh ribbons or back.</li>
+<li>Hair System to mesh haircards</li>
+</ul>
+<p>You can also generate:</p>
+<ul>
+<li><a href="./#generate-braids"><strong>Braids</strong></a></li>
+<li><a href="./#generate-curly-hair"><strong>Curly hair</strong></a>.</li>
+</ul>
+<h3 id="curve-ribbons-to-mesh-ribbons">Curve ribbons to mesh ribbons<a class="headerlink" href="#curve-ribbons-to-mesh-ribbons" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../video/curves_to_mesh.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p><strong>Ribbon to Curves/ Curves to Ribbon</strong> - allow for switching between  curve ribbons and  mesh ribbons. Usually you will do the hair modeling in curve mode, and then, on export, convert them to mesh. This operator ensures that curves UVs are properly converted to mesh UVs.</p>
+<h3 id="finalize-hair">Finalize Hair<a class="headerlink" href="#finalize-hair" title="Permanent link">&para;</a></h3>
+<p>When you want to export your character with hair usually you would have to:</p>
+<ul>
+<li>Convert curve hair to mesh hair</li>
+<li>Join mesh hair with character body (it is destructive operation, so usually you would create copies each object before joining the duplicates)</li>
+<li>finally export merged-duplicated object</li>
+</ul>
+<p>Finalize Hair is doing all of above (except exporting) in one step. Just select curve hair (or mesh hair), your character object an run 'Finalize hair' to get merged copy that is ready to export. You can remove exported duplicated object after that.</p>
+<h3 id="particle-hairs-to-curve">Particle Hairs to Curve<a class="headerlink" href="#particle-hairs-to-curve" title="Permanent link">&para;</a></h3>
+<p><img alt="Particle Hairs to Curve" src="../img/curvesfromparticles.gif" />
+<strong>Particle Hairs to Curve</strong> - generate curve ribbons from Particle hair.  Align their tilt to head with 'Align Tilt' checkbox, and embed hair roots deeper into the scull using 'Embed Roots' parameter.</p>
+<h3 id="particle-hairs-from-curve">Particle Hairs From Curve<a class="headerlink" href="#particle-hairs-from-curve" title="Permanent link">&para;</a></h3>
+<p><img alt="(Particle Hairs From Curve)" src="../img/particlehairfromcurve.gif" />
+<strong>Particle Hair from Curves</strong> (this can be used to convert zbrush fibermesh to blender Particle Hair system). Select curves and target mesh (that will receive Particle Hair) and use '<strong>Particle Hair from Curves</strong>' to convert curves object to blenders Hair system.</p>
+<h3 id="generate-braids">Generate Braids<a class="headerlink" href="#generate-braids" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../video/generate_braid.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p>To generate Braids -  select one or more splines from curve object, and run 'Generate Braid'. You can access operator properties from <strong>F9</strong> hotkey.
+After finishing operation, originally selected splines will be separated - each into its own object, and they will deform the generated braid. This way you will be able to twist (ctrl +T), scale radius (alt+s) or move generated braids.</p>
+<blockquote>
+<p><strong>Note</strong>: If you want to adjust braid later on - just re-run braid operator, while having braid object selected.</p>
+</blockquote>
+<p><strong>Parameters: (F9 Key)</strong></p>
+<ul>
+<li>Points per interlace - Amount of points per braid interlace.</li>
+<li>Length - braid length multiplier (actual length is calculated from selected spline length)</li>
+<li>Frequency - Frequency describes how many times hair strand interlacing will occur</li>
+<li>Main Radius - Overall braid radius</li>
+<li>Strand Radius - Individual strands radius</li>
+<li>Radius falloff - Change braid size over strand length (tapers the braid on the tip)</li>
+<li>Equalize radii - Equalize radii for braids with different lengths (when generating multiple braids)</li>
+</ul>
+<h3 id="generate-curly-hair">Generate Curly hair<a class="headerlink" href="#generate-curly-hair" title="Permanent link">&para;</a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aQG59lxkh_Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>To generate Curls -  select one or more splines from curve object, and run 'Generate Curls'. You can access operator properties from <strong>F9</strong> hotkey.
+After finishing operation, originally selected splines will be separated - each into its own object, and they will deform the generated braid.</p>
+<p><strong>Parameters: (F9 Key)</strong></p>
+<ul>
+<li>Points per cycle - Amount of points per curl cycle. Bigger values gives smoother curls</li>
+<li>Curl frequency - Will generate more curls but also higher point count</li>
+<li>Radius - Curls Radius</li>
+<li>Uniform spacing  - Distribute stand points uniformly along strand length</li>
+<li>Adjust Tilt  - Make curve profile face outwards direction. It is bit slow - usually it is best to enable it at last step</li>
+<li>Transition Contrast - Curls transition contrast along strand length</li>
+<li>Offset - Offset curls more toward the root or tip</li>
+<li>Gravity - Gravity weight pulls the curls down along the hair strand. 0 - disabled, 0.5 - natural gravity pull</li>
+<li>Random direction - Flip curls direction randomly from clockwise to counter-clockwise</li>
+<li>Randomize frequency - Randomize frequency</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../main_workflows/hair_system/" class="btn btn-neutral float-left" title="Hair System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../curve_tool/" class="btn btn-neutral float-right" title="Curve tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../main_workflows/hair_system/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../curve_tool/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
