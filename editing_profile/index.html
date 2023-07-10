@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Curve Profile - Hair Tool 2 Docs</title>
+    <title>Curve Profile - Hair Tool 3</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -32,7 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Hair Tool 2 Docs
+          <a href=".." class="icon icon-home"> Hair Tool 3
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -82,6 +82,10 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#flat-profile">Flat Profile</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#round-profile">Round Profile.</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#circle-profile">Circle Profile</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#braid-profile">Braid Profile</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#curls-profile">Curls Profile</a>
@@ -122,7 +126,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Hair Tool 2 Docs</a>
+          <a href="..">Hair Tool 3</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -170,11 +174,16 @@ Your browser does not support the video tag.
 <source src="../video/no_profile.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>No Profile - will not generate any geometry on top of hair strands. Useful for built-in Blender curve Hair rendering (controlled in 'Curves' Panel in Cycles/Eevee Render Settings)</em></p>
+<p><em>No Profile - it will not generate any geometry on top of hair strands. Useful for built-in Blender curve Hair rendering (controlled in 'Curves' Panel in Cycles/Eevee Render Settings)</em></p>
+<p><img alt="Blender Profile" src="../img/no_profile.jpeg" /></p>
+<p>Parameters:</p>
 <ul>
-<li><strong>Width</strong> - hair-card width</li>
-<li><strong>Resolution</strong> - resolution along strand length (more segments, gives smoother look without having to add more points to hair curve)</li>
-<li><strong>Profile Resolution</strong> - resolution of profile cross-section</li>
+<li><strong>Radius</strong> - blender strand radius - additional multiplier - on top of <a href="../main_workflows/hair_system/#radius-set">Set Radius</a> deformer</li>
+</ul>
+<p>And for convenience, there are also Blender 'Curves' settings exposed in Hair Tool UI:</p>
+<ul>
+<li><strong>Curves Shape</strong> - Strand or Strip</li>
+<li><strong>Additional Subdivision</strong> - additional subdivision of hair strands in viewport</li>
 </ul>
 <h4 id="flat-profile">Flat Profile<a class="headerlink" href="#flat-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
@@ -187,6 +196,17 @@ Your browser does not support the video tag.
 <li><strong>Resolution</strong> - resolution along strand length (more segments, gives smoother look without having to add more points to hair curve)</li>
 <li><strong>Profile Resolution</strong> - resolution of profile cross-section</li>
 </ul>
+<h4 id="round-profile">Round Profile.<a class="headerlink" href="#round-profile" title="Permanent link">&para;</a></h4>
+<p><img alt="Round Profile" src="../img/texture_baking_panel.jpg" />
+<em>It is only needed in hair texture baking setup.  It does not support UV mapping, and it will not work with Haircards. For Haircards use Circle Profile</em></p>
+<h4 id="circle-profile">Circle Profile<a class="headerlink" href="#circle-profile" title="Permanent link">&para;</a></h4>
+<p><img alt="Round Profile" src="../img/circle_profile.jpeg" />
+Simple Circle profile - it supports UV mapping.</p>
+<ul>
+<li><strong>Width</strong> - hair-card width</li>
+<li><strong>Resolution</strong> - resolution along strand length (more segments, gives smoother look without having to add more points to hair curve)</li>
+<li><strong>Profile Resolution</strong> - resolution of profile cross-section</li>
+</ul>
 <h4 id="braid-profile">Braid Profile<a class="headerlink" href="#braid-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../video/braid_profile.webm" type="video/mp4">
@@ -194,12 +214,12 @@ Your browser does not support the video tag.
 </video>
 <p><em>In demo above you can see both curve taper and tilt is affecting the generated braids shape</em></p>
 <ul>
+<li><strong>Global Scale</strong> - default value 1.0 is good for default cube (2 meters in size). For human head (which is 1/10th of default cube size) set it to 0.1</li>
 <li><strong>Frequency</strong> - how dense braid interlacing is</li>
 <li><strong>Main Radius</strong> - overall braid size</li>
 <li><strong>Profile Radius</strong> - individual strands size (relative to Main Radius)</li>
 <li><strong>Braid Resolution Factor</strong> - how many points should be generated for each period on braid (higher == smoother look)</li>
 <li><strong>Radius Slide</strong> - The smaller the radius of guide curve, the more dense the braid becomes. Helps to give uniform look, when guide hair tapers</li>
-<li><strong>Global Scale</strong> - default value 1.0 is good for default cube (2 meters in size). For human head (which is 1/10th of default cube size) set it to 0.1</li>
 </ul>
 <h4 id="curls-profile">Curls Profile<a class="headerlink" href="#curls-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
@@ -208,17 +228,17 @@ Your browser does not support the video tag.
 </video>
 <p><em>Curls Profile solves the issue of Curls Deformer - it has perfect aligning of haircard to center of guide curve (new in HTool 2.44)</em></p>
 <ul>
+<li><strong>Global Scale</strong> - default value 1.0 is good for default cube (2 meters in size). For human head (which is 1/10th of default cube size) set it to 0.1</li>
 <li><strong>Frequency</strong> - how 'dense' curls are</li>
 <li><strong>Amplitude </strong> - overall curls size</li>
 <li><strong>Width</strong> - hair-card width</li>
 <li><strong>Gravity</strong> - Curls get tenser at the endings</li>
 <li><strong>Influence Range</strong> - Blend between straight strand and curl over strand length</li>
 <li><strong>Influence Width</strong> - control the strand width over its length</li>
-<li><strong>Global Scale</strong> - default value 1.0 is good for default cube (2 meters in size). For human head (which is 1/10th of default cube size) set it to 0.1</li>
 </ul>
 <h4 id="mesh-profile">Mesh Profile<a class="headerlink" href="#mesh-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/mesh_profile.webm" type="video/mp4">
+<source src="../video/mesh_profile.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In this case I used Collection with 3 objects, to instance them along hair strands</em></p>
@@ -226,7 +246,7 @@ Your browser does not support the video tag.
 <ul>
 <li><strong>Width</strong> - changes cross-section size of mesh when its is placed on top of curve</li>
 </ul>
-<p><img alt="Profile Mesh Slice" src="../../img/geo_nodes_hair/profile_mesh_sliced.jpg" />
+<p><img alt="Profile Mesh Slice" src="../img/geo_nodes_hair/profile_mesh_sliced.jpg" />
 <em><strong>Slice Mesh Profile</strong> button will cut object using custom 'slicing' modifier. This way it will conform better to hair splines - only. Button is displayed next to Profile dropdown menu '✓'</em></p>
 <blockquote>
 <p><strong>Note</strong>: Slice Mesh Profile is using boolean operation in background. It may fail on more complicated objects - e.g. when mesh has self intersections.</p>
