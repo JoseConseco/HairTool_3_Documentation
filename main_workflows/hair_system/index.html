@@ -45,7 +45,11 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Hair Workflows</span></p>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../overview/">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hair Modeling Techniques</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
                   </li>
@@ -56,8 +60,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../short_hair/">Short Hair</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../shell_hair/">Shell Hair</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair System</a>
     <ul class="current">
@@ -183,8 +185,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#defining-uvs">Defining Uvs</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#defining-uvs_1">Defining UVs</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#assigning-uv-regions">Assigning UV Regions</a>
     </li>
         </ul>
@@ -219,6 +219,8 @@
               <p class="caption"><span class="caption-text">Tools</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../convert_generate_hair/">Convert / Generate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hair_modeling/">Hair Modeling</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../curve_tool/">Curve tools</a>
                   </li>
@@ -263,7 +265,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-          <li>Hair Workflows &raquo;</li>
+          <li>Hair Modeling Techniques &raquo;</li>
       <li>Hair System</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -274,10 +276,8 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-system">Hair System<a class="headerlink" href="#hair-system" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p><strong>Note</strong>: Available since Blender 3.0, requires Blender 3.3 or above</p>
-</blockquote>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<p><img alt="Hair System Diagram" src="../../img//hsystem_diagram.jpeg" /></p>
 <p>Hair System will help you <strong>generate procedural hair-cards</strong> in non-destructive way, based on Blender Geometry Nodes.<br></p>
 <!-- In past, Hair System was used only in Hair Tool Baking scene, but now, after developing it further, it is going to replace Particle Hair [Interactive Grooming](../main_workflows/interactive_groom.md)<br> -->
 <p>Hair System is made from:</p>
@@ -530,7 +530,7 @@ Your browser does not support the video tag.
 </video>
 <p><em>In video above we create Tag <code>A</code>, then assign selected curves to tag <code>A</code> using Assign button</em></p>
 <blockquote>
-<p><strong>Note</strong>: Assigning Tags only works on new Hair Curves. To be able to select individual curves, like in video above, you have to use <a href="../hair_modeling/"><strong>Hair Modeling mode</strong></a>. For now only selection works from all the available Modeling Tools</p>
+<p><strong>Note</strong>: Assigning Tags only works on new Hair Curves. To be able to select individual curves, like in video above, you have to use <a href="../main_workflows/hair_modeling.md"><strong>Hair Modeling mode</strong></a>. For now only selection works from all the available Modeling Tools</p>
 </blockquote>
 <hr />
 <h3 id="hair-deformers">Hair Deformers<a class="headerlink" href="#hair-deformers" title="Permanent link">&para;</a></h3>
@@ -771,21 +771,6 @@ Your browser does not support the video tag.
 </ul>
 <hr />
 <h3 id="defining-uvs">Defining Uvs<a class="headerlink" href="#defining-uvs" title="Permanent link">&para;</a></h3>
-<h5 id="defining-uvs_1">Defining UVs<a class="headerlink" href="#defining-uvs_1" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/hsys_define_uvs.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<blockquote>
-<p><strong>Hair Uvs</strong> button works same way as for <a href="../../uv_material/#defining-uvs">any other</a> hair object. You can click and drag to define multiple UV regions.</p>
-</blockquote>
-<ul>
-<li>Since HTool 2.44 you can define multiple UVs regions (previously only one UV Region was supported)</li>
-<li>Make sure Hair System has material assigned in 'Profile' properties (or use <a href="../../uv_material/#default-hair-material"><strong>Import Default Material</strong></a>)</li>
-<li>Material UVs are outputted by 'Offset Node' - without it UVs won't work. After converting Hair System to mesh, you can use 'normal' mesh uvs (Offset node is not required)</li>
-<li>Hair System does not use multiple materials hack like we had to do for 'old' Curves</li>
-<li>'Hair UV' operator will automatically add <a href="./#assigning-uv-regions">UV Region Set</a> Deformer (see below) if it does not yet exist.</li>
-</ul>
 <h5 id="assigning-uv-regions">Assigning UV Regions<a class="headerlink" href="#assigning-uv-regions" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
@@ -857,15 +842,11 @@ Your browser does not support the video tag.
 <p>In some cases interpolation may behave erratically (e.g interpolation breaks when you select Guide Curve). The most likely cause is - <strong>cyclic dependency</strong> between Base Mesh with attached Hair System and Guide Curve.
 See note in <a href="./#hair-interpolation">Hair Iterpolation</a> section.<br>
 To <strong>fix the cyclic dependency</strong> use <a href="./#transfer-hair-system">Transfer Hair System</a> and move Hair System to either: Empty Mesh or Guide Curve.</p>
-<blockquote>
-<p><strong>Note</strong>: If you use <strong>Blender below 3.5</strong>, then Hair Tool used boolean operation/hack to interpolate hair strands. This may fail on some meshes (eg. nonclosed planar surfaces). In Blender 3.5 and above, Hair Tool uses new method, which is more robust, and will always work on any mesh. I recommend updating Blender to ver. 3.5.1, and then updating the node setup responsible for interpolation using this button:
-<img alt="Updating Hair System Nodes" src="../../img/geo_nodes_hair/update_base_nodes.jpeg" /></p>
-</blockquote>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../hair_modeling/" class="btn btn-neutral float-left" title="Hair Modeling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../shell_hair/" class="btn btn-neutral float-left" title="Shell Hair"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../../convert_generate_hair/" class="btn btn-neutral float-right" title="Convert / Generate">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -889,7 +870,7 @@ To <strong>fix the cyclic dependency</strong> use <a href="./#transfer-hair-syst
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../hair_modeling/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../shell_hair/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../../convert_generate_hair/" style="color: #fcfcfc">Next &raquo;</a></span>

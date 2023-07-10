@@ -45,7 +45,11 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Hair Workflows</span></p>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hair Modeling Techniques</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_drawing/">Drawing hair</a>
                   </li>
@@ -57,14 +61,14 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/shell_hair/">Shell Hair</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_modeling/">Hair Modeling</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_system/">Hair System</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../convert_generate_hair/">Convert / Generate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../curve_tool/">Curve tools</a>
                   </li>
@@ -174,17 +178,20 @@ Your browser does not support the video tag.
 <source src="../video/no_profile.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>No Profile - it will not generate any geometry on top of hair strands. Useful for built-in Blender curve Hair rendering (controlled in 'Curves' Panel in Cycles/Eevee Render Settings)</em></p>
+<p><em>It will not generate any geometry on top of hair strands. Useful for built-in Blender curve Hair rendering (controlled in 'Curves' Panel in Cycles/Eevee Render Settings)</em></p>
 <p><img alt="Blender Profile" src="../img/no_profile.jpeg" /></p>
 <p>Parameters:</p>
 <ul>
-<li><strong>Radius</strong> - blender strand radius - additional multiplier - on top of <a href="../main_workflows/hair_system/#radius-set">Set Radius</a> deformer</li>
+<li><strong>Radius</strong> - blender strand radius - additional multiplier - on top of <a href="../main_workflows/hair_system#radius-set">Set Radius</a> deformer</li>
 </ul>
 <p>And for convenience, there are also Blender 'Curves' settings exposed in Hair Tool UI:</p>
 <ul>
 <li><strong>Curves Shape</strong> - Strand or Strip</li>
 <li><strong>Additional Subdivision</strong> - additional subdivision of hair strands in viewport</li>
 </ul>
+<blockquote>
+<p><strong>Note</strong>: Blender curve profile wont render correctly, if Hair System is attached to mesh object. Use Ctrl+Shift+H -&gt;  <a href="../main_workflows/hair_system#transfer-hair-system">Transfer Hair System</a> -&gt; To Empty Curve</p>
+</blockquote>
 <h4 id="flat-profile">Flat Profile<a class="headerlink" href="#flat-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../video/flat_profile.mp4" type="video/mp4">

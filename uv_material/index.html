@@ -45,7 +45,11 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Hair Workflows</span></p>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hair Modeling Techniques</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_drawing/">Drawing hair</a>
                   </li>
@@ -57,14 +61,14 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/shell_hair/">Shell Hair</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_modeling/">Hair Modeling</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_system/">Hair System</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../convert_generate_hair/">Convert / Generate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../curve_tool/">Curve tools</a>
                   </li>
@@ -75,8 +79,6 @@
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Material and UV</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#hair-uvs">Hair UV's</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#optimal-uv-workflow">Optimal UV workflow</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#defining-uvs">Defining UV's</a>
     </li>
@@ -143,40 +145,38 @@
               
                 <h3 id="hair-uv-and-material-setup">Hair UV and Material setup<a class="headerlink" href="#hair-uv-and-material-setup" title="Permanent link">&para;</a></h3>
 <h4 id="hair-uvs">Hair UV's<a class="headerlink" href="#hair-uvs" title="Permanent link">&para;</a></h4>
-<p>In Hair Tool you are expected to work on hair in curve mode; Hair Tool stores curves UV data is in curve materials (it is workaround due to limitation of Blender curve UVs). As a result if you have two curve hair objects sharing <strong>same material</strong>, they both will share <strong>same UV</strong> too.
-If you wan to separate UVs, then you have to separate (un-instance) material on both curves. If you want two curves to have same UV - just link Material from one to the other.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/784GPONnO14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p><em>Here is video explaining material creation</em></p>
-<h4 id="optimal-uv-workflow">Optimal UV workflow<a class="headerlink" href="#optimal-uv-workflow" title="Permanent link">&para;</a></h4>
-<p>The optimal workflow for creation an assigning hair UVs (UVs are stored in hairs material):</p>
-<ol>
-<li>Select curve hair object</li>
-<li>Define UV regions like shown in <a href="./#defining-uvs"><strong>Defining UVs</strong></a>. This will create hair materials that holds UV data</li>
-<li>Manually assign UV's boxes to selected strands with <a href="./#set-uv-region"><strong>Set UV region</strong></a></li>
-<li>Link materials (that hold UV's) created in second step, to other hair object and repeat third step</li>
-</ol>
+<p>UVs data in Hair Tool is attached to Hair System Profile (geometry nodes modifier). The UV data hold information about amount and shapes of UV Regions, but it does not tell which UV Regions should be assigned to which hair strand.<br></p>
+<ul>
+<li>To assign UV regions to curve use <a href="./#set-uv-region"><strong>Set UV region</strong></a></li>
+<li>If object (mesh or curve) has <a href="../main_workflows/hair_system/">Hair System</a> attached, then add <a href="../main_workflows/hair_system/hair_system.md#assigning-uv-regions">UV Region Set</a> to automatically add random UV Region to generated strands</li>
+</ul>
 <blockquote>
 <p><strong>Note1:</strong> Do not use Blender's buildin 'Convert-To-&gt;Mesh' operator on curve hair, or your output mesh UVs will be messed up. Instead use <a href="../convert_generate_hair/#curve-ribbons-to-mesh-ribbons"><strong>Curve ribbons to mesh ribbons</strong></a>. This way curve Material UVs will be properly, converted to mesh UVs.</p>
 </blockquote>
+<p><a href="./#defining-uvs"><strong>Hair UV</strong></a> operator will automatically add <a href="hair_system.md#assigning-uv-regions">UV Region Set</a> Deformer (to Hair System) or assign UV Region index to 'real' curves - see in video below - there is no need to manually call <a href="./#set-uv-region"><strong>Set UV region</strong></a></p>
 <h4 id="defining-uvs">Defining UV's<a class="headerlink" href="#defining-uvs" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
-  <source src="../video/define_uv.mp4" type="video/mp4">
+<source src="../../img/geo_nodes_hair/hsys_define_uvs.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-
-<p><em><strong>Defining UV regions</strong> in Hair Tool from UV image editor</em></p>
-<p>How to create curve hair UVs:</p>
+<p><em>Using <code>Hair UV</code> button in UV image editor</em></p>
+<p>To add/modify Hair System UVs:</p>
 <ul>
-<li>open UV Image Editor and press ‘<strong>Hair UV</strong>’ button located in top header bar - on far right</li>
+<li>open UV Image Editor and press <strong>Hair UV</strong> button located in top header bar - on far right</li>
 <li>next use Left Click and drag rectangular shape, to define the UV bounds for texture mapping. You can drag corners of existing UV box to adjust its shape.</li>
 <li>To remove UV box, hover your mouse over one of uv boxes and press <strong>[Delete]</strong> key</li>
-<li>To reset UV press <strong>Shift + Delete</strong></li>
+<li>
+<p>To reset UV press <strong>Shift + Delete</strong></p>
+</li>
+<li>
+<p>Make sure Hair System has material assigned in 'Profile' properties (or use <a href="../uv_material.md#default-hair-material"><strong>Import Default Material</strong></a>)</p>
+</li>
+<li>Material UVs are outputted by 'Offset Node' - without it UVs won't work. After converting Hair System to mesh, you can use 'normal' mesh uvs (Offset node is not required)</li>
+<li>Hair System does not use multiple materials hack like we had to do for 'old' Curves</li>
+<li>'Hair UV' operator will automatically add <a href="hair_system.md#assigning-uv-regions">UV Region Set</a> Deformer (see below) if it does not yet exist.</li>
 </ul>
-<p>Each UV box will create one material. So if you made 5 UV boxes, then addon will create 5 materials (times two if you have enabled 'Random UV flip' in addon preferences).</p>
-<blockquote>
-<p><strong>Note1:</strong> <strong>'Random UV flip'</strong> option in addon preferences, will create additional X-axis mirrored UVs, that can be randomly assigned to hair strands. This doubles material count</p>
-<p><strong>Note2:</strong> If you want to flip strand texture in Y direction, just hover your mouse over UV box and press 'F'!</p>
-</blockquote>
+<!-- > **Note2:** If you want to flip strand texture in Y direction, just hover your mouse over UV box and press 'F'! -->
+
 <h4 id="offset-uv">Offset UV<a class="headerlink" href="#offset-uv" title="Permanent link">&para;</a></h4>
 <p>It moves UV points more toward the root or tip on hair strand. As a result you can stretch UVs and change texture look. See video below:</p>
 <video style="width:100%" controls>
