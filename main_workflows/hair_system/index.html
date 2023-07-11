@@ -183,12 +183,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#defining-uvs">Defining Uvs</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#assigning-uv-regions">Assigning UV Regions</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#utils">Utils</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#generate-attributes">Generate Attributes</a>
@@ -677,7 +671,19 @@ Your browser does not support the video tag.
 </video>
 <p><em>Twist effect requires to set Hair System to be <a href="geometry_hair.md#child-system">set as child</a>. For best effect is is good idea to place it after Clump deformer</em></p>
 <h5 id="uv-region-set">UV Region Set<a class="headerlink" href="#uv-region-set" title="Permanent link">&para;</a></h5>
-<p>It is created automatically when <a href="./#assigning-uv-regions">Assigning UV Regions</a>. Add multiple 'UV Region Set' deformers, if you want to achieve layered UVs.</p>
+<p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV data (like UV boxes dimensions), but it does not tell which strand will receive which UV region. This is where 'UV Region Set' deformer comes in.
+It is created automatically when <a href="../../uv_material/#set-uv-region">Assigning UV Regions</a>. Add multiple 'UV Region Set' deformers, if you want to achieve layered UVs.</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p>You can use multiple 'Set UV Regions' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <strong>2nd Region</strong> (green) as base layer, then added <strong>0th Region</strong> (purple) on top - masked by vertex group</p>
+</blockquote>
+<ul>
+<li>You can also use <a href="../../uv_material/#set-uv-region"><strong>Set UV Region</strong></a>, and it will automatically create new 'UV Region Set' Deformer (or use active one if selected in Deformer Stack)</li>
+<li>If not UVs were assigned to current  Hair System object, then running 'Set UV Regions' operator will add default UVs (with single UV box/region)</li>
+</ul>
 <hr />
 <h3 id="input-masks">Input Masks<a class="headerlink" href="#input-masks" title="Permanent link">&para;</a></h3>
 <p>You can mask most of the hair deformers inputs with various kind of effects. Multiple masks can be added.</p>
@@ -768,20 +774,6 @@ Your browser does not support the video tag.
 <li>Simple - gradually changes the influence from 0 to 100%. Influence can be flipped using invert button</li>
 <li>Quadratic - gives more detailed control: modulate effect independently at strand beginning, center and end</li>
 <li>Profile Curve - most detailed control using profile curve<br></li>
-</ul>
-<hr />
-<h3 id="defining-uvs">Defining Uvs<a class="headerlink" href="#defining-uvs" title="Permanent link">&para;</a></h3>
-<h5 id="assigning-uv-regions">Assigning UV Regions<a class="headerlink" href="#assigning-uv-regions" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<blockquote>
-<p>You can use multiple 'Set UV Regions' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <strong>2nd Region</strong> (green) as base layer, then added <strong>0th Region</strong> (purple) on top - masked by vertex group</p>
-</blockquote>
-<ul>
-<li>You can also use <a href="../../uv_material/#set-uv-region"><strong>Set UV Region</strong></a>, and it will automatically create new 'UV Region Set' Deformer (or use active one if selected in Deformer Stack)</li>
-<li>If not UVs were assigned to current  Hair System object, then running 'Set UV Regions' operator will add default UVs (with single UV box/region)</li>
 </ul>
 <hr />
 <h3 id="utils">Utils<a class="headerlink" href="#utils" title="Permanent link">&para;</a></h3>
