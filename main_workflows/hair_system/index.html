@@ -51,16 +51,6 @@
               </ul>
               <p class="caption"><span class="caption-text">Hair Modeling Techniques</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Generating from surface</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../interactive_groom/">Interactive grooming</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../short_hair/">Short Hair</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../shell_hair/">Shell Hair</a>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair System</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
@@ -86,6 +76,8 @@
     <li class="toctree-l3"><a class="reference internal" href="#strands-generator">Strands Generator</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#strands-filter">Strands Filter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#strands-from-grid-surface">Strands From Grid Surface</a>
     </li>
         </ul>
     </li>
@@ -209,6 +201,14 @@
     </li>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Generating from Grid</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../short_hair/">Short Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shell_hair/">Shell Hair</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
               <ul>
@@ -289,6 +289,7 @@ Hair Systems in stack can be linked together with usage of <a href="#tags"><stro
 <!-- ##### Creating Hair Systems -->
 <p>Below I show you demo of how to <strong>setup game ready hair in 1 minute</strong>:</p>
 <video style="width:100%" controls>
+/run/media/bartosz/8C343C61343C5086/3D blender files/BlenderAddons/HairTool/HT_Site/HairToolDocs_30/docs/img/geo_nodes_hair/hair_workflow_from_zero.mp4
   <source src="../../img/geo_nodes_hair/hair_workflow_from_zero.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -306,7 +307,7 @@ Your browser does not support the video tag.
 <li>
 <p>Reducing Profile width (Flat curve profile is automatically assigned to new Hair System)</p>
 </li>
-<li>Bumping up strands density to 8888</li>
+<li>Bumping up strands density to 8888 (this depends on size of your object)</li>
 <li>Adding Deformers:<ul>
 <li><a href="./#align-tilt">Align Tilt</a> - it will force hair cards to face scalp surface</li>
 <li><a href="./#set-radius">Set Radius</a> - it will taper the haircards</li>
@@ -463,6 +464,19 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: If you want to affect only part of visible hair you can enable '<strong>Affect Tag</strong>' option - and type int Tag of hairstrands that you want to modify.</p>
 </blockquote>
+<h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
+<p>This is special type of Generator, that will generate strands from Grid Surface (chessboard like mesh, made of quads with grid topology).
+Root of strands will be placed:</p>
+<ul>
+<li>on edge loop marked as Sharp (Ctrl+E -&gt; Mark Sharp)</li>
+<li>or on crease edge (Shift+E -&gt; Crease Edge).</li>
+</ul>
+<p>These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/hsystem_curves_from_grid.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above - top, boundary edge loop was <code>marked as sharp</code>. Notice how guide grid has unevent topology - getting dense to the right. This is important when adjusting 'Uniform Spacing' option</em></p>
 <hr />
 <h3 id="child-parent-setup">Child - Parent setup<a class="headerlink" href="#child-parent-setup" title="Permanent link">&para;</a></h3>
 <p><a href="./#tags">Tags</a> can be used to setup child-parent relation between two Hair Systems. This unlocks: clumping, interpolation, curls, braids, twist and some other possibilities.</p>
@@ -838,8 +852,8 @@ To <strong>fix the cyclic dependency</strong> use <a href="./#transfer-hair-syst
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../shell_hair/" class="btn btn-neutral float-left" title="Shell Hair"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../convert_generate_hair/" class="btn btn-neutral float-right" title="Convert / Generate">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../overview/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_from_surface/" class="btn btn-neutral float-right" title="Generating from Grid">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -862,10 +876,10 @@ To <strong>fix the cyclic dependency</strong> use <a href="./#transfer-hair-syst
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../shell_hair/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../convert_generate_hair/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../hair_from_surface/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

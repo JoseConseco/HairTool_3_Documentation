@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Generating from surface - Hair Tool 3</title>
+    <title>Generating from Grid - Hair Tool 3</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Generating from surface";
+        var mkdocs_page_name = "Generating from Grid";
         var mkdocs_page_input_path = "main_workflows/hair_from_surface.md";
         var mkdocs_page_url = null;
       </script>
@@ -51,41 +51,23 @@
               </ul>
               <p class="caption"><span class="caption-text">Hair Modeling Techniques</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Generating from surface</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Generating from Grid</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#proper-grid-mesh">Proper grid mesh</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#generating-curves">Generating curves</a>
+    <li class="toctree-l2"><a class="reference internal" href="#some-parameters">Some Parameters</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#parameters-f9-key">Parameters (F9 Key)</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#strands-properties">Strands properties</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#basic-randomization">Basic randomization</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#main-noise">Main Noise</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#per-strand-noise">Per strand noise</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#snap-or-uplift">Snap or Uplift</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#ribbons">Ribbons</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#clumps">Clumps</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../interactive_groom/">Interactive grooming</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../short_hair/">Short Hair</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../shell_hair/">Shell Hair</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
@@ -138,7 +120,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
           <li>Hair Modeling Techniques &raquo;</li>
-      <li>Generating from surface</li>
+      <li>Generating from Grid</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -148,106 +130,42 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="curve-from-grid-surface">Curve from grid surface<a class="headerlink" href="#curve-from-grid-surface" title="Permanent link">&para;</a></h2>
-<p>It is mostly useful for long hair, eyelashes or layered type of hair.
-It works by generating curves from grid mesh (made all of quads). Grid mesh topology is guiding hair strands flow.</p>
-<p>To use <strong>'Curve from grid surface'</strong>, you need to:</p>
-<ul>
-<li>have mesh object selected, that is <a href="./#proper-grid-mesh">grid type</a> of mesh.</li>
-<li>or you can use it on previously created curve ribbons, to update their shape. For that just select old curve ribbons and run 'Curves from grid surface'</li>
-</ul>
-<p>Demo:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3laKuqE3wzs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<video style="width:100%" controls>
+  <source src="../../video/curve_from_grid.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Use Ctrl+Shift+H -&gt; Curves from grid surface to add Hair System preset with active mesh behaving as Guide for generated strands</em></p>
+<p><strong>Useful for long hair, eyelashes or layered type of hair</strong>. Not so good if you want to cover head scalp uniformly, with evenly spaced strands<br>
+It works by generating special <a href="../../main_workflows/hair_system">Hair System</a> preset that uses <a href="../../main_workflows/hair_system/#strands-from-grid-surface">Strands from Grid Surface</a>. Grid mesh topology is guiding hair strands flow (it has to be made all of quads!)</p>
 <h4 id="proper-grid-mesh">Proper grid mesh<a class="headerlink" href="#proper-grid-mesh" title="Permanent link">&para;</a></h4>
-<p>First step is to generate base shape of hair. For that use grid mesh, created only of quads. Mark one border of this mesh with sharp edges - this area will become roots of hair strands.
+<p>Guide mesh has to be made from quads. Mark one border of this mesh with sharp edges: Ctrl+E -&gt; Mark Sharp (or crease edge) - this area will become roots of hair strands.
 <img alt="mark sharp" src="../../img/marksharp.jpg" /></p>
 <p>Example of proper grid meshes topologies (for actual hair you would want to model this better - following main hair masses and hair flow):
 <img alt="Grid Mesh" src="../../img/grid_meshes_examples.jpg" /></p>
-<p>If we UV to those shapes, we would get flat 2D grid:
+<p>If we flatten these 3d meshes we would get 2D grid:
 <img alt="Grid Mesh" src="../../img/flat_grid_example.jpg" /></p>
-<h4 id="generating-curves">Generating curves<a class="headerlink" href="#generating-curves" title="Permanent link">&para;</a></h4>
-<p><img alt="add ribbons" src="../../img/generated_curves_from_grid.jpg" /></p>
-<p>Press '<strong>Curves from grid surface</strong>' button located in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; Hair operators panel (or use ctrl+shif+h popup menu 'Curves from grid surface'), to generate curves from selected object. Generated curve settings can be modified using '<strong>F9</strong>' hotkey. You can adjust parameters like hair amount, length, add some noise etc. Or you can manually tweak hair going into curve 'Edit mode'.</p>
-<p>Generated hair will have material applied automatically, if you choose to 'generate ribbons' option ('generate ribbons' adds profile to hair curves)</p>
-<h4 id="parameters-f9-key">Parameters (F9 Key)<a class="headerlink" href="#parameters-f9-key" title="Permanent link">&para;</a></h4>
-<p><img alt="Points per strand" src="../../img/grid_surface/gen_method.gif" />
-<em><strong>Generation Method</strong>  - Edge Centers or Vertex position</em></p>
-<ul>
-<li>Hair Type - generate Bezier, Nurbs or Poly curves.</li>
-<li>Radius - curve radius (when not using ribbons)</li>
-</ul>
-<h6 id="strands-properties">Strands properties<a class="headerlink" href="#strands-properties" title="Permanent link">&para;</a></h6>
-<p>Control basic properties like generated curves amount, number of points per spline etc. You can use topology of grid surface to guide density of generated strands. In places where grid surface have denser loops you can generate more strands or give more points to each strand.
-<img alt="Points per strand" src="../../img/grid_surface/strands_count.gif" />
+<h4 id="some-parameters">Some Parameters<a class="headerlink" href="#some-parameters" title="Permanent link">&para;</a></h4>
+<p>Control basic properties like generated curves amount, number of points per spline etc. You can use topology of grid surface to guide density of generated strands. In places where grid surface have denser loops you can generate more strands or give more points to each strand.</p>
+<p><img alt="Points per strand" src="../../img/grid_surface/strands_count.gif" />
 <em><strong>Strands count</strong> - number of strands to generate</em></p>
 <p><img alt="Uniform Strands" src="../../img/grid_surface/uniform_strands.gif" />
 <em><strong>Uniform Strands</strong> - Distribute strands uniformly. If not, then more strands will be placed at denser grid surface areas (in this case - more on right)</em></p>
-<p><img alt="Points per strand" src="../../img/grid_surface/pts_per_strand.gif" />
-<em><strong>Points per strand</strong> - How many points generate for each strand</em></p>
-<p><img alt="Uniform Points" src="../../img/grid_surface/uniform_points.gif" />
-<em><strong>Uniform Points</strong> - Distribute points on strand uniformly. If not, then more points will be placed at denser grid surface areas (in this case - more on top)</em></p>
-<p><img alt="Offset to tip" src="../../img/grid_surface/offset_tip.gif" />
-<em><strong>Offset to tip</strong> - Move spline points more toward tip</em></p>
-<p><img alt="Offset to root" src="../../img/grid_surface/offset_root.gif" />
-<em><strong>Offset to root</strong> - Move spline points more toward root</em></p>
-<h6 id="basic-randomization">Basic randomization<a class="headerlink" href="#basic-randomization" title="Permanent link">&para;</a></h6>
 <p><img alt="Randomize Spacing" src="../../img/grid_surface/random_spacing.gif" />
 <em><strong>Randomize Spacing</strong> - Randomize spacing between strands</em></p>
-<p><img alt="Randomize Length" src="../../img/grid_surface/random_len.gif" />
-<em><strong>Randomize Length</strong> - Randomize strands length</em></p>
-<h6 id="main-noise">Main Noise<a class="headerlink" href="#main-noise" title="Permanent link">&para;</a></h6>
-<p>Gives hair the main flow direction.
-<img alt="Noise Amplitude" src="../../img/grid_surface/noise_ampl.gif" />
-<em><strong>Noise Amplitude</strong> - Noise strength</em></p>
-<p><img alt="Seed" src="../../img/grid_surface/noise_seed.gif" />
-<em><strong>Seed</strong> - noise seed gives different hair flow for each value</em></p>
-<p><img alt="Noise frequency" src="../../img/grid_surface/noise_freq.gif" />
-<em><strong>Noise frequency</strong> - gives more detail to hair flow. Higher frequency produces smaller detail on hair strands</em></p>
-<p><img alt="Constrain" src="../../img/grid_surface/noise_constrain.gif" />
-<em><strong>Constrain</strong> - Constrain noise movement to grid surface</em></p>
-<p><img alt="Transition Contrast" src="../../img/grid_surface/transition_contrast.gif" />
-<em><strong>Transition Contrast</strong> - Contrast between areas with no noise to full noise influence, over strand length</em></p>
-<p><img alt="Transition Offset" src="../../img/grid_surface/transition_offset.gif" />
-<em><strong>Transition Offset</strong> - Offset noise influence more toward the root (or tip) of strand</em></p>
-<h6 id="per-strand-noise">Per strand noise<a class="headerlink" href="#per-strand-noise" title="Permanent link">&para;</a></h6>
-<p>Helps to break uniform look of Main noise.</p>
-<p><img alt="Per strand noise" src="../../img/grid_surface/per_strand_noise.gif" />
-<em><strong>Per strand noise</strong> - Blend additional noise for each strand to break uniform look</em></p>
-<ul>
-<li><strong>Mix / Add</strong> - add or mix extra strand noise on top of base noise</li>
-<li><strong>Seed</strong> - additional noise seed</li>
-<li><strong>Frequency</strong> - Per strand noise frequency. Higher frequency produces smaller detail on hair strands</li>
-</ul>
-<h6 id="snap-or-uplift">Snap or Uplift<a class="headerlink" href="#snap-or-uplift" title="Permanent link">&para;</a></h6>
-<p>Move strands toward or away the source grid surface
-<img alt="Offset Above" src="../../img/grid_surface/offset_above.gif" />
-<em><strong>Offset Above</strong> - Offset strands above source grid surface</em></p>
-<p><img alt="Snap Amount" src="../../img/grid_surface/snap_amount.gif" />
-<em><strong>Snap Amount</strong> Snap strands to source grid surface</em></p>
-<h6 id="ribbons">Ribbons<a class="headerlink" href="#ribbons" title="Permanent link">&para;</a></h6>
-<p>For generating hair texture you may skip this option (curves with bevel depth will be OK for making hair maps). But for making hair cards, you should enable option below.</p>
-<ul>
-<li><strong>Generate Ribbons</strong> - Add curve profile ot generated strands</li>
-<li><strong>Strand Width</strong> - width of generated curve ribbon</li>
-</ul>
-<p><img alt="Align tilt" src="../../img/grid_surface/align_tilt.gif" />
-<em><strong>Align tilt</strong> - Align tilt to Surface</em></p>
-<h6 id="clumps">Clumps<a class="headerlink" href="#clumps" title="Permanent link">&para;</a></h6>
-<p>Gives nice effect especially when you use 'Curves from Grid surface' to generate eyelashes.
-<img alt="Clumps" src="../../img/grid_surface/clumps.gif" />
-<em><strong>Clumps</strong> - Clump hair together. Higher values produce bigger clumps</em></p>
-<p><img alt="Clumps Seed" src="../../img/grid_surface/clump_seed.gif" />
-<em><strong>Clumps Seed</strong> - Clump different hair strands for each seed value</em></p>
-<p><img alt="Clump falloff" src="../../img/grid_surface/clump_fallof.gif" />
-<em><strong>Clump falloff</strong> - Clumping influence over strand length</em></p>
-<p><img alt="Clump influence" src="../../img/grid_surface/clump_influence.gif" />
-<em><strong>Clump influence</strong> - Blend between no clumping (0) and max clumping effect</em></p>
+<h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h4>
+<p>In Hair Tool 3.0 <strong>Curves from Grid Surface</strong> is geometry nodes based. This made this feature much more flexible and powerful, but it also introduced one limitation. Consider example guide mesh as follows:</p>
+<p><img alt="Points per strand" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
+<em>Strands interpolation problem. It should go to the right, but it is pulled by red edges to the left</em></p>
+<p>Black strand (generated with Grid Surface) will look for, four closest guides - marked on left part of image: with green and red.<br>
+As you can see it will find 2 green guides and 2 red guides. The problem is: red guides are placed on opposite sides of the mesh. This will cause generated strand to be interpolated toward the average position - center of mesh (middle of image), rather than going to the right.
+To fix this, we can use feature of <a href="../../main_workflows/hair_interpolation">Hair Interpolation</a> - where split mesh islands, do not affect child strand from other islands. So in above case, I could split mesh in half and now strand will follow only the green guides to the right.<br></p>
+<p>Obviously you do not have to split base mesh with gap. <strong>Turn off 'merge'</strong> option in mirror modifier, and you will get the same result. Or use edge split modifier.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../hair_drawing/" class="btn btn-neutral float-left" title="Drawing hair"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../interactive_groom/" class="btn btn-neutral float-right" title="Interactive grooming">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../hair_system/" class="btn btn-neutral float-left" title="Hair System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_drawing/" class="btn btn-neutral float-right" title="Drawing hair">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -270,10 +188,10 @@ It works by generating curves from grid mesh (made all of quads). Grid mesh topo
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../hair_drawing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../hair_system/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../interactive_groom/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../hair_drawing/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
