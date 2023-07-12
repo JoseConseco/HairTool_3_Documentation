@@ -159,12 +159,12 @@ Your browser does not support the video tag.
 <p><img alt="Hair Colors" src="../img/hair_color.jpg" /></p>
 <p>In Hair Tool, <strong>UV Data is attached to <a href="../overview/#hair-profile">Hair System Profile</a></strong>.<br>
 The UV data hold information about UV Regions - rectangular uv Boxes that tells where to sample the texture.<br>
-UV Data does not tell which UV Regions should be assigned to which hair strand - for that use <a href="../main_workflows/hair_system/hair_system.md#assigning-uv-regions">UV Region Set</a>.<br></p>
+UV Data does not tell which UV Regions should be assigned to which hair strand - for that use <a href="../main_workflows/hair_system/hair_system#assigning-uv-regions">UV Region Set</a>.<br></p>
 <p>Unlike in Blender, where unique UV Map is attached to each mesh object, in Hair Tool UV data can be shared between Hair System Profiles. This way you can have multiple Hair Systems using same UVs (without having to define it multiple times)</p>
 <blockquote>
 <p><strong>Note1:</strong> Do not use Blender's build-in 'Convert-To-&gt;Mesh' operator on curve hair, or your output mesh UVs will be messed up. Instead, use <a href="../convert_generate_hair/#curve-ribbons-to-mesh-ribbons"><strong>Curve ribbons to mesh ribbons</strong></a>. This way curve Material UVs will be properly, converted to mesh UVs.</p>
 </blockquote>
-<!-- [**Hair UV**](uv_material.md#defining-hair-uvs) operator will automatically add [UV Region Set](hair_system.md#assigning-uv-regions) Deformer (to Hair System) or assign UV Region index to 'real' curves - see in video below - there is no need to manually call [**Set UV region**](uv_material.md#set-uv-region) -->
+<!-- [**Hair UV**](uv_material.md#defining-hair-uvs) operator will automatically add [UV Region Set](hair_system#assigning-uv-regions) Deformer (to Hair System) or assign UV Region index to 'real' curves - see in video below - there is no need to manually call [**Set UV region**](uv_material.md#set-uv-region) -->
 
 <h4 id="defining-hair-uvs">Defining Hair UV's<a class="headerlink" href="#defining-hair-uvs" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
@@ -181,7 +181,7 @@ Your browser does not support the video tag.
 <p>To reset UV press <strong>Shift + Delete</strong></p>
 </li>
 <li>
-<p>Make sure Hair System has material assigned in 'Profile' properties (or use <a href="../uv_material.md#default-hair-material"><strong>Import Default Material</strong></a>)</p>
+<p>Make sure Hair System has material assigned in 'Profile' properties (or use <a href="../uv_material#default-hair-material"><strong>Import Default Material</strong></a>)</p>
 </li>
 <li>Material UVs are outputted by <code>HTool_UV</code> node in Shader Editor - without it UVs won't work. After converting Hair System to mesh, you can use 'normal' mesh uvs</li>
 <li>'Hair UV' operator will automatically add <a href="../main_workflows/hair_system/#uv-region-set">UV Region Set</a> Deformer if it was used on object with Hair System attached</li>
@@ -230,6 +230,8 @@ Your browser does not support the video tag.
 <!-- *We can assign UV curls for individual UV regions one by one. Or shift select multiple IDs to assign UV Curls to multiple regions (with optional randomization - by setting min range value)* -->
 <!---->
 <!-- In the above video I used two UV Regions, thus we get two materials (plus additional two for the mirrored UV). So in total we get four unique curls looks. -->
+<p>ir_system.md
+    lll</p>
 <!-- ![UV Curls Settings](./img/material_uvs/uv_curls_settings.jpg) -->
               
             </div>
