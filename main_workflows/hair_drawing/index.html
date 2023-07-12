@@ -53,11 +53,9 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Drawing hair</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#drawing-curve-ribbons">Drawing curve ribbons:</a>
+    <li class="toctree-l2"><a class="reference internal" href="#target-for-snapping">Target for Snapping</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#drawing-particle-hair">Drawing particle hair:</a>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
     </li>
     </ul>
                   </li>
@@ -82,7 +80,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../editing_profile/">Curve Profile</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hair_profiles/">Hair Profiles</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
                   </li>
@@ -132,26 +130,33 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="drawing-hair">Drawing Hair<a class="headerlink" href="#drawing-hair" title="Permanent link">&para;</a></h2>
-<p><img alt="Drawing Hair Panel" src="../../img/ht_draw_hair_panel.jpg" />
-You can draw hair (curve ribbons or particle hair) directly on selected mesh surface. It useful when you want finish your hair model, and place some hair cards by hand or when you want to manually control hair placement.</p>
-<p>To use hair drawing, you have to:</p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../video/drawing_hair.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above procedural noise is applied to drawn strands. That is why they to not follow the stroke exactly.</em></p>
+<!-- ![Drawing Hair Panel](../img/ht_draw_hair_panel.jpg) -->
+
+<p>In Hair Tool you can draw hair out of selected mesh surface or extend existing curves.</p>
+<p>To use hair drawing:</p>
 <ul>
-<li>have mesh object selected, on which surface you want to draw hair</li>
+<li>select mesh object on which surface you want to draw hair</li>
 <li>enable <strong>'Draw Hair'</strong> button located in: right UI Sidebar: "Hair Tool" tab -&gt; <strong>'Draw Hair'</strong> panel.</li>
-<li>select 'Draw' method: curve, curve ribbon or particle hair</li>
-<li>now hold D-Key and draw in 3D viewport with LBM; new strands will be painted.</li>
+<li>hold D-Key and draw in 3D viewport with LMB; new strands will be painted.</li>
 </ul>
-<p>Most of the settings are the same for both: drawing curve ribbons and particle hairs.</p>
 <blockquote>
-<p><strong>Note</strong>:  When you modify object that is being drawn on, you may need to refresh the snapping cache by using 'Refresh' icon located next to 'Draw hair' button. Other wise the strokes will snap to old object position.</p>
+<p><strong>Note</strong>: When you modify object that is being drawn on, you may need to refresh the snapping cache by using 'Refresh' icon located next to 'Draw hair' button. Otherwise, the new drawn strands may snap to old object position.</p>
 </blockquote>
-<h4 id="drawing-curve-ribbons">Drawing curve ribbons:<a class="headerlink" href="#drawing-curve-ribbons" title="Permanent link">&para;</a></h4>
-<p>When drawing, if you have curve object selected,  new strokes will be added to this selected curve; if mesh is selected then new curve ribbons will be created. In first case target mesh, used for stroke snapping, is defined in bottom HTool Pie Menu (Ctrl+Shift+H):</p>
-<p><img alt="Hair target" src="../../img/hair_target.jpg" />
-<em><strong>Target</strong> property is used to define object that will be used for snapping, tilt aligning etc.</em></p>
+<p>You can assign any profile to drawn hair. You can use either:
+ * Ctrl+Shift+H pie menu -&gt; <a href="../hair_profiles#assign-profile">Assign Profile</a>]</p>
+<h4 id="target-for-snapping">Target for Snapping<a class="headerlink" href="#target-for-snapping" title="Permanent link">&para;</a></h4>
+<p>If you have curve hair object selected, when drawing, new strokes will be added to curve. Stroke will snap to Curve: Surface object, if it is defined in curve data tab (see <code>2</code> in image below). You can override this object using 'Target Object' input (<code>1</code> in image below)</p>
+<p><img alt="Hair target" src="../../img/draw_target.jpeg" />
+<em><strong>Target</strong> property (1) takes precedence over Curve: Surface object (2). But one of them has to be defined for snapping to work</em></p>
+<p>If mesh is selected when drawing, new hair curve will be automatically created and its Surface object will be set to selected mesh.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eD5E_UoimSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p><em>Example od drawing curve ribbons</em></p>
-<h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <p><img alt="Extend Draw Strand" src="../../img/param_gifs/extend_draw.gif" />
 <em><strong>Extend Strand</strong> - Add new drawn points te existing selected strands</em></p>
 <ul>
@@ -196,14 +201,6 @@ Your browser does not support the video tag.
 <em><strong>Align tilt</strong> - Align ribbons tilt to surface</em></p>
 <p><img alt="use pressure" src="../../img/param_gifs/use_pressure.gif" />
 <em><strong>Use Pressure</strong> - Use pen pressure to change strand width</em></p>
-<h4 id="drawing-particle-hair">Drawing particle hair:<a class="headerlink" href="#drawing-particle-hair" title="Permanent link">&para;</a></h4>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TvN3okLFkyc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p><em>Example od drawing particle hair</em></p>
-<p>Drawing particle hair is basically the same as drawing curve ribbons, but the resulting strokes will be converted to particle hair.</p>
-<ul>
-<li>If object that you are painting has no particle systems, new one will be created.</li>
-<li>If object that you are painting has particle systems, new strands will be appended to active particle hair system.</li>
-</ul>
               
             </div>
           </div><footer>
