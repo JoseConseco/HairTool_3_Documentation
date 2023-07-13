@@ -71,7 +71,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#strands-generator-and-filter">Strands Generator and Filter</a>
+    <li class="toctree-l2"><a class="reference internal" href="#sub-systems-types">Sub-Systems Types</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#strands-generator">Strands Generator</a>
     </li>
@@ -201,7 +201,9 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Generating from Grid</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Guide from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
                   </li>
@@ -272,14 +274,14 @@
                 <h2 id="hair-system">Hair System<a class="headerlink" href="#hair-system" title="Permanent link">&para;</a></h2>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair System Diagram" src="../../img/hsystem_diagram.jpeg" /></p>
-<p>Hair System will help you <strong>generate procedural hair-cards</strong> in non-destructive way, based on Blender Geometry Nodes.<br></p>
-<!-- In past, Hair System was used only in Hair Tool Baking scene, but now, after developing it further, it is going to replace Particle Hair [Interactive Grooming](../main_workflows/interactive_groom.md)<br> -->
-<p>Hair System is made from:</p>
+<p>Hair System will help you <strong>generate procedural hair-cards</strong> in non-destructive way, based on Blender Geometry Nodes.<br>
+Hair System is made from:</p>
 <ul>
-<li><a href="./#strands-generator-and-filter">Hair Generator (or Filter)</a>,</li>
-<li>followed by list (<a href="./#hair-deformers"><strong>Deformers</strong></a>), that you can put on top of each other and slowly build up complexity over time.<br>
-Hair Systems in stack can be linked together with usage of <a href="#tags"><strong>Tags</strong></a> - this help to describe which Hair System is affecting which strands.</li>
+<li>A <a href="../../overview#setup-section">setup section</a> to assign a guide curve and source mesh</li>
+<li>Hair <a href="./#sub-systems-types">sub-systems</a> with generators and <a href="./#hair-deformers">Deformers</a> to create and modify strands</li>
+<li>A hair <a href="../../hair_profiles">profile</a> to add geometry, UVs, and materials to strands</li>
 </ul>
+<p>Hair Sub-Systems in stack can communicate together with usage of <a href="#tags"><strong>Tags</strong></a> - this help to describe which Hair System is affecting which strands.</p>
 <p>Hair System is located in Right Sidebar → Hair Tool Tab → Hair System Panel. Click [+] to add Hair System to selected mesh or curve object.</p>
 <p><img alt="Hair System UI" src="../../img/geo_nodes_hair/hair_system_nodal.jpg" />
  <em>On image above we have Two Hair Systems named: <code>Parent</code>, <code>Child</code>. You can see <code>Child</code> system is made from: Strand Generator, Noise, Clump, Set Radius etc. deformers. Whole system is guided by: HairCurve guide - second input at very top</em></p>
@@ -442,8 +444,8 @@ Your browser does not support the video tag.
 <li>Alt+H - will reveal hidden strands</li>
 </ul>
 <hr />
-<h3 id="strands-generator-and-filter">Strands Generator and Filter<a class="headerlink" href="#strands-generator-and-filter" title="Permanent link">&para;</a></h3>
-<p>After adding Hair System you will notice first slot in deformers stack is added automatically. It acts in binary way:</p>
+<h3 id="sub-systems-types">Sub-Systems Types<a class="headerlink" href="#sub-systems-types" title="Permanent link">&para;</a></h3>
+<p>After adding Hair Sub-System you will notice first slot in deformers stack is added automatically. It is based on selected hair Sub-system type.</p>
 <h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
 <p>Generator - will generate strands from Base Surface at given resolution, density, length etc. with interpolation option (Parent/Guide Tag must be set). These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
@@ -476,7 +478,11 @@ Root of strands will be placed:</p>
 <source src="../../img/geo_nodes_hair/hsystem_curves_from_grid.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In video above - top, boundary edge loop was <code>marked as sharp</code>. Notice how guide grid has unevent topology - getting dense to the right. This is important when adjusting 'Uniform Spacing' option</em></p>
+<p><em>In video above - top, boundary edge loop was <code>marked as sharp</code></em></p>
+<blockquote>
+<p><strong>Note</strong>: Notice how guide grid, in video above, has uneven topology - getting dense to the right. This is important when adjusting 'Uniform Spacing' option</p>
+<p><strong>Note</strong>: To mask-out placement of roots, just plugin in vertex group mask into 'Placement Mask' input</p>
+</blockquote>
 <hr />
 <h3 id="child-parent-setup">Child - Parent setup<a class="headerlink" href="#child-parent-setup" title="Permanent link">&para;</a></h3>
 <p><a href="./#tags">Tags</a> can be used to setup child-parent relation between two Hair Systems. This unlocks: clumping, interpolation, curls, braids, twist and some other possibilities.</p>
@@ -579,7 +585,7 @@ Your browser does not support the video tag.
 <source src="../../img/geo_nodes_hair/push_out.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Push hair outside surface. Useful to move hair that clips character geometry outside</em></p>
+<p><em>Push hair outside surface. Useful when wanting to push out layer of hair or to prevent hair clipping through character geometry</em></p>
 <h6 id="snap">Snap<a class="headerlink" href="#snap" title="Permanent link">&para;</a></h6>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/snap.webm" type="video/mp4">
@@ -853,7 +859,7 @@ To <strong>fix the cyclic dependency</strong> use <a href="./#transfer-hair-syst
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../../overview/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../hair_from_surface/" class="btn btn-neutral float-right" title="Generating from Grid">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../hair_from_surface/" class="btn btn-neutral float-right" title="Guide from Grid Surface">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Generating from Grid - Hair Tool 3</title>
+    <title>Guide from Grid Surface - Hair Tool 3</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Generating from Grid";
+        var mkdocs_page_name = "Guide from Grid Surface";
         var mkdocs_page_input_path = "main_workflows/hair_from_surface.md";
         var mkdocs_page_url = null;
       </script>
@@ -53,7 +53,7 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Generating from Grid</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Guide from Grid Surface</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#proper-grid-mesh">Proper grid mesh</a>
     </li>
@@ -62,6 +62,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
     </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
                   </li>
@@ -120,7 +122,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
           <li>Hair Modeling Techniques &raquo;</li>
-      <li>Generating from Grid</li>
+      <li>Guide from Grid Surface</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -135,10 +137,11 @@
 Your browser does not support the video tag.
 </video>
 <p><em>Use Ctrl+Shift+H -&gt; Curves from grid surface to add Hair System preset with active mesh behaving as Guide for generated strands</em></p>
-<p><strong>Useful for long hair, eyelashes or layered type of hair</strong>. Not so good if you want to cover head scalp uniformly, with evenly spaced strands<br>
-It works by generating special <a href="../../main_workflows/hair_system">Hair System</a> preset that uses <a href="../../main_workflows/hair_system/#strands-from-grid-surface">Strands from Grid Surface</a>. Grid mesh topology is guiding hair strands flow (it has to be made all of quads!)</p>
+<p><strong>Useful for long hair, eyelashes or layered type of hair</strong>.<br>
+If you want to cover head scalp uniformly with hair, then use standard Hair System with <a href="../../main_workflows/hair_system#strands-generator">Strand Generator</a> instead.</p>
+<p><strong>Curves From Grid Surface</strong> works by generating special <a href="../../main_workflows/hair_system">Hair System</a> preset that uses <a href="../../main_workflows/hair_system/#strands-from-grid-surface">Strands from Grid Surface</a>. Grid mesh topology will guide hair strands flow (this grid has to be made all quads - with grid/chessboard like topology)</p>
 <h4 id="proper-grid-mesh">Proper grid mesh<a class="headerlink" href="#proper-grid-mesh" title="Permanent link">&para;</a></h4>
-<p>Guide mesh has to be made from quads. Mark one border of this mesh with sharp edges: Ctrl+E -&gt; Mark Sharp (or crease edge) - this area will become roots of hair strands.
+<p>Guide mesh has to be made from quads and <strong>one border edge loop has to be mark as sharp</strong> (or crease): Ctrl+E -&gt; Mark Sharp/Crease - this edge will become roots of hair strands.
 <img alt="mark sharp" src="../../img/marksharp.jpg" /></p>
 <p>Example of proper grid meshes topologies (for actual hair you would want to model this better - following main hair masses and hair flow):
 <img alt="Grid Mesh" src="../../img/grid_meshes_examples.jpg" /></p>
@@ -165,7 +168,7 @@ To fix this, we can use feature of <a href="../../main_workflows/hair_interpolat
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../hair_system/" class="btn btn-neutral float-left" title="Hair System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../hair_drawing/" class="btn btn-neutral float-right" title="Drawing hair">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../hair_with_track_mesh/" class="btn btn-neutral float-right" title="Hair with Track Mesh">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -191,7 +194,7 @@ To fix this, we can use feature of <a href="../../main_workflows/hair_interpolat
       <span><a href="../hair_system/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../hair_drawing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../hair_with_track_mesh/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

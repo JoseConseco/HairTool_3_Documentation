@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Drawing hair - Hair Tool 3</title>
+    <title>Hair with Track Mesh - Hair Tool 3</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Drawing hair";
-        var mkdocs_page_input_path = "main_workflows/hair_drawing.md";
+        var mkdocs_page_name = "Hair with Track Mesh";
+        var mkdocs_page_input_path = "main_workflows/hair_with_track_mesh.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -55,15 +55,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Guide from Grid Surface</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Drawing hair</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair with Track Mesh</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#target-for-snapping">Target for Snapping</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
     </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../short_hair/">Short Hair</a>
                   </li>
@@ -120,7 +118,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
           <li>Hair Modeling Techniques &raquo;</li>
-      <li>Drawing hair</li>
+      <li>Hair with Track Mesh</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -129,87 +127,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="drawing-hair">Drawing Hair<a class="headerlink" href="#drawing-hair" title="Permanent link">&para;</a></h2>
-<video style="width:100%" controls autoplay loop>
-  <source src="../../video/drawing_hair.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>In video above procedural noise is applied to drawn strands. That is why they to not follow the stroke exactly.</em></p>
-<!-- ![Drawing Hair Panel](../img/ht_draw_hair_panel.jpg) -->
-
-<p>In Hair Tool you can draw hair out of selected mesh surface or extend existing curves.</p>
-<p>To use hair drawing:</p>
-<ul>
-<li>select mesh object on which surface you want to draw hair</li>
-<li>enable <strong>'Draw Hair'</strong> button located in: right UI Sidebar: "Hair Tool" tab -&gt; <strong>'Draw Hair'</strong> panel.</li>
-<li>hold D-Key and draw in 3D viewport with LMB; new strands will be painted.</li>
-</ul>
-<blockquote>
-<p><strong>Note</strong>: When you modify object that is being drawn on, you may need to refresh the snapping cache by using 'Refresh' icon located next to 'Draw hair' button. Otherwise, the new drawn strands may snap to old object position.</p>
-</blockquote>
-<p>You can assign any profile to drawn hair. You can use either:</p>
-<ul>
-<li>Ctrl+Shift+H pie menu -&gt; <a href="../../hair_profiles#addingupdate-curve-profile">Assign Profile</a></li>
-<li>Go to Hair System Panel, then expand Profile sub-panel</li>
-</ul>
-<h4 id="target-for-snapping">Target for Snapping<a class="headerlink" href="#target-for-snapping" title="Permanent link">&para;</a></h4>
-<p>If you have curve hair object selected, when drawing, new strokes will be added to curve. Stroke will snap to Curve: Surface object, if it is defined in curve data tab (see <code>2</code> in image below). You can override this object using 'Target Object' input (<code>1</code> in image below)</p>
-<p><img alt="Hair target" src="../../img/draw_target.jpeg" />
-<em><strong>Target</strong> property (1) takes precedence over Curve: Surface object (2). But one of them has to be defined for snapping to work</em></p>
-<p>If mesh is selected when drawing, new hair curve will be automatically created and its Surface object will be set to selected mesh.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eD5E_UoimSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p><em>Example od drawing curve ribbons</em></p>
-<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
-<p><img alt="Extend Draw Strand" src="../../img/param_gifs/extend_draw.gif" />
-<em><strong>Extend Strand</strong> - Add new drawn points te existing selected strands</em></p>
-<ul>
-<li>
-<p><strong>Profile Width</strong> - curve profile width (same for all strands)</p>
-</li>
-<li>
-<p><strong>Strand Radius</strong> - per strand radius</p>
-</li>
-<li>
-<p><strong>Snapping</strong></p>
-<ul>
-<li><strong>With Snapping</strong> - snaps whole drawn stroke to mesh surface, then elevate strand above surface by 'Elevation distance'</li>
-<li><strong>Without Snapping</strong> - only first point of stroke is snapped to drawn mesh surface. The following points are then placed orthogonally to view direction</li>
-</ul>
-</li>
-</ul>
+                <h2 id="hair-with-track-mesh">Hair With Track Mesh<a class="headerlink" href="#hair-with-track-mesh" title="Permanent link">&para;</a></h2>
+<p><strong>Hair with Track Mesh</strong> operator will setup <a href="../../main_workflows/hair_system">Hair System</a> with <a href="../../main_workflows/hair_system#track-to-mesh">Track to Mesh</a> deformer with one click.</p>
 <video style="width:100%" controls>
-  <source src="../../video/with_out_snap_draw.mp4" type="video/mp4">
+  <source src="../../video/track_to_mesh_preset.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<!-- ![Drawing with and without snapping](../img/param_gifs/projected_connected.gif) -->
-
-<ul>
-<li><strong>UV</strong> - Assign UV box to drawn curve ribbons: Automatically or pick of the UV boxes, by box number (see <a href="../../uv_material/#defining-hair-uvs"><strong>Defining UV's</strong></a>)</li>
-</ul>
-<p><img alt="Offset Tip" src="../../img/param_gifs/offset_tip.gif" />
-<em><strong>Offset to tip</strong> - Offset spline points more toward tip</em></p>
-<p><img alt="Offset Root" src="../../img/param_gifs/offset_root.gif" />
-<em><strong>Offset to root</strong> - Offset spline points more toward root</em></p>
-<p><img alt="Resolution" src="../../img/param_gifs/resample_count.gif" />
-<em><strong>Resolution - [Adaptive] or [Fixed]</strong> - point count per spline</em></p>
-<p><img alt="Max length" src="../../img/param_gifs/max_length.gif" />
-<em><strong>Max length</strong> - Maximum hair length (0 - disabled)</em></p>
-<p><img alt="Elevation distance" src="../../img/param_gifs/elevation_distance.gif" />
-<em><strong>Elevation distance</strong> - Elevation strands above surface by this distance</em></p>
-<p><img alt="elevation_fallof" src="../../img/param_gifs/elevation_fallof.gif" />
-<em><strong>Elevation falloff</strong> - Elevation strength over strand length</em></p>
-<p><img alt="embed_root" src="../../img/param_gifs/embed_root.gif" />
-<em><strong>Embed Roots Depth</strong> - Move strands first point into mesh surface (only curve ribbons)</em></p>
-<p><img alt="align tilt" src="../../img/param_gifs/align_tilt.gif" />
-<em><strong>Align tilt</strong> - Align ribbons tilt to surface</em></p>
-<p><img alt="use pressure" src="../../img/param_gifs/use_pressure.gif" />
-<em><strong>Use Pressure</strong> - Use pen pressure to change strand width</em></p>
+<p><em>Use F9 key -&gt; to adjust initial offset of Track Mesh from base mesh</em></p>
+<p>The main idea is <strong>to sculpt or edit guide mesh</strong>, rather than comb the hair curves. This is especially useful for short hair, beard, eyebrows, etc. when you want to work in non-destructive way.</p>
+<p>In my test I was surprised how easy it is to sculpt hair with this setup and the resulting hair was very uniform giving me much better look for beard of eyebrows compared to traditional curves grooming, with interpolated children.</p>
+<video style="width:100%" controls>
+  <source src="../../video/track_to_mesh_preset_sculpting.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Example of sculpting Track Mesh. See how simple it is to modify all the strand</em></p>
+<blockquote>
+<p><strong>Note</strong>: It is often good idea to add shapekey to your Guide mesh, and work on it with shapekey enabled. This way you can always go back to original shape of guide mesh</p>
+</blockquote>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<p>The only initial parameter you can control is under <code>F9</code> key - <code>Offset</code> - it will offset track mesh from base mesh. <br>
+All the other parameters are controlled by Hair System: <a href="../../main_workflows/hair_system#track-to-mesh">Track To Mesh</a> and other <a href="../../main_workflows/hair_system#hair-deformers">deformers</a></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../hair_with_track_mesh/" class="btn btn-neutral float-left" title="Hair with Track Mesh"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../short_hair/" class="btn btn-neutral float-right" title="Short Hair">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../hair_from_surface/" class="btn btn-neutral float-left" title="Guide from Grid Surface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_drawing/" class="btn btn-neutral float-right" title="Drawing hair">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -232,10 +175,10 @@ Your browser does not support the video tag.
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../hair_with_track_mesh/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../hair_from_surface/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../short_hair/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../hair_drawing/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

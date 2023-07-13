@@ -61,7 +61,9 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_system/">Hair System</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Generating from Grid</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Guide from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_drawing/">Drawing hair</a>
                   </li>
@@ -129,15 +131,17 @@
             <div class="section" itemprop="articleBody">
               
                 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
-<p>All the Hair Tool features are located in Right Sidebar → Hair Tool Tab.<br>
-<img alt="Hair System Diagram" src="../img/hair_tool_panel.jpeg" /></p>
-<p>In this section I will only focus on the general Overview of how the Hair Tool works:</p>
+<p>In this section I will only focus on the general Overview of how the Hair Tool works.</p>
+<p><img alt="Hair System Diagram" src="../img/hair_tool_panel.jpeg" />
+<em>All the Hair Tool features are located in Right Sidebar → Hair Tool Tab</em></p>
+<p>The Hair System uses geometry nodes to procedurally generate and modify hair strands. It consists of:</p>
 <ul>
-<li>Hair System is build from: <a href="#setup-section">setup section</a>, <a href="#hair-sub-systems">sub-systems</a> with deformers, <a href="#hair-profile">Profile Generator</a></li>
-<li>Profile holds Material and UVs,</li>
-<li>UVs (and material) are generated automatically, but you can edit them <a href="../uv_material#defining-hair-uvs">manually</a>,</li>
+<li>A <a href="#setup-section">setup section</a> to assign a guide curve and source mesh</li>
+<li>Hair <a href="../main_workflows/hair_system#sub-systems-types">sub-systems</a> with generators and <a href="../main_workflows/hair_system#hair-deformers">Deformers</a> to create and modify strands</li>
+<li>A hair <a href="../../hair_profiles">profile</a> to add geometry, UVs, and materials to strands</li>
 </ul>
-<p>Most of Hair Tools (except: <a href="../main_workflows/shell_hair">Shell Hair</a> and <a href="../main_workflows/short_hair">Short Hair</a>) are using <strong>Hair System</strong> (geometry nodes based: strand, profile and UV generation).</p>
+<p>Key features of the Hair System include hair deformers like noise, clumping, braids, curls, etc. It also covers selection tools, input masks, and operators for simplifying strands, transferring the system between objects, and more.</p>
+<p>Only: <a href="../main_workflows/shell_hair">Shell Hair</a> and <a href="../main_workflows/short_hair">Short Hair</a>) are not using <strong>Hair System</strong> workflow</p>
 <p>Hair System components are used almost everywhere in Hair Tool, so it is important to understand how it works.</p>
 <p><img alt="Hair System Diagram" src="../img/hsystem_diagram.jpeg" />
 <em>Hair System Diagram</em></p>
