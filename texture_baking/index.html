@@ -83,15 +83,13 @@
               </ul>
               <p class="caption"><span class="caption-text">Texture creation</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../geometry_hair/">Generating Hair Geometry</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../baking_hair_setup/">Baking Blend File</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Baking</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#baking-textures">Baking Textures</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#texture-channel-mixing">Texture channel mixing</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#uv-to-shape-key">UV to shape key</a>
     </li>
     </ul>
                   </li>
@@ -170,18 +168,19 @@
 <p><strong>Note</strong>:If you enable button '<strong>Composite channels</strong>', Hair Tool will automatically create node setup with input textures from baked images, after baking is finished.
 <img alt="Texture channel mixing" src="../img/composite_channels.jpg" /></p>
 </blockquote>
-<h3 id="uv-to-shape-key">UV to shape key<a class="headerlink" href="#uv-to-shape-key" title="Permanent link">&para;</a></h3>
-<p><img alt="UV to shape key" src="../img/uv_flatten.gif" />
-<em>Use objects UV to create planar Shape Key. Useful for baking short hair to uv. To un-flatten object run this operator again</em></p>
-<blockquote>
-<p><strong>Note1</strong>: This operator will scale particle hair length, hair roughness amplitude, kink amplitude etc. to maintain consistent hair look after base mesh being flattened! That is why to flatten or un-flatten the mesh use 'UV to shape key' button, or you hair may look wrong, if you manually use shape key slider instead.</p>
-<p><strong>Note1</strong>: For baking use Hair Tool baking scene.</p>
-</blockquote>
+<!--
+### UV to shape key
+![UV to shape key](./img/uv_flatten.gif)
+*Use objects UV to create planar Shape Key. Useful for baking short hair to uv. To un-flatten object run this operator again*
+> **Note1**: This operator will scale particle hair length, hair roughness amplitude, kink amplitude etc. to maintain consistent hair look after base mesh being flattened! That is why to flatten or un-flatten the mesh use 'UV to shape key' button, or you hair may look wrong, if you manually use shape key slider instead.
+
+> **Note1**: For baking use Hair Tool baking scene.
+-->
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../geometry_hair/" class="btn btn-neutral float-left" title="Generating Hair Geometry"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../baking_hair_setup/" class="btn btn-neutral float-left" title="Baking Blend File"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../hair_library/" class="btn btn-neutral float-right" title="Hair Library">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -205,7 +204,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../geometry_hair/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../baking_hair_setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../hair_library/" style="color: #fcfcfc">Next &raquo;</a></span>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Generating Hair Geometry - Hair Tool 3</title>
+    <title>Baking Blend File - Hair Tool 3</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Generating Hair Geometry";
-        var mkdocs_page_input_path = "geometry_hair.md";
+        var mkdocs_page_name = "Baking Blend File";
+        var mkdocs_page_input_path = "baking_hair_setup.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -83,7 +83,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Texture creation</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Generating Hair Geometry</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Baking Blend File</a>
     <ul class="current">
     </ul>
                   </li>
@@ -118,7 +118,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
           <li>Texture creation &raquo;</li>
-      <li>Generating Hair Geometry</li>
+      <li>Baking Blend File</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -127,12 +127,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="hair-systems">Hair Systems<a class="headerlink" href="#hair-systems" title="Permanent link">&para;</a></h2>
-<p><img alt="Hair System UI" src="../img/geo_nodes_hair/hair_system_nodal.jpg" /></p>
-<p>For Hair Generation use <a href="./main_workflows/hair_system"><strong>Hair System</strong></a>, with <a href="./main_workflows/hair_system#hair-profiles"><strong>Round Profile</strong></a> (no UV's)</p>
+                <h2 id="hair-setup-for-baking">Hair Setup For Baking<a class="headerlink" href="#hair-setup-for-baking" title="Permanent link">&para;</a></h2>
+<p>To Hair Tool comes in with baking blend file template, that makes it easy to bake various hair maps.<br>
+To open this blend file: go to right UI Sidebar(N) -&gt; "Hair Tool" tab -&gt; <strong>'Hair Bake'</strong> panel -&gt; <strong>'Open Baking Scene'</strong> button</p>
+<p><img alt="Open Baking Scene" src="../img/open_baking_scene.jpeg" /></p>
 <blockquote>
-<p><strong>Note</strong>: Available since Blender 3.0, new version in Hair Tool 2.4 requires blender 3.3 or above</p>
+<p><strong>Note1:</strong> The idea of working with Hair Tool baking Blend file, is that you will open it, and save copy to your selected folder (eg. to folder where your character files are). This way you will not override the baking template, and you will be able to bring it back at any time.</p>
 </blockquote>
+<p>This file has few mesh objects, with Hair System attached to it. By tweaking these hair systems, you can bake various hair setups.<br>
+All the settings are described in <a href="./main_workflows/hair_system"><strong>Hair System</strong></a>.<br>
+To get proper bake, template file uses <a href="./main_workflows/hair_system#hair-profiles"><strong>Round Profile</strong></a> type.</p>
+<video width="100%" height="100%" controls>
+  <source src="../video/baking_setup_geo.mp4" type="video/mp4">
+</video>
+
+<p>This file has also Hair Card preset, with special Preview Material. When you press 'Bake', the resulting texture will be automatically applied to this material, so you can preview the bake result, directly on haircrads.</p>
+<video width="100%" height="100%" controls>
+    <source src="../video/bake_preview.mp4" type="video/mp4">
+</video>
+<p><em>On the left - hair curves that will be  baked; on the right - haircars with baked texture applied</em></p>
+<p>In future I will show how to use this template and the preview.</p>
               
             </div>
           </div><footer>

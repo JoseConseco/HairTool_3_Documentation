@@ -97,9 +97,19 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#braids-child">Braids (Child)</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#color-set-system">Color Set (System)</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#clumps-child">Clumps (Child)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#curls">Curls</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generators">Generators</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#duplicate-strands">Duplicate Strands</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#braid-generator">Braid Generator</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#instance-on-strand">Instance on Strand</a>
     </li>
@@ -113,13 +123,21 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#noise-deformer">Noise Deformer</a>
+    <li class="toctree-l3"><a class="reference internal" href="#lenghten">Lenghten</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#noise">Noise</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#radius-set">Radius Set</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#roll-strands">Roll Strands</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#scale">Scale</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplify-strands">Simplify Strands</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#slide-points">Slide Points</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#smooth-strands">Smooth Strands</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#tag">Tag</a>
         <ul>
@@ -138,6 +156,8 @@
     <li class="toctree-l4"><a class="reference internal" href="#align-tilt-to-parent">Align Tilt to Parent</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#align-tilt-to-target">Align Tilt to Target</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#align-tilt-to-mesh-border">Align Tilt to Mesh Border</a>
     </li>
         </ul>
     </li>
@@ -181,7 +201,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#generate-attributes">Generate Attributes</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#simplify-strands">Simplify Strands</a>
+    <li class="toctree-l3"><a class="reference internal" href="#simplify-strands_1">Simplify Strands</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#draw-source-mesh">Draw Source Mesh</a>
     </li>
@@ -233,7 +253,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Texture creation</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../geometry_hair/">Generating Hair Geometry</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../baking_hair_setup/">Baking Blend File</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking</a>
                   </li>
@@ -559,6 +579,12 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Clump child strands to Guide/Parent strands (FIRST tag) in shape of Braids. Set Hair System <a href="./#child-parent-setup">as child</a> first</em></p>
+<h5 id="color-set-system">Color Set (System)<a class="headerlink" href="#color-set-system" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/system_color.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>It will alow your to colorize haircards generated inside current hair system (added mostly for debugging hair sub-systems setups)</em></p>
 <h5 id="clumps-child">Clumps (Child)<a class="headerlink" href="#clumps-child" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/clump.webm" type="video/mp4">
@@ -571,6 +597,26 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Clump child strands to Guide/Parent strands (FIRST tag) in shape of Curls. Can be used with Hair System <a href="./#child-parent-setup">as child</a> first</em></p>
+<h5 id="generators">Generators<a class="headerlink" href="#generators" title="Permanent link">&para;</a></h5>
+<h6 id="duplicate-strands">Duplicate Strands<a class="headerlink" href="#duplicate-strands" title="Permanent link">&para;</a></h6>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/duplicate_strands.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Simple duplication of exisitng strands</em></p>
+<h6 id="braid-generator">Braid Generator<a class="headerlink" href="#braid-generator" title="Permanent link">&para;</a></h6>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/braid_gen.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Each strand will be duplicated 2 times (3 strands with original one), and braided together. Works best with 'Circular' Profile</em></p>
+<p>The Idea in above video is:</p>
+<ul>
+<li>Take single strand, and convert it to 3 braided ones with 'Braid Generator'</li>
+<li>Duplicate each sub-strand few times with <a href="./#duplicate-strands">Duplicate Strands</a> deformer</li>
+<li>Add some randomization with <a href="./#noise">Noise</a> deformer and <a href="./#uv-region-set">UV Region Set</a> deformer</li>
+</ul>
+<p>This should make it more volumetric looking, since braid will be made from multiple textured haircards, rather than single one.</p>
 <h5 id="instance-on-strand">Instance on Strand<a class="headerlink" href="#instance-on-strand" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/hsys_instance_on_strand.mp4" type="video/mp4">
@@ -596,7 +642,13 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Snap hair to source surface (could be used for wet hair effect)</em></p>
-<h5 id="noise-deformer">Noise Deformer<a class="headerlink" href="#noise-deformer" title="Permanent link">&para;</a></h5>
+<h5 id="lenghten">Lenghten<a class="headerlink" href="#lenghten" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/lenghten.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Lenghtens hair strands. Unlike simple scale - it will make hair extend from the tips</em></p>
+<h5 id="noise">Noise<a class="headerlink" href="#noise" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/noise.webm" type="video/mp4">
 Your browser does not support the video tag.
@@ -608,18 +660,36 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Set Radius - for hair tapering, strand width randomization, etc. Can also guide Curls amplitude or Braid size - for child Hair Systems</em></p>
+<h5 id="roll-strands">Roll Strands<a class="headerlink" href="#roll-strands" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/roll_strands.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Basically the same as blender build-in Roll</em></p>
 <h5 id="scale">Scale<a class="headerlink" href="#scale" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/scale.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Scale hair up or down. With trim deformer we can reduce length of hair, but Scale deformer helps to make them longer.</em></p>
+<h5 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/simplify_strands.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Resamples strands - assigning lower points count to shorter strands</em></p>
 <h5 id="slide-points">Slide Points<a class="headerlink" href="#slide-points" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/slide_points.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Give more resolution to hair root or tips (depending on 'Influence Range'), by 'sliding' points along the curves</em></p>
+<h5 id="smooth-strands">Smooth Strands<a class="headerlink" href="#smooth-strands" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+    <source src="../../img/geo_nodes_hair/smooth_strands.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+</video>
+<p><em>Smooth out the strands</em></p>
 <h5 id="tag">Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h5>
 <h6 id="assign-tag">Assign Tag<a class="headerlink" href="#assign-tag" title="Permanent link">&para;</a></h6>
 <video style="width:100%" controls>
@@ -661,6 +731,13 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Aligns tilt to target surface (hair normal will point outside of target surface)</em></p>
+<h6 id="align-tilt-to-mesh-border">Align Tilt to Mesh Border<a class="headerlink" href="#align-tilt-to-mesh-border" title="Permanent link">&para;</a></h6>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/aling_to_border.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Align strands tilt to border of source surface (usually scalp). Backfaces are shown in blue</em></p>
+<p><strong>Force Align</strong> if checked, it will align curve and force curve normal to point outside border edge. If unchecked, tilt will be aligned to border, but curve normal will point with the 'flow' - see video above.</p>
 <h5 id="track-to">Track To:<a class="headerlink" href="#track-to" title="Permanent link">&para;</a></h5>
 <h6 id="track-to-mesh">Track to Mesh<a class="headerlink" href="#track-to-mesh" title="Permanent link">&para;</a></h6>
 <video style="width:100%" controls>
@@ -681,6 +758,7 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: Closest affected island is determined by Tracked object origin. Move it to change which island will be affected. After finding desired island, you can move tracked object in edit mode, so that affected strands won't change.</p>
 <p><strong>Note</strong>: If you want to 'Freeze' tracked points, use 'Bind Tracked Curve' button (this will convert 'old' curve to 'new' type). Now strands will follow point at which they were bound, rather than sliding around curve surface.</p>
+<p><strong>Note</strong>: <a href="../../curve_tool#shape-keys">Curve Shape Keys</a> are great addition to Track To Curve deformer.</p>
 </blockquote>
 <h5 id="trim">Trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
@@ -821,7 +899,7 @@ Your browser does not support the video tag.
 </ul>
 <p><img alt="Generate Attributes" src="../../img/geo_nodes_hair/generate_attributes.jpg" />
 <em>Above we sample 'UVMap' from sphere. This generates attribute named 'SampledUV', which can be used to color strands the same way as character body (sphere)</em></p>
-<h5 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h5>
+<h5 id="simplify-strands_1">Simplify Strands<a class="headerlink" href="#simplify-strands_1" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/simpilfy_strands.webm" type="video/mp4">
 Your browser does not support the video tag.
