@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Recommended addons - Hair Tool 3</title>
+    <title>Hair Sculpting - Hair Tool 3</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Recommended addons";
-        var mkdocs_page_input_path = "recommended_addons.md";
+        var mkdocs_page_name = "Hair Sculpting";
+        var mkdocs_page_input_path = "hair_sculpting.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -65,12 +65,16 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../convert_generate_hair/">Convert / Generate</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_sculpting/">Hair Sculpting</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair Sculpting</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#editing-curve-attributes">Editing Curve Attributes</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../curve_tool/">Curve tools</a>
                   </li>
@@ -89,16 +93,14 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Other</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_library/">Hair Library</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_animation/">Animation</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../character_creator_workflow/">Character Creator</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Recommended addons</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../recommended_addons/">Recommended addons</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
                   </li>
@@ -117,8 +119,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-          <li>Other &raquo;</li>
-      <li>Recommended addons</li>
+          <li>Tools &raquo;</li>
+      <li>Hair Sculpting</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -127,20 +129,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h4 id="vertex-color-master">Vertex Color Master<a class="headerlink" href="#vertex-color-master" title="Permanent link">&para;</a></h4>
-<p>I recommend <a href="https://github.com/andyp123/blender_vertex_color_master">Vertex Color Master</a> addon for more detailed control over managing vertex colors on mesh (I added some features to VCMaster with Hair Tool in mind - more advanced color randomization per mesh island, drawing gradients)</p>
-<h4 id="mira-tools">Mira Tools<a class="headerlink" href="#mira-tools" title="Permanent link">&para;</a></h4>
-<p><s><a href="https://github.com/mifth/mifthtools/wiki/Mira-Tools">Mira Tools</a> - It is great plugin especially the linear deformer. It will help you move multiple points and adust them: rotate, scale, offset, bend etc. I made the linear deformer work with curves.</s></p>
-<blockquote>
-<p><strong>Note:</strong> Since 2.23 release <strong>Linear Deformer</strong> is included in <a href="../main_workflows/hair_modeling/#linear-deformer">Hair Modeling</a> tools inside the HTool addon</p>
-</blockquote>
-<p><img alt="Linear deformer" src="../img/linear_deformer.gif" /></p>
+                <h2 id="sculpt-mode-attribute-editing">Sculpt Mode: Attribute Editing<a class="headerlink" href="#sculpt-mode-attribute-editing" title="Permanent link">&para;</a></h2>
+<p>Nope, there are no sculpting brushes in Hair Tool. But there is new ability to edit curve attributes using built-in 'Paint Selection' brush. This is intended to be used with <a href="../main_workflows/hair_system#curve-attribute">Curve Attribute</a> input mask.</p>
+<p><img alt="Edit Curve Attribute" src="../img/edit_curve_attr.jpeg" />
+<em>Editing curve attributes in curve sculpt mode (under Ctrl+Shift+H pie menu)</em></p>
+<h3 id="editing-curve-attributes">Editing Curve Attributes<a class="headerlink" href="#editing-curve-attributes" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../video/attribute_edition.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+<p><em>When entering <code>Edit Attribute</code> mode, you can edit existing or create attribute. Attribute is painted by using 'Paint Selection' brush</em></p>
+<p><strong>Edit Attribute</strong> Switches to <code>Edit Attribute</code> Mode. Use 'Paint Selection' brush (in point selection mode) to edit attribute<br>
+<strong>Save and Finish</strong> When done editing attribute, save changes and finish editing.<br>
+<strong>Smooth Attribute</strong> Smooth selected curve attribute.<br>
+<strong>Selection Mask</strong> It will create curve selection gradient mask. Can be used in 'Edit Attribute' mode.<br></p>
+<video style="width:100%" controls>
+  <source src="../video/attribute_selection_mask.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+<p><em>Selection Mask was used here to create <code>GRADIENT</code> attribute. It was then used Push Out deformer in 'Curve Attribute' input mask</em></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../character_creator_workflow/" class="btn btn-neutral float-left" title="Character Creator"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../faq/" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../hair_modeling/" class="btn btn-neutral float-left" title="Hair Modeling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../curve_tool/" class="btn btn-neutral float-right" title="Curve tools">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -163,10 +176,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../character_creator_workflow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../hair_modeling/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../faq/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../curve_tool/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -78,6 +78,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_sculpting/">Hair Sculpting</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../curve_tool/">Curve tools</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
@@ -134,23 +136,22 @@
 <p>In this section I will only focus on the general Overview of how the Hair Tool works.</p>
 <p><img alt="Hair System Diagram" src="../img/hair_tool_panel.jpeg" />
 <em>All the Hair Tool features are located in Right Sidebar → Hair Tool Tab</em></p>
-<p>The Hair System uses geometry nodes to procedurally generate and modify hair strands. It consists of:</p>
+<p>Since release of ver 3.0, Hair Tool is using 'Hair System' - geometry nodes based stack of modifiers to procedurally generate and modify hair strands. It consists of:</p>
 <ul>
 <li>A <a href="#setup-section">setup section</a> to assign a guide curve and source mesh</li>
 <li>Hair <a href="../main_workflows/hair_system#sub-systems-types">sub-systems</a> with generators and <a href="../main_workflows/hair_system#hair-deformers">Deformers</a> to create and modify strands</li>
 <li>A hair <a href="../../hair_profiles">profile</a> to add geometry, UVs, and materials to strands</li>
 </ul>
-<p>Key features of the Hair System include hair deformers like noise, clumping, braids, curls, etc. It also covers selection tools, input masks, and operators for simplifying strands, transferring the system between objects, and more.</p>
-<p>Only: <a href="../main_workflows/shell_hair">Shell Hair</a> and <a href="../main_workflows/short_hair">Short Hair</a>) are not using <strong>Hair System</strong> workflow</p>
-<p>Hair System components are used almost everywhere in Hair Tool, so it is important to understand how it works.</p>
+<p>Key features of the Hair System include hair deformers like noise, clumping, braids, curls, etc. It also covers selection tools, input masks, and operators for simplifying strands, transferring the system between objects, and more.<br></p>
 <p><img alt="Hair System Diagram" src="../img/hsystem_diagram.jpeg" />
-<em>Hair System Diagram</em></p>
-<p>Hair System Can be attached to Curve (only 'new' hair curves are supported) or Mesh object (usually scalp). It is made from:</p>
+<em>Hair System can be assigned to any mesh (usually scalp) or 'new' curve object</em></p>
+<p>Only: <a href="../main_workflows/shell_hair">Shell Hair</a> and <a href="../main_workflows/short_hair">Short Hair</a> are not using Hair System workflow</p>
+<p>Hair System components are used almost everywhere in Hair Tool, so it is important to understand how it works.</p>
 <h4 id="setup-section">Setup Section<a class="headerlink" href="#setup-section" title="Permanent link">&para;</a></h4>
-<p>In this panel you can pick:</p>
+<p>In this panel displays:</p>
 <ul>
-<li>guide curve - if hair system is attached to mesh object,</li>
-<li>source mesh - if hair system is attached to curve object</li>
+<li>guide curve (greyed out if Hair System is attached to Guide Curve)</li>
+<li>source mesh - from where strands are spawned from - usually scalp (greyed out if Hair System is attached to Source Mesh)</li>
 </ul>
 <p><img alt="Setup Example" src="../img/hsystem_setup.jpeg" />
 <em>In Image above Hair System is attached to guide curve <code>Suzanne_curve_hair</code> (yellow), and strands are spawned from Source Surface: <code>Suzanne_Scalp</code> mesh</em></p>
@@ -160,7 +161,9 @@
 <p><strong>Note</strong>: Setup modifier is optional - for example it is not used when drawing hair curves with <a href="../main_workflows/hair_drawing">Hair Drawing</a> tool.</p>
 </blockquote>
 <h4 id="hair-sub-systems">Hair Sub-Systems<a class="headerlink" href="#hair-sub-systems" title="Permanent link">&para;</a></h4>
-<p><strong>Sub-Systems</strong> Panel is place where hair curves are generated and modified by <a href="../main_workflows/hair_system/#hair-deformers">Deformers</a>. To add Hair Sub-System click [+] icon in Sub-System tab</p>
+<p><strong>Sub-Systems</strong> are responsible for hair curves generation and modification by <a href="../main_workflows/hair_system/#hair-deformers">Deformers</a>. To add Hair Sub-System click [+] icon in Sub-System tab</p>
+<p><img alt="Hair System Diagram" src="../img/sub_systems.jpeg" />
+<em><strong>Sub-System</strong>: Users Count | Name | Tag | Parent Tag | Visibility</em></p>
 <p><img alt="Hair System UI" src="../img/geo_nodes_hair/hair_system_nodal.jpg" />
  <em>On image above we have Two Hair Sub-Systems named: <code>Parent</code>, <code>Child</code>. You can see <code>Child</code> system is made from: Strand Generator, Noise, Clump, etc. deformers. Whole system is guided by: HairCurve guide - second input at very top</em></p>
 <p>Currently, there are three types of sub-systems:</p>
@@ -182,7 +185,7 @@ Hair Tool will automatically add default UVs and Hair Material to hair system.</
 <p><strong>Note</strong>: Do not assign Material to hair object in Materials Tab - this won't work. Use Hair Profile panel instead.</p>
 </blockquote>
 <p><img alt="Hair Profile Panel" src="../img/hair_system_profile.jpeg" />
-<em>Hair Profile Panel</em></p>
+<em>Hair Profile Panel with Flat Profile preset</em></p>
 <video style="width:100%" controls>
   <source src="../video/edit_profile.mp4" type="video/mp4">
 Your browser does not support the video tag.

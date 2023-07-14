@@ -70,31 +70,19 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_sculpting/">Hair Sculpting</a>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Curve tools</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#curve-simplify">Curve Simplify</a>
+    <li class="toctree-l2"><a class="reference internal" href="#radius-section">Radius Section</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resample-curve">Resample Curve</a>
+    <li class="toctree-l2"><a class="reference internal" href="#tilt-section">Tilt Section</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#smooth-curve">Smooth Curve</a>
+    <li class="toctree-l2"><a class="reference internal" href="#utils-section">Utils Section</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#adjust-length">Adjust Length</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#straighten-curve">Straighten Curve</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#smooth-tilt">Smooth Tilt</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#taper-curve">Taper Curve</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#radius-from-length">Radius from length</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#align-curve-tilt">Align Curve tilt</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#randomize-curve-tilt">Randomize Curve Tilt</a>
+    <li class="toctree-l2"><a class="reference internal" href="#other-section">Other Section</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#select-tipsroots">Select Tips/Roots</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#slice-using-mesh">Slice Using Mesh</a>
     </li>
     </ul>
                   </li>
@@ -149,11 +137,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="ribbon-operations">Ribbon operations:<a class="headerlink" href="#ribbon-operations" title="Permanent link">&para;</a></h2>
-<h3 id="curve-simplify">Curve Simplify<a class="headerlink" href="#curve-simplify" title="Permanent link">&para;</a></h3>
-<p><img alt="Curve Simplify" src="../img/curvesimplify.gif" />
-<em><strong>Curve Simplify-</strong> Allows to reduce point count. Good for reducing polycount on hairs</em></p>
-<h3 id="resample-curve">Resample Curve<a class="headerlink" href="#resample-curve" title="Permanent link">&para;</a></h3>
+                <h2 id="curves-operations">Curves operations:<a class="headerlink" href="#curves-operations" title="Permanent link">&para;</a></h2>
+<p>Here I will describe all operators that are available in the bottom part of Hair Tool pie menu (Ctrl+Shift+H - by default). Or from right Sidebar in Hair Operations tab.</p>
+<blockquote>
+<p><strong>Note1:</strong> All these tools will work with selections made with <a href="../hair_modeling"><strong>Hair Modeling</strong></a> tools
+<strong>Note2:</strong> Quite often all hair curves are generated procedurally. This mean tools below wont work, since there are no real curves to operate on. There is option in Hair System to Bake generated Curves to real geometry</p>
+</blockquote>
+<h3 id="radius-section">Radius Section<a class="headerlink" href="#radius-section" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/Radius_section.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+
+<p><strong>Radius Multiply</strong> multiply radius of selected curves by given value
+<strong>Set Multiply</strong> set radius of selected curves to given value
+<strong>Taper Curve</strong> use curve mapping to change radius of selected curves</p>
+<h3 id="tilt-section">Tilt Section<a class="headerlink" href="#tilt-section" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/tilt_tools.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+
+<p><strong>Tilt Add</strong> adds titl to existing curve tilt value
+<strong>Set Tilt</strong> set tilt of selected curves to given value
+<strong>Align Tilt</strong> Align Tilt (to Target - if set, or to curves Surface object)
+<strong>Randomize Tilt</strong> Randomize tilt of selected curves (between 'Max Tilt Angle', and 'Min Tilt')</p>
+<h3 id="utils-section">Utils Section<a class="headerlink" href="#utils-section" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/utils_section.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+
+<p><strong>Smooth Attribute</strong> smooth: radius, tilt or position of selected curves
+<strong>Hair Straighten</strong> straighten selected curves (with adjustable transition)
+<strong>Adjust Length</strong> set length of selected curves to given value (they can be extended above 100% too)</p>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/curve_simplify.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+<p><em><strong>Curve Simplify</strong> Allows to reduce point count. Good for reducing polycount on hairs</em></p>
 <p><img alt="Resample Curve" src="../img/resamplecurve_new.gif" />
 <em><strong>Resample Curve</strong>. Allows to increase/decrease number of points each curve is made of</em></p>
 <p><strong>Parameters (F9):</strong></p>
@@ -164,54 +186,37 @@
 <li><strong>Equal point count</strong> - When disabled, shorter splines will have less points</li>
 <li><strong>Uniform Spacing</strong> - Equalize distance between points when resampling</li>
 </ul>
-<h3 id="smooth-curve">Smooth Curve<a class="headerlink" href="#smooth-curve" title="Permanent link">&para;</a></h3>
-<p><img alt="Smooth Curve" src="../img/smoothcurve.gif" />
-<em><strong>Smooth Curve</strong> - smooth strand points (eg. to reduce noise)</em></p>
-<h3 id="adjust-length">Adjust Length<a class="headerlink" href="#adjust-length" title="Permanent link">&para;</a></h3>
-<p><img alt="Smooth Curve" src="../img/adjust_length.gif" /></p>
-<h3 id="straighten-curve">Straighten Curve<a class="headerlink" href="#straighten-curve" title="Permanent link">&para;</a></h3>
 <video style="width:100%" controls>
   <source src="../video/hair_straighten.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Straighten Curve</strong> - Straighten strands. You can control influence of straighten over strand length, with: transition offset and contrast parameters</em></p>
-<h3 id="smooth-tilt">Smooth Tilt<a class="headerlink" href="#smooth-tilt" title="Permanent link">&para;</a></h3>
-<p><img alt="Smooth Tilt" src="../img/smoothtilt1.gif" />
-<em><strong>Smooth Tilt</strong> does what is says</em></p>
-<h3 id="taper-curve">Taper Curve<a class="headerlink" href="#taper-curve" title="Permanent link">&para;</a></h3>
-<p><img alt="Taper Curve" src="../img/tapercurve.gif" /></p>
-<p><em><strong>Taper Curve -</strong> change strands radius over length</em></p>
-<h3 id="radius-from-length">Radius from length<a class="headerlink" href="#radius-from-length" title="Permanent link">&para;</a></h3>
+
+<p><em><strong>Straighten Curve</strong> old demo from HTool 2.46 (works same way in HT 3.0 - except on new hair curves)</em></p>
+<h3 id="other-section">Other Section<a class="headerlink" href="#other-section" title="Permanent link">&para;</a></h3>
 <video style="width:100%" controls>
-  <source src="../video/length_radius.mp4" type="video/mp4">
+  <source src="../img/curve_tools/separate_join.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-<p><em><strong>Radius from length -</strong> change strands radius depending on its length. You can control min and max radius; transition: threshold and smoothness</em></p>
-<h3 id="align-curve-tilt">Align Curve tilt<a class="headerlink" href="#align-curve-tilt" title="Permanent link">&para;</a></h3>
-<p><img alt="Align Curve tilt" src="../img/tiltalign.gif" />
-<em><strong>Align Curve tilt</strong> - lets you align cure tilt to target object surface.</em></p>
-<h3 id="randomize-curve-tilt">Randomize Curve Tilt<a class="headerlink" href="#randomize-curve-tilt" title="Permanent link">&para;</a></h3>
-<p><img alt="Randomize Curve Tilt" src="../img/titlrandomize.gif" />
-<em><strong>Randomize Curve Tilt</strong> - change curve tilt over its length</em></p>
-<h3 id="select-tipsroots">Select Tips/Roots<a class="headerlink" href="#select-tipsroots" title="Permanent link">&para;</a></h3>
-<video style="width:100%" controls>
-  <source src="../video/select_tips.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em><strong>Select Tips/Roots</strong> - lets you select first/last points on curves. You have option to randomize selection, or limit it by strand length.</em></p>
-<h3 id="slice-using-mesh">Slice Using Mesh<a class="headerlink" href="#slice-using-mesh" title="Permanent link">&para;</a></h3>
+<p><em><strong>Separate / Join Curves</strong> - This works in Object Mode, Curve Edit mode and Sculpt Mode</em></p>
 <video style="width:100%" controls>
   <source src="../video/SliceWithMesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-<p><em><strong>Slice Using Mesh</strong> - you can cut curves using mesh. Option is located at the very bottom of HTool pie menu</em></p>
+<p><em><strong>Slice Using Mesh</strong> - you can cut curves using mesh (same as in HTool 2.46)</em></p>
+<h3 id="select-tipsroots">Select Tips/Roots<a class="headerlink" href="#select-tipsroots" title="Permanent link">&para;</a></h3>
+<p>Available in Curve Edit mode at the bottom of Select menu</p>
+<video style="width:100%" controls>
+  <source src="../video/select_tips.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Select Tips/Roots</strong> - lets you select first/last points on curves. You have option to randomize selection, or limit it by strand length.</em></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../hair_modeling/" class="btn btn-neutral float-left" title="Hair Modeling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_sculpting/" class="btn btn-neutral float-left" title="Hair Sculpting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../mesh_ribbons_ops/" class="btn btn-neutral float-right" title="Mesh tools">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -235,7 +240,7 @@ Your browser does not support the video tag.
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../hair_modeling/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../hair_sculpting/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../mesh_ribbons_ops/" style="color: #fcfcfc">Next &raquo;</a></span>
