@@ -82,6 +82,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#knife">Knife</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#edit-mode">Edit Mode</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_sculpting/">Hair Sculpting</a>
@@ -140,11 +142,17 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-modeling">Hair Modeling<a class="headerlink" href="#hair-modeling" title="Permanent link">&para;</a></h2>
-<p><strong>'Hair Modeling'</strong> button is located in 3d view -&gt; left toolbar.</p>
-<p><img alt="ht_hair_grooming" src="../img/hair_modeling/hair_modeling_button.jpg" /></p>
-<p>You can model hair curves, in natural way, using 'Chain' mode in which you move hair endings, while preserving hair curve length. Or you can 'Normal' mode where you adjust selection with proportional editing.</p>
+<p><img alt="ht_hair_grooming" src="../img/hair_modeling/hair_modeling_button.jpg" />
+<em>Hair Modeling works in object mode. You have to select 'Hair Modeling' tool from left sidebar(T)</em></p>
+<p>The main reasons for these Modeling Tools being developed for object mode, is to avoid default messy drawing of points. See image below (edit mode):</p>
+<video style="width:100%" controls>
+  <source src="../video/hmodeling_overlay.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Drawing curves in editmode in Blender 3.6, is not as bad is it was for old curves (there was no depth culling). Still you may find it easier to work with Hair Modeling strands overlay</em></p>
+<p>You can deform hair curves, in natural way, using 'Chain' mode (IK): it will move hair endings, while preserving hair curve length. There is 'Normal' mode which works same as blender proportional editing.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Yt33I5A07V0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<p><em>This video is a bit outdated (for HT 2.46), but the functionality in Hair Tool 3.0 is mostly the same (except it works only on new hair curves now!)</em></p>
 <p>There are also some basic helper tools:</p>
 <ul>
 <li>duplicate splines</li>
@@ -156,9 +164,7 @@
   <source src="../video/hair_modeling.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-
-<p>On of the reasons for this tool being located in object mode, is to avoid default messy drawing of points, when modeling splines in edit mode:
-<img alt="ht_hair_grooming" src="../img/hair_modeling/curve_editmode.jpg" /></p>
+<p><em>Showcasing Chain (IK) transform mode (G,R,S keys), with Hair Modeling tool</em></p>
 <h4 id="hotkeys">Hotkeys<a class="headerlink" href="#hotkeys" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p><strong>Note</strong>: Switching to Hair Modeling Tool will override some default blender 3d view shorcuts. To select other objects use Ctrl+RMB
@@ -173,7 +179,7 @@ In round brackets I marked optional modifier keys eg. (Alt).</p>
 </thead>
 <tbody>
 <tr>
-<td align="center">Ctrl+MWheel</td>
+<td align="center">Ctrl+MMWheel</td>
 <td align="center">Offset selection</td>
 </tr>
 <tr>
@@ -268,6 +274,11 @@ Your browser does not support the video tag.
   <source src="../img/hair_modeling/hair_knife.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+<h4 id="edit-mode">Edit Mode<a class="headerlink" href="#edit-mode" title="Permanent link">&para;</a></h4>
+<p>Blender does not yet come with some of the basic modeling tools for new hair curves. So few of them were added to Hair Tool.</p>
+<p><img alt="W menu" src="../img/curve_edit_mode_modeling.jpeg" />
+<em>W - menu in edit mode</em></p>
               
             </div>
           </div><footer>

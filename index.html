@@ -48,7 +48,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#other-online-tutorials">Other online Tutorials</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#addon-location">Addon location</a>
+    <li class="toctree-l2"><a class="reference internal" href="#add-on-location">Add-on location</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
@@ -141,59 +141,63 @@
                 <h2 id="hair-tool-3-for-blender-36-and-above">Hair Tool 3 (for Blender 3.6 and above)<a class="headerlink" href="#hair-tool-3-for-blender-36-and-above" title="Permanent link">&para;</a></h2>
 <p><img alt="Hair Tool" src="img/bannerhairtool2.jpg" /></p>
 <p><a href="https://gumroad.com/l/hairtool"><strong>Hair Tool</strong></a> is Blender addon for creating hair cards based on 3d curves.</p>
-<p>This add-on will help you generate hair card with uv's and much more:</p>
+<p>This add-on will help you procedurally generate hair card with uv's, bake them to real geometry cures and then tweak them 'by hand' with some modeling tools:</p>
 <ul>
-<li>generate haircards in procedural way using <a href="./main_workflows/hair_system">Hair System</a></li>
-<li>generate hair ribbons from <a href="./main_workflows/hair_from_surface">guide grid mesh</a></li>
-<li><a href="./main_workflows/hair_drawing">drawing curve</a> hair (or particle hair) on mesh surfaces</li>
+<li>procedural, nondestructive generation and edition of hair curves using <a href="./main_workflows/hair_system">Hair System</a> with <a href="./main_workflows/hair_system#hair-deformers">Deformers</a></li>
+<li><a href="./hair_modeling">modeling tools</a> for adjusting new hair curves (edit: radius, tilt, resample curve, extrude, subdivide etc) - these are not available in Blender 3.6 for new hair curves by default</li>
+<li>generate haircards from <a href="./main_workflows/hair_from_surface">guide grid mesh</a></li>
+<li>generate haircards with <a href="./main_workflows/hair_with_track_mesh">Track mesh</a> deformer</li>
+<li><a href="./main_workflows/hair_drawing">drawing curve</a> and extend hair on mesh surfaces</li>
 <li>learn and quickly block out hair from <a href="./hair_library">Hair Library</a> examples</li>
-<li>automated uv (random uv area is assigned for each spline)</li>
-<li>uv texture preview directly on curve ribbons</li>
-<li>easy and convenient switching back and forth between curve ribbons and mesh, while preserving uv's</li>
-<li>adjust ribbons looks (tapering radius, randomizing tilt, editing profile)</li>
-<li>convert Curves to Particle Hair, Particle Hair to curve ribbons, Curve ribbons to mesh ribbons and so on.</li>
-<li>Curve Resampling - increase, decrease curve/ribbon points count</li>
+<li>automated uv handling - random uv area is assigned for each hair curve</li>
+<li>nondestructive hair editing (curls, braids, clumping, lengthening, twisting, rolling etc)</li>
+<li>various hair profiles to choose from: flat, curly profile, braid profile, mesh profile, round, no profile (uses Blender curve primitive rendering) etc.</li>
+<li>convenient switching back and forth between object with Hair System and applied version of it,</li>
 <li>Generating vertex color/weights gradients for mesh ribbons.</li>
 <li>And More!</li>
 </ul>
 <h5 id="video-tutorials">Video Tutorials<a class="headerlink" href="#video-tutorials" title="Permanent link">&para;</a></h5>
+<p>These are for hair Tool 2.46. New ones will be created soon!</p>
 <ul>
-<li><a href="https://youtu.be/udIeghTAaII">Introduction video</a></li>
-<li><a href="https://youtu.be/rJTf5TRhxes">Latest Hair Modeling demo video</a></li>
-<li><a href="https://youtu.be/784GPONnO14">Working with materials and uv in Hair Tool 2.1</a></li>
-<li><a href="https://youtu.be/8da1I-TR75o">Example of making hair in Hair Tool 2.1</a></li>
+<li><a href="https://youtu.be/kXxdav7zoF8">Showing Hair System</a> (ui was updated, and new features added, but this video still shows the basics of Hair System)</li>
+<li><a href="https://youtu.be/RDyPvIv17l0">setup haircards in 1 min</a> - assuming you have guide curves already,</li>
+<li><a href="https://youtu.be/-B4-E1lpq0o">Short Hair</a> modeling technique,</li>
+<li>showcasing how to use <a href="https://youtu.be/6r5zUOxpO7c">Track To Curve and to Mesh</a> video</li>
 </ul>
 <h5 id="other-online-tutorials">Other online Tutorials<a class="headerlink" href="#other-online-tutorials" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Amazing  Hair Tool tutorials by Jack Perry - <a href="https://www.artstation.com/artwork/rRkOVL">Part 01</a> and <a href="https://www.artstation.com/artwork/A91Bbq">Part 02</a></li>
 </ul>
-<h5 id="addon-location">Addon location<a class="headerlink" href="#addon-location" title="Permanent link">&para;</a></h5>
-<p><img alt="Hair Tool Pie Menu" src="img/ht_pie.jpg" /></p>
-<p>It is best to use addon from <strong>Ctrl+Shift+H</strong> Pie Menu (hotkey can be changed in preferences).
-There is also Hair Tool panel - located in right Sidebar(N): <strong>"Hair Tool"</strong> tab.</p>
+<h5 id="add-on-location">Add-on location<a class="headerlink" href="#add-on-location" title="Permanent link">&para;</a></h5>
+<p><img alt="Hair Tool Pie Menu" src="img/ht_pie.jpg" />
+<em>Hair Tool Pie Menu and panels in right Sidebar(N)</em></p>
+<ul>
+<li>It is best to use addon from <strong>Ctrl+Shift+H</strong> Pie Menu (hotkey can be changed in preferences).</li>
+<li>There is also Hair Tool panel - located in right Sidebar(N): <strong>"Hair Tool"</strong> tab.</li>
+<li>Last but not least, you can find Hair Tool <a href="./hair_modeling">Modeling Tool</a> in left sidebar(T) in - see icon outlined in yellow on the image above.</li>
+</ul>
 <!-- TODO: add videos new guides... -->
 
 <h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h4>
 <p>To install Hair Tool you need zip file from your <a href="https://gumroad.com/">Gumroad</a> account. Then, inside Blender, go to:</p>
 <ul>
-<li>Edit -&gt; Preferences -&gt; Add-ons, and click '<strong>Install</strong>' button.</li>
+<li>Edit &gt; Preferences &gt; Add-ons, and click '<strong>Install</strong>' button.</li>
 </ul>
-<p>And navigate to <strong>hair_tool_2.xyz.zip</strong> file location.</p>
+<p>And navigate to <strong>hair_tool_3.xy.zip</strong> file location.</p>
 <p><img alt="Installation" src="img/addon_installtation.jpg" />
-<em>For Blender 2.8 use </em><em>hair_tool_2.x</em><em> zip files!</em></p>
+<em>For Blender 3.6 use hair_tool_3.x zip files!</em></p>
 <h4 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h4>
-<p>Hair Tool has build-in <strong>auto updater</strong> which will download and install the latest add-on release. To use auto updater go to:</p>
+<p>Hair Tool has <strong>build-in auto updater</strong> which will download and install the latest add-on release. To use auto updater go to:</p>
 <ul>
-<li>Edit -&gt; Preferences -&gt; Add-ons -&gt; Hair Tool -&gt; press <strong>Check for update</strong>.</li>
+<li>Edit &gt; Preferences &gt; Add-ons &gt; Hair Tool &gt; press <code>Check for update</code>.</li>
 </ul>
 <p>In new version is found, press <strong>Update addon</strong> button, wait few seconds and restart blender.</p>
 <blockquote>
 <p><strong>Note:</strong> To avoid constant email notification update spam, I publish smaller updates/bugfixes without version number bump. Only after implementing enough of new features/bugfixes publish official new version with increased release number. If you want go grab 'smaller' bugfixes, but addon shows, that you already have the latest version, use <strong>Reinstall Current Version</strong>. It will download these smaller incremental bugfixes.</p>
 </blockquote>
 <p>You can also download updates manually by getting new zip file from your <a href="https://gumroad.com/">Gumroad</a> account. You should have received download link to zip file, with email when you purchased Hair Tool.</p>
-<blockquote>
-<p><s>Note: It seems auto-updater does not work on Mac OS. As a Mac user you will have to download update manually from <a href="https://gumroad.com/">Gumroad</a> account.</s> Now it should work on Mac too.</p>
-</blockquote>
+<!-- > <s>Note: It seems auto-updater does not work on Mac OS. As a Mac user you will have to download update manually from [Gumroad](https://gumroad.com/) account.</s> Now it should work on Mac too. -->
+
 <p><img alt="Update Addon" src="img/update_addon.jpg" />
 <em>Checking for new version of </em><em>Hair Tool</em><em> from Preferences panel</em></p>
 <h4 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h4>
@@ -246,5 +250,5 @@ There is also Hair Tool panel - located in right Sidebar(N): <strong>"Hair Tool"
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-07-14 22:01:06.678866+00:00
+Build Date UTC : 2023-07-15 20:41:11.119462+00:00
 -->
