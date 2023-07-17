@@ -128,25 +128,28 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-setup-for-baking">Hair Setup For Baking<a class="headerlink" href="#hair-setup-for-baking" title="Permanent link">&para;</a></h2>
-<p>To Hair Tool comes in with baking blend file template, that makes it easy to bake various hair maps.<br>
-To open this blend file: go to right UI Sidebar(N) -&gt; "Hair Tool" tab -&gt; <strong>'Hair Bake'</strong> panel -&gt; <strong>'Open Baking Scene'</strong> button</p>
+<p>The baking panel is located right Sidebar(N) -&gt; "Hair Tool" tab -&gt; <strong>'Hair Bake'</strong> Panel</p>
+<p>To Hair Tool comes in with baking blend file template, that makes it easy to bake various hair maps. There are two options to bake your textures:</p>
+<ul>
+<li>Open baking template file, and bake your hair setup there (save your work before opening baking file)</li>
+<li>Bake your hair setup directly in your character file - using 'Import Baking Scene' button - this will append 'BakingHair' scene to your file</li>
+</ul>
 <p><img alt="Open Baking Scene" src="../img/open_baking_scene.jpeg" /></p>
+<p>Baking Template consist of few Hair Systems attached to meshes. By tweaking these Hair Systems, you can get desired result.</p>
+<p>See <a href="./main_workflows/hair_system"><strong>Hair System</strong></a> - to learn how they works<br></p>
 <blockquote>
-<p><strong>Note1:</strong> The idea of working with Hair Tool baking Blend file, is that you will open it, and save copy to your selected folder (eg. to folder where your character files are). This way you will not override the baking template, and you will be able to bring it back at any time.</p>
+<p><strong>Note</strong>: To get proper bake, template file uses <a href="../hair_profiles/#round-profile"><strong>Round Profile</strong></a> type.</p>
 </blockquote>
-<p>This file has few mesh objects, with Hair System attached to it. By tweaking these hair systems, you can bake various hair setups.<br>
-All the settings are described in <a href="./main_workflows/hair_system"><strong>Hair System</strong></a>.<br>
-To get proper bake, template file uses <a href="./main_workflows/hair_system#hair-profiles"><strong>Round Profile</strong></a> type.</p>
 <video width="100%" height="100%" controls>
   <source src="../video/baking_setup_geo.mp4" type="video/mp4">
 </video>
 
-<p>This file has also Hair Card preset, with special Preview Material. When you press 'Bake', the resulting texture will be automatically applied to this material, so you can preview the bake result, directly on haircrads.</p>
+<p>This file has also curve, with <code>PreviewBakeMat</code> material assigned to its profile. After pressing 'Bake', the output textures will be automatically applied to this material, so you can see result directly in same file.</p>
 <video width="100%" height="100%" controls>
     <source src="../video/bake_preview.mp4" type="video/mp4">
 </video>
 <p><em>On the left - hair curves that will be  baked; on the right - haircars with baked texture applied</em></p>
-<p>In the future, I will show how to use this template and the preview.</p>
+<p>TODO: show how to use baking template with material preview</p>
               
             </div>
           </div><footer>
