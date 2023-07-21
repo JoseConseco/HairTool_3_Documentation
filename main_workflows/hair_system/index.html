@@ -55,7 +55,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hair-setup">Hair Setup</a>
+    <li class="toctree-l2"><a class="reference internal" href="#one-minute-hair-setup">One Minute Hair Setup</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#transfer-hair-system">Transfer Hair System</a>
     </li>
@@ -215,8 +215,6 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#i-get-errors-in-console">I get Errors in console</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#cannot-convert-hair-system">Cannot convert Hair System</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#hair-interpolation-wont-work">Hair Interpolation won't work</a>
     </li>
         </ul>
@@ -236,7 +234,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../convert_generate_hair/">Convert / Generate</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../convert_hair/">Convert Hair</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../hair_modeling/">Hair Modeling</a>
                   </li>
@@ -311,7 +309,7 @@ Hair System is made from:</p>
  <em>On image above we have Two Hair Systems named: <code>Parent</code>, <code>Child</code>. You can see <code>Child</code> system is made from: Strand Generator, Noise, Clump, Set Radius etc. deformers. Whole system is guided by: HairCurve guide - second input at very top</em></p>
 <p>Strands generated with Hair Systems are then passed to <a href="../../hair_profiles"><strong>hair profile generation</strong></a> system, which convert these strands to hair-cards.</p>
 <hr />
-<h3 id="hair-setup">Hair Setup<a class="headerlink" href="#hair-setup" title="Permanent link">&para;</a></h3>
+<h3 id="one-minute-hair-setup">One Minute Hair Setup<a class="headerlink" href="#one-minute-hair-setup" title="Permanent link">&para;</a></h3>
 <!-- ##### Creating Hair Systems -->
 <p>Below I show you demo of how to <strong>setup game ready hair in 1 minute</strong>:</p>
 <video style="width:100%" controls>
@@ -319,31 +317,23 @@ Hair System is made from:</p>
   <source src="../../img/geo_nodes_hair/hair_workflow_from_zero.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Full setup - starting from scalp mesh and hair curves, and ending with mesh haircards</em></p>
+<p><em>Full setup - starting from scalp mesh, and ending with mesh haircards ready for export</em></p>
 <p>Description of steps:</p>
 <ol>
-<li>
-<p>Adding Hair System to selected curve hair object (Hair System can be assigned to mesh or curve object - one is required, but you need both to get full functionality)</p>
-<p><!-- * Adding Hair system to mesh is possible, but you will have to manually pick guide object (if necessary). This setup is used in Hair Tool Baking scene. -->
- <!-- * When Curve is selected, Hair Tool will check if surface mesh is assigned to it, and will use both. This is what you will usually want to use. If no surface mesh was detected you will be able to use limited functionality of Hair System (no child strands spawning) --></p>
-<blockquote>
-<p><strong>Note</strong>: If you assigned Hair System to curve, then you won't be able to convert it to mesh. In that case use <a href="./#transfer-hair-system"><strong>Transfer Hair System</strong></a> option.</p>
-</blockquote>
-</li>
-<li>
-<p>Reducing Profile width (Flat curve profile is automatically assigned to new Hair System)</p>
-</li>
-<li>Bumping up strands density to 8888 (this depends on size of your object)</li>
+<li>Select scalp mesh, and go to Draw Hair Panel &gt; Enable <a href="../../main_workflows/hair_drawing/">Draw Hair</a></li>
+<li>Hold D key, and draw guide curves with LMB (default Hair Material and UVs will be automatically assigned to them)</li>
+<li>You may need to adjust <a href="../../hair_profiles/#flat-profile">flat profile</a> width (it was ok above, but it depends on size of your mesh)</li>
+<li>Add Hair System with <a href="#strands-generator">Strand Generator</a> option, and go to Hair System Panel.</li>
+<li>Hair System panel &gt; Deformers &gt; Strand Generator &gt; Bumping up strands density to 22222 (value depends on size of your object)</li>
 <li>Adding Deformers:<ul>
+<li><a href="./#radius-set">Radius Set</a> - it will taper the haircards</li>
+<li><a href="./#noise">Noise</a> - it will break the even look of hair</li>
 <li><a href="./#align-tilt">Align Tilt</a> - it will force hair cards to face scalp surface</li>
-<li><a href="./#set-radius">Set Radius</a> - it will taper the haircards</li>
 </ul>
 </li>
-<li>Import hair material: <strong>Ctrl+Shift+H</strong> → <a href="../../uv_material/#default-hair-material">Import Default Hair Material</a> (with default UVs)</li>
-<li>We have to move hair system to mesh (see step 1 note): <strong>Ctrl+Shift+H</strong> → <a href="./#transfer-hair-system">Transfer Hair System</a> → To Empty mesh</li>
-<li>Ctrl+Shift+H → Convert Hair System to mesh (or you can use <a href="../../convert_generate_hair/#finalize-hair">Finalize</a>, to create mesh copy of HSystem)</li>
+<li>Ctrl+Shift+H &gt; <a href="../../convert_hair/#convert-hair-to-mesh">Convert Hair to Mesh</a> (or you can use <a href="../../convert_hair/#finalize-hair">Finalize</a>, to create mesh copy of HSystem)</li>
 </ol>
-<p>That is it, you can now export generated mesh to Game</p>
+<p>That is it, you can now export generated mesh to Game. If you want, you can restore curve hair object with Ctrl+Shift+H &gt; 'Restore Hair Object' - and continue working on it.</p>
 <hr />
 <h3 id="transfer-hair-system">Transfer Hair System<a class="headerlink" href="#transfer-hair-system" title="Permanent link">&para;</a></h3>
 <p>Hair System can be assigned to Mesh or Curve Hair object, depending on which object is selected when you add Hair System. If you want to <strong>change Hair System 'owner'</strong> you can use Transfer Hair System operator.
@@ -410,15 +400,9 @@ Your browser does not support the video tag.
 <p>Visually there should not be any difference, except Hair System 'owner' will change<br>
 User cases when you want to use Transfer Hair System:</p>
 <ul>
-<li>if you want to convert Hair System to mesh, but it is assigned to Curve (Curves do not support converting to mesh). In that case you can transfer Hair System to Empty Mesh, and then <a href="../../convert_generate_hair/#curve-ribbons-to-mesh-ribbons">convert it to mesh</a></li>
 <li>if you want to 'Bake' curves generated by Hair System to curve, but it is assigned to Mesh (meshes cannot receive curves geometry). In that case you can transfer Hair System to Empty Curve, and then bake it to it</li>
-<li>if hair interpolation is broken (e.g. stops working after you select and try to sculpt Guide Curve. See note in <a href="./#hair-interpolation">Hair Iterpolation</a> section</li>
+<li>if hair interpolation is broken (e.g. stops working after you select and try to sculpt Guide Curve. See note in <a href="./#hair-interpolation">Hair Interpolation</a> section</li>
 </ul>
-<blockquote>
-<p><strong>Note</strong>: Often you may end up with Hair System assigned to Source Mesh</p>
-</blockquote>
-<p><img alt="Transfer hair" src="../../img/geo_nodes_hair/hair_transfer.jpg" />
-<em>Above Hair System was assigned to Guide Curve. Transfer Hair System operator will move Hair System to Base Mesh (or Empty Mesh). <a href="../../convert_generate_hair/#curve-ribbons-to-mesh-ribbons">Convert to mesh</a> will work now</em></p>
 <hr />
 <h3 id="general-operations">General Operations<a class="headerlink" href="#general-operations" title="Permanent link">&para;</a></h3>
 <p><img alt="General Operations" src="../../img/geo_nodes_hair/hsys_operations.jpeg" /></p>
@@ -946,8 +930,6 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Warning</strong> this is potentially destructive operation, since whole node tree will be recreated from scratch. Updated nodes behavior may change, resulting in slightly different hair look</p>
 </blockquote>
-<h4 id="cannot-convert-hair-system">Cannot convert Hair System<a class="headerlink" href="#cannot-convert-hair-system" title="Permanent link">&para;</a></h4>
-<p>If you can't convert Hair System to mesh, then it is most likely, because Hair System is assigned Hair Curve object. Curves do not support converting to mesh operation. Use <a href="./#transfer-hair-system"><strong>Transfer Hair System</strong></a> to move Hair System from Curve to Mesh. Then conversion to mesh Hair Cards will work</p>
 <h4 id="hair-interpolation-wont-work">Hair Interpolation won't work<a class="headerlink" href="#hair-interpolation-wont-work" title="Permanent link">&para;</a></h4>
 <p>In some cases interpolation may behave erratically (e.g interpolation breaks when you select Guide Curve). The most likely cause is - <strong>cyclic dependency</strong> between Base Mesh with attached Hair System and Guide Curve.
 See note in <a href="./#hair-interpolation">Hair Iterpolation</a> section.<br>
