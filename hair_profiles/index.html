@@ -100,6 +100,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#profile-menu">Profile Menu</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
@@ -245,16 +247,24 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>In this case I used Collection with 3 objects, to instance them along hair strands</em></p>
-<p>Mesh profile objects should point up, and theirs origin be at the bottom. Otherwise, they may not align correctly to hair strands. Their length is not normalized, meaning taller objects will be longer after placing on hair strands (you may need to match profile objects height by hand, to give them same length).</p>
-<ul>
-<li><strong>Width</strong> - changes cross-section size of mesh when its is placed on top of curve</li>
-</ul>
+<p>Mesh profile objects should point up, and theirs origin be at the bottom. Otherwise, they may not align correctly to hair strands. Their length is not normalized, meaning taller objects will be longer after placing on hair strands (by match profile objects height &gt; gives them same length).</p>
+<blockquote>
+<p><strong>Note</strong>: Fastest way to generate mesh profile is to use <a href="#profile-menu">Profile Menu</a> &gt; <strong>Mesh From UV Boxes</strong> button.</p>
+</blockquote>
 <p><img alt="Profile Mesh Slice" src="../img/geo_nodes_hair/profile_mesh_sliced.jpg" />
 <em><strong>Slice Mesh Profile</strong> button will cut object using custom 'slicing' modifier. This way it will conform better to hair splines - only. Button is displayed next to Profile dropdown menu '✓'</em></p>
 <blockquote>
 <p><strong>Note</strong>: Slice Mesh Profile is using boolean operation in background. It may fail on more complicated objects - e.g. when mesh has self intersections.</p>
 </blockquote>
 <p>UV's of mesh profile objects will be preserved when instanced on top of hair. Using multiple copies of same objects with different UVs is a good way to add some randomization to hair look.</p>
+<h3 id="profile-menu">Profile Menu<a class="headerlink" href="#profile-menu" title="Permanent link">&para;</a></h3>
+<p>In this menu you can find various options for managing hair profiles.</p>
+<p><img alt="Profile Menu" src="../img/hair_system_profile_menu.jpeg" />]</p>
+<p><strong>Copy And Paste Profile</strong> - copy profile from one hair system to another. It will copy all profile settings, UVs and material.</p>
+<p><strong>Update Profile Node Pack</strong> - update node pack for selected profile. It will update all nodes in node pack, and also add missing nodes. It is useful when you want to update profile node pack to latest version.</p>
+<p><strong>Make Profile Unique</strong> - unlink active profile settings from other hair systems (e.g. after pasting profile from another hair system).</p>
+<p><strong>Mesh From UV Boxes</strong> Create multiple mesh objects, based on Hair System UV boxes/regions. Use these objects as target in:\n - Hair System &gt; Profile Tab : <a href="#mesh-profile">Mesh Profile</a></p>
+<p><strong>UVs Menu</strong> - helper for copying and pasting profile UV_data, between Hair System profiles</p>
               
             </div>
           </div><footer>
