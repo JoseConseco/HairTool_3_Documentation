@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Guide from Grid Surface - Hair Tool 3</title>
+    <title>Curves from Grid Surface - Hair Tool 3</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Guide from Grid Surface";
+        var mkdocs_page_name = "Curves from Grid Surface";
         var mkdocs_page_input_path = "main_workflows/hair_from_surface.md";
         var mkdocs_page_url = null;
       </script>
@@ -53,11 +53,13 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Guide from Grid Surface</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Curves from Grid Surface</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#video-tutorial">Video Tutorial</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#proper-grid-mesh">Proper grid mesh</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#some-parameters">Some Parameters</a>
+    <li class="toctree-l2"><a class="reference internal" href="#selected-parameters">Selected Parameters</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
     </li>
@@ -124,7 +126,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
           <li>Hair Modeling Techniques &raquo;</li>
-      <li>Guide from Grid Surface</li>
+      <li>Curves from Grid Surface</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -142,6 +144,12 @@ Your browser does not support the video tag.
 <p><strong>Useful for long hair, eyelashes or layered type of hair</strong>.<br>
 If you want to cover head scalp uniformly with hair, then use standard Hair System with <a href="../../main_workflows/hair_system#strands-generator">Strand Generator</a> instead.</p>
 <p><strong>Curves From Grid Surface</strong> works by generating special <a href="../../main_workflows/hair_system">Hair System</a> preset that uses <a href="../../main_workflows/hair_system/#strands-from-grid-surface">Strands from Grid Surface</a>. Grid mesh topology will guide hair strands flow (this grid has to be made all quads - with grid/chessboard like topology)</p>
+<h4 id="video-tutorial">Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permanent link">&para;</a></h4>
+<p>In first 12 minutes of this video I show how to use this <strong>Curves from Grid Surface feature</strong> (rest of video is about how to use it for actual hair - can be skipped if you are interested only in basics, of how 'Curves from Grid' works)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Rp7yGbxm7HI?start=39"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 <h4 id="proper-grid-mesh">Proper grid mesh<a class="headerlink" href="#proper-grid-mesh" title="Permanent link">&para;</a></h4>
 <p>Guide mesh has to be made from quads and <strong>one border edge loop has to be mark as sharp</strong> (or crease): Ctrl+E -&gt; Mark Sharp/Crease - this edge will become roots of hair strands.
 <img alt="mark sharp" src="../../img/marksharp.jpg" /></p>
@@ -149,7 +157,7 @@ If you want to cover head scalp uniformly with hair, then use standard Hair Syst
 <img alt="Grid Mesh" src="../../img/grid_meshes_examples.jpg" /></p>
 <p>If we flatten these 3d meshes we would get 2D grid:
 <img alt="Grid Mesh" src="../../img/flat_grid_example.jpg" /></p>
-<h4 id="some-parameters">Some Parameters<a class="headerlink" href="#some-parameters" title="Permanent link">&para;</a></h4>
+<h4 id="selected-parameters">Selected Parameters<a class="headerlink" href="#selected-parameters" title="Permanent link">&para;</a></h4>
 <p>Control basic properties like generated curves amount, number of points per spline etc. You can use topology of grid surface to guide density of generated strands. In places where grid surface have denser loops you can generate more strands or give more points to each strand.</p>
 <p><img alt="Points per strand" src="../../img/grid_surface/strands_count.gif" />
 <em><strong>Strands count</strong> - number of strands to generate</em></p>

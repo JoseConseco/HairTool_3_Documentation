@@ -53,10 +53,12 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Guide from Grid Surface</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Curves from Grid Surface</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair with Track Mesh</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#video-tutorial">Video Tutorial</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
     </li>
     </ul>
@@ -146,14 +148,21 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: It is often good idea to add shapekey to your Guide mesh, and work on it with shapekey enabled. This way you can always go back to original shape of guide mesh</p>
 </blockquote>
+<h4 id="video-tutorial">Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permanent link">&para;</a></h4>
+<p>In first 13 minutes of this video I show how to use this <strong>Hair with Track Mesh</strong> feature (rest of video is about how to use it for actual hair - can be skipped if you are interested only in basics, of how 'Hair with Track Mesh' works)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TvBw2eGsky4?start=28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <p>The only initial parameter you can control is under <code>F9</code> key - <code>Offset</code> - it will offset track mesh from base mesh. <br>
 All the other parameters are controlled by Hair System: <a href="../../main_workflows/hair_system#track-to-mesh">Track To Mesh</a> and other <a href="../../main_workflows/hair_system#hair-deformers">deformers</a></p>
+<blockquote>
+<p><strong>Note</strong>: The reason why there on only one parameter available under <code>F9</code> key is that, when I tried to draw popup panel with all the parameters it was crashing the Blender every time. Crashes means, that there is bug in blender itself, but I was unable to create bug report (the code and setup for Track to Mesh is very complicated, thus it is hard to simplify and provide bug report to blender devs)</p>
+</blockquote>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../hair_from_surface/" class="btn btn-neutral float-left" title="Guide from Grid Surface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_from_surface/" class="btn btn-neutral float-left" title="Curves from Grid Surface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../hair_drawing/" class="btn btn-neutral float-right" title="Drawing hair">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
