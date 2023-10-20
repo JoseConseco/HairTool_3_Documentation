@@ -450,7 +450,7 @@ Your browser does not support the video tag.
 </ul>
 <hr />
 <h3 id="sub-systems-types">Sub-Systems Types<a class="headerlink" href="#sub-systems-types" title="Permanent link">&para;</a></h3>
-<p>After adding Hair Sub-System you will notice first slot in deformers stack is added automatically. It is based on selected hair Sub-system type.</p>
+<p>After adding a Hair Sub-System, you'll see the first slot in the deformer stack is added automatically. This is determined by the selected hair sub-system type.</p>
 <h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
 <p>Generator - will generate strands from Base Surface at given resolution, density, length etc. with interpolation option (Parent/Guide Tag must be set). These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
@@ -505,7 +505,7 @@ Your browser does not support the video tag.
  - Base Mesh (with Hair System attached) depends on guide curve (through enabled interpolation to Parent - Guide Curve).<br>
  To fix it and break the cyclic dependency use <a href="./#transfer-hair-system">Transfer Hair System</a> and move Hair System to either Empty Mesh or Guide Curve.</p>
 </blockquote>
-<p>Since Hair Tool 2.46 hair strands <strong>interpolation works in the area enveloped by loose mesh islands</strong> - meaning, if you want to make hairstyle with split: <br></p>
+<p>Since Hair Tool 3.0 and later versions, strands <strong>interpolation operates within areas surrounded by mesh islands</strong> - meaning, if you want to make hairstyle with split: <br></p>
 <ul>
 <li>split scalp mesh in two, without separating to new object, (e.g. select edge loop, that divides the scalp in half - and press 'V' to rip it). Now child strands will not cross this edge.</li>
 </ul>

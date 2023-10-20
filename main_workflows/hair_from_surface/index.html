@@ -169,13 +169,17 @@ clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allo
 <p><img alt="Randomize Spacing" src="../../img/grid_surface/random_spacing.gif" />
 <em><strong>Randomize Spacing</strong> - Randomize spacing between strands</em></p>
 <h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h4>
-<p>In Hair Tool 3.0 <strong>Curves from Grid Surface</strong> is geometry nodes based. This made this feature much more flexible and powerful, but it also introduced one limitation. Consider example guide mesh as follows:</p>
-<p><img alt="Points per strand" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
-<em>Strands interpolation problem. It should go to the right, but it is pulled by red edges to the left</em></p>
-<p>Black strand (generated with Grid Surface) will look for, four closest guides - marked on left part of image: with green and red.<br>
-As you can see it will find 2 green guides and 2 red guides. The problem is: red guides are placed on opposite sides of the mesh. This will cause generated strand to be interpolated toward the average position - center of mesh (middle of image), rather than going to the right.
-To fix this, we can use feature of <a href="../../main_workflows/hair_interpolation">Hair Interpolation</a> - where split mesh islands, do not affect child strand from other islands. So in above case, I could split mesh in half and now strand will follow only the green guides to the right.<br></p>
-<p>Obviously you do not have to split base mesh with gap. <strong>Turn off 'merge'</strong> option in mirror modifier, and you will get the same result. Or use edge split modifier.</p>
+<p>In Hair Tool 3.x <strong>Curves from Grid Surface</strong> is using new strand interpolation (based on Geometry Nodes). It has some limitations, see example below:</p>
+<p><img alt="Ugly Interpolation example" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
+<em>Example of poor strand interpolation, when using 'Curves From Grid'. Strands do not adhere to the guide grid surface and instead follow path downwards</em></p>
+<p><img alt="Reason of ugly interpolation" src="../../img/grid_surface/ugly_grid_reason.jpeg" />
+<em>The reason and explanation: imagine new strand (marked as X above) is picking 2 closest guides; it found one guide to right one to left - which is causing the strand to go to the center (average of both guides)</em></p>
+<p><img alt="Ugly interpolation fix" src="../../img/grid_surface/ugly_grid_fix.jpeg" />
+<em>The fix: split guide grid mesh in to mesh islands, this will split guides too (marked with black and white). Now new strand will follow only group of strands (only white or only white) - resulting in clean interpolation on right</em></p>
+<p>The reason why splitting guide mesh, into two or more mesh islands work is due to how <a href="../../main_workflows/hair_system#hair-interpolation">Hair Interpolation</a> in HTool works - strands spawned on one island, will only follow guides from that mesh island.<br></p>
+<blockquote>
+<p><strong>Note</strong>: You do not have to split base mesh by <a href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/vertex/rip_vertices.html">ripping geometry</a>. In above case I turned Off 'merge' option in <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/mirror.html">mirror modifier</a>, thus righ and left side are seen as separate islands. Or you could use <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html">edge split modifier</a>.</p>
+</blockquote>
               
             </div>
           </div><footer>
