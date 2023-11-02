@@ -490,12 +490,12 @@ Your browser does not support the video tag.
 </blockquote>
 <hr />
 <h3 id="child-parent-setup">Child - Parent setup<a class="headerlink" href="#child-parent-setup" title="Permanent link">&para;</a></h3>
-<p><a href="./#tags">Tags</a> can be used to setup child-parent relation between two Hair Systems. This unlocks: clumping, interpolation, curls, braids, twist and some other possibilities.</p>
+<p><a href="./#tags">Tags</a> serve as labels that can be used to link two <a href="#sub-systems-types">Hair SubSystems</a>, establishing a parent-child relationship (parent strands will guide child strands). Linking two Hair Systems enables capabilities such as: clumping, interpolation, curls, braids, twist and some other possibilities.</p>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/parent_setup.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In video above we have two Hair sub-Systems: ParentSys (<FONT COLOR="RED">red</FONT> strands) Child (<FONT COLOR="#DAAA00">yellow</FONT>). We link them with <code>RED</code> tag, thus establishing child-parent relation (Yellow strands are now children of Red ones). Yellow child strands are interpolated and follow Red strands</em></p>
+<p><em>Above I connected two hair systems using <code>RED</code> tag. 'ParentSys' (colored <FONT COLOR="RED">red</FONT>) receives <code>RED</code> tag, and then same tag is applied to 'Child' system (<FONT COLOR="#DAAA00">yellow</FONT>) - in [Parent] input. From this point forward, the yellow child strands will follow the red ones</em></p>
 <h3 id="hair-interpolation">Hair Interpolation<a class="headerlink" href="#hair-interpolation" title="Permanent link">&para;</a></h3>
 <p>To enable hair interpolation, current Hair System has to have parent - see <a href="./#child-parent-setup"><strong>above</strong></a>.</p>
 <p>After that Toggle Interpolation button will be accessible (enabled by default) in first deformer - <a href="./#strands-generator"><strong>Strands Generator</strong></a> properties</p>
