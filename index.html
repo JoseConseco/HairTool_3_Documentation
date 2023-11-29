@@ -44,11 +44,15 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#video-tutorials">Video Tutorials</a>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#video-tutorials">Video Tutorials</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#other-online-tutorials">Other online Tutorials</a>
+    <li class="toctree-l3"><a class="reference internal" href="#other-online-tutorials">Other online Tutorials</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#add-on-location">Add-on location</a>
+    <li class="toctree-l3"><a class="reference internal" href="#add-on-location">Add-on location</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
@@ -141,22 +145,34 @@
                 <h2 id="hair-tool-3-for-blender-36-and-above">Hair Tool 3 (for Blender 3.6 and above)<a class="headerlink" href="#hair-tool-3-for-blender-36-and-above" title="Permanent link">&para;</a></h2>
 <p><img alt="Hair Tool" src="img/bannerhairtool2.jpg" /></p>
 <p><a href="https://gumroad.com/l/hairtool"><strong>Hair Tool</strong></a> is Blender add-on for creating hair cards based on 3d curves.</p>
-<p>This add-on will help you procedurally generate hair card with UV's, bake them to real geometry curves and then tweak them manually with some modeling tools:</p>
+<p>This add-on will help you procedurally generate hair card with UV's, bake them to real geometry curves and then tweak with modeling tools:</p>
 <ul>
-<li>procedural, nondestructive generation and edition of hair curves using <a href="./main_workflows/hair_system">Hair System</a> with <a href="./main_workflows/hair_system#hair-deformers">Deformers</a></li>
-<li><a href="./hair_modeling">modeling tools</a> for adjusting new hair curves (edit: radius, tilt, resample curve, extrude, subdivide etc) - these are not available in Blender 3.6 for new hair curves by default</li>
-<li>generate haircards from <a href="./main_workflows/hair_from_surface">guide grid mesh</a></li>
-<li>generate haircards with <a href="./main_workflows/hair_with_track_mesh">Track mesh</a> deformer</li>
-<li><a href="./main_workflows/hair_drawing">drawing curve</a> and extend hair on mesh surfaces</li>
-<li>learn and quickly block out hair from <a href="./hair_library">Hair Library</a> examples</li>
-<li>automated uv handling - random uv area is assigned for each hair curve</li>
-<li>nondestructive hair editing (curls, braids, clumping, lengthening, twisting, rolling etc)</li>
-<li>various hair profiles to choose from: flat, curly profile, braid profile, mesh profile, round, no profile (uses Blender curve primitive rendering) etc.</li>
-<li>convenient switching back and forth between object with Hair System and applied version of it,</li>
-<li>Generating vertex color/weights gradients for mesh ribbons.</li>
-<li>And More!</li>
+<li>procedural <a href="./main_workflows/hair_system">Hair System</a> with <a href="./main_workflows/hair_system#hair-deformers">Deformers</a></li>
+<li>Curve <a href="./hair_modeling">Modeling Tools</a> (edit: radius, tilt, resample curve, extrude, subdivide, cut etc). Blender 3.6 and 4.x as of today (2023) does have built-in tools for modeling new hair curves,</li>
+<li><a href="./main_workflows/hair_from_surface">Guide Grid mesh</a> - hair will follow guide grid mesh,</li>
+<li><a href="./main_workflows/hair_with_track_mesh">Track Mesh</a> - sculpt your hair rather than groom.</li>
+<li><a href="./main_workflows/hair_drawing">Hair Drawing</a> (or extending) - very fast way to create hair cards from scratch,</li>
+<li><a href="./hair_library">Hair Library</a> - learn and modify by using one of many hair presets,</li>
+<li>automated uv handling - UVs can be assigned to each strand automatically,</li>
+<li>various <a href="./hair_profiles/#profiles-types">Hair Profiles</a> types to choose from,</li>
+<li>one click <a href="./convert_hair/#finalize-hair">Convert hair to mesh</a></li>
+<li>Sample <a href="./mesh_ribbons_ops/#sample-uv-from-target">vertex color/weights from mesh</a>,</li>
+<li>Automated <a href="./hair_animation/">rigging with jiggle physics</a>,</li>
+</ul>
+<p>And more!</p>
+<h4 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h4>
+<p>Fastest way to get started with Hair Tool:</p>
+<ul>
+<li><a href="./main_workflows/hair_system#one-minute-hair-setup">One minute Hair Setup</a> - quickest way to create hair using hair draw feature (no speedup)</li>
+<li><a href="./main_workflows/hair_system#two-minute-hair-setup">Two minute Hair Setup</a> - basics hairstyle with split, and grooming</li>
+<li>hair <a href="./main_workflows/hair_system#sub-systems-types">SubSystem types</a> - first step when you want to generate hair - click [+] in Hair System panel</li>
+<li><a href="./main_workflows/hair_system#hair-deformers">Hair Deformers</a> - they affect hair look, can be stacked one after another. I would suggest to at least browse through the list of deformers to get idea what they do.</li>
+<li><a href="./main_workflows/hair_system#input-masks">Input Masks</a> - any Deformer input can be masked by eg: vertex group, texture, length etc. (you can create stack of masks)</li>
+<li><a href="./uv_material/#defining-hair-uvs">Define/Modify UVs</a> - resize or add new UV regions to map your haircards.</li>
+<li><a href="./convert_hair/#finalize-hair">Finalize Hair</a> - the last step before exporting hair to game engine or rendering in Blender. Convert curve hair to mesh haircards (with .</li>
 </ul>
 <h5 id="video-tutorials">Video Tutorials<a class="headerlink" href="#video-tutorials" title="Permanent link">&para;</a></h5>
+<p>Often longer videos</p>
 <ul>
 <li>Overview of <a href="https://youtu.be/KdtvWWeGsm0">Hair System</a> - for new Hair Tool 3.0. After 10 min overview, I also show how to make example hairstyle with split.</li>
 <li>Explanation of how <a href="https://youtu.be/T_sy9bsDYq0">Input Masks</a> work, in Hair Tool 3.0.</li>
@@ -253,5 +269,5 @@
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-11-25 20:50:34.604116+00:00
+Build Date UTC : 2023-11-29 13:48:33.182082+00:00
 -->
