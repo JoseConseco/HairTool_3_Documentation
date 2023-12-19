@@ -70,6 +70,8 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair Modeling</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#location">Location</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#hotkeys">Hotkeys</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#offset-selection">Offset selection</a>
@@ -142,29 +144,40 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-modeling">Hair Modeling<a class="headerlink" href="#hair-modeling" title="Permanent link">&para;</a></h2>
-<p><img alt="ht_hair_grooming" src="../img/hair_modeling/hair_modeling_button.jpg" />
-<em>Hair Modeling works in object mode. You have to select 'Hair Modeling' tool from left sidebar(T)</em></p>
-<p>The main reasons for these Modeling Tools being developed for object mode, is to avoid default messy drawing of points. See image below (edit mode):</p>
-<video style="width:100%" controls>
-  <source src="../video/hmodeling_overlay.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Drawing curves in editmode in Blender 3.6, is not as bad is it was for old curves (there was no depth culling). Still you may find it easier to work with Hair Modeling strands overlay</em></p>
-<p>You can deform hair curves, in natural way, using 'Chain' mode (IK): it will move hair endings, while preserving hair curve length. There is 'Normal' mode which works same as blender proportional editing.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Yt33I5A07V0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p><em>This video is a bit outdated (for HT 2.46), but the functionality in Hair Tool 3.0 is mostly the same (except it works only on new hair curves now!)</em></p>
-<p>There are also some basic helper tools:</p>
+<p>This will allow you to select strand tips, and model them with custom:</p>
 <ul>
-<li>duplicate splines</li>
-<li>delete/cut splines</li>
-<li>deform splines using Linear Deformer</li>
+<li>Transformation tools (IK, FK, Root - modes)</li>
+<li>Extend (lengthen)</li>
+<li>Knife (cut)</li>
+<li>Linear Deformer (bend, rotate, scale, move)</li>
+<li>duplicate/delete strands</li>
 <li>adjust tilt and taper</li>
 </ul>
+<video style="width:100%" controls>
+<source src="../video/hair_sculpt_mode_editing.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Example of Hair Modeling tool in action. Selection Groups are used, to quickly select clumps of grouped strands</em></p>
+<h4 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h4>
+<p><strong>Hair Modeling</strong> tool can be enabled from:</p>
+<ul>
+<li>Left sidebar(T-key) &gt; Hair Modeling icon in <strong>Object and Curves Sculpt mode</strong></li>
+</ul>
+<p><img alt="ht_hair_grooming" src="../img/hair_modeling/hair_modeling_button.jpg" /></p>
+<p>There are three strands transform modes available - under G,R,S keys:</p>
+<ul>
+<li><strong>Chain</strong> mode (IK) - move hair endings with rope like behavior</li>
+<li><strong>Normal</strong> mode which works same as blender proportional editing.</li>
+<li><strong>Root</strong> rotate or scale hair using root as pivot point</li>
+</ul>
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Yt33I5A07V0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<!-- *This video is a bit outdated (for HT 2.46), few features were added in Hair Tool 3.x (now it works only on new hair curves)* -->
+
 <video style="width:100%" controls>
   <source src="../video/hair_modeling.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Showcasing Chain (IK) transform mode (G,R,S keys), with Hair Modeling tool</em></p>
+<p><em>Showcasing Chain (IK) transform mode. Since HT 3.4 IK mode supports collisions of hair strands with scalp mesh</em></p>
 <h4 id="hotkeys">Hotkeys<a class="headerlink" href="#hotkeys" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p><strong>Note</strong>: Switching to Hair Modeling Tool will override some default blender 3d view shorcuts. To select other objects use Ctrl+RMB

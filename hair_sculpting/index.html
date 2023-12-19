@@ -72,6 +72,18 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair Sculpting</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#hair-modeling-tools">Hair Modeling Tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#strands-selection">Strands Selection</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#selection-groups">Selection Groups</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#selection-by-island">Selection By Island</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#helpers-unhide">Helpers (un)Hide</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#editing-curve-attributes">Editing Curve Attributes</a>
     </li>
     </ul>
@@ -129,11 +141,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="sculpt-mode-attribute-editing">Sculpt Mode: Attribute Editing<a class="headerlink" href="#sculpt-mode-attribute-editing" title="Permanent link">&para;</a></h2>
-<p>Nope, there are no sculpting brushes in Hair Tool. But there is new ability to edit curve attributes using built-in 'Paint Selection' brush. This is intended to be used with <a href="../main_workflows/hair_system#curve-attribute">Curve Attribute</a> input mask.</p>
-<p><img alt="Edit Curve Attribute" src="../img/edit_curve_attr.jpeg" />
-<em>Editing curve attributes in curve sculpt mode (under Ctrl+Shift+H pie menu)</em></p>
+                <h2 id="sculpt-mode">Sculpt Mode<a class="headerlink" href="#sculpt-mode" title="Permanent link">&para;</a></h2>
+<h3 id="hair-modeling-tools">Hair Modeling Tools<a class="headerlink" href="#hair-modeling-tools" title="Permanent link">&para;</a></h3>
+<p>Following the launch of Hair Tool 3.4, <a href="../hair_modeling">Hair Modeling</a> tools can now be utilized in 'Curve Sculpt' mode (previously it was available only in Object mode)</p>
+<video style="width:100%" controls>
+<source src="../video/hair_sculpt_mode_editing.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Editing may bit slow, since on every update, whole hair system is being recalculated.</em></p>
+<p>This combined with Selection Groups, allows for very powerful and flexible workflow.</p>
+<h3 id="strands-selection">Strands Selection<a class="headerlink" href="#strands-selection" title="Permanent link">&para;</a></h3>
+<h4 id="selection-groups">Selection Groups<a class="headerlink" href="#selection-groups" title="Permanent link">&para;</a></h4>
+<p>With Selection Groups you can <strong>manage strands selection</strong> - assign selected strands to new (or existing) groups, and then re-select them later. This is useful when making hairstyle with split, as you can select and work on each sided of head independently.</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/selection_groups.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Selection Groups  - can be created using 'Assign New ID'. To re-select these strands later use 'Select Group' button and then picking hair strands using (Shift+) LMB</em></p>
+<blockquote>
+<p><strong>Note</strong>: If you want assign hair clump to existing group use <strong>Assign Id: [x]</strong> - where [x] is Active Group number</p>
+</blockquote>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/selection_group_from_island.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Selection Group From Island - it will create and assign hair strands selection groups based on island from which the strand originated</em></p>
+<h4 id="selection-by-island">Selection By Island<a class="headerlink" href="#selection-by-island" title="Permanent link">&para;</a></h4>
+<p>If your source surface (usually scalp), is split into multiple islands, you can select hair strands that are originating from given island. This is useful when you want to select hair strands that are on specific part of the head (like top of the head, or back of the head)</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/select_by_island.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Select Island - will select hair strands that are originating from picked mesh island</em></p>
+<blockquote>
+<p><strong>Note</strong>: instead of splitting the edges physically, you can use the <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html"><strong>Edges split</strong></a> modifier. First <a href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/edge/edge_data.html#bpy-ops-mesh-mark-sharp">mark edge as sharp</a></p>
+</blockquote>
+<h4 id="helpers-unhide">Helpers (un)Hide<a class="headerlink" href="#helpers-unhide" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/hsystem_un_hide.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p>You can also use Hotkeys:</p>
+<ul>
+<li>H key - will hide hair strands</li>
+<li>Alt+H - will reveal hidden strands</li>
+</ul>
+<hr />
 <h3 id="editing-curve-attributes">Editing Curve Attributes<a class="headerlink" href="#editing-curve-attributes" title="Permanent link">&para;</a></h3>
+<p>Hair Tool brings you ability to edit curve attributes using built-in 'Paint Selection' brush.</p>
+<p><img alt="Edit Curve Attribute" src="../img/edit_curve_attr.jpeg" />
+    <em>Editing curve attributes in curve sculpt mode (under Ctrl+Shift+H pie menu)</em></p>
+<p>Strand <strong>.selection attribute</strong> (0.0 to 1.0 range float) - <strong>can be converted to any other strand attribute</strong> and then used with <a href="../main_workflows/hair_system#curve-attribute">Curve Attribute</a> input mask</p>
 <video style="width:100%" controls>
   <source src="../video/attribute_edition.mp4" type="video/mp4">
       Your browser does not support the video tag.
