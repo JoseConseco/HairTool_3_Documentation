@@ -431,17 +431,15 @@ Your browser does not support the video tag.
 </video>
 <p><em>Strands Generator - if parent tag is set, then strands will follow guide curves. <a href="./#child-parent-setup"><strong>Set as child</strong></a></em></p>
 <h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
-<p>Imagine you want to modify multiple Hair System, for example by adding <a href="./#set-radius">Set Radius</a> or <a href="./#align-tilt">Align Tilt</a> etc. Rather than adding these deformers to each Hair System, one by one, you can <strong>use Filter System, to affect all filtered strands at once</strong>. Strands Filter is very useful, if placed at the end of stack - <strong>you can modify all preceding Hair Systems in one place</strong>.</p>
-<blockquote>
-<p><strong>Note</strong>: If no filter tag is specified, then all strands will be affected</p>
-</blockquote>
+<p>The tool will enable you to make adjustments to existing hair strands. It does not matter if these strands are 'real' - e.g. generated with <a href="../../main_workflows/hair_drawing/">Hair Drawing</a>, or generated procedurally by preceding Hair subSystem. It offers the option to <strong>affect only some of the strands, by filtering them with <a href="./#tag">TAGs</a></strong>.</p>
+<p>Imagine you want to modify two Hair Systems, by adding <a href="./#set-radius">Set Radius</a> or <a href="./#align-tilt">Align Tilt</a>. Instead of applying these deformers to each individual Hair subSystem, you can <strong>utilize the Filter System to affect all strands simultaneously</strong>.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/strands_filter.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In this simple demo we use 'Right' tag, to scale filtered strands</em></p>
+<p><em>Demo of applying 'Scale' deformer to strands generated with <code>Right</code> Tag</em></p>
 <blockquote>
-<p><strong>Note</strong>: If you want to affect only part of visible hair you can enable '<strong>Affect Tag</strong>' option - and type int Tag of hairstrands that you want to modify.</p>
+<p><strong>Note</strong>: If no filter tag is specified, then all strands will be affected</p>
 </blockquote>
 <h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
 <p>This is special type of Generator, that will generate strands from Grid Surface (chessboard like mesh, made of quads with grid topology).
