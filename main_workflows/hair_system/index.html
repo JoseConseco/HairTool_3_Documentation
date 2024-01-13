@@ -196,16 +196,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#profile-other-settings">Profile Other Settings</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#generate-attributes">Generate Attributes</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#simplify-strands_1">Simplify Strands</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#draw-source-mesh">Draw Source Mesh</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#updating">Updating</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
@@ -873,32 +863,6 @@ Your browser does not support the video tag.
 <li>Quadratic - gives more detailed control: modulate effect independently at strand beginning, center and end</li>
 <li>Profile Curve - most detailed control using profile curve<br></li>
 </ul>
-<hr />
-<h3 id="profile-other-settings">Profile Other Settings<a class="headerlink" href="#profile-other-settings" title="Permanent link">&para;</a></h3>
-<p>This sub-section of Profile panel contains extra profile options (UV and Color Sampling, profile simplification etc.)</p>
-<h5 id="generate-attributes">Generate Attributes<a class="headerlink" href="#generate-attributes" title="Permanent link">&para;</a></h5>
-<p>Generate extra attributes like:</p>
-<ul>
-<li><strong>Tangent</strong> - required for proper specular highlights (only if you use Hair Tool hair material)</li>
-<li><strong>Factor</strong> - black and white gradient along each strand length</li>
-<li><strong>Random</strong> - each haircard will get random grayscale color</li>
-<li><strong>Sample UV</strong> - pick name of UV channel, that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair Material using <strong>Attribute Node</strong> with name <strong>SampledUV</strong></li>
-<li><strong>Sample Color</strong> - pick name of vertex Color that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair material using <strong>Attribute Node</strong> with name <strong>SampledColor</strong></li>
-</ul>
-<p><img alt="Generate Attributes" src="../../img/geo_nodes_hair/generate_attributes.jpg" />
-<em>In setup above we sample <code>UVMap</code> from sphere. This generates attribute named <code>SampledUV</code>, which can be used to color strands with same texture as character body</em></p>
-<h5 id="simplify-strands_1">Simplify Strands<a class="headerlink" href="#simplify-strands_1" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/simpilfy_strands.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Simplify Strands optimizes polycount of generated hair geometry, by assigning less points to shorter strands. This can easily cut polycount in half!</em></p>
-<h5 id="draw-source-mesh">Draw Source Mesh<a class="headerlink" href="#draw-source-mesh" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/draw_source_mesh.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>If Hair System is attached to source surface (scalp mesh in demo above), you can toggle drawing of this surface</em></p>
 <hr />
 <h3 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h3>
 <p>After updating Hair Tool add-on, you may need to update your Hair Setup:</p>
