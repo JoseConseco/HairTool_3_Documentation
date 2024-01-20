@@ -92,6 +92,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#texture-channel-mixing">Texture channel mixing</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#flatten-to-uv-shape">Flatten to UV Shape</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -172,14 +174,18 @@
 <p><strong>Note</strong>:If you enable button '<strong>Composite channels</strong>', Hair Tool will automatically create node setup with input textures from baked images, after baking is finished.
 <img alt="Texture channel mixing" src="../img/composite_channels.jpg" /></p>
 </blockquote>
-<!--
-### UV to shape key
-![UV to shape key](./img/uv_flatten.gif)
-*Use objects UV to create planar Shape Key. Useful for baking short hair to uv. To un-flatten object run this operator again*
-> **Note1**: This operator will scale particle hair length, hair roughness amplitude, kink amplitude etc. to maintain consistent hair look after base mesh being flattened! That is why to flatten or un-flatten the mesh use 'UV to shape key' button, or you hair may look wrong, if you manually use shape key slider instead.
+<h3 id="flatten-to-uv-shape">Flatten to UV Shape<a class="headerlink" href="#flatten-to-uv-shape" title="Permanent link">&para;</a></h3>
+<p>Create flattened version of hair, from base mesh UVs. Useful when you want to bake hair system, without having to convert hair to mesh . To un-flatten object run this operator again</p>
+<video style="width:100%" controls>
+<source src="../img/uv_flatten.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>On left we have Hair System attached to Suzane, then we flatten to UVMap. Finally I show you, how the baked texture, look on basemesh</em></p>
+<!-- ![UV to shape key](./img/uv_flatten.gif) -->
 
-> **Note1**: For baking use Hair Tool baking scene.
--->
+<blockquote>
+<p><strong>Note1</strong>: For baking flattened hair use baking scene setup.</p>
+</blockquote>
               
             </div>
           </div><footer>
