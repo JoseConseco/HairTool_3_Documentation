@@ -414,12 +414,17 @@ User cases when you want to use Transfer Hair System:</p>
 <h3 id="sub-systems-types">Sub-Systems Types<a class="headerlink" href="#sub-systems-types" title="Permanent link">&para;</a></h3>
 <p>After adding a Hair Sub-System, you'll see the first slot in the deformer stack is added automatically. This is determined by the selected hair sub-system type.</p>
 <h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
-<p>Generator - will generate strands from Base Surface at given resolution, density, length etc. with interpolation option (Parent/Guide Tag must be set). These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
+<p>It will generate strands, from Base Mesh surface, with parameters like: resolution, density, length, interpolation (<a href="./#child-parent-setup">Parent Child relation must be set</a>) etc. These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/strands_gen.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Strands Generator - if parent tag is set, then strands will follow guide curves. <a href="./#child-parent-setup"><strong>Set as child</strong></a></em></p>
+<p><em>Set parent <a href="./#tags">Tags</a> and enable <a href="./#hair-interpolation">interplation</a> option, so that generated strands will follow these Tagged strands. See <a href="./#child-parent-setup"><strong>Child Parent Setup</strong></a></em></p>
+<video style="width:100%" controls>
+  <source src="../../video/strand_gen_align.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Align to Surface Normal - option changes how the interplation works. Do not confuse with <a href="./#align-tilt">Align Tilt To Source Surface</a></em></p>
 <h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
 <p>The tool will enable you to make adjustments to existing hair strands. It does not matter if these strands are 'real' - e.g. generated with <a href="../../main_workflows/hair_drawing/">Hair Drawing</a>, or generated procedurally by preceding Hair subSystem. It offers the option to <strong>affect only some of the strands, by filtering them with <a href="./#tag">TAGs</a></strong>.</p>
 <p>Imagine you want to modify two Hair Systems, by adding <a href="./#set-radius">Set Radius</a> or <a href="./#align-tilt">Align Tilt</a>. Instead of applying these deformers to each individual Hair subSystem, you can <strong>utilize the Filter System to affect all strands simultaneously</strong>.</p>
