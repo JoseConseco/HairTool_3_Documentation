@@ -105,8 +105,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-uv-operator-cant-be-found-in-search-menu">Hair UV operator can't be found in search menu</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#how-do-convert-hair-system-to-particle-system">How do Convert Hair System to Particle System?</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-do-i-export-hair">How do I export hair?</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-do-i-export-hair-texture">How do I export hair texture?</a>
@@ -197,14 +195,6 @@ Go to Preferences -&gt; System -&gt; Enable 'Global Undo'. You may need to resta
 <p>Since 2.24 version I added 'Hair UV' button to UV Image Editor header:
 <img alt="Hair UV" src="../img/faq/hair_uv.jpg" />
 Unfortunately I'm not sure why this operator is missing from search menu for some people...</p>
-<h3 id="how-do-convert-hair-system-to-particle-system">How do Convert Hair System to Particle System?<a class="headerlink" href="#how-do-convert-hair-system-to-particle-system" title="Permanent link">&para;</a></h3>
-<p><img alt="Hair UV" src="../img/faq/convert_new_hair_to_particle.jpg" />
-<em>This will work only if new curves hair object is selected</em></p>
-<ol>
-<li>You may need to transfer Hair System to curves (e.g. if it is attached to mesh): Ctrl+Shift+H &gt; <a href="../main_workflows/hair_system/#transfer-hair-system">Transfer Hair System</a> &gt; To Curve</li>
-<li>If your hair curves are not 'real' (no curves are visible in Edit mode), bake them to 'real' geometry: Ctrl+Shift+H &gt; <a href="../main_workflows/hair_system/#bake">Bake All Subsystems</a></li>
-<li>Now finally you should be able to use: Object menu &gt; Convert to &gt; Particle System (see image above)</li>
-</ol>
 <h3 id="how-do-i-export-hair">How do I export hair?<a class="headerlink" href="#how-do-i-export-hair" title="Permanent link">&para;</a></h3>
 <p>Hair generated in Hair Tool can be exported just like any other mesh (File &gt; Export &gt; FBX). Just make sure to <a href="../convert_hair#convert-hair-to-mesh">Convert Curves to Mesh</a> hair first.</p>
 <h3 id="how-do-i-export-hair-texture">How do I export hair texture?<a class="headerlink" href="#how-do-i-export-hair-texture" title="Permanent link">&para;</a></h3>

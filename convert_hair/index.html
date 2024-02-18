@@ -71,9 +71,9 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#finalize-hair">Finalize Hair</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-to-curve">Particle Hairs to Curve</a>
+    <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-to-curves">Particle Hairs to Curves</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-from-curve">Particle Hairs From Curve</a>
+    <li class="toctree-l2"><a class="reference internal" href="#hair-curves-to-particle-system">Hair Curves to Particle System</a>
     </li>
     </ul>
                   </li>
@@ -142,21 +142,38 @@
 Your browser does not support the video tag.
 </video>
 
-<p>Convert hair curves object to mesh haircards. You will be able to restore original hair system with <strong>Restore Hair Object</strong> operator.<br>
-Use after you finished making hair in curve mode, before exporting hair to game engine or when you want to rig hair. This operator ensures that curves UVs, vertex colors, sampled UV and Colors are properly transferred to mesh version of hair.</p>
-<p>If you do not want to mess up with your orignal hair object, use Finalize Hair operator instead.</p>
+<p><strong>Converts hair curves object to mesh haircards</strong>. You will be able to restore original hair system with <strong>Restore Hair Object</strong> operator.<br>
+Use:</p>
+<ul>
+<li>after you finished making hair in curve mode,</li>
+<li>before exporting hair to game engine,</li>
+<li>when you want to rig and animate hair.</li>
+</ul>
+<p>This operator ensures that curve: UVs, vertex colors, sampled Colors and other attributes are properly transferred to mesh version of hair.</p>
+<p>If you do not want to mess up with your original hair object, use Finalize Hair operator instead.</p>
 <h3 id="finalize-hair">Finalize Hair<a class="headerlink" href="#finalize-hair" title="Permanent link">&para;</a></h3>
 <p>Just like "Convert Hair To Mesh," but the generated mesh will be created as a separate object. This allows you to keep your original hair object safe while using the mesh copy that's ready for exporting. Once you've exported the hair, you can get rid of the copy and carry on with your work on the original object.</p>
 <p><strong>Operator properties</strong> (F9):</p>
 <ul>
 <li><strong>Join Instances</strong> - join result of 'Finalize Hair' into one object.</li>
 </ul>
-<h3 id="particle-hairs-to-curve">Particle Hairs to Curve<a class="headerlink" href="#particle-hairs-to-curve" title="Permanent link">&para;</a></h3>
+<h3 id="particle-hairs-to-curves">Particle Hairs to Curves<a class="headerlink" href="#particle-hairs-to-curves" title="Permanent link">&para;</a></h3>
 <p><img alt="Particle Hairs to Curve" src="../img/curvesfromparticles.gif" />
-<strong>Particle Hairs to Curve</strong> - generate curve ribbons from Particle hair.  Align their tilt to head with 'Align Tilt' checkbox, and embed hair roots deeper into the scull using 'Embed Roots' parameter.</p>
-<h3 id="particle-hairs-from-curve">Particle Hairs From Curve<a class="headerlink" href="#particle-hairs-from-curve" title="Permanent link">&para;</a></h3>
-<p><img alt="(Particle Hairs From Curve)" src="../img/particlehairfromcurve.gif" />
-<strong>Particle Hair from Curves</strong> (this can be used to convert zbrush fibermesh to blender Particle Hair system). Select curves and target mesh (that will receive Particle Hair) and use '<strong>Particle Hair from Curves</strong>' to convert curves object to blenders Hair system.</p>
+<strong>Particle Hairs to (old) Curves</strong> - generate old path curve object from particle hairs.</p>
+<blockquote>
+<p><strong>Note:</strong> old Curves (e.g. Bezier or Path Curves) are no longer supported in Hair Tool 3.x. You can convert then to new hair curves using Blender built-in: W menu &gt; Convert &gt; Curves</p>
+</blockquote>
+<h3 id="hair-curves-to-particle-system">Hair Curves to Particle System<a class="headerlink" href="#hair-curves-to-particle-system" title="Permanent link">&para;</a></h3>
+<p><img alt="Hair UV" src="../img/faq/convert_new_hair_to_particle.jpg" />
+<em>This will work only if new curves hair object is selected</em></p>
+<ol>
+<li>First you may need to <strong>transfer Hair System to hair curves</strong> (e.g. if it is attached to mesh): Ctrl+Shift+H &gt; <a href="../main_workflows/hair_system/#transfer-hair-system">Transfer Hair System</a> &gt; To Curve</li>
+<li>If your hair curves are not 'real' (no curves are visible in Edit mode), <strong>bake them to 'real' geometry</strong>: Ctrl+Shift+H &gt; <a href="../main_workflows/hair_system/#bake">Bake All Subsystems</a></li>
+<li>Now finally you should be able to use Blenders built-in: Object menu &gt; Convert to &gt; Particle System (see image above)</li>
+</ol>
+<!-- ### Particle Hairs From Curve -->
+<!-- ![(Particle Hairs From Curve)](img/particlehairfromcurve.gif) -->
+<!-- **Particle Hair from Curves** (this can be used to convert zbrush fibermesh to blender Particle Hair system). Select curves and target mesh (that will receive Particle Hair) and use '**Particle Hair from Curves**' to convert curves object to blenders Hair system. -->
               
             </div>
           </div><footer>
