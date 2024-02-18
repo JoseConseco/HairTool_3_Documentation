@@ -135,30 +135,22 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="convert">Convert<a class="headerlink" href="#convert" title="Permanent link">&para;</a></h2>
-<p>User can convert:</p>
-<ul>
-<li>Particle Hair to 'old' curves,</li>
-<li>'old' Curves to Particle Hair,</li>
-<li>Hair System or any new hair Curve with Profile to Mesh (and back).</li>
-</ul>
-<p>You can also generate:</p>
+<p>These operators will allow you to convert curve hair with profile, to mesh haircards.</p>
 <h3 id="convert-hair-to-mesh">Convert Hair To Mesh<a class="headerlink" href="#convert-hair-to-mesh" title="Permanent link">&para;</a></h3>
 <video style="width:100%" controls>
   <source src="../video/curves_to_mesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-<p><strong>Convert Hair To Mesh</strong> - Convert hair object to mesh. You will be able to restore original hair system with 'Restore Hair Object' operator. Used as last step, after you are done with the modeling in curve mode, before exporting hair to game. This operator ensures that curves UVs, vertex colors, sampled UV and Colors are properly transferred to mesh version of hair.</p>
+<p>Convert hair curves object to mesh haircards. You will be able to restore original hair system with <strong>Restore Hair Object</strong> operator.<br>
+Use as last step, after you are done with the modeling in curve mode, before exporting hair to game. This operator ensures that curves UVs, vertex colors, sampled UV and Colors are properly transferred to mesh version of hair.</p>
+<p>If you do not want to mess up with your orignal hair object, use Finalize Hair operator instead.</p>
 <h3 id="finalize-hair">Finalize Hair<a class="headerlink" href="#finalize-hair" title="Permanent link">&para;</a></h3>
-<p>When exporting your character, with hair, you would have to:</p>
+<p>Just like "Convert Hair To Mesh," but the generated mesh will be created as a separate object. This allows you to keep your original hair object safe while using the mesh copy that's ready for exporting. Once you've exported the hair, you can get rid of the copy and carry on with your work on the original object.</p>
+<p><strong>Operator properties</strong> (F9):</p>
 <ul>
-<li>Convert curve Hair to mesh</li>
-<li>Join mesh hair with character body (it is destructive operation, so usually you would create copies each object before joining the duplicates)</li>
-<li>export merged-duplicated object</li>
+<li><strong>Join Instances</strong> - join result of 'Finalize Hair' into one object.</li>
 </ul>
-<p>Finalize Hair is doing first two steps. Just select curve hair (or mesh hair), your character object and run 'Finalize hair' to get merged copy that is ready to export. You can remove exported duplicated object after that.</p>
-<p>Properties:
-<strong>Join Instances</strong> - join result of 'Finalize Hair' into one object.</p>
 <h3 id="particle-hairs-to-curve">Particle Hairs to Curve<a class="headerlink" href="#particle-hairs-to-curve" title="Permanent link">&para;</a></h3>
 <p><img alt="Particle Hairs to Curve" src="../img/curvesfromparticles.gif" />
 <strong>Particle Hairs to Curve</strong> - generate curve ribbons from Particle hair.  Align their tilt to head with 'Align Tilt' checkbox, and embed hair roots deeper into the scull using 'Embed Roots' parameter.</p>
