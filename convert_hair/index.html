@@ -71,6 +71,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#finalize-hair">Finalize Hair</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#haircards-to-mesh-loops">Haircards to Mesh Loops</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-to-curves">Particle Hairs to Curves</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-curves-to-particle-system">Hair Curves to Particle System</a>
@@ -157,6 +159,17 @@ Use:</p>
 <ul>
 <li><strong>Join Instances</strong> - join result of 'Finalize Hair' into one object.</li>
 </ul>
+<h3 id="haircards-to-mesh-loops">Haircards to Mesh Loops<a class="headerlink" href="#haircards-to-mesh-loops" title="Permanent link">&para;</a></h3>
+<p>You can <strong>convert existing haircards to mesh loops</strong> (and then to curves), with this operator.<br></p>
+<video style="width:100%" controls>
+  <source src="../video/haircard_to_mesh.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Existing Haircards have to have 'nice' uv's &gt; going from root (top) to tip (bottom) of the card. Conversion will work even on triangulated mesh</em></p>
+<blockquote>
+<p><strong>Note:</strong> You can convert generated mesh loops to curves using built-in Blender operator: Object menu (W - key) &gt; Convert to &gt; Curve, and then Convert to &gt; Curves, to generate new hair curves. After that you can <a href="../hair_profiles#flat-profile">assign Profile</a> to the result.</p>
+<p><strong>Note:</strong> After converting mesh loops to curves, you can resample them - with Hair Tool: Ctrl+Shift+H &gt; Resample operator.</p>
+</blockquote>
 <h3 id="particle-hairs-to-curves">Particle Hairs to Curves<a class="headerlink" href="#particle-hairs-to-curves" title="Permanent link">&para;</a></h3>
 <p><img alt="Particle Hairs to Curve" src="../img/curvesfromparticles.gif" />
 <strong>Particle Hairs to (old) Curves</strong> - generate old path curve object from particle hairs.</p>
