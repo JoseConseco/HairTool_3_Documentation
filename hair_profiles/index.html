@@ -166,9 +166,16 @@
 Your browser does not support the video tag.
 </video>
 <p><em>Demo showing various hair profiles available in Hair Tool</em></p>
-<p>Hair Profile is last modifier in Hair System stack. It is place where curves get profile geometry attached, UV data is stored and Material is set<br>
-Hair Tool will automatically add default UVs and Material to any profile.</p>
-<p><img alt="Hair System UI" src="../img/hsystem_setup_profile.jpeg" /></p>
+<p>Hair Profile is the last modifier in Hair System stack. It's where curves receive:</p>
+<ul>
+<li>profile geometry,</li>
+<li>UV data,</li>
+<li>Material,</li>
+<li><a href="#generate-attributes">sampled UVs and vertex Colors</a> from source surface mesh,</li>
+</ul>
+<p>Hair Tool will automatically assign default UVs and Material to new profile.</p>
+<p><img alt="Hair System UI" src="../img/hsystem_setup_profile.jpeg" />
+<em>Profile Panel - where you can change profile type, material, etc.</em></p>
 <h3 id="addingupdate-curve-profile">Adding/Update curve profile<a class="headerlink" href="#addingupdate-curve-profile" title="Permanent link">&para;</a></h3>
 <video style="width:100%" controls>
   <source src="../video/edit_profile.mp4" type="video/mp4">
@@ -292,8 +299,8 @@ Your browser does not support the video tag.
 <p>Generate extra attributes like:</p>
 <ul>
 <li><strong>Tangent</strong> - required for proper specular highlights (only if you use Hair Tool hair material)</li>
-<li><strong>Factor</strong> - black and white gradient along each strand length</li>
-<li><strong>Random</strong> - each haircard will get random grayscale color</li>
+<li><strong>Factor</strong> - black and white gradient attribute along each strand length</li>
+<li><strong>Random</strong> - each haircard will get random grayscale color attribute</li>
 <li><strong>Sample UV</strong> - pick name of UV channel, that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair Material using <strong>Attribute Node</strong> with name <strong>SampledUV</strong></li>
 <li><strong>Sample Color</strong> - pick name of vertex Color that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair material using <strong>Attribute Node</strong> with name <strong>SampledColor</strong></li>
 </ul>

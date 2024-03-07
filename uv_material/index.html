@@ -143,11 +143,12 @@
                 <h3 id="hair-uv-and-material-setup">Hair UV and Material setup<a class="headerlink" href="#hair-uv-and-material-setup" title="Permanent link">&para;</a></h3>
 <h4 id="default-hair-material">Default Hair Material<a class="headerlink" href="#default-hair-material" title="Permanent link">&para;</a></h4>
 <p>Hair Tool comes with built-in hair shader named <code>HT_Defautl_Material</code>. It was made to look best in real-time preview in EEVEE.<br>
-It is using simplified texture setup:</p>
+It is using single texture with:</p>
 <ul>
-<li>one texture with Alpha map and Depth map in RGB channels</li>
+<li>RGB channels for depth pass</li>
+<li>alpha channel for opacity</li>
 </ul>
-<p>In most cases it will be assigned automatically by add-on, but you can also manually assign it by using: <strong>Ctrl+Shift+H</strong> Pie Menu, and run <strong>Import Default Hair material</strong> operator. It will assing default UV data too.</p>
+<p>In most cases it will be assigned automatically by add-on, but you can also manually assign it by using: <strong>Ctrl+Shift+H</strong> Pie Menu, and run <strong>Import Default Hair material</strong> operator. It will assign default UV data too.</p>
 <video style="width:100%" controls>
   <source src="../video/hair_material.mp4" type="video/mp4">
 Your browser does not support the video tag.

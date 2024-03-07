@@ -224,13 +224,19 @@ Examples of <strong>bad topology</strong>:
 <h3 id="how-to-assign-uv-to-selected-strand">How to assign UV to selected strand?<a class="headerlink" href="#how-to-assign-uv-to-selected-strand" title="Permanent link">&para;</a></h3>
 <p>For selected strands you can use <a href="../uv_material/#set-uv-region">Set UV region</a></p>
 <h3 id="how-do-i-change-hair-texture">How do I change hair texture?<a class="headerlink" href="#how-do-i-change-hair-texture" title="Permanent link">&para;</a></h3>
-<p>Changing hair texture is exactly the same as changing the texture of any other mesh:</p>
+<p>To change hair texture you first need to identify which material <a href="../hair_profiles/">Hair Profile</a> is using.</p>
+<p><img alt="Hair System UI" src="../img/hsystem_setup_profile.jpeg" />
+<em>by default hair will receive material named <code>HT_Defautl_Material</code></em></p>
 <ol>
-<li>Select first material slot, and open Shader editor (see yellow boxes below)</li>
-<li>Find texture node and change the hair texture, to any other image you want (see red boxes on image below)</li>
+<li>Identify profile material, and open it in Shader editor (see yellow boxes below)</li>
+<li>Find texture node and change the hair texture, to any other image you want</li>
 </ol>
-<p><img alt="Generate random vertex colors" src="../img/faq/hair_texture_change.jpg" />
-To avoid having to repeat these steps on all material slots use <a href="../uv_material/#material-uv-refresh">Material/UV refresh</a></p>
+<p><img alt="Hair Texture Edit" src="../img/faq/hair_texture_change.jpg" />
+<em>Remember to connect Vector input of texture node, to <code>HTool_UV</code> node - or texture won't be mapped correctly</em></p>
+<blockquote>
+<p><strong>Note</strong>: HTool default texture uses: <strong>RGB</strong> channels for depth pass, <strong>A</strong> channel for opacity. If you want to use different texture, make sure it has similar channels setup (or use two - depth and opacity - textures).</p>
+<p><strong>Note</strong>: <strong>If your texture layout is different, you may need to adjust UVs of Hair System</strong>. You can do it in UV Image Editor, by pressing <code>Hair UV</code> button see - <a href="../uv_material/#defining-hair-uvs">Defining Hair UVs</a>.</p>
+</blockquote>
 <h3 id="how-do-i-change-hair-modeling-tool-hotkeys">How do I change hair modeling tool hotkeys<a class="headerlink" href="#how-do-i-change-hair-modeling-tool-hotkeys" title="Permanent link">&para;</a></h3>
 <p>Go to Edit menu → Preferences → Hotkeys and navigate to hair modeling category:
 <img alt="hair model keys" src="../img/faq/hair_model_keys.jpg" /></p>
