@@ -95,6 +95,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#bones-setup">Bones Setup</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guide-strips-cache">Guide Strips Cache</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#bones-setup-parameters">Bones Setup - parameters</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#jiggle-physics-setup">Jiggle Physics Setup</a>
@@ -162,6 +164,17 @@ Your browser does not support the video tag.
 <p>Also remember to setup <strong>'Pin bone'</strong> - this bone will be automatically set as parent for generated hair bone chains.</p>
 <p><img alt="Bones Start" src="../img/hair_anim/pin_bone.jpg" />
 <em>Usually character 'head' bone can be used as 'pin bone' (hair bones parent)</em></p>
+<h4 id="guide-strips-cache">Guide Strips Cache<a class="headerlink" href="#guide-strips-cache" title="Permanent link">&para;</a></h4>
+<p>Bones are generated based on mesh haircard, that are simplified into strips which then guide bone placement.
+Guide strips generation is done automatically when you generate bones, but you can also do it manually using 'Generate Mesh Cache' button - placed next to 'Generate Bones' - visible as Refresh icon. With it you have manual control over 'strips' simplification (Ctrl+MMB Scroll) and smoothing (Shift+MMB Scroll)</p>
+<video style="width:100%" controls>
+  <source src="../video/bones_cache_gen.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>use [Ctrl+MMB Scroll] - for 'strips' simplification and [Shift+MMB Scroll] for smoothing</em></p>
+<blockquote>
+<p><strong>Note</strong>: For performance reasons guide strips are generated once, and then reused for each bone generation. If you modified hair mesh and bone generation does not seem to follow your changed mesh - try to regenerate guide strips using Refresh icon.</p>
+</blockquote>
 <h4 id="bones-setup-parameters">Bones Setup - parameters<a class="headerlink" href="#bones-setup-parameters" title="Permanent link">&para;</a></h4>
 <p><img alt="Bones Start" src="../img/hair_anim/bones_start.gif" />
 <em><strong>Bones Start</strong> - Place first bone at some start distance from strand root location</em></p>
