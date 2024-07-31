@@ -245,13 +245,14 @@ Your browser does not support the video tag.
 <p><em><strong>Shell Material Section</strong> - you can tweak shell material parameters in here (or open Blenders 'Shader Editor') like: AO effect strength, strands width, density</em></p>
 <h4 id="unreal-engine-shell-shader">Unreal Engine Shell Shader<a class="headerlink" href="#unreal-engine-shell-shader" title="Permanent link">&para;</a></h4>
 <!-- [**Link**](https://www.dropbox.com/s/cnl5hkctccraubd/ShellShader.zip?dl=0) to Unreal Engine shell shader, made by one of users. You should plug in shell texture that comes with Hair Tool. I did yet have time to test it, but it should work fine. -->
-<p><a href="https://drive.google.com/file/d/1NLie6WgEi7pERJ2qzh1b85t5ADaMpY8h/view?usp=share_link"><strong>Link</strong></a> to Unreal Engine shell shader, made by one of users. You should plug in shell texture that comes with Hair Tool. I did yet have time to test it, but it should work fine.</p>
+<p><a href="https://drive.google.com/file/d/1NLie6WgEi7pERJ2qzh1b85t5ADaMpY8h/view?usp=share_link"><strong>Link</strong></a> to Unreal Engine (5.2 - 5.4) shell shader, made by Maker26. You should plug in shell texture that comes with Hair Tool. The zip file contains readme file, with installation instruction.</p>
 <h4 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h4>
 <h5 id="how-add-diffuse-color">How add diffuse color?<a class="headerlink" href="#how-add-diffuse-color" title="Permanent link">&para;</a></h5>
 <p>Open <strong>ShellHairMaterial</strong> material, and input diffuse texture to 'Overlay Color' input or to 'Base Color' input
 <img alt="Shell Hair Material" src="../../img/shell_hair/shell_hair_change_color.jpeg" /></p>
 <h5 id="how-to-export-shell-shader-to-game-engine">How to export Shell Shader to game engine?<a class="headerlink" href="#how-to-export-shell-shader-to-game-engine" title="Permanent link">&para;</a></h5>
-<p>Right now there is no shader for Unreal or Unity, but it is not hard to recreate it using shell texture and shell mesh <strong>Gradient</strong> Vertex Color
+<p>For Unreal use <a href="#unreal-engine-shell-shader">this shader</a> - made by one of users - Maker26 from Discord.</p>
+<p>Right now there is no shader for Unity, but it is not hard to recreate it using shell texture and shell mesh <strong>Gradient</strong> Vertex Color
 <img alt="Shell Layers Vertex Color" src="../../img/shell_hair/shell_grad.jpeg" />
 <em><strong>Gradient</strong> - Shells Vertex color goes from white (float 1) to black (float 0) at top layer</em></p>
 <p><img alt="Shell Texture" src="../../img/shell_hair/shell_text_rgb.jpeg" />
@@ -261,7 +262,7 @@ Your browser does not support the video tag.
 <li><strong>R</strong> and <strong>B</strong> channels - holds random values (as B&amp;W color), they can be used to eg. randomize strands width or density.</li>
 </ul>
 <p><img alt="Shell Basic Shader" src="../../img/shell_hair/shell_basic_shader.jpeg" />
-<em><strong>Basic Shell Shader</strong> .</em></p>
+<strong><em>Basic Shell Shader</em></strong></p>
 <p>strands_opacity = <strong>[shell_texture.R] * [Shell.Gradient]</strong></br>
  AO = <strong>[Green] * [Invert(Shell.Gradient)]</strong></br>
  Multiply Strands Opacity by shell_texture.G to get strand width randomization kind of effect.</p>
