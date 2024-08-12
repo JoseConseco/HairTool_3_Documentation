@@ -168,6 +168,8 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong> Short Hair modeling requires <strong>Blender 3.3</strong> or above.</p>
 </blockquote>
+<p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_example1.jpg" />
+<em>Example of 'Short hair' by <a href="https://www.artstation.com/artwork/L42l0K">Ellinor Morén</a></em></p>
 <p>The main advantages:</p>
 <ul>
 <li>easy to setup - one click solution</li>
@@ -208,6 +210,8 @@ Your browser does not support the video tag.
 </ul>
 <p>Cells remeshing - gives highest poly-count but the resulting topology is organic and thanks to this haircards will also be distributed in natural way.
 Diamonds topology, on the other hand, has visible repeating pattern and it may show through on generated haircards. Triangulation of Diamonds helps slightly, but it is not as good as Cells Topology</p>
+<p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_example_wire.jpg" />
+<em>Example of Short Hair generated with <code>Triangulated Diamonds</code> Remeshing</em></p>
 <blockquote>
 <p><strong>Note 1</strong>: If you want denser haircards you can add subdivision modifier to your base mesh, but resulting edges count will quadruple</p>
 <p><strong>Note 2</strong>: I did not test it, but using Dynotopo topology from sculpt mode may actually be nice way to get organic and controllable mesh</p>
@@ -223,6 +227,11 @@ Diamonds topology, on the other hand, has visible repeating pattern and it may s
 <p>Uv Region defined above can be distributed/assigned to hair-cards in two ways - using Vertex Groups as UV mask, or manually.</p>
 <h5 id="manual-uv-assignment">Manual UV assignment<a class="headerlink" href="#manual-uv-assignment" title="Permanent link">&para;</a></h5>
 <p>You can manually select mesh parts and assign uv regions to it <a href="../../uv_material/#set-uv-region">Set UV Region</a>:</p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/short_hair/short_hair_uv.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Assigning UV Region with <code>ID: 1</code> to selected edges</em></p>
 <ul>
 <li>Select Short Hair object, and go into Edit Mode (using Tab key)</li>
 <li>Select edges for which you want to assign new UV regions</li>
