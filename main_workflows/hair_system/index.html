@@ -65,6 +65,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#sub-systems-types">Sub-Systems Types</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#strands-generator">Strands Generator</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#align-to-surface-normal">Align to Surface Normal</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#strands-distribution">Strands Distribution</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#strands-filter">Strands Filter</a>
     </li>
@@ -431,13 +437,28 @@ User cases when you want to use Transfer Hair System:</p>
 Your browser does not support the video tag.
 </video>
 <p><em>Set parent <a href="./#tags">Tags</a> and enable <a href="./#hair-interpolation">interplation</a> option, so that generated strands will follow these Tagged strands. See <a href="./#child-parent-setup"><strong>Child Parent Setup</strong></a></em></p>
+<h5 id="align-to-surface-normal">Align to Surface Normal<a class="headerlink" href="#align-to-surface-normal" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../video/strand_gen_align.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Align to Surface Normal - option changes how the interplation works. Do not confuse with <a href="./#align-tilt">Align Tilt To Source Surface</a></em></p>
+<h5 id="strands-distribution">Strands Distribution<a class="headerlink" href="#strands-distribution" title="Permanent link">&para;</a></h5>
+<p>Poisson distribution is a better way to spread things out evenly than just randomly placing them.</p>
+<p><strong>Here's why:</strong></p>
+<p>Imagine you're trying to place hair strands on a surface.</p>
+<ul>
+<li>
+<p><strong>Random placement:</strong>  You might end up with clumps of hair in some areas and gaps in others.</p>
+</li>
+<li>
+<p><strong>Poisson distribution:</strong> This method makes sure the hair is spread out more evenly. It does this by removing any hair strands that are too close together.</p>
+</li>
+</ul>
+<p><img alt="Random vs Poisson" src="../../img/geo_nodes_hair/poisson_vs_random.jpg" />
+<em>Notice how the Poisson distribution removes some of the black dots, that are too close to each other (closer than <code>Min Distance</code> parameter). This helps to get rid of clumps of hair. Bump up <code>Density</code> to fill up the empty spots (very right)</em></p>
 <h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
-<p>The tool will enable you to make adjustments to existing hair strands. It does not matter if these strands are 'real' - e.g. generated with <a href="../../main_workflows/hair_drawing/">Hair Drawing</a>, or generated procedurally by preceding Hair subSystem. It offers the option to <strong>affect only some of the strands, by filtering them with <a href="./#tag">TAGs</a></strong>.</p>
+<p>This Sub-System type lets you tweak existing hair strands. Whether these strands are 'real' - e.g. generated with <a href="../../main_workflows/hair_drawing/">Hair Drawing</a>, or generated procedurally by Hair subSystem. It offers the option to <strong>affect only some of the strands, by filtering them with <a href="./#tag">TAGs</a></strong>.</p>
 <p>Imagine you want to modify two Hair Systems, by adding <a href="./#set-radius">Set Radius</a> or <a href="./#align-tilt">Align Tilt</a>. Instead of applying these deformers to each individual Hair subSystem, you can <strong>utilize the Filter System to affect all strands simultaneously</strong>.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/strands_filter.mp4" type="video/mp4">
@@ -448,7 +469,7 @@ Your browser does not support the video tag.
 <p><strong>Note</strong>: If no filter tag is specified, then all strands will be affected</p>
 </blockquote>
 <h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
-<p>This is special type of Generator, that will generate strands from Grid Surface (chessboard like mesh, made of quads with grid topology).
+<p>This is special type of Strand Generator, that will guide strands using guide mesh (grid mesh, made of quads only).
 Root of strands will be placed:</p>
 <ul>
 <li>on edge loop marked as Sharp (Ctrl+E -&gt; Mark Sharp)</li>
@@ -464,6 +485,9 @@ Your browser does not support the video tag.
 <p><strong>Note</strong>: Notice how guide grid, in video above, has uneven topology - getting dense to the right. This is important when adjusting 'Uniform Spacing' option</p>
 <p><strong>Note</strong>: To mask-out placement of roots, just plugin in vertex group mask into 'Placement Mask' input</p>
 </blockquote>
+<p>Examples of <strong>proper grid guide topology</strong>:
+<img alt="Bad Grid Mesh" src="../../img/faq/good_grid_meshes.jpg" />
+<em>Check out the <a href="../../faq#error-when-using-curves-from-grid-surface">FAQ</a> to see examples of wrong mesh topology</em></p>
 <hr />
 <h3 id="child-parent-setup">Child - Parent setup<a class="headerlink" href="#child-parent-setup" title="Permanent link">&para;</a></h3>
 <p>Linking two Hair SubSystems, with Child-Parent relation, enables capabilities such as: interpolation, clumping, curls, braids, twist and others.<br>
