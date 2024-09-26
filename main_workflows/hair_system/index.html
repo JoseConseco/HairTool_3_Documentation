@@ -349,7 +349,7 @@ Your browser does not support the video tag.
 <ol>
 <li>Select scalp mesh, and go to Draw Hair Panel &gt; Enable <a href="../../main_workflows/hair_drawing/">Draw Hair</a></li>
 <li>Hold D key, and draw guide curves with LMB (default Hair Material and UVs will be automatically assigned to them)</li>
-<li>You may need to adjust <a href="../../hair_profiles.md#flat-profile">flat profile</a> width (it was ok above, but it depends on size of your mesh)</li>
+<li>You may need to adjust <a href="../../hair_profiles/#flat-profile">flat profile</a> width (it was ok above, but it depends on size of your mesh)</li>
 <li>Add Hair System with <a href="#strands-generator">Strand Generator</a> option, and go to Hair System Panel.</li>
 <li>Hair System panel &gt; Deformers &gt; Strand Generator &gt; Bumping up strands density to 22222 (value depends on size of your object)</li>
 <li>Adding Deformers:<ul>
@@ -358,7 +358,7 @@ Your browser does not support the video tag.
 <li><a href="./#align-tilt">Align Tilt</a> - it will force hair cards to face scalp surface</li>
 </ul>
 </li>
-<li>Ctrl+Shift+H &gt; <a href="../../convert_hair.md#convert-hair-to-mesh">Convert Hair to Mesh</a> (or you can use <a href="../../convert_hair/#finalize-hair">Finalize</a>, to create mesh copy of HSystem)</li>
+<li>Ctrl+Shift+H &gt; <a href="../../convert_hair/#convert-hair-to-mesh">Convert Hair to Mesh</a> (or you can use <a href="../../convert_hair/#finalize-hair">Finalize</a>, to create mesh copy of HSystem)</li>
 </ol>
 <p>That is it, you can now export generated mesh to Game. If you want, you can restore curve hair object with Ctrl+Shift+H &gt; 'Restore Hair Object' - and continue working on it.</p>
 <h3 id="two-minute-hair-setup">Two Minute Hair Setup<a class="headerlink" href="#two-minute-hair-setup" title="Permanent link">&para;</a></h3>
@@ -865,7 +865,7 @@ Your browser does not support the video tag.
 <p><em>You can use multiple 'Profile Distribute' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <span style="color: red;">RED</span> and <span style="color: green;">GREEN</span> profile objects as base layer, then added <span style="color: purple;">PURPLE</span> on top - masked by vertex group</em></p>
 <h5 id="uv-region-distribute">UV Region Distribute<a class="headerlink" href="#uv-region-distribute" title="Permanent link">&para;</a></h5>
 <p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV data (like UV boxes dimensions), but it does not tell which strand will receive which UV region. This is where 'UV Region Distribute' deformer comes in.
-It is created automatically when <a href="../../uv_material.md#set-uv-region">Assigning UV Regions</a>. Add multiple 'UV Region Set' deformers, if you want to achieve layered UVs.</p>
+It is created automatically when <a href="../../uv_material/#set-uv-region">Assigning UV Regions</a>. Add multiple 'UV Region Set' deformers, if you want to achieve layered UVs.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
 Your browser does not support the video tag.
