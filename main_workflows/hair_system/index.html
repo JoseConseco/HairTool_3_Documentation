@@ -76,6 +76,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#strands-from-grid-surface">Strands From Grid Surface</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#interpolated-strands">Interpolated Strands</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#child-parent-setup">Child - Parent setup</a>
@@ -102,6 +104,20 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-deformers">Hair Deformers</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#animation">Animation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#attach-curves-uv">Attach Curves UV</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#bakecache-hair">Bake/Cache Hair</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#surface-deform">Surface Deform</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#physics">Physics</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#assign-group-id">Assign Group ID</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#braids-child">Braids (Child)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#color-set-system">Color Set (System)</a>
@@ -186,7 +202,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#twist">Twist</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#uv-region-set">UV Region Set</a>
+    <li class="toctree-l3"><a class="reference internal" href="#profile-distribute">Profile Distribute</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-region-distribute">UV Region Distribute</a>
     </li>
         </ul>
     </li>
@@ -197,6 +215,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#curve-attribute">Curve Attribute</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#vertex-grouptexture">Vertex Group/Texture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#object-vertex-grouptexture">Object Vertex Group/Texture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#radius-mask">Radius Mask</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#offsetgain">Offset/Gain</a>
     </li>
@@ -348,7 +370,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Full setup - starting from scalp mesh, and ending with mesh haircards ready for export</em></p>
-<p>Above we used option of selecting strands by mesh island &gt; see <a href="/../hair_sculpting#strands-selection">Strand Selection</a> section.</p>
+<p>Above we used option of selecting strands by mesh island &gt; see <a href="../../hair_sculpting/#strands-selection">Strand Selection</a> section.</p>
 <hr />
 <h3 id="transfer-hair-system">Transfer Hair System<a class="headerlink" href="#transfer-hair-system" title="Permanent link">&para;</a></h3>
 <p>Hair System can be assigned to Mesh or Curve Hair object, depending on which object is selected when you add Hair System. If you want to <strong>change Hair System 'owner'</strong> you can use Transfer Hair System operator.
@@ -469,13 +491,13 @@ Your browser does not support the video tag.
 <p><strong>Note</strong>: If no filter tag is specified, then all strands will be affected</p>
 </blockquote>
 <h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
-<p>This is special type of Strand Generator, that will guide strands using guide mesh (grid mesh, made of quads only).
+<p>This type of Strand Generator, will guide strands using guide mesh (grid mesh, made of quads only).
 Root of strands will be placed:</p>
 <ul>
 <li>on edge loop marked as Sharp (Ctrl+E -&gt; Mark Sharp)</li>
 <li>or on crease edge (Shift+E -&gt; Crease Edge).</li>
 </ul>
-<p>These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
+<p>These strands can be affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/hsystem_curves_from_grid.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -488,6 +510,16 @@ Your browser does not support the video tag.
 <p>Examples of <strong>proper grid guide topology</strong>:
 <img alt="Bad Grid Mesh" src="../../img/faq/good_grid_meshes.jpg" />
 <em>Check out the <a href="../../faq#error-when-using-curves-from-grid-surface">FAQ</a> to see examples of wrong mesh topology</em></p>
+<h4 id="interpolated-strands">Interpolated Strands<a class="headerlink" href="#interpolated-strands" title="Permanent link">&para;</a></h4>
+<p>This Strand Generator, will use existing curves add extra strands in between them. In that case order of strand matter!</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/interpolated_strands.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above I used drawn strands to guide the 'Interpolated Strands' generator (video is narrated)</em></p>
+<blockquote>
+<p><strong>Note</strong>: If order of your strands is wrong, and <strong>Automatic Spline Sorting</strong> option fails, you can use <strong>Sort Strands by Stroke</strong> operator to manually fix the order (see video above)</p>
+</blockquote>
 <hr />
 <h3 id="child-parent-setup">Child - Parent setup<a class="headerlink" href="#child-parent-setup" title="Permanent link">&para;</a></h3>
 <p>Linking two Hair SubSystems, with Child-Parent relation, enables capabilities such as: interpolation, clumping, curls, braids, twist and others.<br>
@@ -574,6 +606,7 @@ Your browser does not support the video tag.
   <source src="../../img/geo_nodes_hair/tag_panel.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
 <p><em>In video above we create Tag <code>A</code>, then assign selected curves to tag <code>A</code> using Assign button</em></p>
 <blockquote>
 <p><strong>Note</strong>: Assigning Tags only works on new Hair Curves. To be able to select individual curves, like in video above, you have to use <a href="../main_workflows/hair_modeling"><strong>Hair Modeling mode</strong></a>. For now only selection works from all the available Modeling Tools</p>
@@ -581,6 +614,30 @@ Your browser does not support the video tag.
 <hr />
 <h3 id="hair-deformers">Hair Deformers<a class="headerlink" href="#hair-deformers" title="Permanent link">&para;</a></h3>
 <p>Deformers gives you ability change chair look - add noise to hair, make them curl, snap to surface etc. They are stacked one on top of each other in similar way than Blender modifiers. They can be reordered. Some deformers (e.g. clump, twist, braids) will only work, if Hair System, to which deformers belong to is <a href="./#child-parent-setup">Set as Child</a></p>
+<h5 id="animation">Animation<a class="headerlink" href="#animation" title="Permanent link">&para;</a></h5>
+<h6 id="attach-curves-uv">Attach Curves UV<a class="headerlink" href="#attach-curves-uv" title="Permanent link">&para;</a></h6>
+<p>Attach strands roots to source mesh UVs, without it animation of hair with 'Surface Deform' modifier will not work.</p>
+<h6 id="bakecache-hair">Bake/Cache Hair<a class="headerlink" href="#bakecache-hair" title="Permanent link">&para;</a></h6>
+<p>Save hair strands into cached memory. They will no longer be editable, but will be faster to animate, since they will not be re-generated on every frame change.</p>
+<h6 id="surface-deform">Surface Deform<a class="headerlink" href="#surface-deform" title="Permanent link">&para;</a></h6>
+<p>Same as blender built-in modifier. Allows hair to follow source mesh deformation (by rig or shape keys).</p>
+<blockquote>
+<p><strong>Note</strong>: You may want to use <a href="./#bakecache-hair">Bake</a> deformer first, so that strands will not be regenerated on every frame</p>
+</blockquote>
+<h6 id="physics">Physics<a class="headerlink" href="#physics" title="Permanent link">&para;</a></h6>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/hair_physics.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p>You can add collision objects, control: wind, gravity, damping etc. Not perfect yet, but can give some nice results. For more advanced physics simulation we may need to wait for native blender geo-nodes physics integration.</p>
+<blockquote>
+<p><strong>Note</strong>: You may want to use <a href="./#bakecache-hair">Bake</a> deformer first, so that strands will not be regenerated on every frame</p>
+<p><strong>Note</strong>: If you notice some jittering, try reducing gravity and increasing damping.</p>
+</blockquote>
+<p>For now self collisions are disabled, since you would have to subdivide strands a lot, to get good results. Long hair simulation may not look the best. But at least new HTool 4.x physics does not exploade like it used to in HT 3.x</p>
+<h5 id="assign-group-id">Assign Group ID<a class="headerlink" href="#assign-group-id" title="Permanent link">&para;</a></h5>
+<p>Assign Group ID attribute to strands. After <a href="./#bake">baking</a> hair system you can use this to <a href="../../hair_sculpting/#selection-groups">select strands</a> by group ID.</p>
 <h5 id="braids-child">Braids (Child)<a class="headerlink" href="#braids-child" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/braids_deformer.mp4" type="video/mp4">
@@ -622,7 +679,7 @@ Your browser does not support the video tag.
 <ul>
 <li>Take single strand, and convert it to 3 braided ones with 'Braid Generator'</li>
 <li>Duplicate each sub-strand few times with <a href="./#duplicate-strands">Duplicate Strands</a> deformer</li>
-<li>Add some randomization with <a href="./#noise">Noise</a> deformer and <a href="./#uv-region-set">UV Region Set</a> deformer</li>
+<li>Add some randomization with <a href="./#noise">Noise</a> deformer and <a href="./#uv-region-distribute">UV Region Distribute</a> deformer</li>
 </ul>
 <p>This should make it more volumetric looking, since braid will be made from multiple textured haircards, rather than single one.</p>
 <h5 id="instance-on-strand">Instance on Strand<a class="headerlink" href="#instance-on-strand" title="Permanent link">&para;</a></h5>
@@ -798,18 +855,24 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Twist effect requires to set Hair System to be <a href="geometry_hair#child-system">set as child</a>. For best effect is is good idea to place it after Clump deformer</em></p>
-<h5 id="uv-region-set">UV Region Set<a class="headerlink" href="#uv-region-set" title="Permanent link">&para;</a></h5>
-<p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV data (like UV boxes dimensions), but it does not tell which strand will receive which UV region. This is where 'UV Region Set' deformer comes in.
+<h5 id="profile-distribute">Profile Distribute<a class="headerlink" href="#profile-distribute" title="Permanent link">&para;</a></h5>
+<p><a href="../../hair_profiles/#mesh-profile"><strong>Mesh Profile</strong></a> or <a href="../../hair_profiles/#multi-curve-profile"><strong>Multi Curve Profile</strong></a> holds profile objects list for instancing on strands, but it does not tell which strand will receive which profile object. This is where 'Profile Distribute' deformer comes in.</p>
+<p>It will tell which strand will receive which profile object, based 'Profile_ID' attribute, assigned to each strand.</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/profile_distribute.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>You can use multiple 'Profile Distribute' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <span style="color: red;">RED</span> and <span style="color: green;">GREEN</span> profile objects as base layer, then added <span style="color: purple;">PURPLE</span> on top - masked by vertex group</em></p>
+<h5 id="uv-region-distribute">UV Region Distribute<a class="headerlink" href="#uv-region-distribute" title="Permanent link">&para;</a></h5>
+<p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV data (like UV boxes dimensions), but it does not tell which strand will receive which UV region. This is where 'UV Region Distribute' deformer comes in.
 It is created automatically when <a href="../../uv_material/#set-uv-region">Assigning UV Regions</a>. Add multiple 'UV Region Set' deformers, if you want to achieve layered UVs.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<blockquote>
-<p>You can use multiple 'Set UV Regions' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <strong>2nd Region</strong> (green) as base layer, then added <strong>0th Region</strong> (purple) on top - masked by vertex group</p>
-</blockquote>
+<p><em>You can use multiple 'UV Regions Distribute' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <code>2nd Region</code> (green) as base layer, then added <code>0th Region</code> (purple) on top - masked by vertex group</em></p>
 <ul>
-<li>You can also use <a href="../../uv_material/#set-uv-region"><strong>Set UV Region</strong></a>, and it will automatically create new 'UV Region Set' Deformer (or use active one if selected in Deformer Stack)</li>
+<li>You can also use <a href="../../uv_material/#set-uv-region"><strong>Set UV Region</strong></a>, and it will automatically create new 'UV Region Distribute' Deformer (or use active one if selected in Deformer Stack)</li>
 <li>If not UVs were assigned to current  Hair System object, then running 'Set UV Regions' operator will add default UVs (with single UV box/region)</li>
 </ul>
 <hr />
@@ -847,6 +910,16 @@ Your browser does not support the video tag.
 </video>
 <blockquote>
 <p><strong>Vertex Group/Texture</strong>: Use vertex group or texture for input masking</p>
+</blockquote>
+<h5 id="object-vertex-grouptexture">Object Vertex Group/Texture<a class="headerlink" href="#object-vertex-grouptexture" title="Permanent link">&para;</a></h5>
+<p>Same as above, but samples vertex group/texture from custom object</p>
+<h5 id="radius-mask">Radius Mask<a class="headerlink" href="#radius-mask" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/radius_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Radius Mask</strong>: Mask an effect based on strand radius. In video above I reduced noise on braids, at thinner places.</p>
 </blockquote>
 <h5 id="offsetgain">Offset/Gain<a class="headerlink" href="#offsetgain" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>

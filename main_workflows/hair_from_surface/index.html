@@ -144,15 +144,14 @@ Your browser does not support the video tag.
 </video>
 <p><em>Use Ctrl+Shift+H &gt; <code>Curves from grid surface</code> to add Hair System preset, where active mesh will guide generated strands</em></p>
 <blockquote>
-<p><strong>Note</strong>: In older Hair Tool 2.4x series, you could directly edit generated curves (in edit mode). In HTool 3.x these curves are generated procedurally in geometry nodes, thus you cannot edit them directly. First use <a href="../hair_system#hair-sub-system-menu">Bake</a> option to convert these procedural curves to real geometry.</p>
+<p><strong>Note</strong>: In older Hair Tool 2.4x series, you could directly edit generated curves (in edit mode). In HTool 3.x these curves are generated procedurally in geometry nodes, thus you cannot edit them directly. First use <a href="../hair_system#bake">Bake</a> option to convert these procedural curves to real geometry.</p>
 <p><strong>Note</strong>: If you want to cover head scalp uniformly with hair, then use standard Hair System with <a href="../../main_workflows/hair_system#strands-generator">Strand Generator</a> instead.</p>
 </blockquote>
 <h4 id="video-tutorial">Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permanent link">&para;</a></h4>
-<p>In first 12 minutes of this video I show how to use this <strong>Curves from Grid Surface feature</strong> (rest of video is about how to use it for actual hair - can be skipped if you are interested only in basics, of how 'Curves from Grid' works)</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Rp7yGbxm7HI?start=39"
 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
 clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+<p><em>First 12 minutes shows how to use 'Curves from Grid Surface'. Rest is about creation of actual hair - can be skipped</em></p>
 <h4 id="proper-grid-mesh">Proper grid mesh<a class="headerlink" href="#proper-grid-mesh" title="Permanent link">&para;</a></h4>
 <p>Guide mesh has to be made from quads and <strong>one border edge loop has to be mark as sharp</strong> (or crease): Ctrl+E -&gt; Mark Sharp/Crease - this edge will become roots of hair strands.
 <img alt="mark sharp" src="../../img/marksharp.jpg" /></p>
@@ -165,20 +164,31 @@ clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allo
 <p><img alt="Points per strand" src="../../img/grid_surface/strands_count.gif" />
 <em><strong>Strands count</strong> - number of strands to generate</em></p>
 <p><img alt="Uniform Strands" src="../../img/grid_surface/uniform_strands.gif" />
-<em><strong>Uniform Strands</strong> - Distribute strands uniformly. If not, then more strands will be placed at denser grid surface areas (in this case - more on right)</em></p>
+<em><strong>Uniform Strands Spacing</strong> - Distribute strands uniformly. If not, then more strands will be placed at denser grid surface areas (in this case - more on right)</em></p>
+<p><img alt="Uniorm Points" src="../../img/grid_surface/uniform_points.gif" />
+<em><strong>Uniform Points Spacing</strong> - Distribute points uniformly along each strand. If not, then more points will be placed at denser grid surface areas (in this case - more on right)</em></p>
 <p><img alt="Randomize Spacing" src="../../img/grid_surface/random_spacing.gif" />
 <em><strong>Randomize Spacing</strong> - Randomize spacing between strands</em></p>
+<p><em><strong>Use Crease Edge</strong> - by default strands will be generated from edge marked as sharp. You can use crease edge instead, if you want to generate strands from creased edges</em></p>
+<video style="width:100%" controls>
+  <source src="../../img/grid_surface/hook_frist_segment.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Hook First Segment</strong> - use if you want to 'glue' first segment of each strand to the first two loops of grid surface. This helps with embedding hair strand roots into scalp, without hair clipping through head</em></p>
 <h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h4>
-<p>In Hair Tool 3.x <strong>Curves from Grid Surface</strong> is using new strand interpolation (based on Geometry Nodes). It has some limitations, see example below:</p>
-<p><img alt="Ugly Interpolation example" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
-<em>Example of poor strand interpolation, when using 'Curves From Grid'. Strands do not adhere to the guide grid surface and instead follow path downwards</em></p>
-<p><img alt="Reason of ugly interpolation" src="../../img/grid_surface/ugly_grid_reason.jpeg" />
-<em>The reason and explanation: imagine new strand (marked as X above) is picking 2 closest guides; it found one guide to right one to left - which is causing the strand to go to the center (average of both guides)</em></p>
-<p><img alt="Ugly interpolation fix" src="../../img/grid_surface/ugly_grid_fix.jpeg" />
-<em>The fix: split guide grid mesh in to mesh islands, this will split guides too (marked with black and white). Now new strand will follow only group of strands (only white or only white) - resulting in clean interpolation on right</em></p>
-<p>The reason why splitting guide mesh, into two or more mesh islands work is due to how <a href="../../main_workflows/hair_system#hair-interpolation">Hair Interpolation</a> in HTool works - strands spawned on one island, will only follow guides from that mesh island.<br></p>
+<p><s>In Hair Tool 3.x <strong>Curves from Grid Surface</strong> is using new strand interpolation (based on Geometry Nodes). It has some limitations, see example below:</s></p>
 <blockquote>
-<p><strong>Note</strong>: You do not have to split base mesh by <a href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/vertex/rip_vertices.html">ripping geometry</a>. In above case I turned Off 'merge' option in <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/mirror.html">mirror modifier</a>, thus righ and left side are seen as separate islands. Or you could use <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html">edge split modifier</a>.</p>
+<p><strong>Update</strong>: This issue if fixed in Hair Tool 4.x, where instead of using Blender built-in hair interpolation, I implemented my own interpolation algorithm. The only downside of new method is that instead of using <strong>Vertex Group</strong> use <a href="../hair_system/#object-vertex-grouptexture"><strong>Object Vertex Group</strong></a> <a href="../hair_system/#input-masks">inputs mask</a> - with target set to grid guide mesh</p>
+</blockquote>
+<p><img alt="Ugly Interpolation example" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
+<em><s>Example of poor strand interpolation, when using 'Curves From Grid'. Strands do not adhere to the guide grid surface and instead follow path downwards</em></s></p>
+<p><img alt="Reason of ugly interpolation" src="../../img/grid_surface/ugly_grid_reason.jpeg" />
+<em><s>The reason and explanation: imagine new strand (marked as X above) is picking 2 closest guides; it found one guide to right one to left - which is causing the strand to go to the center (average of both guides)</s></em></p>
+<p><img alt="Ugly interpolation fix" src="../../img/grid_surface/ugly_grid_fix.jpeg" />
+<em><s>The fix: split guide grid mesh in to mesh islands, this will split guides too (marked with black and white). Now new strand will follow only group of strands (only white or only white) - resulting in clean interpolation on right</s></em></p>
+<p><s>The reason why splitting guide mesh, into two or more mesh islands work is due to how <a href="../../main_workflows/hair_system#hair-interpolation">Hair Interpolation</a> in HTool works - strands spawned on one island, will only follow guides from that mesh island.</s></p>
+<blockquote>
+<p><strong>Note</strong>: <s>You do not have to split base mesh by <a href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/vertex/rip_vertices.html">ripping geometry</a>. In above case I turned Off 'merge' option in <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/mirror.html">mirror modifier</a>, thus righ and left side are seen as separate islands. Or you could use <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html">edge split modifier</a></s></p>
 </blockquote>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Rp7yGbxm7HI?si=yJ2HFURfNsbWvxDA&amp;start=904" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <p><em>In video above I explained and showed how to fix the interpolation issue</em></p>
