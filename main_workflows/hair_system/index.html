@@ -340,7 +340,6 @@ Hair System is made from:</p>
 <!-- ##### Creating Hair Systems -->
 <p>Below I show you demo of how to <strong>setup game ready hair in 1 minute</strong>:</p>
 <video style="width:100%" controls>
-/run/media/bartosz/8C343C61343C5086/3D blender files/BlenderAddons/HairTool/HT_Site/HairToolDocs_30/docs/img/geo_nodes_hair/hair_workflow_from_zero.mp4
   <source src="../../img/geo_nodes_hair/hair_workflow_from_zero.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -349,13 +348,13 @@ Your browser does not support the video tag.
 <ol>
 <li>Select scalp mesh, and go to Draw Hair Panel &gt; Enable <a href="../../main_workflows/hair_drawing/">Draw Hair</a></li>
 <li>Hold D key, and draw guide curves with LMB (default Hair Material and UVs will be automatically assigned to them)</li>
-<li>You may need to adjust <a href="../../hair_profiles/#flat-profile">flat profile</a> width (it was ok above, but it depends on size of your mesh)</li>
-<li>Add Hair System with <a href="#strands-generator">Strand Generator</a> option, and go to Hair System Panel.</li>
-<li>Hair System panel &gt; Deformers &gt; Strand Generator &gt; Bumping up strands density to 22222 (value depends on size of your object)</li>
+<li>You may need to adjust <a href="../../hair_profiles/#flat-profile">flat profile</a> width</li>
+<li>Add Hair System &gt; <a href="#strands-generator">Strand Generator</a> type,</li>
+<li>In Hair System &gt; Deformers sub-panel &gt; Strand Generator &gt; increase strands density (value depends on size of your object)</li>
 <li>Adding Deformers:<ul>
-<li><a href="./#radius-set">Radius Set</a> - it will taper the haircards</li>
 <li><a href="./#noise">Noise</a> - it will break the even look of hair</li>
 <li><a href="./#align-tilt">Align Tilt</a> - it will force hair cards to face scalp surface</li>
+<li>Optional <a href="./#radius-set">Radius Set</a> - it will taper the haircards</li>
 </ul>
 </li>
 <li>Ctrl+Shift+H &gt; <a href="../../convert_hair/#convert-hair-to-mesh">Convert Hair to Mesh</a> (or you can use <a href="../../convert_hair/#finalize-hair">Finalize</a>, to create mesh copy of HSystem)</li>
