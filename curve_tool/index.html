@@ -80,6 +80,14 @@
     <li class="toctree-l2"><a class="reference internal" href="#utils-section">Utils Section</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#other-section">Other Section</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#separate-join-curves">Separate / Join Curves</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#slice-using-mesh">Slice Using Mesh</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generate-ambient-occlusion">Generate Ambient Occlusion</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#select-tipsroots">Select Tips/Roots</a>
     </li>
@@ -204,24 +212,27 @@ Your browser does not support the video tag.
 </video>
 <p><em><strong>Interpolate Strands</strong> Generate extra strands in between selected curves</em></p>
 <h3 id="other-section">Other Section<a class="headerlink" href="#other-section" title="Permanent link">&para;</a></h3>
+<h4 id="separate-join-curves">Separate / Join Curves<a class="headerlink" href="#separate-join-curves" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../img/curve_tools/separate_join.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
 <p><em><strong>Separate / Join Curves</strong> - This works in Object Mode, Curve Edit mode and Sculpt Mode</em></p>
+<h4 id="slice-using-mesh">Slice Using Mesh<a class="headerlink" href="#slice-using-mesh" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../video/SliceWithMesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
 <p><em><strong>Slice Using Mesh</strong> - you can cut curves using mesh (same as in HTool 2.46)</em></p>
+<h4 id="generate-ambient-occlusion">Generate Ambient Occlusion<a class="headerlink" href="#generate-ambient-occlusion" title="Permanent link">&para;</a></h4>
+<p><strong>Generate AO</strong> button will add, geometry nodes based, Ambient Occlusion effect (modifier) to your object. The effect will be saved as a color attribute called <code>AO</code></p>
 <video style="width:100%" controls>
   <source src="../video/ao_gen.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-
-<p><em><strong>Generate AO</strong> - generates <code>AO</code> vertex color attribute. To see the result in HT_Default_Material set 'Vertex Color AO Mix' factor to one</em></p>
+<p><em>By default, <code>AO</code> attribute node is connected into 'Vert Color AO' input in <a href="../uv_material/#attributes">HairShader</a></em></p>
 <p>For more detailed info about AO generation, please check <a href="https://youtu.be/W8zZygHCDEQ?t=149">this YT Video</a> (around 3 mins, at 2:30)</p>
 <h3 id="select-tipsroots">Select Tips/Roots<a class="headerlink" href="#select-tipsroots" title="Permanent link">&para;</a></h3>
 <p>Available in Curve Edit mode at the bottom of Select menu</p>

@@ -80,6 +80,10 @@
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Material and UV</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#default-hair-material">Default Hair Material</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-system-uvs">Hair System UV's</a>
     </li>
@@ -160,6 +164,33 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note:</strong> If you want to plug in your own texture into Hair Material, make sure its UV input is connected to <code>HTool_UV</code> node. It will properly UV map your Hair Strands.</p>
 </blockquote>
+<h5 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h5>
+<p>Default material can use several attributes to change material look (or debug hair information):</p>
+<p><img alt="Material Attributes" src="../img/material_uvs/mat_attribs.jpg" />
+<em>Factor   |   Random   |   UVDebugCol</em></p>
+<p>Require: Profile &gt; <a href="../hair_profiles/#profile-other-settings">Other</a> &gt; Generate Curve Attribute:</p>
+<ul>
+<li><strong>Factor</strong> - black and white gradient.</li>
+<li><strong>Random</strong> - Random B&amp;W color assigned per strand.</li>
+<li><strong>SampledUV</strong> - Sample UVs from source mesh. Requires: Requires 'Sampled UV' to be set. Example setup <a href="../hair_profiles/#generate-attributes">in here</a></li>
+<li><strong>SampledCol</strong> - Sample Vertex Color from source mesh. Requires 'Sampled Color' to be set.</li>
+</ul>
+<p><img alt="Material Attributes" src="../img/material_uvs/mat_attribs_2.jpg" />
+<em>SampledUV   |   SampledColor   |   SystemColor</em></p>
+<p>Require: Profile &gt; <a href="../hair_profiles/#profile-other-settings">Other</a> &gt; UV Debug Colors</p>
+<ul>
+<li><strong>UVDebugCol</strong> - Visualize UV Boxes by colors. You can set uv box color using <a href="#defining-hair-uvs">Hair UV</a> operator.</li>
+</ul>
+<p>Requires <a href="../main_workflows/hair_system#color-set-system">Color Set</a> deformer</p>
+<ul>
+<li><strong>SystemColor</strong> - Display SystemColor attribute.</li>
+</ul>
+<p>Requires <a href="..//curve_tool/#generate-ambient-occlusion">Generate AO</a> modifier</p>
+<ul>
+<li><strong>AO</strong> - Visualize generated hair AO attribute.</li>
+</ul>
+<p><img alt="Material Attributes" src="../img/material_uvs/mat_attribs_3.jpg" />
+<em>AO attribute</em></p>
 <h4 id="hair-system-uvs">Hair System UV's<a class="headerlink" href="#hair-system-uvs" title="Permanent link">&para;</a></h4>
 <p>UV data <strong>holds information about: number and shapes of rectangular UV Boxes/Regions</strong> that describes where to sample the texture.<br>
 UV Data <strong>does not tell which UV Regions should be assigned to which hair strand</strong> - for that use <a href="../main_workflows/hair_system#uv-region-distribute">UV Regions Distribute</a> deformer (for procedural strands) or <a href="./#set-uv-region">Set UV Regions</a> operator (for 'real' strands).<br></p>
