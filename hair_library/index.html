@@ -91,6 +91,8 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Hair Library</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#library-location">Library location</a>
@@ -101,7 +103,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#appending-preset">Appending Preset</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#storing-presets">Storing Presets</a>
+    <li class="toctree-l2"><a class="reference internal" href="#preset-creation">Preset Creation</a>
     </li>
     </ul>
                   </li>
@@ -140,20 +142,27 @@
               
                 <h2 id="hair-library">Hair Library<a class="headerlink" href="#hair-library" title="Permanent link">&para;</a></h2>
 <p><img alt="Hair Library presets" src="../img/library_presets_01.jpg" />
-<img alt="Hair Library presets" src="../img/library_presets_02.jpeg" />
 <em>Some of the presets from Hair Tool hair library</em></p>
-<p>Hair library contains more than 30 hair presets (male and female hairstyles), plus few of the base components (fringe, braid, tails, eyelashes etc.), that you can import with few click into your project.<br>
-These presets are mostly nondestructive, meaning that you can easily modify them to fit your character. For example, you can change hair length, density, add curls etc.<br>
-You can also store your own presets with option to group them into categories (folders).</p>
-<blockquote>
-<p><strong>Note</strong>: Sample library file - <strong>HairLibrary.zip - can be downloaded from Gumroad</strong>. Use the download link, that you got from Gumroad after you purchase, to get the library zip file, then unzip the HairLibrary.zip somewhere on your HD. Finally go to addon preferences and setup <a href="hair_library#library-location"><strong>library path</strong></a> by entering extracted folder location.</p>
-</blockquote>
+<p>Hair library contains more than 30 hair presets (male and female hairstyles), plus few of the base components (fringe, braid, tails, eyelashes etc.), that you can be imported into your project, and snapped to your character.<br>
+These hair presets were made to be nondestructive, meaning that you can edit them to your liking, without having to groom everything from scratch.<br>
+New presets can be added with option to group them into categories (folders).</p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<p>You'll need to <strong>download "HairLibrary_xyz.zip" from Gumroad</strong> to use it (its comes together with Hair Tool addon).</p>
+<ol>
+<li>Go to your Gumroad purchases &gt; Hair Tool and get the library zip file.</li>
+<li><strong>Unzip</strong> the HairLibrary.zip file somewhere on your drive,</li>
+<li>Go to Blender settings &gt; Addons &gt; Hair Tool &gt; Library (tab),</li>
+<li>Setup the <a href="#library-location"><strong>library path</strong></a> with location of the folder where you unzipped the HairLibrary files</li>
+</ol>
+<p>Let me know if you have any trouble!</p>
+<p><img alt="Main Panel" src="../img/hair_library.jpg" /></p>
 <ul>
 <li>top half of Library panel is responsible for managing categories (folders),</li>
 <li>bottom for managing presets (files inside folder)</li>
 </ul>
-<p><img alt="Main Panel" src="../img/hair_library.jpg" /></p>
 <h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h3>
+<p><img alt="Hair Library presets" src="../img/library_presets_02.jpeg" />
+<em>Some of the presets from Hair Tool hair library</em></p>
 <p>License - <a href="https://cartographyassets.com/license/">CAL-NA-NRB</a>. Basically you can do everything with the assets:</p>
 <ul>
 <li>commercial use of base asset and modifications,</li>
@@ -163,9 +172,10 @@ You can also store your own presets with option to group them into categories (f
 </ul>
 <p>The only thing you can't do is to resell the assets as they are. <strong>Reselling base items is not allowed</strong></p>
 <h3 id="library-location">Library location<a class="headerlink" href="#library-location" title="Permanent link">&para;</a></h3>
-<p>User Preferences -&gt; Add ons -&gt; Hair Tool -&gt; Library tab.</p>
+<p>User Preferences &gt; Add-ons &gt; Hair Tool &gt; Library tab.</p>
 <p>Select target folder where library is located:</p>
-<p><img alt="Main Panel" src="../img/library_path.jpg" /></p>
+<p><img alt="Main Panel" src="../img/library_path.jpg" />
+<em>You can add multiple library paths with [+] icon. This way you can keep your presets separate, from the ones that come with Hair Tool</em></p>
 <h3 id="categories-menu">[☰] Categories menu<a class="headerlink" href="#categories-menu" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Add, Delete, Rename category (folder)</li>
@@ -180,18 +190,24 @@ You can also store your own presets with option to group them into categories (f
 <p>After importing preset with <strong>Append</strong> button you will often have to readjust position of imported hair objects to you character head. For grid surface type of hair - you can remove imported Curve Hair and reposition only grid surfaces. Then just regenerate curve hair again using <a href="../main_workflows/hair_from_surface">Curves from grid mesh</a></p>
 <h3 id="appending-preset">Appending Preset<a class="headerlink" href="#appending-preset" title="Permanent link">&para;</a></h3>
 <p>First part of video shows how to append preset from library.
-Second half of video coverts how to create your own preset and store it in library.</p>
+Second half of video covers creation of your own presets and how to store them in library.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cDC-mbJ603o?si=w4_-dUfadEnc7aWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<h3 id="storing-presets">Storing Presets<a class="headerlink" href="#storing-presets" title="Permanent link">&para;</a></h3>
+<h3 id="preset-creation">Preset Creation<a class="headerlink" href="#preset-creation" title="Permanent link">&para;</a></h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cDC-mbJ603o?si=P44f1bVl14Y-9cby&amp;start=231" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <p>To store preset:</p>
 <ul>
 <li><strong>select objects you want to be saved in your preset</strong> (you can select multiple objects)</li>
-<li>open [<strong>☰</strong>] menu and click '<strong>Store Preset</strong>'.</li>
+<li>Open <strong>Create Preset</strong> sub-panel and click <strong>Store in Library</strong>.</li>
 <li>Enter preset name in popup window (there will be warning if you try to override existing preset)</li>
-<li>outline capture region, in 3d View, which will be used for thumbnail generation - for that click and drag making rectangular shape in 3D Viewport. You can adjust the corners of captured area if you want. Finally press [<strong>Enter</strong>] to store preset.</li>
+<li>Select rectangular area in 3d View (it will be used for thumbnail generation):</li>
+<li>
+<ul>
+<li>left click and drag in 3D Viewport. You can adjust the corners of captured area if you want.</li>
+</ul>
+</li>
+<li>Finally, press [<strong>Enter</strong>] to store preset.</li>
 </ul>
               
             </div>
