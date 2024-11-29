@@ -101,9 +101,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#i-get-error-when-enabling-add-on">I get error when enabling add-on</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#greyed-out-parameters-panel">Greyed out parameters panel</a>
+    <li class="toctree-l2"><a class="reference internal" href="#texture-looks-wrong">Texture looks wrong</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hair-uv-operator-cant-be-found-in-search-menu">Hair UV operator can't be found in search menu</a>
+    <li class="toctree-l2"><a class="reference internal" href="#greyed-out-parameters-panel">Greyed out parameters panel</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-do-i-export-hair">How do I export hair?</a>
     </li>
@@ -166,7 +166,9 @@
 <li>
 <p>I need to use old Blender</p>
 <ul>
-<li>For <strong>Blender 3.3</strong> up to <strong>3.4</strong> use currently hair_tool_2.46 - 25 June 2022</li>
+<li>For Blender 4.2+ - use Hair Tool 4.x + 'HairLibrary_4.x_date.zip'</li>
+<li>For Blender 3.6-4.1 - use Hair Tool 3.x, and HairLibrary_3.x_date.zip</li>
+<li>For Blender 3.3-3.6 - use Hair Tool. 2.46 (last version that supports 'old' curves), and HairLib_18_12_2022.zip</li>
 </ul>
 </li>
 <li>
@@ -188,13 +190,24 @@
 </ul>
 </li>
 </ul>
+<h3 id="texture-looks-wrong">Texture looks wrong<a class="headerlink" href="#texture-looks-wrong" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Check, in your hair material, if hair UVs are properly read from <code>HTool_UV</code> node. When linked to material output - it should have green+red color, like on image below.
+<img alt="Correct material UV Setup" src="../img/faq/uv_setup.jpg" />
+<em>Make sure your Image Node &gt; Vector input is connected to <code>HTool_UV</code> node</em></p>
+</li>
+<li>
+<p>Check your hair UVs shape in UV/Image Editor - after running <code>Hair UV</code> operator you should see something similar to image below:</p>
+</li>
+</ol>
+<p><img alt="Example of Default Hair UV" src="../img/faq/hair_uv.jpg" />
+<em>Example of default hair UVs - made from five UV Regions (boxes)</em>
+3. Sometimes UVs may not be generated correctly, if Profile node is out of date. Update it using 'Update Whole Profile' button from image below:</p>
+<p><img alt="Profile Update" src="../img/faq/profile_update.jpg" /></p>
 <h3 id="greyed-out-parameters-panel">Greyed out parameters panel<a class="headerlink" href="#greyed-out-parameters-panel" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair UV" src="../img/faq/greyed_out_settings.jpg" />
 Go to Preferences -&gt; System -&gt; Enable 'Global Undo'. You may need to restart blender after saving settings. It looks like blender bug, and from time to time this option is disabled for no reason.</p>
-<h3 id="hair-uv-operator-cant-be-found-in-search-menu">Hair UV operator can't be found in search menu<a class="headerlink" href="#hair-uv-operator-cant-be-found-in-search-menu" title="Permanent link">&para;</a></h3>
-<p>Since 2.24 version I added 'Hair UV' button to UV Image Editor header:
-<img alt="Hair UV" src="../img/faq/hair_uv.jpg" />
-Unfortunately I'm not sure why this operator is missing from search menu for some people...</p>
 <h3 id="how-do-i-export-hair">How do I export hair?<a class="headerlink" href="#how-do-i-export-hair" title="Permanent link">&para;</a></h3>
 <p>Hair generated in Hair Tool can be exported just like any other mesh (File &gt; Export &gt; FBX). Just make sure to <a href="../convert_hair#convert-hair-to-mesh">Convert Curves to Mesh</a> hair first.</p>
 <h3 id="how-do-i-export-hair-texture">How do I export hair texture?<a class="headerlink" href="#how-do-i-export-hair-texture" title="Permanent link">&para;</a></h3>
