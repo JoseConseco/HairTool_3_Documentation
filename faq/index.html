@@ -193,6 +193,11 @@
 <h3 id="texture-looks-wrong">Texture looks wrong<a class="headerlink" href="#texture-looks-wrong" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
+<p>Check if your hair material is assigned inside <a href="../hair_profiles#hair-profiles">Profile</a> section.
+<img alt="Correct material UV Setup" src="../img/hsystem_setup_profile.jpeg" />
+<em>Profile is place where material is assigned to hair strands. Default material is called <code>HT_Defult_Material</code></em></p>
+</li>
+<li>
 <p>Check, in your hair material, if hair UVs are properly read from <code>HTool_UV</code> node. When linked to material output - it should have green+red color, like on image below.
 <img alt="Correct material UV Setup" src="../img/faq/uv_setup.jpg" />
 <em>Make sure your Image Node &gt; Vector input is connected to <code>HTool_UV</code> node</em></p>
@@ -203,7 +208,7 @@
 </ol>
 <p><img alt="Example of Default Hair UV" src="../img/faq/hair_uv.jpg" />
 <em>Example of default hair UVs - made from five UV Regions (boxes)</em>
-3. Sometimes UVs may not be generated correctly, if Profile node is out of date. Update it using 'Update Whole Profile' button from image below:</p>
+4. Sometimes UVs may not be generated correctly, if Profile node is out of date. Update it using 'Update Whole Profile' button from image below:</p>
 <p><img alt="Profile Update" src="../img/faq/profile_update.jpg" /></p>
 <h3 id="greyed-out-parameters-panel">Greyed out parameters panel<a class="headerlink" href="#greyed-out-parameters-panel" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair UV" src="../img/faq/greyed_out_settings.jpg" />
