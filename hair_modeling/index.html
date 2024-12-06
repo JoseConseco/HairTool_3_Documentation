@@ -71,6 +71,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#location">Location</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transform-modes">Transform Modes</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#hotkeys">Hotkeys</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#offset-selection">Offset selection</a>
@@ -143,14 +145,15 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-modeling">Hair Modeling<a class="headerlink" href="#hair-modeling" title="Permanent link">&para;</a></h2>
-<p>This will allow you to select strand tips, and model them with custom:</p>
+<p>Modeling workspace tools will allow you model hair strands with:</p>
 <ul>
-<li>Transformation tools (IK, FK, Root - modes)</li>
-<li>Extend (lengthen)</li>
-<li>Knife (cut)</li>
-<li>Linear Deformer (bend, rotate, scale, move)</li>
-<li>duplicate/delete strands</li>
-<li>adjust tilt and taper</li>
+<li>Transformation tools, with rope like physics or 'Root' mode - rotate strands round their roots,</li>
+<li>Extend - to lengthen shorten the strands, [E] - key</li>
+<li>Knife cut - to cut strands, [K] - key, then click 2x to define cut line</li>
+<li>Linear Deformer (bend, rotate, scale, move), [Ctrl+D] - key</li>
+<li>duplicate/delete strands, with [Shift+D] and [X] or [Del] keys</li>
+<li>adjust tilt and taper, with [Ctrl+T] for tilt and [Alt+S] for radius</li>
+<li>and more</li>
 </ul>
 <video style="width:100%" controls>
 <source src="../video/hair_sculpt_mode_editing.mp4" type="video/mp4">
@@ -159,15 +162,17 @@ Your browser does not support the video tag.
 <p><em>Example of Hair Modeling tool in action. Selection Groups are used, to quickly select clumps of grouped strands</em></p>
 <h4 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h4>
 <p><strong>Hair Modeling</strong> tool can be enabled from:</p>
-<ul>
-<li>Left sidebar(T-key) &gt; Hair Modeling icon in <strong>Object and Curves Sculpt mode</strong></li>
-</ul>
 <p><img alt="ht_hair_grooming" src="../img/hair_modeling/hair_modeling_button.jpg" /></p>
-<p>There are three strands transform modes available - under G,R,S keys:</p>
 <ul>
-<li><strong>Chain</strong> mode (IK) - move hair endings with rope like behavior</li>
-<li><strong>Normal</strong> mode which works same as blender proportional editing.</li>
-<li><strong>Root</strong> rotate or scale hair using root as pivot point</li>
+<li>Left sidebar [T]-key &gt; Hair Modeling Tool <strong>(1)</strong> - available in Object and Curves Sculpt modes,</li>
+<li>Viewport gizmos button <strong>(2)</strong> on image below, has to be enabled,</li>
+</ul>
+<h4 id="transform-modes">Transform Modes<a class="headerlink" href="#transform-modes" title="Permanent link">&para;</a></h4>
+<p>There are three strands translation/movements modes (use with G, R, S keys):</p>
+<ul>
+<li><strong>Chain</strong> mode (IK), move hair endings with rope like behavior</li>
+<li><strong>Normal</strong> (FK) mode, works similar to Blender built-in proportional editing.</li>
+<li><strong>Root</strong> rotate/scale hair using root as pivot point</li>
 </ul>
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Yt33I5A07V0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 <!-- *This video is a bit outdated (for HT 2.46), few features were added in Hair Tool 3.x (now it works only on new hair curves)* -->
@@ -179,76 +184,128 @@ Your browser does not support the video tag.
 <p><em>Showcasing Chain (IK) transform mode. Since HT 3.4 IK mode supports collisions of hair strands with scalp mesh</em></p>
 <h4 id="hotkeys">Hotkeys<a class="headerlink" href="#hotkeys" title="Permanent link">&para;</a></h4>
 <blockquote>
-<p><strong>Note</strong>: Switching to Hair Modeling Tool will override some default blender 3d view shorcuts. To select other objects use Ctrl+RMB
-In round brackets I marked optional modifier keys eg. (Alt).</p>
+<p><strong>Note</strong>: Switching to Hair Modeling Tool will override some default Blender 3D view shortcuts. To select other objects use Alt+RMB (since RMB button will select hair tip - rather than object)</p>
 </blockquote>
+<p>In round brackets I marked optional modifier keys e.g. (Alt).</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">Hotkey</th>
-<th style="text-align: center;">Function</th>
+<th style="text-align: left;">Hotkey</th>
+<th style="text-align: left;">Selections</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">Ctrl+MMWheel</td>
-<td style="text-align: center;">Offset selection</td>
+<td style="text-align: left;">Ctrl+MMWheel</td>
+<td style="text-align: left;">Offset selection</td>
 </tr>
 <tr>
-<td style="text-align: center;">(Shift)+RMB</td>
-<td style="text-align: center;">Select Points</td>
+<td style="text-align: left;">(Shift)+RMB</td>
+<td style="text-align: left;">Select Points</td>
 </tr>
 <tr>
-<td style="text-align: center;">(Alt)+A</td>
-<td style="text-align: center;">(de)Select All</td>
+<td style="text-align: left;">(Alt)+A</td>
+<td style="text-align: left;">(de)Select All</td>
 </tr>
 <tr>
-<td style="text-align: center;">(Alt)+B+LMB</td>
-<td style="text-align: center;">Box (de)Select</td>
+<td style="text-align: left;">Ctrl+I</td>
+<td style="text-align: left;">Invert Selection</td>
 </tr>
 <tr>
-<td style="text-align: center;">(Alt)+C</td>
-<td style="text-align: center;">Circle (de)Select</td>
+<td style="text-align: left;">(Alt)+B+LMB</td>
+<td style="text-align: left;">Box (de)Select</td>
 </tr>
 <tr>
-<td style="text-align: center;">Ctrl+I</td>
-<td style="text-align: center;">Invert Selection</td>
+<td style="text-align: left;">(Alt)+C</td>
+<td style="text-align: left;">Circle (de)Select</td>
 </tr>
 <tr>
-<td style="text-align: center;">G, R, S</td>
-<td style="text-align: center;">Transform spline</td>
+<td style="text-align: left;">Ctr+(Alt)+LMB</td>
+<td style="text-align: left;">Lasso (de)Select</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Hotkey</th>
+<th style="text-align: left;">Translation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">G, R, S</td>
+<td style="text-align: left;">Grab, Rotate, Scale</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Hotkey</th>
+<th style="text-align: left;">Add/Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">X, Del</td>
+<td style="text-align: left;">Delete Selected</td>
 </tr>
 <tr>
-<td style="text-align: center;">Ctr+(Alt)+LMB</td>
-<td style="text-align: center;">Lasso (de)Select</td>
+<td style="text-align: left;">Shift+D</td>
+<td style="text-align: left;">Duplicate strands</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Hotkey</th>
+<th style="text-align: left;">Radius/Tilt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Alt+S</td>
+<td style="text-align: left;">Adjust Radius</td>
 </tr>
 <tr>
-<td style="text-align: center;">X, Del</td>
-<td style="text-align: center;">Delete Selected</td>
+<td style="text-align: left;">Alt+R</td>
+<td style="text-align: left;">Reset Radius</td>
 </tr>
 <tr>
-<td style="text-align: center;">Ctrl+D</td>
-<td style="text-align: center;">Linear Deformer</td>
+<td style="text-align: left;">Ctrl+T</td>
+<td style="text-align: left;">Adjust Tilt</td>
 </tr>
 <tr>
-<td style="text-align: center;">Shift+D</td>
-<td style="text-align: center;">Duplicate strands</td>
+<td style="text-align: left;">Alt+T</td>
+<td style="text-align: left;">Reset Tilt</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Hotkey</th>
+<th style="text-align: left;">Modeling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Ctrl+D</td>
+<td style="text-align: left;">Linear Deformer</td>
 </tr>
 <tr>
-<td style="text-align: center;">Alt+S</td>
-<td style="text-align: center;">Adjust Radius</td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Cut strands</td>
 </tr>
 <tr>
-<td style="text-align: center;">Alt+R</td>
-<td style="text-align: center;">Reset Radius</td>
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">Extend strands</td>
 </tr>
 <tr>
-<td style="text-align: center;">Ctrl+T</td>
-<td style="text-align: center;">Adjust Tilt</td>
-</tr>
-<tr>
-<td style="text-align: center;">Alt+T</td>
-<td style="text-align: center;">Reset Tilt</td>
+<td style="text-align: left;">I</td>
+<td style="text-align: left;">Straighten strands</td>
 </tr>
 </tbody>
 </table>
