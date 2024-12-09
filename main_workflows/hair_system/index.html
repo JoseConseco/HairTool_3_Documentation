@@ -452,7 +452,7 @@ User cases when you want to use Transfer Hair System:</p>
 <h3 id="sub-systems-types">Sub-Systems Types<a class="headerlink" href="#sub-systems-types" title="Permanent link">&para;</a></h3>
 <p>After adding a Hair Sub-System, you'll see the first slot in the deformer stack is added automatically. This is determined by the selected hair sub-system type.</p>
 <h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
-<p>It will generate strands, from Base Mesh surface, with parameters like: resolution, density, length, interpolation (<a href="./#child-parent-setup">Parent Child relation must be set</a>) etc. These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
+<p>It will grow strands, from Base Mesh surface. You can control parameters like: resolution, density, length, interpolation (<a href="./#child-parent-setup">Parent Child relation must be set</a>) etc. These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/strands_gen.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -479,7 +479,13 @@ Your browser does not support the video tag.
 <p><img alt="Random vs Poisson" src="../../img/geo_nodes_hair/poisson_vs_random.jpg" />
 <em><b>Left</b>: notice the clumping of hair roots; <b>Center</b>: Poisson distribution helps to remove these clumped dots (colored in black), by removing roots that are closer than <code>Min Distance</code> parameter. <b>Right</b>: Increase <code>Density</code> parameter to fill up the empty spots</em></p>
 <h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
-<p>This Sub-System type lets you tweak existing hair strands. Whether these strands are 'real' - e.g. generated with <a href="../../main_workflows/hair_drawing/">Hair Drawing</a>, or generated procedurally by Hair subSystem. It offers the option to <strong>affect only some of the strands, by filtering them with <a href="./#tag">TAGs</a></strong>.</p>
+<p>This hair (sub)System type lets you affect existing hair strands - whether these strands are:</p>
+<ul>
+<li>'real' (for example generated with <a href="../../main_workflows/hair_drawing/">Hair Drawing</a>),</li>
+<li>or generated procedurally by another Hair subSystem &gt; <a href="#strands-generator">Strands Generator</a>.</li>
+</ul>
+<p>This way you can e.g. add <a href="#noise">Noise</a> effect to all existing strands (or make them curl, taper etc).<br>
+<strong>There is option to affect only selected strands, by filtering them with <a href="./#tag">TAGs</a></strong>.</p>
 <p>Imagine you want to modify two Hair Systems, by adding <a href="./#set-radius">Set Radius</a> or <a href="./#align-tilt">Align Tilt</a>. Instead of applying these deformers to each individual Hair subSystem, you can <strong>utilize the Filter System to affect all strands simultaneously</strong>.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/strands_filter.mp4" type="video/mp4">
@@ -863,17 +869,18 @@ Your browser does not support the video tag.
 </video>
 <p><em>You can use multiple 'Profile Distribute' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <span style="color: red;">RED</span> and <span style="color: green;">GREEN</span> profile objects as base layer, then added <span style="color: purple;">PURPLE</span> on top - masked by vertex group</em></p>
 <h5 id="uv-region-distribute">UV Region Distribute<a class="headerlink" href="#uv-region-distribute" title="Permanent link">&para;</a></h5>
-<p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV data (like UV boxes dimensions), but it does not tell which strand will receive which UV region. This is where 'UV Region Distribute' deformer comes in.
-It is created automatically when <a href="../../uv_material/#set-uv-region">Assigning UV Regions</a>. Add multiple 'UV Region Set' deformers, if you want to achieve layered UVs.</p>
+<p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV Boxes/Regions amount and dimensions, but it does not tell which strand will receive which UV Region. This is where 'UV Region Distribute' deformer comes in - it will assign random (or masked) UV Region to each strand.</p>
+<blockquote>
+<p><strong>Note</strong>: use multiple 'UV Region Distribute' deformers + <a href="#input-masks">Input Masks</a>, to achieve layered UVs effect (see video below),</p>
+</blockquote>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>You can use multiple 'UV Regions Distribute' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <code>2nd Region</code> (green) as base layer, then added <code>0th Region</code> (purple) on top - masked by vertex group</em></p>
-<ul>
-<li>You can also use <a href="../../uv_material/#set-uv-region"><strong>Set UV Region</strong></a>, and it will automatically create new 'UV Region Distribute' Deformer (or use active one if selected in Deformer Stack)</li>
-<li>If not UVs were assigned to current  Hair System object, then running 'Set UV Regions' operator will add default UVs (with single UV box/region)</li>
-</ul>
+<p><em>Example use of multiple 'UV Regions Distribute' Deformers, to stack them on top of each other (as layers). <span style="color: green;">Region ID_2</span> as base layer + <span style="color: purple;">Region ID_0</span> on top - masked by vertex group</em></p>
+<blockquote>
+<p><strong>Note</strong>: <code>UV Region Distribute</code> is often created automatically when hair system is added</p>
+</blockquote>
 <hr />
 <h3 id="input-masks">Input Masks<a class="headerlink" href="#input-masks" title="Permanent link">&para;</a></h3>
 <p>You can mask most of the hair deformers inputs with various kind of effects. Multiple masks can be added.</p>
