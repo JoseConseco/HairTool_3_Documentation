@@ -70,6 +70,8 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_system/">Hair System</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_deformers/">Hair Deformers</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_from_surface/">Curves from Grid Surface</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
@@ -113,8 +115,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="character_creator_workflow/">Character Creator</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="recommended_addons/">Recommended addons</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
                   </li>
               </ul>
@@ -147,17 +147,17 @@
 <em>Art by <a href="https://www.artstation.com/ellimoren">Ellinor Morén</a></em></p>
 <p>This add-on will help you procedurally generate hair card with UV's, bake them to real geometry curves and then tweak with modeling tools:</p>
 <ul>
-<li>procedural <a href="./main_workflows/hair_system">Hair System</a> with <a href="./main_workflows/hair_system#hair-deformers">Deformers</a></li>
-<li>Curve <a href="./hair_modeling">Modeling Tools</a> (edit: radius, tilt, resample curve, extrude, subdivide, cut etc). Blender 3.6 and 4.x as of today (2023) does have built-in tools for modeling new hair curves,</li>
-<li><a href="./main_workflows/hair_from_surface">Guide Grid mesh</a> - hair will follow guide grid mesh,</li>
-<li><a href="./main_workflows/hair_with_track_mesh">Track Mesh</a> - sculpt your hair rather than groom.</li>
-<li><a href="./main_workflows/hair_drawing">Hair Drawing</a> (or extending) - very fast way to create hair cards from scratch,</li>
-<li><a href="./hair_library">Hair Library</a> - learn and modify by using one of many hair presets,</li>
+<li>procedural <a href="main_workflows/hair_system/">Hair System</a> with <a href="main_workflows/hair_deformers/#hair-deformers">Deformers</a></li>
+<li>Curve <a href="hair_modeling/">Modeling Tools</a> (edit: radius, tilt, resample curve, extrude, subdivide, cut etc). Blender 3.6 and 4.x as of today (2023) does have built-in tools for modeling new hair curves,</li>
+<li><a href="main_workflows/hair_from_surface/">Guide Grid mesh</a> - hair will follow guide grid mesh,</li>
+<li><a href="main_workflows/hair_with_track_mesh/">Track Mesh</a> - sculpt your hair rather than groom.</li>
+<li><a href="main_workflows/hair_drawing/">Hair Drawing</a> (or extending) - very fast way to create hair cards from scratch,</li>
+<li><a href="hair_library/">Hair Library</a> - learn and modify by using one of many hair presets,</li>
 <li>automated uv handling - UVs can be assigned to each strand automatically,</li>
-<li>various <a href="./hair_profiles/#profiles-types">Hair Profiles</a> types to choose from,</li>
-<li>one click <a href="./convert_hair/#finalize-hair">Convert hair to mesh</a></li>
-<li>Sample <a href="./mesh_ribbons_ops/#sample-uv-from-target">vertex color/weights from mesh</a>,</li>
-<li>Automated <a href="./hair_animation/">rigging with jiggle physics</a>,</li>
+<li>various <a href="hair_profiles/#profiles-types">Hair Profiles</a> types to choose from,</li>
+<li>one click <a href="convert_hair/#finalize-hair">Convert hair to mesh</a></li>
+<li>Sample <a href="mesh_ribbons_ops/#sample-uv-from-target">vertex color/weights from mesh</a>,</li>
+<li>Automated <a href="hair_animation/">rigging with jiggle physics</a>,</li>
 </ul>
 <p>And more!</p>
 <h4 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h4>
@@ -165,14 +165,14 @@
 <em>Art by <a href="https://www.artstation.com/ellimoren">Ellinor Morén</a></em></p>
 <p>Fastest way to get started with Hair Tool:</p>
 <ul>
-<li><a href="./main_workflows/hair_system#one-minute-hair-setup">One minute Hair Setup</a> - quickest way to create hair using hair draw feature (no speedup)</li>
-<li><a href="./main_workflows/hair_system#two-minute-hair-setup">Two minute Hair Setup</a> - basics hairstyle with split, and grooming</li>
+<li><a href="main_workflows/hair_system/#one-minute-hair-setup">One minute Hair Setup</a> - quickest way to create hair using hair draw feature (no speedup)</li>
+<li><a href="main_workflows/hair_system/#two-minute-hair-setup">Two minute Hair Setup</a> - basics hairstyle with split, and grooming</li>
 <li><a href="https://youtu.be/3ATRZ-ox5s8?si=L22Pw55WoHtgOUQx">Introduction Video</a> - 1-hour video tutorial, where I explain most used features of Hair Tool 4.0,</li>
-<li>hair <a href="./main_workflows/hair_system#sub-systems-types">SubSystem types</a> - first step when you want to generate hair - click [+] in Hair System panel</li>
-<li><a href="./main_workflows/hair_system#hair-deformers">Hair Deformers</a> - they affect hair look, can be stacked one after another. I would suggest to at least browse through the list of deformers to get idea what they do.</li>
-<li><a href="./main_workflows/hair_system#input-masks">Input Masks</a> - any Deformer input can be masked by eg: vertex group, texture, length etc. (you can create stack of masks)</li>
-<li><a href="./uv_material/#defining-hair-uvs">Define/Modify UVs</a> - resize or add new UV regions to map your haircards.</li>
-<li><a href="./convert_hair/#finalize-hair">Finalize Hair</a> - the last step before exporting hair to game engine or rendering in Blender. Convert curve hair to mesh haircards (with .</li>
+<li>hair <a href="main_workflows/hair_system/#sub-systems-types">SubSystem types</a> - first step when you want to generate hair - click [+] in Hair System panel</li>
+<li><a href="main_workflows/hair_deformers/#hair-deformers">Hair Deformers</a> - they affect hair look, can be stacked one after another. I would suggest to at least browse through the list of deformers to get idea what they do.</li>
+<li><a href="main_workflows/hair_system/#input-masks">Input Masks</a> - any Deformer input can be masked by eg: vertex group, texture, length etc. (you can create stack of masks)</li>
+<li><a href="uv_material/#defining-hair-uvs">Define/Modify UVs</a> - resize or add new UV regions to map your haircards.</li>
+<li><a href="convert_hair/#finalize-hair">Finalize Hair</a> - the last step before exporting hair to game engine or rendering in Blender. Convert curve hair to mesh haircards (with .</li>
 </ul>
 <h5 id="video-tutorials">Video Tutorials<a class="headerlink" href="#video-tutorials" title="Permanent link">&para;</a></h5>
 <p>Often longer videos</p>
@@ -201,7 +201,7 @@
 <ul>
 <li>It is best to use addon from <strong>Ctrl+Shift+H</strong> Pie Menu (hotkey can be changed in preferences).</li>
 <li>There is also Hair Tool panel - located in right Sidebar(N): <strong>"Hair Tool"</strong> tab.</li>
-<li>Last but not least, you can find Hair Tool <a href="./hair_modeling">Modeling Tool</a> in left sidebar(T) in - see icon outlined in yellow on the image above.</li>
+<li>Last but not least, you can find Hair Tool <a href="hair_modeling/">Modeling Tool</a> in left sidebar(T) in - see icon outlined in yellow on the image above.</li>
 </ul>
 <!-- TODO: add videos new guides... -->
 
@@ -230,7 +230,7 @@
 <h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h4>
 <ul>
 <li><s>No cross-profile support (X like profile - where profile is made from two crossing haircards). It is on my TODO list</s> Implemented in HTool 4.0</li>
-<li>Pasting hair-preset won't work (using blenders Ctrl+C, Ctrl+V). This is due to Blender limitation. As a workaround is to <a href="./hair_library/#preset-creation">store preset</a> in hair library and then append it from there to new file.</li>
+<li>Pasting hair-preset won't work (using blenders Ctrl+C, Ctrl+V). This is due to Blender limitation. As a workaround is to <a href="hair_library/#preset-creation">store preset</a> in hair library and then append it from there to new file.</li>
 <li><s>If you use 'Add' brush in hair curve Sculpt Mode, profile will not be visible on new strands. This is due to bug in Blender - reported <a href="https://projects.blender.org/blender/blender/issues/117101">here</a>. As a workaround use 'Set Radius' deformer with 'Build up' option disabled - to override haircard radius to 1.</s> Fixed in Blender 4.2</li>
 <li><s>You can't move vertices in curve Edit Mode, if 'Strands Overlay' is enabled. This is due to bug in Blender - reported [here]</s>(https://projects.blender.org/blender/blender/issues/116763). Fixed in Blender 4.2</li>
 <li><s>Undo won't work after editing curve radius in Curve Edit mode. This is due to bug in Blender - reported <a href="https://projects.blender.org/blender/blender/issues/114173">here</a>. </s> - fixed in Hair Tool directly.</li>
@@ -286,6 +286,6 @@
 </html>
 
 <!--
-MkDocs version : 1.6.0
-Build Date UTC : 2025-01-21 19:00:01.639804+00:00
+MkDocs version : 1.6.1
+Build Date UTC : 2025-02-28 22:47:09.045041+00:00
 -->

@@ -52,6 +52,8 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_system/">Hair System</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_deformers/">Hair Deformers</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Curves from Grid Surface</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
@@ -133,8 +135,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../character_creator_workflow/">Character Creator</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../recommended_addons/">Recommended addons</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
                   </li>
               </ul>
@@ -196,7 +196,7 @@ Your browser does not support the video tag.
 <p><img alt="Blender Profile" src="../img/no_profile.jpeg" /></p>
 <p>Parameters:</p>
 <ul>
-<li><strong>Radius</strong> - blender strand radius - additional multiplier - on top of <a href="../main_workflows/hair_system#radius-set">Set Radius</a> deformer</li>
+<li><strong>Radius</strong> - blender strand radius - additional multiplier - on top of <a href="../main_workflows/hair_deformers/#radius-set">Set Radius</a> deformer</li>
 </ul>
 <p>And for convenience, there are also Blender 'Curves' settings exposed in Hair Tool UI:</p>
 <ul>
@@ -204,7 +204,7 @@ Your browser does not support the video tag.
 <li><strong>Additional Subdivision</strong> - additional subdivision of hair strands in viewport</li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: Blender curve profile wont render correctly, if Hair System is attached to mesh object. Use Ctrl+Shift+H -&gt;  <a href="../main_workflows/hair_system#transfer-hair-system">Transfer Hair System</a> -&gt; To Empty Curve</p>
+<p><strong>Note</strong>: Blender curve profile wont render correctly, if Hair System is attached to mesh object. Use Ctrl+Shift+H -&gt;  <a href="../main_workflows/hair_system/#transfer-hair-system">Transfer Hair System</a> -&gt; To Empty Curve</p>
 </blockquote>
 <h4 id="flat-profile">Flat Profile<a class="headerlink" href="#flat-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
@@ -228,17 +228,17 @@ Your browser does not support the video tag.
 <p>Curve Profile - (with UV's) - any curve object can be used as custom hair profile - just like in old Blender curves.</p>
 <h4 id="multi-curve-profile">Multi Curve Profile<a class="headerlink" href="#multi-curve-profile" title="Permanent link">&para;</a></h4>
 <p><img alt="Multi Curve Profile" src="../img/multi_curve_profile.jpg" />
-<em>New in Hair Tool 4.0. On image above we used: <span style="color: red;">C</span>, <span style="color: blue;">X</span> and <span style="color: green;">&lt;</span> shaped curve objects (visible at top) as profile shapes for strands generated on <a href="../main_workflows/hair_from_surface">guide grid mesh</a></em></p>
-<p>Multi Curve Profile unlocks ability to assign unique curve profile shape for each hair strand. Use the <a href="../main_workflows/hair_system/#profile-distribute"><strong>Profile Distribute</strong></a> deformer (for procedurally generated strands) or <a href="../uv_material/#set-profile-ids">Set Profile ID</a> operator (for 'real' hair curves) to assign profile object to each strand. This unlocks possibility to use cross profiles (technique used in Horizon Zero Dawn).</p>
+<em>New in Hair Tool 4.0. On image above we used: <span style="color: red;">C</span>, <span style="color: blue;">X</span> and <span style="color: green;">&lt;</span> shaped curve objects (visible at top) as profile shapes for strands generated on <a href="../main_workflows/hair_from_surface/">guide grid mesh</a></em></p>
+<p>Multi Curve Profile unlocks ability to assign unique curve profile shape for each hair strand. Use the <a href="../main_workflows/hair_deformers/#profile-distribute"><strong>Profile Distribute</strong></a> deformer (for procedurally generated strands) or <a href="../uv_material/#set-profile-ids">Set Profile ID</a> operator (for 'real' hair curves) to assign profile object to each strand. This unlocks possibility to use cross profiles (technique used in Horizon Zero Dawn).</p>
 <video style="width:100%" controls>
 <source src="../video/multi_curve_profile.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Above I show how to generate and instance multiple curves along hairstrands (video is narrated)</em></p>
-<p><strong>Use Strand UVs for singular cards</strong> option allows you to use <a href="../uv_material/#hair-system-uvs">hair strand UVs</a> (rather than profile UVs) for profile curves made from single spline. UVs will work in similar way to how <a href="#flat-profile">Flat Profile</a> UVs work - use <a href="../main_workflows/hair_system/#uv-region-distribute">UV Region Distribute</a> deformer and <a href="../uv_material/#set-uv-region">Set UV Region</a> operator to distribute UVs onto hair curves.</p>
+<p><strong>Use Strand UVs for singular cards</strong> option allows you to use <a href="../uv_material/#hair-system-uvs">hair strand UVs</a> (rather than profile UVs) for profile curves made from single spline. UVs will work in similar way to how <a href="#flat-profile">Flat Profile</a> UVs work - use <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Region Distribute</a> deformer and <a href="../uv_material/#set-uv-region">Set UV Region</a> operator to distribute UVs onto hair curves.</p>
 <blockquote>
 <p><strong>Note</strong>: Fastest way to generate curve profile objects is to use <strong>Generate Curves from UV</strong> button (close to the bottom of Profile panel)</p>
-<p><strong>Note</strong>: to define which strand will receive which profile object use <a href="../main_workflows/hair_system/#profile-distribute"><strong>Distribute Profile</strong></a> deformer</p>
+<p><strong>Note</strong>: to define which strand will receive which profile object use <a href="../main_workflows/hair_deformers/#profile-distribute"><strong>Distribute Profile</strong></a> deformer</p>
 </blockquote>
 <h4 id="round-profile">Round Profile.<a class="headerlink" href="#round-profile" title="Permanent link">&para;</a></h4>
 <p><img alt="Round Profile" src="../img/texture_baking_panel.jpg" />
@@ -290,7 +290,7 @@ Your browser does not support the video tag.
 <p><em>Above I show how to generate and instance multiple meshes along hairstrands (video is narrated)</em></p>
 <p>Mesh profile objects should point up, and theirs origin be at the bottom. Otherwise, they may not align correctly to hair strands. Their length is not normalized, meaning taller objects will be longer after placing on hair strands (by match profile objects height &gt; gives them same length).</p>
 <blockquote>
-<p><strong>Note</strong>: Since release of Hair Tool 4.x you can now manually assign profile object to each hair strand with <a href="../main_workflows/hair_system/#profile-distribute"><strong>Profile Distribute</strong></a> deformer or <a href="../uv_material/#set-profile-ids">Set Profile ID</a> operator</p>
+<p><strong>Note</strong>: Since release of Hair Tool 4.x you can now manually assign profile object to each hair strand with <a href="../main_workflows/hair_deformers/#profile-distribute"><strong>Profile Distribute</strong></a> deformer or <a href="../uv_material/#set-profile-ids">Set Profile ID</a> operator</p>
 <p><strong>Note</strong>: Fastest way to generate multiple mesh profile objects is to use <strong>Generate mesh cards from UV</strong> button (at the bottom of Profile panel)</p>
 </blockquote>
 <p><img alt="Profile Mesh Slice" src="../img/geo_nodes_hair/profile_mesh_sliced.jpg" />
@@ -323,7 +323,7 @@ Your browser does not support the video tag.
 <li><strong>Sample UV</strong> - pick name of UV channel, that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair Material using <strong>Attribute Node</strong> with name <strong>SampledUV</strong></li>
 <li><strong>Sample Color</strong> - pick name of vertex Color that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair material using <strong>Attribute Node</strong> with name <strong>SampledColor</strong></li>
 </ul>
-<p><img alt="Generate Attributes" src="./../img/geo_nodes_hair/generate_attributes.jpg" />
+<p><img alt="Generate Attributes" src="../img/geo_nodes_hair/generate_attributes.jpg" />
 <em>In setup above we sample <code>UVMap</code> from sphere. This generates attribute named <code>SampledUV</code>, which can be used to color strands with same texture as character body</em></p>
 <h5 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>

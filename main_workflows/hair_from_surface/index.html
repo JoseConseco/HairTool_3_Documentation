@@ -52,6 +52,8 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_deformers/">Hair Deformers</a>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Curves from Grid Surface</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#video-tutorial">Video Tutorial</a>
@@ -105,8 +107,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../character_creator_workflow/">Character Creator</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../recommended_addons/">Recommended addons</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
                   </li>
               </ul>
@@ -135,7 +135,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="curve-from-grid-surface">Curve from grid surface<a class="headerlink" href="#curve-from-grid-surface" title="Permanent link">&para;</a></h2>
-<p>It uses <a href="../../main_workflows/hair_system/#strands-from-grid-surface">Strands from Grid Surface</a> Hair Generator, where active mesh will guide be used for guiding hair strands flow. Guide mesh has to have grid topology: made of quads,</p>
+<p>It uses <a href="../hair_system/#strands-from-grid-surface">Strands from Grid Surface</a> Hair Generator, where active mesh will guide be used for guiding hair strands flow. Guide mesh has to have grid topology: made of quads,</p>
 <p><img alt="Hair Tool" src="../../img/bannerhairtool2.jpg" /></p>
 <p>Useful for: <strong>long hair, eyelashes, hair buns, layered type of hair</strong> etc. It's designed to generate low poly mesh, so it runs smoothly mobile games.</p>
 <video style="width:100%" controls>
@@ -144,8 +144,8 @@ Your browser does not support the video tag.
 </video>
 <p><em>Use Ctrl+Shift+H &gt; <code>Curves from grid surface</code> to add Hair System preset, where active mesh will guide generated strands</em></p>
 <blockquote>
-<p><strong>Note</strong>: In older Hair Tool 2.4x series, you could directly edit generated curves (in edit mode). In HTool 3.x these curves are generated procedurally in geometry nodes, thus you cannot edit them directly. First use <a href="../hair_system#bake">Bake</a> option to convert these procedural curves to real geometry.</p>
-<p><strong>Note</strong>: If you want to cover head scalp uniformly with hair, then use standard Hair System with <a href="../../main_workflows/hair_system#strands-generator">Strand Generator</a> instead.</p>
+<p><strong>Note</strong>: In older Hair Tool 2.4x series, you could directly edit generated curves (in edit mode). In HTool 3.x these curves are generated procedurally in geometry nodes, thus you cannot edit them directly. First use <a href="../hair_system/#bake">Bake</a> option to convert these procedural curves to real geometry.</p>
+<p><strong>Note</strong>: If you want to cover head scalp uniformly with hair, then use standard Hair System with <a href="../hair_system/#strands-generator">Strand Generator</a> instead.</p>
 </blockquote>
 <h4 id="video-tutorial">Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permanent link">&para;</a></h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Rp7yGbxm7HI?start=39"
@@ -178,7 +178,7 @@ Your browser does not support the video tag.
 <h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h4>
 <p><s>In Hair Tool 3.x <strong>Curves from Grid Surface</strong> is using new strand interpolation (based on Geometry Nodes). It has some limitations, see example below:</s></p>
 <blockquote>
-<p><strong>Update</strong>: This issue if fixed in Hair Tool 4.x, where instead of using Blender built-in hair interpolation, I implemented my own interpolation algorithm. The only downside of new method is that instead of using <strong>Vertex Group</strong> use <a href="../hair_system/#object-vertex-grouptexture"><strong>Object Vertex Group</strong></a> <a href="../hair_system/#input-masks">inputs mask</a> - with target set to grid guide mesh</p>
+<p><strong>Update</strong>: This issue if fixed in Hair Tool 4.x, where instead of using Blender built-in hair interpolation, I implemented my own interpolation algorithm.</p>
 </blockquote>
 <p><img alt="Ugly Interpolation example" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
 <em><s>Example of poor strand interpolation, when using 'Curves From Grid'. Strands do not adhere to the guide grid surface and instead follow path downwards</em></s></p>
@@ -186,7 +186,7 @@ Your browser does not support the video tag.
 <em><s>The reason and explanation: imagine new strand (marked as X above) is picking 2 closest guides; it found one guide to right one to left - which is causing the strand to go to the center (average of both guides)</s></em></p>
 <p><img alt="Ugly interpolation fix" src="../../img/grid_surface/ugly_grid_fix.jpeg" />
 <em><s>The fix: split guide grid mesh in to mesh islands, this will split guides too (marked with black and white). Now new strand will follow only group of strands (only white or only white) - resulting in clean interpolation on right</s></em></p>
-<p><s>The reason why splitting guide mesh, into two or more mesh islands work is due to how <a href="../../main_workflows/hair_system#hair-interpolation">Hair Interpolation</a> in HTool works - strands spawned on one island, will only follow guides from that mesh island.</s></p>
+<p><s>The reason why splitting guide mesh, into two or more mesh islands work is due to how <a href="../hair_system/#hair-interpolation">Hair Interpolation</a> in HTool works - strands spawned on one island, will only follow guides from that mesh island.</s></p>
 <blockquote>
 <p><strong>Note</strong>: <s>You do not have to split base mesh by <a href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/vertex/rip_vertices.html">ripping geometry</a>. In above case I turned Off 'merge' option in <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/mirror.html">mirror modifier</a>, thus righ and left side are seen as separate islands. Or you could use <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html">edge split modifier</a></s></p>
 </blockquote>
@@ -196,7 +196,7 @@ Your browser does not support the video tag.
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../hair_system/" class="btn btn-neutral float-left" title="Hair System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_deformers/" class="btn btn-neutral float-left" title="Hair Deformers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../hair_with_track_mesh/" class="btn btn-neutral float-right" title="Hair with Track Mesh">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -220,7 +220,7 @@ Your browser does not support the video tag.
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../hair_system/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../hair_deformers/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../hair_with_track_mesh/" style="color: #fcfcfc">Next &raquo;</a></span>

@@ -52,6 +52,8 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_system/">Hair System</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_deformers/">Hair Deformers</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Curves from Grid Surface</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
@@ -94,8 +96,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../hair_animation/">Animation</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../character_creator_workflow/">Character Creator</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../recommended_addons/">Recommended addons</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">FAQ</a>
     <ul class="current">
@@ -193,7 +193,7 @@
 <h3 id="texture-looks-wrong">Texture looks wrong<a class="headerlink" href="#texture-looks-wrong" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Check if your hair material and <code>UV_Data</code> object are assigned correctly inside <a href="../hair_profiles#hair-profiles">Profile</a> section.
+<p>Check if your hair material and <code>UV_Data</code> object are assigned correctly inside <a href="../hair_profiles/#hair-profiles">Profile</a> section.
 <img alt="Correct material UV Setup" src="../img/hsystem_setup_profile.jpeg" />
 <em>Profile is place where material is assigned to hair strands., and hair UV shape (boxes) is stored</em>
 If your <code>UV_Data</code> object is missing, you can create it by using <a href="../uv_material/#defining-hair-uvs">Hair UV</a> operator (or copy it from another object profile)</p>
@@ -209,7 +209,7 @@ If your <code>UV_Data</code> object is missing, you can create it by using <a hr
 <em>When <code>HTOOL_UV</code> is linked to material output, it should have green+red tint</em></p>
 </li>
 <li>
-<p>Using <code>Define UV</code> will generate 'UV_Data` (and assign it to profile), but it will not assign individual UV boxes (regions) to hair strands. For that you will need for that use <a href="../main_workflows/hair_system#uv-region-distribute">UV Regions Distribute</a> deformer (for procedural strands) or <a href="../uv_material/#set-uv-region">Set UV Regions</a> operator (for 'real' strands).</p>
+<p>Using <code>Define UV</code> will generate 'UV_Data` (and assign it to profile), but it will not assign individual UV boxes (regions) to hair strands. For that you will need for that use <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Regions Distribute</a> deformer (for procedural strands) or <a href="../uv_material/#set-uv-region">Set UV Regions</a> operator (for 'real' strands).</p>
 </li>
 <li>
 <p>Sometimes UVs may not be generated correctly, if Profile node is out of date. Update it using 'Update Whole Profile' button from image below:</p>
@@ -220,7 +220,7 @@ If your <code>UV_Data</code> object is missing, you can create it by using <a hr
 <p><img alt="Hair UV" src="../img/faq/greyed_out_settings.jpg" />
 Go to Preferences &gt; System &gt; Enable 'Global Undo'. You may need to restart blender after saving settings. It looks like blender bug, and from time to time this option is disabled for no reason.</p>
 <h3 id="how-do-i-export-hair">How do I export hair?<a class="headerlink" href="#how-do-i-export-hair" title="Permanent link">&para;</a></h3>
-<p>Hair generated in Hair Tool can be exported just like any other mesh (File &gt; Export &gt; FBX). Just make sure to <a href="../convert_hair#convert-hair-to-mesh">Convert Curves to Mesh</a> hair first.</p>
+<p>Hair generated in Hair Tool can be exported just like any other mesh (File &gt; Export &gt; FBX). Just make sure to <a href="../convert_hair/#convert-hair-to-mesh">Convert Curves to Mesh</a> hair first.</p>
 <h3 id="how-do-i-export-hair-texture">How do I export hair texture?<a class="headerlink" href="#how-do-i-export-hair-texture" title="Permanent link">&para;</a></h3>
 <p>If you are using default Hair Tool hair material, then it is using just one texture - alpha mask. You can export it from UV Editor (or Image Editor) &gt; Image menu &gt; Save as:
 <img alt="Exporting Hair Texture" src="../img/faq/texture_export.jpg" /></p>
@@ -268,7 +268,7 @@ Examples of <strong>bad topology</strong>:
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../recommended_addons/" class="btn btn-neutral float-left" title="Recommended addons"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../character_creator_workflow/" class="btn btn-neutral float-left" title="Character Creator"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -291,7 +291,7 @@ Examples of <strong>bad topology</strong>:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../recommended_addons/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../character_creator_workflow/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
   </span>
