@@ -58,10 +58,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#two-minute-hair-setup">Two Minute Hair Setup</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#transfer-hair-system">Transfer Hair System</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#general-operations">General Operations</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#sub-systems-types">Sub-Systems Types</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#strands-generator">Strands Generator</a>
@@ -79,6 +75,10 @@
     <li class="toctree-l3"><a class="reference internal" href="#interpolated-strands">Interpolated Strands</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transfer-hair-system">Transfer Hair System</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#general-operations">General Operations</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#child-parent-setup">Child - Parent setup</a>
     </li>
@@ -216,19 +216,19 @@
               
                 <h2 id="hair-system">Hair System<a class="headerlink" href="#hair-system" title="Permanent link">&para;</a></h2>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
-<p><img alt="Hair System Diagram" src="../../img/hsystem_diagram.jpeg" /></p>
-<p>Hair System assists you in <strong>creating procedural hair strands</strong> in a non-destructive way, utilizing Blender's Geometry Nodes technology.<br>
-Hair System is made from:</p>
+<p><img alt="Hair System Diagram" src="../../img/hsystem_diagram.jpeg" />
+<em>Three main building-blocks of hair in Hair Tool: Setup, Hair (sub)Systems, Profile</em></p>
+<p>In Hair Tool there is concept of: <strong>Hair System - it is Blender geometry-nodes based modifier where hair strands are generated and modified</strong>. Modifications are done by adding sub-nodes (here called <a href="../hair_deformers/">Deformers</a>) to these modifiers (Hair Systems).</p>
+<p>Hair-cards, in Hair Tool, are build from three basic modifiers (some are optional):</p>
 <ul>
-<li>A <a href="../../overview/#setup-section">setup section</a> to assign a guide curve and source mesh</li>
-<li>Hair <a href="./#sub-systems-types">sub-systems</a> with generators and <a href="../hair_deformers/">Deformers</a> to create and modify strands</li>
-<li>A hair <a href="../../hair_profiles/">profile</a> to add geometry, UVs, and materials to strands</li>
+<li><a href="../../overview/#setup-section">Setup</a> modifier that connects: guide curve and source mesh</li>
+<li><a href="./#sub-systems-types">Hair Systems</a> These are like the building blocks of the hair. They use generators to create strands and <a href="../hair_deformers/">deformers</a> to shape them,</li>
+<li><a href="../../hair_profiles/">Hair Profile</a> modifier where geometry, UVs, and materials are attached to strands,</li>
 </ul>
-<p>Hair Sub-Systems in stack can communicate together with usage of <a href="#tags"><strong>Tags</strong></a> - this help to describe which Hair System is affecting which strands.</p>
-<p>Hair System is located in Right Sidebar → Hair Tool Tab → Hair System Panel. Click [+] to add Hair System to selected mesh or curve object.</p>
+<p><strong>Multiple Hair (sub)Systems, can be connected together using labels</strong> called <a href="#tags"><strong>Tags</strong></a>. This helps to set <a href="#child-parent-setup">child-parent</a> like relation, which is needed, for: hair interpolation, clumping and other effects.</p>
+<p><strong>Hair System panel is located in Right Sidebar &gt; Hair Tool Tab &gt; Hair System Panel</strong>. Click [+] to add Hair System to selected mesh or curve object.</p>
 <p><img alt="Hair System UI" src="../../img/geo_nodes_hair/hair_system_nodal.jpg" />
- <em>On image above we have Two Hair Systems named: <code>Parent</code>, <code>Child</code>. You can see <code>Child</code> system is made from: Strand Generator, Noise, Clump, Set Radius etc. deformers. Whole system is guided by: HairCurve guide - second input at very top</em></p>
-<p>Strands generated with Hair Systems are then passed to <a href="../../hair_profiles/"><strong>hair profile generation</strong></a> system, which convert these strands to hair-cards.</p>
+ <em>Example of two Hair Systems setup: <code>Parent</code> and <code>Child</code>. <code>Child</code> System is made from: Strand Generator, Noise, Clump, Set Radius etc. deformers. <code>Parent</code> system is guided by: HairCurve guide (second input at very top)</em></p>
 <hr />
 <h3 id="one-minute-hair-setup">One Minute Hair Setup<a class="headerlink" href="#one-minute-hair-setup" title="Permanent link">&para;</a></h3>
 <!-- ##### Creating Hair Systems -->
@@ -237,7 +237,7 @@ Hair System is made from:</p>
   <source src="../../img/geo_nodes_hair/hair_workflow_from_zero.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Full setup (with audio) starting from scalp mesh, drawing few guide strands and generation of denser interpolated child strands</em></p>
+<p><em>(Video has audio) We start from scalp mesh, draw few guide strands and generate interpolated child strands</em></p>
 <p>Text description of steps:</p>
 <ol>
 <li>Select scalp mesh, and go to Draw Hair Panel &gt; Enable <a href="../hair_drawing/">Draw Hair</a></li>
@@ -262,8 +262,85 @@ Your browser does not support the video tag.
   <source src="../../video/two_min_hair_setup.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Full setup - starting from scalp mesh, and ending with mesh haircards ready for export</em></p>
+<p><em>We start from scalp mesh, but this time hair strands are generated procedurally - and then baked into 'real' curves geometry, so that we can groom them</em></p>
 <p>Above we used option of selecting strands by mesh island &gt; see <a href="../../hair_sculpting/#strands-selection">Strand Selection</a> section.</p>
+<hr />
+<h3 id="sub-systems-types">Sub-Systems Types<a class="headerlink" href="#sub-systems-types" title="Permanent link">&para;</a></h3>
+<p>After adding a Hair Sub-System, you'll see the first slot in the deformer stack is added automatically. This is determined by the selected hair sub-system type.</p>
+<h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
+<p>It will grow strands, from Base Mesh surface. You can control parameters like: resolution, density, length, interpolation (<a href="./#child-parent-setup">Parent Child relation must be set</a>) etc. These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/strands_gen.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Set parent <a href="#tags">Tags</a> and enable <a href="./#hair-interpolation">interplation</a> option, so that generated strands will follow these Tagged strands. See <a href="./#child-parent-setup"><strong>Child Parent Setup</strong></a></em></p>
+<h5 id="align-to-surface-normal">Align to Surface Normal<a class="headerlink" href="#align-to-surface-normal" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../video/strand_gen_align.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Align to Surface Normal - option changes how the interplation works. Do not confuse with <a href="../hair_deformers/#align-tilt">Align Tilt To Source Surface</a></em></p>
+<h5 id="strands-distribution">Strands Distribution<a class="headerlink" href="#strands-distribution" title="Permanent link">&para;</a></h5>
+<p>Poisson distribution is a better way to spread things out evenly than just randomly placing them.</p>
+<p><strong>Here's why:</strong></p>
+<p>Imagine you're trying to place hair strands on a surface.</p>
+<ul>
+<li>
+<p><strong>Random placement:</strong>  You might end up with clumps of hair in some areas and gaps in others.</p>
+</li>
+<li>
+<p><strong>Poisson distribution:</strong> This method makes sure the hair is spread out more evenly. It does this by removing any hair strands that are too close together.</p>
+</li>
+</ul>
+<p><img alt="Random vs Poisson" src="../../img/geo_nodes_hair/poisson_vs_random.jpg" />
+<em><b>Left</b>: notice the clumping of hair roots; <b>Center</b>: Poisson distribution helps to remove these clumped dots (colored in black), by removing roots that are closer than <code>Min Distance</code> parameter. <b>Right</b>: Increase <code>Density</code> parameter to fill up the empty spots</em></p>
+<h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
+<p>This hair (sub)System type lets you affect existing hair strands - whether these strands are:</p>
+<ul>
+<li>'real' (for example generated with <a href="../hair_drawing/">Hair Drawing</a>),</li>
+<li>or generated procedurally by another Hair subSystem &gt; <a href="./#strands-generator">Strands Generator</a>.</li>
+</ul>
+<p>This way you can e.g. add <a href="../hair_deformers/#noise">Noise</a> effect to all existing strands (or make them curl, taper etc).<br>
+<strong>There is option to affect only selected strands, by filtering them with <a href="#tags">TAGs</a></strong>.</p>
+<p>Imagine you want to modify two Hair Systems, by adding <a href="../hair_deformers/#radius-set">Set Radius</a> or <a href="../hair_deformers/#align-tilt">Align Tilt</a>. Instead of applying these deformers to each individual Hair subSystem, you can <strong>utilize the Filter System to affect all strands simultaneously</strong>.</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/strands_filter.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Demo of applying 'Scale' deformer to strands generated with <code>Right</code> Tag</em></p>
+<blockquote>
+<p><strong>Note</strong>: If no filter tag is specified, then all strands will be affected</p>
+</blockquote>
+<h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
+<p>This type of Strand Generator, will guide strands using guide mesh (grid mesh, made of quads only).
+Root of strands will be placed:</p>
+<ul>
+<li>on edge loop marked as Sharp (Ctrl+E -&gt; Mark Sharp)</li>
+<li>or on crease edge (Shift+E -&gt; Crease Edge).</li>
+</ul>
+<p>These strands can be affected by all subsequent deformers in <strong>current</strong> system stack</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/hsystem_curves_from_grid.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above - top, boundary edge loop was <code>marked as sharp</code></em></p>
+<blockquote>
+<p><strong>Note</strong>: Notice how guide grid, in video above, has uneven topology - getting dense to the right. This is important when adjusting 'Uniform Spacing' option</p>
+<p><strong>Note</strong>: To mask-out placement of roots, just plugin in vertex group mask into 'Placement Mask' input</p>
+</blockquote>
+<p>Examples of <strong>proper grid guide topology</strong>:
+<img alt="Bad Grid Mesh" src="../../img/faq/good_grid_meshes.jpg" />
+<em>Check out the <a href="../../faq/#error-when-using-curves-from-grid-surface">FAQ</a> to see examples of wrong mesh topology</em></p>
+<h4 id="interpolated-strands">Interpolated Strands<a class="headerlink" href="#interpolated-strands" title="Permanent link">&para;</a></h4>
+<p>This Strand Generator, will use existing curves add extra strands in between them. In that case order of strand matter!</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/interpolated_strands.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above I used drawn strands to guide the 'Interpolated Strands' generator (video is narrated)</em></p>
+<blockquote>
+<p><strong>Note</strong>: If order of your strands is wrong, and <strong>Automatic Spline Sorting</strong> option fails, you can use <strong>Sort Strands by Stroke</strong> operator to manually fix the order (see video above)</p>
+</blockquote>
 <hr />
 <h3 id="transfer-hair-system">Transfer Hair System<a class="headerlink" href="#transfer-hair-system" title="Permanent link">&para;</a></h3>
 <p>Hair System can be assigned to Mesh or Curve Hair object, depending on which object is selected when you add Hair System. If you want to <strong>change Hair System 'owner'</strong> you can use Transfer Hair System operator.
@@ -342,83 +419,6 @@ User cases when you want to use Transfer Hair System:</p>
 <li><strong>Bake All SubSystems</strong> - bake curves generated by All Hair <a href="../../overview/#hair-sub-systems">sub-Systems</a> into 'real' curves geometry. This works only on hair curve type of objects (try: Ctr+Shift+H &gt; Transfer Hair System: to Empty Curve, or to Guide Curve)</li>
 <li><strong>Transfer Hair System</strong> - explained <a href="./#transfer-hair-system">here</a></li>
 </ul>
-<hr />
-<h3 id="sub-systems-types">Sub-Systems Types<a class="headerlink" href="#sub-systems-types" title="Permanent link">&para;</a></h3>
-<p>After adding a Hair Sub-System, you'll see the first slot in the deformer stack is added automatically. This is determined by the selected hair sub-system type.</p>
-<h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
-<p>It will grow strands, from Base Mesh surface. You can control parameters like: resolution, density, length, interpolation (<a href="./#child-parent-setup">Parent Child relation must be set</a>) etc. These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
-<video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/strands_gen.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Set parent <a href="#tags">Tags</a> and enable <a href="./#hair-interpolation">interplation</a> option, so that generated strands will follow these Tagged strands. See <a href="./#child-parent-setup"><strong>Child Parent Setup</strong></a></em></p>
-<h5 id="align-to-surface-normal">Align to Surface Normal<a class="headerlink" href="#align-to-surface-normal" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-  <source src="../../video/strand_gen_align.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Align to Surface Normal - option changes how the interplation works. Do not confuse with <a href="../hair_deformers/#align-tilt">Align Tilt To Source Surface</a></em></p>
-<h5 id="strands-distribution">Strands Distribution<a class="headerlink" href="#strands-distribution" title="Permanent link">&para;</a></h5>
-<p>Poisson distribution is a better way to spread things out evenly than just randomly placing them.</p>
-<p><strong>Here's why:</strong></p>
-<p>Imagine you're trying to place hair strands on a surface.</p>
-<ul>
-<li>
-<p><strong>Random placement:</strong>  You might end up with clumps of hair in some areas and gaps in others.</p>
-</li>
-<li>
-<p><strong>Poisson distribution:</strong> This method makes sure the hair is spread out more evenly. It does this by removing any hair strands that are too close together.</p>
-</li>
-</ul>
-<p><img alt="Random vs Poisson" src="../../img/geo_nodes_hair/poisson_vs_random.jpg" />
-<em><b>Left</b>: notice the clumping of hair roots; <b>Center</b>: Poisson distribution helps to remove these clumped dots (colored in black), by removing roots that are closer than <code>Min Distance</code> parameter. <b>Right</b>: Increase <code>Density</code> parameter to fill up the empty spots</em></p>
-<h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
-<p>This hair (sub)System type lets you affect existing hair strands - whether these strands are:</p>
-<ul>
-<li>'real' (for example generated with <a href="../hair_drawing/">Hair Drawing</a>),</li>
-<li>or generated procedurally by another Hair subSystem &gt; <a href="./#strands-generator">Strands Generator</a>.</li>
-</ul>
-<p>This way you can e.g. add <a href="../hair_deformers/#noise">Noise</a> effect to all existing strands (or make them curl, taper etc).<br>
-<strong>There is option to affect only selected strands, by filtering them with <a href="#tags">TAGs</a></strong>.</p>
-<p>Imagine you want to modify two Hair Systems, by adding <a href="../hair_deformers/#radius-set">Set Radius</a> or <a href="../hair_deformers/#align-tilt">Align Tilt</a>. Instead of applying these deformers to each individual Hair subSystem, you can <strong>utilize the Filter System to affect all strands simultaneously</strong>.</p>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/strands_filter.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Demo of applying 'Scale' deformer to strands generated with <code>Right</code> Tag</em></p>
-<blockquote>
-<p><strong>Note</strong>: If no filter tag is specified, then all strands will be affected</p>
-</blockquote>
-<h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
-<p>This type of Strand Generator, will guide strands using guide mesh (grid mesh, made of quads only).
-Root of strands will be placed:</p>
-<ul>
-<li>on edge loop marked as Sharp (Ctrl+E -&gt; Mark Sharp)</li>
-<li>or on crease edge (Shift+E -&gt; Crease Edge).</li>
-</ul>
-<p>These strands can be affected by all subsequent deformers in <strong>current</strong> system stack</p>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/hsystem_curves_from_grid.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>In video above - top, boundary edge loop was <code>marked as sharp</code></em></p>
-<blockquote>
-<p><strong>Note</strong>: Notice how guide grid, in video above, has uneven topology - getting dense to the right. This is important when adjusting 'Uniform Spacing' option</p>
-<p><strong>Note</strong>: To mask-out placement of roots, just plugin in vertex group mask into 'Placement Mask' input</p>
-</blockquote>
-<p>Examples of <strong>proper grid guide topology</strong>:
-<img alt="Bad Grid Mesh" src="../../img/faq/good_grid_meshes.jpg" />
-<em>Check out the <a href="../../faq/#error-when-using-curves-from-grid-surface">FAQ</a> to see examples of wrong mesh topology</em></p>
-<h4 id="interpolated-strands">Interpolated Strands<a class="headerlink" href="#interpolated-strands" title="Permanent link">&para;</a></h4>
-<p>This Strand Generator, will use existing curves add extra strands in between them. In that case order of strand matter!</p>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/interpolated_strands.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>In video above I used drawn strands to guide the 'Interpolated Strands' generator (video is narrated)</em></p>
-<blockquote>
-<p><strong>Note</strong>: If order of your strands is wrong, and <strong>Automatic Spline Sorting</strong> option fails, you can use <strong>Sort Strands by Stroke</strong> operator to manually fix the order (see video above)</p>
-</blockquote>
 <hr />
 <h3 id="child-parent-setup">Child - Parent setup<a class="headerlink" href="#child-parent-setup" title="Permanent link">&para;</a></h3>
 <p>Linking two Hair SubSystems, with Child-Parent relation, enables capabilities such as: interpolation, clumping, curls, braids, twist and others.<br>

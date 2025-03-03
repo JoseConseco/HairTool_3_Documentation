@@ -44,12 +44,10 @@
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#video-tutorials">Video Tutorials</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add-on-location">Add-on location</a>
+    <li class="toctree-l2"><a class="reference internal" href="#video-tutorials">Video Tutorials</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#add-on-location">Add-on location</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
@@ -142,14 +140,15 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-tool-4-for-blender-42-and-above">Hair Tool 4 (for Blender 4.2 and above)<a class="headerlink" href="#hair-tool-4-for-blender-42-and-above" title="Permanent link">&para;</a></h2>
-<p><img alt="Hair Tool" src="img/hair_example.jpg" /></p>
-<p><a href="https://gumroad.com/l/hairtool"><strong>Hair Tool</strong></a> is Blender add-on for creating hair cards based on 3d curves.
+<p><img alt="Hair Tool" src="img/ellinor-moren-artstation-image-03.jpg" />
 <em>Art by <a href="https://www.artstation.com/ellimoren">Ellinor Morén</a></em></p>
-<p>This add-on will help you procedurally generate hair card with UV's, bake them to real geometry curves and then tweak with modeling tools:</p>
+<p><a href="https://gumroad.com/l/hairtool"><strong>Hair Tool</strong></a> is Blender add-on for creating hair cards based on 3d curves.</p>
+<p>This add-on will help you generate hair-cards, UV's, bake textures and model hair-cards.</p>
+<p>Features include:</p>
 <ul>
-<li>procedural <a href="main_workflows/hair_system/">Hair System</a> with <a href="main_workflows/hair_deformers/#hair-deformers">Deformers</a></li>
-<li>Curve <a href="hair_modeling/">Modeling Tools</a> (edit: radius, tilt, resample curve, extrude, subdivide, cut etc). Blender 3.6 and 4.x as of today (2023) does have built-in tools for modeling new hair curves,</li>
-<li><a href="main_workflows/hair_from_surface/">Guide Grid mesh</a> - hair will follow guide grid mesh,</li>
+<li>Procedural strand generation using modifiers (called <a href="main_workflows/hair_system/">Hair System</a>) and <a href="main_workflows/hair_deformers/#hair-deformers">Deformers</a> (nodes inside these modifiers)</li>
+<li>Curve <a href="hair_modeling/">Modeling Tools</a> (edit: radius, tilt, resample, extrude, subdivide, cut etc),</li>
+<li>Guiding strands with <a href="main_workflows/hair_from_surface/">Grid mesh</a>,</li>
 <li><a href="main_workflows/hair_with_track_mesh/">Track Mesh</a> - sculpt your hair rather than groom.</li>
 <li><a href="main_workflows/hair_drawing/">Hair Drawing</a> (or extending) - very fast way to create hair cards from scratch,</li>
 <li><a href="hair_library/">Hair Library</a> - learn and modify by using one of many hair presets,</li>
@@ -161,8 +160,11 @@
 </ul>
 <p>And more!</p>
 <h4 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h4>
-<p><img alt="Hair Tool" src="img/ellinor-moren-artstation-image-03.jpg" />
-<em>Art by <a href="https://www.artstation.com/ellimoren">Ellinor Morén</a></em></p>
+<video style="width:100%" controls>
+  <source src="../video/procedural_spiky_hair_htool.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Example of procedural hair generation with Hair Tool 4.x</em></p>
 <p>Fastest way to get started with Hair Tool:</p>
 <ul>
 <li><a href="main_workflows/hair_system/#one-minute-hair-setup">One minute Hair Setup</a> - quickest way to create hair using hair draw feature (no speedup)</li>
@@ -174,8 +176,12 @@
 <li><a href="uv_material/#defining-hair-uvs">Define/Modify UVs</a> - resize or add new UV regions to map your haircards.</li>
 <li><a href="convert_hair/#finalize-hair">Finalize Hair</a> - the last step before exporting hair to game engine or rendering in Blender. Convert curve hair to mesh haircards (with .</li>
 </ul>
-<h5 id="video-tutorials">Video Tutorials<a class="headerlink" href="#video-tutorials" title="Permanent link">&para;</a></h5>
-<p>Often longer videos</p>
+<h4 id="video-tutorials">Video Tutorials<a class="headerlink" href="#video-tutorials" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+  <source src="https://cdn.artstation.com/p/video_sources/002/117/820/turnaround-3.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Art by <a href="https://www.artstation.com/ellimoren">Ellinor Morén</a></em></p>
 <ul>
 <li>Overview of <a href="https://youtu.be/KdtvWWeGsm0">Hair System</a> (for HTool 3.x, but ver 4.x is similar). After 10 min overview, I also show how to make example hairstyle with split.</li>
 <li>Explanation of how <a href="https://youtu.be/T_sy9bsDYq0">Input Masks</a> work, in Hair Tool 3.x (they work same in ver 4.x).</li>
@@ -195,16 +201,14 @@
 <p><s>Bit old tutorials by Jack Perry - <a href="https://www.artstation.com/artwork/rRkOVL">Part 01</a> and <a href="https://www.artstation.com/artwork/A91Bbq">Part 02</a></s></p>
 </li>
 </ul>
-<h5 id="add-on-location">Add-on location<a class="headerlink" href="#add-on-location" title="Permanent link">&para;</a></h5>
+<h4 id="add-on-location">Add-on location<a class="headerlink" href="#add-on-location" title="Permanent link">&para;</a></h4>
 <p><img alt="Hair Tool Pie Menu" src="img/ht_pie.jpg" />
 <em>Hair Tool Pie Menu and panels in right Sidebar(N)</em></p>
 <ul>
-<li>It is best to use addon from <strong>Ctrl+Shift+H</strong> Pie Menu (hotkey can be changed in preferences).</li>
-<li>There is also Hair Tool panel - located in right Sidebar(N): <strong>"Hair Tool"</strong> tab.</li>
-<li>Last but not least, you can find Hair Tool <a href="hair_modeling/">Modeling Tool</a> in left sidebar(T) in - see icon outlined in yellow on the image above.</li>
+<li>Access basic operations from <strong>Ctrl+Shift+H</strong> Pie Menu (hotkey can be changed in preferences).</li>
+<li>Hair Tool side panel: right Sidebar(N): <strong>"Hair Tool"</strong> tab.</li>
+<li>Hair Tool <a href="hair_modeling/">Modeling Tool</a> can be accessed from left sidebar(T) (see icon outlined in red on the image above)</li>
 </ul>
-<!-- TODO: add videos new guides... -->
-
 <h4 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h4>
 <p>To install Hair Tool you need zip file from your <a href="https://gumroad.com/">Gumroad</a> account. Then, inside Blender, go to:</p>
 <ul>
@@ -287,5 +291,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-02-28 22:47:09.045041+00:00
+Build Date UTC : 2025-03-03 12:32:26.246731+00:00
 -->
