@@ -48,7 +48,7 @@
                 <li class="toctree-l1"><a class="reference internal" href="../../overview/">Overview</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Hair Modeling Techniques</span></p>
+              <p class="caption"><span class="caption-text">Main Concepts</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
                   </li>
@@ -158,6 +158,15 @@
     </li>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../input_masks/">Input Masks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hair_profiles/">Hair Profiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modeling Methods</span></p>
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Curves from Grid Surface</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
@@ -180,10 +189,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../curve_tool/">Curve tools</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../hair_profiles/">Hair Profiles</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Texture creation</span></p>
@@ -218,7 +223,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Hair Modeling Techniques</li>
+          <li class="breadcrumb-item">Main Concepts</li>
       <li class="breadcrumb-item active">Hair Deformers</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -229,7 +234,11 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-deformers">Hair Deformers<a class="headerlink" href="#hair-deformers" title="Permanent link">&para;</a></h2>
-<p>Deformers gives you ability change chair look - add noise to hair, make them curl, snap to surface etc. They are stacked one on top of each other in similar way than Blender modifiers. They can be reordered. Some deformers (e.g. clump, twist, braids) will only work, if Hair System, to which deformers belong to is <a href="../hair_system/#child-parent-setup">Set as Child</a></p>
+<p>Think of them as nodes inside <a href="../hair_system/">Hair System</a> modifier. <strong>They give you ability change chair look: add noise, curls, snap to surface et</strong>c. They are stacked one on top of each other in similar way than Blender modifiers.</p>
+<blockquote>
+<p><strong>Note</strong>: Some deformers (e.g. clump, twist, braids) will only work, if Hair System (to which deformer belongs to) is <a href="../hair_system/#child-parent-setup">Set as Child</a></p>
+<p><strong>Note</strong>: Most of the input properties of Deformers can be masked by <a href="../input_masks/">input masks</a> like: vertex group, texture, length mask etc.</p>
+</blockquote>
 <h4 id="animation">Animation<a class="headerlink" href="#animation" title="Permanent link">&para;</a></h4>
 <h5 id="attach-curves-uv">Attach Curves UV<a class="headerlink" href="#attach-curves-uv" title="Permanent link">&para;</a></h5>
 <p>Attach strands roots to source mesh UVs, without it animation of hair with 'Surface Deform' modifier will not work.</p>
@@ -265,7 +274,7 @@ Your browser does not support the video tag.
   <source src="../../img/geo_nodes_hair/system_color.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>It will alow your to colorize haircards generated inside current hair system (added mostly for debugging hair sub-systems setups)</em></p>
+<p><em>It will allow your to colorize haircards generated inside current hair system (added mostly for debugging hair sub-systems setups)</em></p>
 <h4 id="clumps-child">Clumps (Child)<a class="headerlink" href="#clumps-child" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/clump.webm" type="video/mp4">
@@ -277,7 +286,7 @@ Your browser does not support the video tag.
   <source src="../../img/geo_nodes_hair/curls_deformer.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Clump child strands to Guide/Parent strands (FIRST tag) in shape of Curls. Can be used with Hair System <a href="../hair_system/#child-parent-setup">as child</a> first</em></p>
+<p><em>We add curls effect to second Hair System and play with the: Frequency and Phase. The amount of curls (and clumps) is determined by parent strand count. <a href="../hair_system/#child-parent-setup">Child-parent</a> setup is needed</em></p>
 <h4 id="generators">Generators<a class="headerlink" href="#generators" title="Permanent link">&para;</a></h4>
 <h5 id="duplicate-strands">Duplicate Strands<a class="headerlink" href="#duplicate-strands" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
@@ -464,7 +473,7 @@ Your browser does not support the video tag.
   <source src="../../img/geo_nodes_hair/trim.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>It will shorten strands roots and/or tips. Best to use with <a href="../hair_system/#randomize"><strong>randomization mask</strong></a></em></p>
+<p><em>It will shorten strands roots and/or tips. Best to use with <a href="../input_masks/#randomize"><strong>randomization mask</strong></a></em></p>
 <h4 id="twist">Twist<a class="headerlink" href="#twist" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/twist.webm" type="video/mp4">
@@ -482,7 +491,7 @@ Your browser does not support the video tag.
 <h4 id="uv-region-distribute">UV Region Distribute<a class="headerlink" href="#uv-region-distribute" title="Permanent link">&para;</a></h4>
 <p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV Boxes/Regions amount and dimensions, but it does not tell which strand will receive which UV Region. This is where 'UV Region Distribute' deformer comes in - it will assign random (or masked) UV Region to each strand.</p>
 <blockquote>
-<p><strong>Note</strong>: use multiple 'UV Region Distribute' deformers + <a href="../hair_system/#input-masks">Input Masks</a>, to achieve layered UVs effect (see video below),</p>
+<p><strong>Note</strong>: use multiple 'UV Region Distribute' deformers + <a href="../input_masks/">Input Masks</a>, to achieve layered UVs effect (see video below),</p>
 </blockquote>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
@@ -497,7 +506,7 @@ Your browser does not support the video tag.
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../hair_system/" class="btn btn-neutral float-left" title="Hair System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../hair_from_surface/" class="btn btn-neutral float-right" title="Curves from Grid Surface">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../input_masks/" class="btn btn-neutral float-right" title="Input Masks">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -523,7 +532,7 @@ Your browser does not support the video tag.
       <span><a href="../hair_system/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../hair_from_surface/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../input_masks/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -48,12 +48,21 @@
                 <li class="toctree-l1"><a class="reference internal" href="../../overview/">Overview</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Hair Modeling Techniques</span></p>
-              <ul class="current">
+              <p class="caption"><span class="caption-text">Main Concepts</span></p>
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_system/">Hair System</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_deformers/">Hair Deformers</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../input_masks/">Input Masks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hair_profiles/">Hair Profiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modeling Methods</span></p>
+              <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Curves from Grid Surface</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#video-tutorial">Video Tutorial</a>
@@ -86,10 +95,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../curve_tool/">Curve tools</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../hair_profiles/">Hair Profiles</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Texture creation</span></p>
@@ -124,7 +129,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Hair Modeling Techniques</li>
+          <li class="breadcrumb-item">Modeling Methods</li>
       <li class="breadcrumb-item active">Curves from Grid Surface</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -176,10 +181,10 @@ Your browser does not support the video tag.
 </video>
 <p><em><strong>Hook First Segment</strong> - use if you want to 'glue' first segment of each strand to the first two loops of grid surface. This helps with embedding hair strand roots into scalp, without hair clipping through head</em></p>
 <h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h4>
-<p><s>In Hair Tool 3.x <strong>Curves from Grid Surface</strong> is using new strand interpolation (based on Geometry Nodes). It has some limitations, see example below:</s></p>
 <blockquote>
 <p><strong>Update</strong>: This issue if fixed in Hair Tool 4.x, where instead of using Blender built-in hair interpolation, I implemented my own interpolation algorithm.</p>
 </blockquote>
+<p><s>In Hair Tool 3.x <strong>Curves from Grid Surface</strong> is using new strand interpolation (based on Geometry Nodes). It has some limitations, see example below:</s></p>
 <p><img alt="Ugly Interpolation example" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
 <em><s>Example of poor strand interpolation, when using 'Curves From Grid'. Strands do not adhere to the guide grid surface and instead follow path downwards</em></s></p>
 <p><img alt="Reason of ugly interpolation" src="../../img/grid_surface/ugly_grid_reason.jpeg" />
@@ -196,7 +201,7 @@ Your browser does not support the video tag.
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../hair_deformers/" class="btn btn-neutral float-left" title="Hair Deformers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../uv_material/" class="btn btn-neutral float-left" title="Material and UV"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../hair_with_track_mesh/" class="btn btn-neutral float-right" title="Hair with Track Mesh">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -220,7 +225,7 @@ Your browser does not support the video tag.
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../hair_deformers/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../uv_material/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../hair_with_track_mesh/" style="color: #fcfcfc">Next &raquo;</a></span>

@@ -56,12 +56,21 @@
     </ul>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Hair Modeling Techniques</span></p>
+              <p class="caption"><span class="caption-text">Main Concepts</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_system/">Hair System</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_deformers/">Hair Deformers</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/input_masks/">Input Masks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_profiles/">Hair Profiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modeling Methods</span></p>
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Curves from Grid Surface</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
@@ -84,10 +93,6 @@
                   <li class="toctree-l1"><a class="reference internal" href="../curve_tool/">Curve tools</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../hair_profiles/">Hair Profiles</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Texture creation</span></p>
@@ -134,19 +139,18 @@
                 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair Tool" src="../img/hair_example_2.jpg" />
 <em>Art by <a href="https://www.artstation.com/ellimoren">Ellinor Morén</a></em></p>
-<p>Hair Tool uses a series of geometry nodes-based modifiers, called 'Hair Systems'. There are three main types of Hair Systems:</p>
+<p>Hair Tool uses a series of geometry-nodes based modifiers, called <strong>Hair Systems</strong>. Few available <a href="../main_workflows/hair_system/#sub-systems-types">Hair Systems types</a> include:</p>
 <ul>
 <li><a href="../main_workflows/hair_system/#strands-generator">Strand Generator</a> - to generate hair strands from base mesh, guided by hair curves</li>
 <li><a href="../main_workflows/hair_system/#strands-filter">Strand Filter</a> - to modify existing strands</li>
 <li><a href="../main_workflows/hair_system/#strands-from-grid-surface">Strand From Grid Surface</a> - to generate strands from guide grid mesh surface</li>
 </ul>
-<p>General structure of Hair System includes:</p>
+<p>General structure of Hair Tool modifier stacks looks like this:</p>
 <ul>
 <li>A <a href="#setup-section">setup section</a> where guide curve and source mesh are assigned</li>
-<li>One or more Hair <a href="../main_workflows/hair_system/#sub-systems-types">sub-systems</a>, each mode from <a href="../main_workflows/hair_deformers/#hair-deformers">Deformers</a></li>
+<li>One or more Hair <a href="../main_workflows/hair_system/#sub-systems-types">sub-systems</a>, each made from <a href="../main_workflows/hair_deformers/#hair-deformers">Deformers</a></li>
 <li>A hair <a href="../hair_profiles/">profile</a> where hair curves are meshed, UVs and materials are added to meshed strands</li>
 </ul>
-<p><strong>Example Deformers:</strong> noise, clumping, braids, curls, adjusting tilt, length, roll etc. Each of them can be masked by input masks like: vertex group, texture, length mask etc.</p>
 <p>On top of that, Hair Tool provides a set of tools for: <a href="../hair_modeling/">manual modeling</a>, <a href="../hair_sculpting/#selection-groups">selection groups</a>, hair simplification, <a href="../uv_material/#defining-hair-uvs">generating UVs</a>, and more.</p>
 <p><img alt="Hair System Diagram" src="../img/hsystem_diagram.jpeg" />
 <em>You can attach a Hair System to either a mesh object (like a scalp) or a guide curve</em></p>
