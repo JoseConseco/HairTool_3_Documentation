@@ -258,17 +258,24 @@ Simple Circle profile - it supports UV mapping.</p>
 </ul>
 <h4 id="braid-profile">Braid Profile<a class="headerlink" href="#braid-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
-<source src="../video/braid_profile.webm" type="video/mp4">
+<source src="../video/braid_profile.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In demo above you can see both curve taper and tilt is affecting the generated braids shape</em></p>
+<p><em>In demo above you can see both curve taper (and tilt) is affecting the generated braids shape (at the very end of video)</em></p>
 <ul>
 <li><strong>Global Scale</strong> - default value 1.0 is good for default cube (2 meters in size). For human head (which is 1/10th of default cube size) set it to 0.1</li>
 <li><strong>Frequency</strong> - how dense braid interlacing is</li>
 <li><strong>Main Radius</strong> - overall braid size</li>
-<li><strong>Profile Radius</strong> - individual strands size (relative to Main Radius)</li>
+<li><strong>Max Radius</strong> - radius at the braid thickest point</li>
+<li><strong>Min Radius</strong> - radius at the braid thinnest point</li>
+<li><strong>Radius Contrast</strong> - blend shape between Max and Min Radius. 0.0 will give more uniform radius along braid</li>
+<li><strong>Radius Skewing</strong> - how much each braid 'period' is skewed. Higher values will give more 'heart' like shape</li>
+<li><strong>Profile Roundness</strong> - how round braid profile is. 0.0 will give more flat look (it looks best with low 'Flatness' parameter)</li>
 <li><strong>Braid Resolution Factor</strong> - how many points should be generated for each period on braid (higher == smoother look)</li>
-<li><strong>Radius Slide</strong> - The smaller the radius of guide curve, the more dense the braid becomes. Helps to give uniform look, when guide hair tapers</li>
+<li><strong>Frequency from Radius rate</strong> - The smaller the radius of guide curve, the more dense the braid becomes. Controls the rate of this change</li>
+<li><strong>Tile UV</strong> - UVs will repeat along braid length</li>
+<li><strong>Tile Size</strong> - number of periods for UVs Tiling (default 1)</li>
+<li><strong>Tile Seed</strong> - when 'Tile Size' is greater than 1, this will add random offset to UV tiling for each strand</li>
 </ul>
 <h4 id="curls-profile">Curls Profile<a class="headerlink" href="#curls-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
