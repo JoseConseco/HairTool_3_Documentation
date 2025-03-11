@@ -133,7 +133,7 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../baking_hair_setup/">Baking Blend File</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Other</span></p>
@@ -172,7 +172,8 @@
             <div class="section" itemprop="articleBody">
               
                 <h3 id="input-masks">Input Masks<a class="headerlink" href="#input-masks" title="Permanent link">&para;</a></h3>
-<p>You can mask most of the hair <a href="../hair_deformers/">deformers</a> input properties with various types of masks. Theirs value is clamped to: 0.0 - 1.0 range. Masks can be stacked one after another, to create complex effects.</p>
+<p>You can mask most of the <a href="../hair_deformers/">Hair Deformers</a> input properties with various types of masks. Theirs value is clamped to: 0.0 - 1.0 range, thus if you have Noise Amplitude value set to 5, and mask is 0.5, then it will result in Amplitude of 2.5.<br>
+Masks can be stacked on top of each other, to create complex effects.</p>
 <blockquote>
 <p><strong>Note</strong>:
 The order matters: first top mask is evaluated then next to the bottom</p>

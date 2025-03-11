@@ -99,7 +99,7 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../baking_hair_setup/">Baking Blend File</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Other</span></p>
@@ -147,11 +147,20 @@
 </ul>
 <p>General structure of Hair Tool modifier stacks looks like this:</p>
 <ul>
-<li>A <a href="#setup-section">setup section</a> where guide curve and source mesh are assigned</li>
-<li>One or more Hair <a href="../main_workflows/hair_system/#sub-systems-types">sub-systems</a>, each made from <a href="../main_workflows/hair_deformers/#hair-deformers">Deformers</a></li>
-<li>A hair <a href="../hair_profiles/">profile</a> where hair curves are meshed, UVs and materials are added to meshed strands</li>
+<li>A <a href="#setup-section">Setup section</a> where guide curve and source mesh are assigned</li>
+<li>One or more <a href="../main_workflows/hair_system/#sub-systems-types">Hair (sub)systems</a>, each made from <a href="../main_workflows/hair_deformers/#hair-deformers">Deformers</a></li>
+<li>A <a href="../hair_profiles/">Hair Profile</a> where hair curves are meshed, UVs and materials are assigned and where you can sample UV/Color attributes from base mesh.</li>
 </ul>
-<p>On top of that, Hair Tool provides a set of tools for: <a href="../hair_modeling/">manual modeling</a>, <a href="../hair_sculpting/#selection-groups">selection groups</a>, hair simplification, <a href="../uv_material/#defining-hair-uvs">generating UVs</a>, and more.</p>
+<p>On top of that, Hair Tool provides a set of tools for:</p>
+<ul>
+<li>manual <a href="../hair_modeling/">Modeling</a>,</li>
+<li><a href="../hair_sculpting/#selection-groups">Selection Groups</a> - for storing and reusing selection sets,</li>
+<li>hair simplification,</li>
+<li><a href="../hair_animation/">Hair Animation</a>,</li>
+<li><a href="../uv_material/#defining-hair-uvs">generating UVs</a>,</li>
+<li>baking textures</li>
+</ul>
+<p>and more.</p>
 <p><img alt="Hair System Diagram" src="../img/hsystem_diagram.jpeg" />
 <em>You can attach a Hair System to either a mesh object (like a scalp) or a guide curve</em></p>
 <blockquote>
