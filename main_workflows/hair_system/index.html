@@ -275,22 +275,20 @@ Your browser does not support the video tag.
 <p><img alt="Random vs Poisson" src="../../img/geo_nodes_hair/poisson_vs_random.jpg" />
 <em><b>Left</b>: notice the clumping of hair roots; <b>Center</b>: Poisson distribution helps to remove these clumped dots (colored in black), by removing roots that are closer than <code>Min Distance</code> parameter. <b>Right</b>: Increase <code>Density</code> parameter to fill up the empty spots</em></p>
 <h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
-<p>This hair (sub)System type lets you affect existing hair strands - whether these strands are:</p>
+<p>Imagine you want to modify multiple Hair Systems, by adding <a href="../hair_deformers/#radius-set">Set Radius</a> or <a href="../hair_deformers/#align-tilt">Align Tilt</a>. Instead of adding these deformers to each individual Hair subSystem, one by one, you can <strong>utilize the Filter System to affect all previously generated strands simultaneously</strong>.
+All type of strands can be modified:</p>
 <ul>
-<li>'real' (for example generated with <a href="../hair_drawing/">Hair Drawing</a>),</li>
-<li>or generated procedurally by another Hair subSystem &gt; <a href="./#strands-generator">Strands Generator</a>.</li>
+<li>'real' strands (for example generated with <a href="../hair_drawing/">Hair Drawing</a>),</li>
+<li>or generated procedurally by another Hair subSystem e.g. <a href="./#strands-generator">Strands Generator</a>.</li>
 </ul>
-<p>This way you can e.g. add <a href="../hair_deformers/#noise">Noise</a> effect to all existing strands (or make them curl, taper etc).<br>
-<strong>There is option to affect only selected strands, by filtering them with <a href="#tags">TAGs</a></strong>.</p>
-<p>Imagine you want to modify two Hair Systems, by adding <a href="../hair_deformers/#radius-set">Set Radius</a> or <a href="../hair_deformers/#align-tilt">Align Tilt</a>. Instead of applying these deformers to each individual Hair subSystem, you can <strong>utilize the Filter System to affect all strands simultaneously</strong>.</p>
+<blockquote>
+<p><strong>Note</strong>: If no filter tag is specified, then all strands will be affected. Otherwise only strands with specified tag will be affected.</p>
+</blockquote>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/strands_filter.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Demo of applying 'Scale' deformer to strands generated with <code>Right</code> Tag</em></p>
-<blockquote>
-<p><strong>Note</strong>: If no filter tag is specified, then all strands will be affected</p>
-</blockquote>
+<p><em>Demo of applying 'Scale' deformer to strands generated with <code>Right</code> and 'Left' Hair Systems. When no filter Tag is set, then all strands are scaled</em></p>
 <h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
 <p>This type of Strand Generator, will guide strands using guide mesh (grid mesh, made of quads only).
 Root of strands will be placed:</p>
