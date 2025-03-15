@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Hair with Track Mesh - Hair Tool 4</title>
+    <title>Basic Examples - Hair Tool 4</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Hair with Track Mesh";
-        var mkdocs_page_input_path = "main_workflows/hair_with_track_mesh.md";
+        var mkdocs_page_name = "Basic Examples";
+        var mkdocs_page_input_path = "main_workflows/basic_examples.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -63,17 +63,17 @@
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../basic_examples/">Basic Examples</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Basic Examples</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#one-minute-hair-setup">One Minute Hair Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#two-minute-hair-setup">Two Minute Hair Setup</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Curves from Grid Surface</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Hair with Track Mesh</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#video-tutorial">Video Tutorial</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
                   </li>
@@ -128,7 +128,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Modeling Methods</li>
-      <li class="breadcrumb-item active">Hair with Track Mesh</li>
+      <li class="breadcrumb-item active">Basic Examples</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -137,39 +137,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="hair-with-track-mesh">Hair With Track Mesh<a class="headerlink" href="#hair-with-track-mesh" title="Permanent link">&para;</a></h2>
-<p><strong>Hair with Track Mesh</strong> operator will setup <a href="../hair_system/">Hair System</a> with <a href="../hair_deformers/#track-to-mesh">Track to Mesh</a> deformer with one click.</p>
+                <h3 id="basic-examples">Basic Examples<a class="headerlink" href="#basic-examples" title="Permanent link">&para;</a></h3>
+<p>These are two fastest ways to create hair with Hair Tool:</p>
+<ol>
+<li><a href="../hair_drawing/">Draw</a> few guides &gt; add <a href="../hair_system/#hair-interpolation">interpolated child</a> system</li>
+<li>Create Hair System &gt; <a href="../hair_system/#bake">Bake</a> it into 'real' curve guides &gt; Groom them &gt; Add <a href="../hair_system/#hair-interpolation">interpolated child</a> system</li>
+</ol>
+<h4 id="one-minute-hair-setup">One Minute Hair Setup<a class="headerlink" href="#one-minute-hair-setup" title="Permanent link">&para;</a></h4>
+<!-- ##### Creating Hair Systems -->
+<p>Below I show you demo of first method.</p>
 <video style="width:100%" controls>
-  <source src="../../video/track_to_mesh_preset.mp4" type="video/mp4">
+  <source src="../../img/geo_nodes_hair/hair_workflow_from_zero.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Use F9 key -&gt; to adjust initial offset of Track Mesh from base mesh</em></p>
-<p>The main idea is <strong>to sculpt or edit guide mesh</strong>, rather than comb the hair curves. This is especially useful for short hair, beard, eyebrows, etc. when you want to work in non-destructive way.</p>
-<p>In my test I was surprised how easy it is to sculpt hair with this setup and the resulting hair was very uniform giving me much better look for beard of eyebrows compared to traditional curves grooming, with interpolated children.</p>
+<p><em>(Narrated Video) Starting from a scalp mesh, we draw a few guide strands and generate interpolated child strands</em></p>
+<ol>
+<li>Select scalp mesh, go to Draw Hair Panel &gt; Enable <a href="../hair_drawing/">Draw Hair</a></li>
+<li>Hold D key, and draw guide curves with LMB,<ul>
+<li>adjust <a href="../../hair_profiles/#flat-profile">Flat Profile</a> width if needed</li>
+</ul>
+</li>
+<li>
+<p>Add Hair System &gt; <a href="../hair_system/#strands-generator">Strand Generator</a> type, to cover mesh with hair-cards,</p>
+<ul>
+<li>increase hair density in: Hair System &gt; Deformers &gt; Strand Generator</li>
+</ul>
+</li>
+<li>
+<p>Adding Deformers:</p>
+<ul>
+<li><a href="../hair_deformers/#noise">Noise</a> - it will break the even look of hair</li>
+<li><a href="../hair_deformers/#align-tilt">Align Tilt</a> - it will force hair cards to face scalp surface</li>
+<li>Optional <a href="../hair_deformers/#radius-set">Radius Set</a> - it will taper the haircards</li>
+</ul>
+</li>
+<li>Ctrl+Shift+H &gt; <a href="../../convert_hair/#convert-hair-to-mesh">Convert Hair to Mesh</a> (or you can use <a href="../../convert_hair/#finalize-hair">Finalize</a>, to create mesh copy of HSystem)</li>
+</ol>
+<p>That is it, you can now export generated mesh to Game. If you want, you can restore curve hair object with Ctrl+Shift+H &gt; 'Restore Hair Object' - and continue working on it.</p>
+<h4 id="two-minute-hair-setup">Two Minute Hair Setup<a class="headerlink" href="#two-minute-hair-setup" title="Permanent link">&para;</a></h4>
+<!-- ##### Creating Hair Systems -->
+<p>In video below we make hairstyle with split, using second method.</p>
 <video style="width:100%" controls>
-  <source src="../../video/track_to_mesh_preset_sculpting.mp4" type="video/mp4">
+/run/media/bartosz/8C343C61343C5086/3D blender files/BlenderAddons/HairTool/HT_Site/HairToolDocs_30/docs/img/geo_nodes_hair/hair_workflow_from_zero.mp4
+  <source src="../../video/two_min_hair_setup.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Example of sculpting Track Mesh. See how simple it is to modify all the strand</em></p>
-<blockquote>
-<p><strong>Note</strong>: It is often good idea to add shapekey to your Guide mesh, and work on it with shapekey enabled. This way you can always go back to original shape of guide mesh</p>
-</blockquote>
-<h4 id="video-tutorial">Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permanent link">&para;</a></h4>
-<p>In first 13 minutes of this video I show how to use this <strong>Hair with Track Mesh</strong> feature (rest of video is about how to use it for actual hair - can be skipped if you are interested only in basics, of how 'Hair with Track Mesh' works)</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TvBw2eGsky4?start=28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
-<p>The only initial parameter you can control is under <code>F9</code> key - <code>Offset</code> - it will offset track mesh from base mesh. <br>
-All the other parameters are controlled by Hair System: <a href="../hair_deformers/#track-to-mesh">Track To Mesh</a> and other <a href="../hair_deformers/#hair-deformers">deformers</a></p>
-<blockquote>
-<p><strong>Note</strong>: The reason why there on only one parameter available under <code>F9</code> key is that, when I tried to draw popup panel with all the parameters it was crashing the Blender every time. Crashes means, that there is bug in blender itself, but I was unable to create bug report (the code and setup for Track to Mesh is very complicated, thus it is hard to simplify and provide bug report to blender devs)</p>
-</blockquote>
+<p><em>We start from scalp mesh, but this time hair strands are generated procedurally - and then baked into 'real' curves geometry, so that we can groom them</em></p>
+<p>Above we used option of 'Selecting strands by mesh island' &gt; see <a href="../../hair_sculpting/#selection-by-island">Strand Selection</a> section.</p>
+<hr />
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../hair_from_surface/" class="btn btn-neutral float-left" title="Curves from Grid Surface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../hair_drawing/" class="btn btn-neutral float-right" title="Drawing hair">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../uv_material/" class="btn btn-neutral float-left" title="Material and UV"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_from_surface/" class="btn btn-neutral float-right" title="Curves from Grid Surface">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -192,10 +213,10 @@ All the other parameters are controlled by Hair System: <a href="../hair_deforme
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../hair_from_surface/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../uv_material/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../hair_drawing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../hair_from_surface/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

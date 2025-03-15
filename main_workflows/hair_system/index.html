@@ -54,10 +54,6 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#one-minute-hair-setup">One Minute Hair Setup</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#two-minute-hair-setup">Two Minute Hair Setup</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#sub-systems-types">Sub-Systems Types</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#strands-generator">Strands Generator</a>
@@ -127,6 +123,8 @@
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../basic_examples/">Basic Examples</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Curves from Grid Surface</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
@@ -209,41 +207,6 @@
 Click [+] to add Hair System to selected mesh (or curve) object.</p>
 <p><img alt="Hair System UI" src="../../img/geo_nodes_hair/hair_system_nodal.jpg" />
  <em>Example of two Hair Systems setup: <code>Parent</code> and <code>Child</code>. <code>Child</code> System is made from: Strand Generator, Noise, Clump, Set Radius etc. deformers. <code>Parent</code> system is guided by: HairCurve guide (second input at very top)</em></p>
-<hr />
-<h3 id="one-minute-hair-setup">One Minute Hair Setup<a class="headerlink" href="#one-minute-hair-setup" title="Permanent link">&para;</a></h3>
-<!-- ##### Creating Hair Systems -->
-<p>Below I show you demo of how to <strong>setup game ready hair in 1 minute</strong>:</p>
-<video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/hair_workflow_from_zero.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>(Video has audio) We start from scalp mesh, draw few guide strands and generate interpolated child strands</em></p>
-<p>Text description of steps:</p>
-<ol>
-<li>Select scalp mesh, and go to Draw Hair Panel &gt; Enable <a href="../hair_drawing/">Draw Hair</a></li>
-<li>Hold D key, and draw guide curves with LMB (default Hair Material and UVs will be automatically assigned to them)</li>
-<li>You may need to adjust <a href="../../hair_profiles/#flat-profile">flat profile</a> width</li>
-<li>Add Hair System &gt; <a href="#strands-generator">Strand Generator</a> type,</li>
-<li>In Hair System &gt; Deformers sub-panel &gt; Strand Generator &gt; increase strands density (value depends on size of your object)</li>
-<li>Adding Deformers:<ul>
-<li><a href="../hair_deformers/#noise">Noise</a> - it will break the even look of hair</li>
-<li><a href="../hair_deformers/#align-tilt">Align Tilt</a> - it will force hair cards to face scalp surface</li>
-<li>Optional <a href="../hair_deformers/#radius-set">Radius Set</a> - it will taper the haircards</li>
-</ul>
-</li>
-<li>Ctrl+Shift+H &gt; <a href="../../convert_hair/#convert-hair-to-mesh">Convert Hair to Mesh</a> (or you can use <a href="../../convert_hair/#finalize-hair">Finalize</a>, to create mesh copy of HSystem)</li>
-</ol>
-<p>That is it, you can now export generated mesh to Game. If you want, you can restore curve hair object with Ctrl+Shift+H &gt; 'Restore Hair Object' - and continue working on it.</p>
-<h3 id="two-minute-hair-setup">Two Minute Hair Setup<a class="headerlink" href="#two-minute-hair-setup" title="Permanent link">&para;</a></h3>
-<!-- ##### Creating Hair Systems -->
-<p>In video below we make hairstyle with split.</p>
-<video style="width:100%" controls>
-/run/media/bartosz/8C343C61343C5086/3D blender files/BlenderAddons/HairTool/HT_Site/HairToolDocs_30/docs/img/geo_nodes_hair/hair_workflow_from_zero.mp4
-  <source src="../../video/two_min_hair_setup.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>We start from scalp mesh, but this time hair strands are generated procedurally - and then baked into 'real' curves geometry, so that we can groom them</em></p>
-<p>Above we used option of selecting strands by mesh island &gt; see <a href="../../hair_sculpting/#strands-selection">Strand Selection</a> section.</p>
 <hr />
 <h3 id="sub-systems-types">Sub-Systems Types<a class="headerlink" href="#sub-systems-types" title="Permanent link">&para;</a></h3>
 <p>After adding a hair (sub)system, the first slot in the deformers stack is automatically added, with its type determined by the selected hair sub-system type.</p>
