@@ -100,6 +100,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#generate-ambient-occlusion">Generate Ambient Occlusion</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-normals">Sample Normals</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#select-tipsroots">Select Tips/Roots</a>
@@ -234,13 +236,24 @@ Your browser does not support the video tag.
 
 <p><em><strong>Slice Using Mesh</strong> - you can cut curves using mesh (same as in HTool 2.46)</em></p>
 <h4 id="generate-ambient-occlusion">Generate Ambient Occlusion<a class="headerlink" href="#generate-ambient-occlusion" title="Permanent link">&para;</a></h4>
-<p><strong>Generate AO</strong> button will add, geometry nodes based, Ambient Occlusion effect (modifier) to your object. The effect will be saved as a color attribute called <code>AO</code></p>
+<p>It will add, geometry-nodes based, Ambient Occlusion vertex color attribute, called <code>AO</code>, to your object.</p>
 <video style="width:100%" controls>
   <source src="../video/ao_gen.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>By default, <code>AO</code> attribute node is connected into 'Vert Color AO' input in <a href="../uv_material/#attributes">HairShader</a></em></p>
-<p>For more detailed info about AO generation, please check <a href="https://youtu.be/W8zZygHCDEQ?t=149">this YT Video</a> (around 3 mins, at 2:30)</p>
+<p><em>By default, <code>AO</code> attribute node is connected into 'Vert Color AO' input in <a href="../uv_material/#attributes">HairShader</a>. To see the effect set 'AO Mix Factor' to 1</em></p>
+<blockquote>
+<p><strong>Note:</strong> AO modifier is heavy on performance, so use it only when needed.</p>
+</blockquote>
+<p>For more details see <a href="https://youtu.be/W8zZygHCDEQ?t=149">this YT Video</a> (3 min length, starting at 2:30)</p>
+<h4 id="sample-normals">Sample Normals<a class="headerlink" href="#sample-normals" title="Permanent link">&para;</a></h4>
+<p>Use to sample normal's from mesh object and save them as a color attribute called <code>SAMPLED_NORM</code>. It support 'Blend Distance' parameter, which allows you to define the range of the effect<br>
+When hair is <a href="../convert_hair/#convert-hair-to-mesh">converted to mesh</a>, this attribute will be automatically converted into custom mesh normal.</p>
+<video style="width:100%" controls>
+  <source src="../video/norm_sammple.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>To use 'SAMPLED_NORM' attribute in shader, you have to set 'Mix Sampled Normals' to 1 in 'HTool_Normal' node, in your hair material</em></p>
 <h3 id="select-tipsroots">Select Tips/Roots<a class="headerlink" href="#select-tipsroots" title="Permanent link">&para;</a></h3>
 <p>Available in Curve Edit mode at the bottom of Select menu</p>
 <video style="width:100%" controls>

@@ -244,7 +244,7 @@ Deformers are stacked on top of each other, just like Blender modifiers.</p>
 </blockquote>
 <h4 id="animation">Animation<a class="headerlink" href="#animation" title="Permanent link">&para;</a></h4>
 <h5 id="attach-curves-uv">Attach Curves UV<a class="headerlink" href="#attach-curves-uv" title="Permanent link">&para;</a></h5>
-<p>Attach strands roots to source mesh UVs, without it animation of hair with 'Surface Deform' modifier will not work.</p>
+<p>Attach strands roots to source mesh UVs. Without it hair won't follow animated mesh ('Surface Deform' modifier will not work).</p>
 <h5 id="bakecache-hair">Bake/Cache Hair<a class="headerlink" href="#bakecache-hair" title="Permanent link">&para;</a></h5>
 <p>Save hair strands into cached memory. They will no longer be editable, but will be faster to animate, since they will not be re-generated on every frame change.</p>
 <h5 id="surface-deform">Surface Deform<a class="headerlink" href="#surface-deform" title="Permanent link">&para;</a></h5>
@@ -450,6 +450,7 @@ Your browser does not support the video tag.
 <p><em>Align strands tilt to border of source surface (usually scalp). Backfaces are shown in blue</em></p>
 <p><strong>Force Align</strong> if checked, it will align curve and force curve normal to point outside border edge. If unchecked, tilt will be aligned to border, but curve normal will point with the 'flow' - see video above.</p>
 <h4 id="track-to">Track To:<a class="headerlink" href="#track-to" title="Permanent link">&para;</a></h4>
+<p>It 'glues' hair tips to tracked (target) curve. You have control over tracking shape (straight or curved) and count of sampled points.</p>
 <h5 id="track-to-mesh">Track to Mesh<a class="headerlink" href="#track-to-mesh" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/track_to_mesh.mp4" type="video/mp4">
@@ -467,10 +468,15 @@ Your browser does not support the video tag.
 </video>
 <p><em>Track to Curve - Strands from closes mesh island will follow tracked curve object. Use <code>Bind</code> button to prevets hair tips from 'sliding' on tracked surface surface</em></p>
 <blockquote>
-<p><strong>Note</strong>: Closest affected island is determined by Tracked object origin. Move it to change which island will be affected. After finding desired island, you can move tracked object in edit mode, so that affected strands won't change.</p>
+<p><strong>Note</strong>: Closest affected island is determined by Tracked object origin. Move curve origin to change closest affected island. Move tracked curve in edit mode, to move hair tips, without changing 'active' mesh island.</p>
 <p><strong>Note</strong>: If you want to 'Freeze' tracked points, use 'Bind Tracked Curve' button (this will convert 'old' curve to 'new' type). Now strands will follow point at which they were bound, rather than sliding around curve surface.</p>
 <p><strong>Note</strong>: <a href="../../curve_tool/#shape-keys">Curve Shape Keys</a> are great addition to Track To Curve deformer.</p>
 </blockquote>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/corns.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Example of making 'Cornrows' hairstyle with Track to Curve deformer. Same curves is used for guiding the Braid and as Trackt To target for scalp hair</em></p>
 <h4 id="trim">Trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/trim.webm" type="video/mp4">
