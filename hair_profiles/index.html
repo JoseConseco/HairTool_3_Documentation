@@ -98,12 +98,16 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/basic_examples/">Basic Examples</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Curves from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -127,10 +131,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
@@ -225,6 +227,8 @@ Your browser does not support the video tag.
 <li><strong>Width</strong> - hair-card width</li>
 <li><strong>Width From UV</strong> - hair-card width will be linked to its UV region width.</li>
 <li><strong>Use Random UV Flip</strong> - randomly flip UVs in X axis</li>
+<li><strong>Bevel Center</strong> - number of extra bevel segments to add on center edge of profile. Looks best on flatter profile and some bow up</li>
+<li><strong>Bevel Width</strong> - how wide the bevel is</li>
 </ul>
 <video style="width:100%" controls>
 <source src="../video/flat_profile_uv_radius_link.mp4" type="video/mp4">
@@ -251,12 +255,20 @@ Your browser does not support the video tag.
 <p><img alt="Round Profile" src="../img/texture_baking_panel.jpg" />
 <em>It is only needed in hair texture baking setup.  It does not support UV mapping, so it is not suitable for Haircards rendering</em></p>
 <h4 id="circle-profile">Circle Profile<a class="headerlink" href="#circle-profile" title="Permanent link">&para;</a></h4>
-<p><img alt="Round Profile" src="../img/circle_profile.jpeg" />
-Simple Circle profile - it supports UV mapping.</p>
+<video style="width:100%" controls>
+<source src="../video/round_profile.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Adjusting <code>Circle Profile</code> by changing Roundness, Bow up and Bevel parameters</em></p>
+<p><img alt="Round Profile" src="../img/circle_profile.jpeg" /></p>
 <ul>
 <li><strong>Width</strong> - hair-card width</li>
 <li><strong>Resolution</strong> - resolution along strand length (more segments, gives smoother look without having to add more points to hair curve)</li>
 <li><strong>Profile Resolution</strong> - resolution of profile cross-section</li>
+<li><strong>Roundness</strong> - how round profile is. 0.0 will give more flat look</li>
+<li><strong>Bow Up</strong> - This controls how much the profile shape curves upwards. 0 will make the shape round</li>
+<li><strong>Bevel Center</strong> - number of extra bevel segments to add on center edge of profile. Looks best on flatter profile and some bow up</li>
+<li><strong>Bevel Width</strong> - how wide the bevel is</li>
 </ul>
 <h4 id="braid-profile">Braid Profile<a class="headerlink" href="#braid-profile" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>

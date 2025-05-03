@@ -60,12 +60,16 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/basic_examples/">Basic Examples</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Curves from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -89,10 +93,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
@@ -106,9 +108,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#library-location">Library location</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#categories-menu">[☰] Categories menu</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#presets-menu">[☰] Presets menu</a>
+    <li class="toctree-l2"><a class="reference internal" href="#working-with-library">Working with Library</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#appending-preset">Appending Preset</a>
     </li>
@@ -148,25 +148,23 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-library">Hair Library<a class="headerlink" href="#hair-library" title="Permanent link">&para;</a></h2>
-<p><img alt="Hair Library presets" src="../img/library_presets_01.jpg" />
-<em>Some of the presets from Hair Tool hair library</em></p>
-<p>Hair library contains more than 30 hair presets (male and female hairstyles), plus few of the base components (fringe, braid, tails, eyelashes etc.), that you can be imported into your project, and snapped to your character.<br>
-These hair presets were made to be nondestructive, meaning that you can edit them to your liking, without having to groom everything from scratch.<br>
+<video style="width:100%" controls>
+<source src="../video/hair_presets.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<!-- ![Hair Library presets](./img/library_presets_01.jpg) -->
+<p><em>Some of the presets from Hair Tool hair library</em></p>
+<p>Hair library contains more than 30 hair presets (male and female hairstyles), plus few of the base components (fringe, braid, tails, eyelashes etc.), that can be loaded into your file and snapped to your character.<br>
+Hair <strong>presets are mostly nondestructive, meaning that you can edit them to your liking, without having to redo everything from scratch</strong>.<br>
 New presets can be added with option to group them into categories (folders).</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
-<p>You'll need to <strong>download "HairLibrary_xyz.zip" from Gumroad</strong> to use it (its comes together with Hair Tool addon).</p>
+<p>You'll need to <strong>download "HairLibrary_xyz.zip" from Gumroad</strong> to use it (it is free for Hair Tool users).</p>
 <ol>
 <li>Go to your Gumroad purchases &gt; Hair Tool and get the library zip file.</li>
 <li><strong>Unzip</strong> the HairLibrary.zip file somewhere on your drive,</li>
 <li>Go to Blender settings &gt; Addons &gt; Hair Tool &gt; Library (tab),</li>
 <li>Setup the <a href="#library-location"><strong>library path</strong></a> with location of the folder where you unzipped the HairLibrary files</li>
 </ol>
-<p>Let me know if you have any trouble!</p>
-<p><img alt="Main Panel" src="../img/hair_library.jpg" /></p>
-<ul>
-<li>top half of Library panel is responsible for managing categories (folders),</li>
-<li>bottom for managing presets (files inside folder)</li>
-</ul>
 <h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair Library presets" src="../img/library_presets_02.jpeg" />
 <em>Some of the presets from Hair Tool hair library</em></p>
@@ -183,18 +181,19 @@ New presets can be added with option to group them into categories (folders).</p
 <p>Select target folder where library is located:</p>
 <p><img alt="Main Panel" src="../img/library_path.jpg" />
 <em>You can add multiple library paths with [+] icon. This way you can keep your presets separate, from the ones that come with Hair Tool</em></p>
-<h3 id="categories-menu">[☰] Categories menu<a class="headerlink" href="#categories-menu" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Add, Delete, Rename category (folder)</li>
-</ul>
+<h3 id="working-with-library">Working with Library<a class="headerlink" href="#working-with-library" title="Permanent link">&para;</a></h3>
+<p><img alt="Main Panel" src="../img/hair_library.jpg" />
+<em>top part is for managing folders, bottom for managing presets (files inside folder)</em></p>
+<p>In <strong>Folders menu</strong> [☰] you can Add, Delete, Rename folder (category)</p>
 <blockquote>
-<p><strong>Note</strong> - Renaming and Deleting categories requires selecting target folder with <strong>'+'</strong> button next to the category name.</p>
+<p><strong>Note</strong> - Renaming and Deleting Folders requires selecting target folder with <strong>'+'</strong> button next to the category name.</p>
 </blockquote>
-<h3 id="presets-menu">[☰] Presets menu<a class="headerlink" href="#presets-menu" title="Permanent link">&para;</a></h3>
+<p>In <strong>Presets menu</strong> [☰] you can Add, Delete, Rename, Open active preset (the one that is currently displayed with thumbnail).</p>
+<p>After importing preset, using <strong>Append</strong> button, you will want to adjust its position and snap it to character. The easiest way to this is by moving preset scalp mesh (it will be drawn with bounding box around it). You can think about this scalp mesh as root of the whole hair preset:</p>
 <ul>
-<li>Add, Delete, Rename, Open active preset (the one that is currently displayed with thumbnail).</li>
+<li>moving it will move all other objects in the preset</li>
+<li>it comes with Shrinkwrap modifier, so that you can wrap it (and whole hair setup) to character</li>
 </ul>
-<p>After importing preset with <strong>Append</strong> button you will often have to readjust position of imported hair objects to you character head. For grid surface type of hair - you can remove imported Curve Hair and reposition only grid surfaces. Then just regenerate curve hair again using <a href="../main_workflows/hair_from_surface/">hair from surface</a></p>
 <h3 id="appending-preset">Appending Preset<a class="headerlink" href="#appending-preset" title="Permanent link">&para;</a></h3>
 <p>First part of video shows how to append preset from library.
 Second half of video covers creation of your own presets and how to store them in library.</p>

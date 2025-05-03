@@ -58,9 +58,9 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#strands-generator">Strands Generator</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#align-to-surface-normal">Align to Surface Normal</a>
-    </li>
     <li class="toctree-l4"><a class="reference internal" href="#strands-distribution">Strands Distribution</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#relax-distribution">Relax Distribution</a>
     </li>
         </ul>
     </li>
@@ -70,7 +70,11 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#interpolated-strands">Interpolated Strands</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#strands-from-prism-mesh-guide">Strands from Prism Mesh Guide</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#strands-on-mesh-parts">Strands on Mesh Parts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#strands-on-mesh-border">Strands on Mesh Border</a>
     </li>
         </ul>
     </li>
@@ -81,6 +85,16 @@
     <li class="toctree-l2"><a class="reference internal" href="#child-parent-setup">Child - Parent setup</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-interpolation">Hair Interpolation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#align-to-surface-normal">Align to Surface Normal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#use-mesh-islands-splits">Use mesh Islands Splits</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixing-interpolation-1">Fixing Interpolation (1)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixing-interpolation-2">Fixing Interpolation (2)</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-sub-system-menu">Hair sub-System menu</a>
         <ul>
@@ -122,12 +136,16 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../basic_examples/">Basic Examples</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Curves from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -151,10 +169,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
@@ -219,26 +235,28 @@ Click [+] to add Hair System to selected mesh (or curve) object.</p>
 Your browser does not support the video tag.
 </video>
 <p><em>Set parent <a href="#tags">Tags</a> and enable <a href="./#hair-interpolation">interplation</a> option, so that generated strands will follow these Tagged strands. See <a href="./#child-parent-setup"><strong>Child Parent Setup</strong></a></em></p>
-<h5 id="align-to-surface-normal">Align to Surface Normal<a class="headerlink" href="#align-to-surface-normal" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-  <source src="../../video/strand_gen_align.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Align to Surface Normal - option changes how the interplation works. Do not confuse with <a href="../hair_deformers/#align-tilt">Align Tilt To Source Surface</a></em></p>
 <h5 id="strands-distribution">Strands Distribution<a class="headerlink" href="#strands-distribution" title="Permanent link">&para;</a></h5>
 <p>Poisson distribution is a better way to spread things out evenly than just randomly placing them.</p>
 <p><strong>Here's why:</strong></p>
 <p>Imagine you're trying to place hair strands on a surface.</p>
 <ul>
 <li>
-<p><strong>Random placement:</strong>  You might end up with clumps of hair in some areas and gaps in others.</p>
+<p><strong>Random placement:</strong> You might end up with clumps of hair in some areas and gaps in others.</p>
 </li>
 <li>
 <p><strong>Poisson distribution:</strong> This method makes sure the hair is spread out more evenly. It does this by removing any hair strands that are too close together.</p>
 </li>
 </ul>
 <p><img alt="Random vs Poisson" src="../../img/geo_nodes_hair/poisson_vs_random.jpg" />
-<em><b>Left</b>: notice the clumping of hair roots; <b>Center</b>: Poisson distribution helps to remove these clumped dots (colored in black), by removing roots that are closer than <code>Min Distance</code> parameter. <b>Right</b>: Increase <code>Density</code> parameter to fill up the empty spots</em></p>
+<em><b>Left</b>: notice the clumping of hair roots;<br>
+<b>Center</b>: Poisson distribution fixes clumps issue, by removing roots (marked in black) that are closer than <code>Min Distance</code> parameter.<br>
+<b>Right</b>: Increase <code>Density</code> parameter to fill up the empty spots</em></p>
+<h5 id="relax-distribution">Relax Distribution<a class="headerlink" href="#relax-distribution" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../video/strand_gen_relax.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Relax option - useful when you masked Density input - e.g. with vertex group (masking Density results in non uniform strands distribution)</em></p>
 <h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
 <p>Imagine you want to modify multiple Hair Systems, by adding <a href="../hair_deformers/#radius-set">Set Radius</a> or <a href="../hair_deformers/#align-tilt">Align Tilt</a>. Instead of adding these deformers to each individual Hair subSystem, one by one, you can <strong>utilize the Filter System to affect all previously generated strands simultaneously</strong>.
 All type of strands can be modified:</p>
@@ -284,6 +302,17 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: If order of your strands is wrong, and <strong>Automatic Spline Sorting</strong> option fails, you can use <strong>Sort Strands by Stroke</strong> operator to manually fix the order (see video above)</p>
 </blockquote>
+<h4 id="strands-from-prism-mesh-guide">Strands from Prism Mesh Guide<a class="headerlink" href="#strands-from-prism-mesh-guide" title="Permanent link">&para;</a></h4>
+<p>It will allow you to generate strands on base mesh along 'walls' of prism like mesh. Bottom face has to be separated from 'wall' using  sharp edge (see video below)</p>
+<video style="width:100%" controls>
+<source src="../../video/strands_from_prism_mesh_guide.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In this example I had marked sharp edges to create face groups/islands (no edge split modifier was used though). Then I extruded these edges, to create valid mesh for 'Strands from Prism Mesh Guide' generator</em></p>
+<blockquote>
+<p><strong>Note1</strong>: Extruding faces, in the way that was done in video above, creates non-manifold mesh, and the resulting prism 'Wall' faces normal's will be messed up (some face out, some in). You can unify them using: Ctrl+N &gt; Recalculate Normal's operator.</p>
+<p><strong>Note2</strong>: You can use Ctrl+Shift+H &gt; <code>Strands from Prism Mesh</code> operator to: create new (separated) hair object and switch your base mesh display mode to 'WIRE' automatically. This will help you to see both hair-cards and base (prism guide) mesh at the same time.</p>
+</blockquote>
 <h4 id="strands-on-mesh-parts">Strands on Mesh Parts<a class="headerlink" href="#strands-on-mesh-parts" title="Permanent link">&para;</a></h4>
 <p>It will allow you to generate strands on base mesh: vertices, edges and (or) faces.</p>
 <video style="width:100%" controls>
@@ -291,6 +320,17 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>When used on edges it looks similar to <a href="../short_hair/">Short Hair</a>. Especially if you combine it with <a href="../hair_deformers/#track-to-mesh">Track to Mesh</a> deformer</em></p>
+<h4 id="strands-on-mesh-border">Strands on Mesh Border<a class="headerlink" href="#strands-on-mesh-border" title="Permanent link">&para;</a></h4>
+<p>It will allow you to generate strands on base mesh border edges (or on custom edge attribute)</p>
+<video style="width:100%" controls>
+<source src="../../video/gen_strands_on_mesh_border.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above we combine this strand generator with <a href="../hair_deformers/#track-to-curve">Track To Curve</a> deformer. Scalp mesh is using Mirror modifier - that is why the strands are also spawned on center line</em></p>
+<p><strong>Border Offset</strong> move strands away from the border edge. You can randomize it to get more natural hairline look<br>
+<strong>Trim Ends</strong> - use to prevent strands spawning on the border edges endings - see 'Split Corner Angle' parameter below<br>
+<strong>Split Corner Angle</strong> - scalp from video above has some sharp corners. This parameter will help to split these corners into two edges, so that you can trim them with 'Trim Ends' parameter.<br>
+<strong>UVs</strong> - Strands on Mesh Border generator <strong>requires non-overlapping UV's on your base mesh, to function properly</strong>.</p>
 <hr />
 <h3 id="transfer-hair-system">Transfer Hair System<a class="headerlink" href="#transfer-hair-system" title="Permanent link">&para;</a></h3>
 <p>Hair System can be assigned to Mesh or Curve Hair object, depending on which object is selected when you add Hair System. If you want to <strong>change Hair System 'owner'</strong> you can use Transfer Hair System operator.
@@ -382,27 +422,41 @@ Your browser does not support the video tag.
 <p><strong>Note</strong>: Parent Hair System has to be placed above Child System in the stack, or else Child strands won't 'see' the Parent strands</p>
 </blockquote>
 <h3 id="hair-interpolation">Hair Interpolation<a class="headerlink" href="#hair-interpolation" title="Permanent link">&para;</a></h3>
-<p>To enable hair interpolation, current Hair System has to have parent - see <a href="./#child-parent-setup"><strong>above</strong></a>.</p>
-<p>After that Toggle Interpolation button will be accessible (enabled by default) in first deformer - <a href="./#strands-generator"><strong>Strands Generator</strong></a> properties</p>
+<p>To use hair interpolation, your hair system needs a <a href="./#child-parent-setup">parent set up</a>.<br>
+You'll see the 'Use Interpolation' button appear in the settings for the first hair deformer - <a href="./#strands-generator"><strong>Strands Generator</strong></a>.</p>
+<h5 id="align-to-surface-normal">Align to Surface Normal<a class="headerlink" href="#align-to-surface-normal" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../video/strand_gen_align.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Align to Surface Normal - useful for shorter hair. Do not confuse with <a href="../hair_deformers/#align-tilt">Align Tilt To Source Surface</a></em></p>
+<h4 id="use-mesh-islands-splits">Use mesh Islands Splits<a class="headerlink" href="#use-mesh-islands-splits" title="Permanent link">&para;</a></h4>
+<p>The <strong>Use Mesh Islands Splits</strong> option restricts child strands to follow only parent strands from the same mesh island. This feature is particularly useful for creating split hairstyles. To create a split, select an edge loop that divides the scalp in half and press 'V' to rip it. Once split, child strands will remain confined to their respective mesh islands and won't cross the divided edge.</p>
 <blockquote>
-<p><strong>Note</strong>: In some cases interpolation may behave erratically (e.g interpolation breaks when you select Guide Curve). The most likely cause is - cyclic dependency:<br>
- - Guide curve depends on your base mesh (usually scalp),<br>
- - Base Mesh (with Hair System attached) depends on guide curve (through enabled interpolation to Parent - Guide Curve).<br>
- To fix it and break the cyclic dependency use <a href="./#transfer-hair-system">Transfer Hair System</a> and move Hair System to either Empty Mesh or Guide Curve.</p>
+<p><strong>Note</strong>: instead of splitting the edges physically, you can use the <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html"><strong>Edges split</strong></a> modifier</p>
 </blockquote>
-<p>Since Hair Tool 3.0 and later versions, strands <strong>interpolation operates within areas surrounded by mesh islands</strong> - meaning, if you want to make hairstyle with split: <br></p>
-<ul>
-<li>split scalp mesh in two, without separating to new object, (e.g. select edge loop, that divides the scalp in half - and press 'V' to rip it). Now child strands will not cross this edge.</li>
-</ul>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/parting_by_island.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In video above I have cut mesh in 4 parts (visualised with 4 colors). Strands won't cross islands boundaries</em></p>
 <blockquote>
-<p><strong>Note</strong>: If you want to make hairstyle with split, you can use <a href="../../hair_sculpting/#selection-by-island"><strong>Select By Island</strong></a> to select guide strands from specific island</p>
-<p><strong>Note</strong>: instead of splitting the edges physically, you can use the <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html"><strong>Edges split</strong></a> modifier</p>
+<p><strong>Note</strong>: For hairstyle with split, I recommend using <a href="../../hair_sculpting/#selection-by-island"><strong>Select By Island</strong></a> so that you can one click select all strands from particular island.</p>
 </blockquote>
+<h4 id="fixing-interpolation-1">Fixing Interpolation (1)<a class="headerlink" href="#fixing-interpolation-1" title="Permanent link">&para;</a></h4>
+<p>In some cases interpolation may not work (interpolation breaks when you select Guide Curve). It can be caused by <strong>cyclic dependency</strong>:</p>
+<ul>
+<li><strong>Guide curve depends on your base mesh</strong> (scalp) - from which it is generated from,</li>
+<li><strong>Base Mesh may depend on 'Guide Curve'</strong> - through attached Hair System and enabled interpolation to Guide Curve<br></li>
+</ul>
+<p>The fix is: break the cyclic dependency using <a href="./#transfer-hair-system">Transfer Hair System</a> and move Hair System to either Empty Mesh or Guide Curve.</p>
+<h4 id="fixing-interpolation-2">Fixing Interpolation (2)<a class="headerlink" href="#fixing-interpolation-2" title="Permanent link">&para;</a></h4>
+<p><img alt="Ugly Interpolation example" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
+<em>Strands do not go to left/right and instead fall in the middle</em></p>
+<p><img alt="Reason of ugly interpolation" src="../../img/grid_surface/ugly_grid_reason.jpeg" />
+<em>The reason: imagine new strand (marked with <span style="color: green;">green</span> X above) follows two nearest <span style="color: purple;">purple</span> guides. It is causing the strand to go to the center (average of both guides)</em></p>
+<p><img alt="Ugly interpolation fix" src="../../img/grid_surface/ugly_grid_fix.jpeg" />
+<em>The fix: split base mesh into two islands (marked with black and white) and enable <a href="#use-mesh-islands-splits">Use mesh Islands Splits</a> option. Now new strand will follow guides from one side (white or black) - resulting in clean interpolation on right</em></p>
 <h3 id="hair-sub-system-menu">Hair sub-System menu<a class="headerlink" href="#hair-sub-system-menu" title="Permanent link">&para;</a></h3>
 <p><img alt="Sub-Systems Menu" src="../../img/geo_nodes_hair/hsys_operations.jpeg" /></p>
 <p><em>You can copy settings from any hair system, and paste to target using entries above.</em></p>
@@ -427,6 +481,9 @@ Your browser does not support the video tag.
 </video>
 <p><em>Copying All SubSystems (and profile settings) from one object to another. Receiving object has to have at least one Hair subSystem attached. Also make sure both objects share same vertex groups, similar sharp (or crease) edges - if you copy <a href="./#strands-from-grid-surface">Curves From Grid</a> type of setup</em></p>
 <h4 id="switch-hair-system-type">Switch Hair System Type<a class="headerlink" href="#switch-hair-system-type" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Note</strong>: Since release of Hair Tool 4.2 this option is moved to first deformer (strands generator) dropdown menu.</p>
+</blockquote>
 <p><strong>Switch Hair System Type</strong> - for example from Strands Generator to Strands Filter.</p>
 <p><img alt="Hair System UI" src="../../img/geo_nodes_hair/make_subsystem_unique.jpeg" />
 <em>Pasting Hair System settings (or instancing object that uses Hair System), will create linked copy. This means that change performed on new copy, will affect original Hair subSystem too. Number of Hair System users is displayed next to Hair Tag (green box in image above)</em></p>

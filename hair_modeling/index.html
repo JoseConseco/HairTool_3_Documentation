@@ -60,12 +60,16 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/basic_examples/">Basic Examples</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Curves from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -98,6 +102,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#knife">Knife</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#symmetry">Symmetry</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#edit-mode">Edit Mode</a>
     </li>
     </ul>
@@ -109,10 +115,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
@@ -156,7 +160,7 @@
   <source src="../video/hair_modeling_ponytails.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<p><em>Example of Hair Modeling: Cutting the tails and then transforming using Root mode</em></p>
+<p><em>Example of Hair Modeling: Cutting the tails and then adjusting theirs position using Root mode</em></p>
 <p>Modeling workspace tools will allow you model hair strands with:</p>
 <ul>
 <li>Transformation tools, with rope like physics or 'Root' mode - rotate strands round their roots,</li>
@@ -171,14 +175,24 @@
 <source src="../video/hair_sculpt_mode_editing.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Example of Hair Modeling tool in action. Selection Groups are used, to select only some of strands</em></p>
+<p><em>Example of <a href="../hair_sculpting/#selection-groups">Selection Groups</a>, <a href="#knife">Knife</a> and <a href="#linear-deformer">Linear Deformer</a></em></p>
 <h4 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h4>
-<p><strong>Hair Modeling</strong> tool can be enabled from:</p>
-<p><img alt="ht_hair_grooming" src="../img/hair_modeling/hair_modeling_button.jpg" /></p>
+<p>To enable <strong>Hair Modeling</strong> use:</p>
 <ul>
-<li>Left sidebar [T]-key &gt; Hair Modeling Tool <strong>(1)</strong> - available in Object and Curves Sculpt modes,</li>
-<li>Viewport gizmos button <strong>(2)</strong> on image below, has to be enabled,</li>
+<li><strong>[1]</strong> Left sidebar ([T]-key) &gt; Hair Modeling Tool (available in Object and Curves Sculpt modes),</li>
 </ul>
+<p><img alt="ht_hair_grooming" src="../img/hair_modeling/hair_modeling_button.jpg" />
+<em>[1] Hair Modeling Tool location</em></p>
+<ul>
+<li><strong>[2]</strong> Strand Overlay: in Viewport Overlays &gt; Draw Strands Overlay</li>
+</ul>
+<video style="width:100%" controls>
+  <source src="../video/strands_overlay.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Strands Overaly - it will draw strands on top of haircards geometry (similar to mesh retopo overlay)</em></p>
+<p><strong>Draw Offset</strong> - offset rendering of Strands Overlay closer to the camera<br>
+<strong>Show Group Colors</strong> - show colors of <a href="../hair_sculpting/#selection-groups">Selection Groups</a></p>
 <h4 id="transform-modes">Transform Modes<a class="headerlink" href="#transform-modes" title="Permanent link">&para;</a></h4>
 <p>There are three strands translation/movements modes (use with G, R, S keys):</p>
 <ul>
@@ -356,8 +370,19 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 
+<h4 id="symmetry">Symmetry<a class="headerlink" href="#symmetry" title="Permanent link">&para;</a></h4>
+<p>Hair Tool has now support of symmetrical Hair Modeling (in past using Transform Modes, Knife, Extend etc. would work only on one side of the hair).</p>
+<video style="width:100%" controls>
+  <source src="../img/hair_modeling/hair_modeling_symm.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Demo of using symmetry with Transform, Extend, Draw and Knife tools</em></p>
+<p>There is now option under <strong>Ctrl+Shift+H &gt; Symmetrize</strong>, which will create symmetrical copy of selected hair strands on the other side of the head.</p>
+<blockquote>
+<p><strong>Note</strong>: Some of the symmetry tools like: Drawing or Symmetrize, won't work in blender 4.2 (Blender 4.3+)</p>
+</blockquote>
 <h4 id="edit-mode">Edit Mode<a class="headerlink" href="#edit-mode" title="Permanent link">&para;</a></h4>
-<p>Blender 3.6 does not have basic modeling tools for new hair curves. Few of them were added to Hair Tool.</p>
+<p>Some of the modeling tools were missing in Blender 3.6. They were implemented in Hair Tool - under W context menu.</p>
 <p><img alt="W menu" src="../img/curve_edit_mode_modeling.jpeg" />
 <em>W - menu in edit mode</em></p>
               

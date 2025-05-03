@@ -60,12 +60,16 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/basic_examples/">Basic Examples</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Curves from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -100,6 +104,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#generate-ambient-occlusion">Generate Ambient Occlusion</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-roots">Project Roots</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#sample-normals">Sample Normals</a>
     </li>
         </ul>
@@ -119,10 +125,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
@@ -246,6 +250,12 @@ Your browser does not support the video tag.
 <p><strong>Note:</strong> AO modifier is heavy on performance, so use it only when needed.</p>
 </blockquote>
 <p>For more details see <a href="https://youtu.be/W8zZygHCDEQ?t=149">this YT Video</a> (3 min length, starting at 2:30)</p>
+<h4 id="project-roots">Project Roots<a class="headerlink" href="#project-roots" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+  <source src="../video/project_roots.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>It will project hair roots onto target mesh surface</em></p>
 <h4 id="sample-normals">Sample Normals<a class="headerlink" href="#sample-normals" title="Permanent link">&para;</a></h4>
 <p>Use to sample normal's from mesh object and save them as a color attribute called <code>SAMPLED_NORM</code>. It support 'Blend Distance' parameter, which allows you to define the range of the effect<br>
 When hair is <a href="../convert_hair/#convert-hair-to-mesh">converted to mesh</a>, this attribute will be automatically converted into custom mesh normal.</p>

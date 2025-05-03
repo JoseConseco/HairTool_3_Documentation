@@ -60,6 +60,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul class="current">
@@ -71,11 +73,11 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#proper-grid-mesh">Proper grid mesh</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#selected-parameters">Selected Parameters</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
     </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -99,10 +101,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
@@ -160,14 +160,14 @@ title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
 clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <p><em>First 12 minutes shows how to use 'Curves from Grid Surface'. Rest is about creation of actual hair - can be skipped</em></p>
 <h4 id="proper-grid-mesh">Proper grid mesh<a class="headerlink" href="#proper-grid-mesh" title="Permanent link">&para;</a></h4>
-<p>Guide mesh has to be made from quads and <strong>one border edge loop has to be mark as sharp</strong> (or crease): Ctrl+E -&gt; Mark Sharp/Crease - this edge will become roots of hair strands.
+<p>Guide mesh has to be made from quads and <strong>one border edge loop has to be mark as sharp</strong> (or crease): Ctrl+E -&gt; Mark Sharp (or Crease) - this edge will become roots of hair strands.
 <img alt="mark sharp" src="../../img/marksharp.jpg" /></p>
 <p>Example of proper grid meshes topologies (for actual hair you would want to model this better - following main hair masses and hair flow):
 <img alt="Grid Mesh" src="../../img/grid_meshes_examples.jpg" /></p>
 <p>If we flatten these 3d meshes we would get 2D grid:
 <img alt="Grid Mesh" src="../../img/flat_grid_example.jpg" /></p>
-<h4 id="selected-parameters">Selected Parameters<a class="headerlink" href="#selected-parameters" title="Permanent link">&para;</a></h4>
-<p>Control basic properties like generated curves amount, number of points per spline etc. You can use topology of grid surface to guide density of generated strands. In places where grid surface have denser loops you can generate more strands or give more points to each strand.</p>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<p>You can adjust strands count, number of points per spline etc. Guide mesh topology can be used to affect density of generated strands: in places where grid surface is denser more strands (or more points) may be generated.</p>
 <p><img alt="Points per strand" src="../../img/grid_surface/strands_count.gif" />
 <em><strong>Strands count</strong> - number of strands to generate</em></p>
 <p><img alt="Uniform Strands" src="../../img/grid_surface/uniform_strands.gif" />
@@ -182,29 +182,29 @@ clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allo
 Your browser does not support the video tag.
 </video>
 <p><em><strong>Hook First Segment</strong> - use if you want to 'glue' first segment of each strand to the first two loops of grid surface. This helps with embedding hair strand roots into scalp, without hair clipping through head</em></p>
-<h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p><strong>Update</strong>: This issue if fixed in Hair Tool 4.x, where instead of using Blender built-in hair interpolation, I implemented my own interpolation algorithm.</p>
-</blockquote>
-<p><s>In Hair Tool 3.x <strong>Curves from Grid Surface</strong> is using new strand interpolation (based on Geometry Nodes). It has some limitations, see example below:</s></p>
-<p><img alt="Ugly Interpolation example" src="../../img/grid_surface/new_grid_interpolation_problem.jpeg" />
-<em><s>Example of poor strand interpolation, when using 'Curves From Grid'. Strands do not adhere to the guide grid surface and instead follow path downwards</em></s></p>
-<p><img alt="Reason of ugly interpolation" src="../../img/grid_surface/ugly_grid_reason.jpeg" />
-<em><s>The reason and explanation: imagine new strand (marked as X above) is picking 2 closest guides; it found one guide to right one to left - which is causing the strand to go to the center (average of both guides)</s></em></p>
-<p><img alt="Ugly interpolation fix" src="../../img/grid_surface/ugly_grid_fix.jpeg" />
-<em><s>The fix: split guide grid mesh in to mesh islands, this will split guides too (marked with black and white). Now new strand will follow only group of strands (only white or only white) - resulting in clean interpolation on right</s></em></p>
-<p><s>The reason why splitting guide mesh, into two or more mesh islands work is due to how <a href="../hair_system/#hair-interpolation">Hair Interpolation</a> in HTool works - strands spawned on one island, will only follow guides from that mesh island.</s></p>
-<blockquote>
-<p><strong>Note</strong>: <s>You do not have to split base mesh by <a href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/vertex/rip_vertices.html">ripping geometry</a>. In above case I turned Off 'merge' option in <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/mirror.html">mirror modifier</a>, thus righ and left side are seen as separate islands. Or you could use <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html">edge split modifier</a></s></p>
-</blockquote>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Rp7yGbxm7HI?si=yJ2HFURfNsbWvxDA&amp;start=904" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<p><em>In video above I explained and showed how to fix the interpolation issue</em></p>
+<!-- #### Limitations -->
+<!---->
+<!--  > **Update**: This issue if fixed in Hair Tool 4.x, where instead of using Blender built-in hair interpolation, I implemented my own interpolation algorithm. -->
+<!---->
+<!-- ![Ugly Interpolation example](../img/grid_surface/new_grid_interpolation_problem.jpeg) -->
+<!-- <s>*Strands do not go to left/right and instead fall in the middle*</s> -->
+<!---->
+<!-- ![Reason of ugly interpolation](../img/grid_surface/ugly_grid_reason.jpeg) -->
+<!-- <s>*The reason: imagine new strand (marked with <span style="color: green;">green</span> X above) follows 2 closest <span style="color: purple;">purple</span> guides. It is causing the strand to go to the center (average of both guides)*</s> -->
+<!---->
+<!-- ![Ugly interpolation fix](../img/grid_surface/ugly_grid_fix.jpeg) -->
+<!-- <s>*The fix: split base mesh into two islands (marked with black and white) and enable 'Use mesh Islands Splits'. Now new strand will follow guides from one side (white or black) - resulting in clean interpolation on right*</s> -->
+
+<!-- > **Note**: <s>You do not have to split base mesh by [ripping geometry](https://docs.blender.org/manual/en/latest/modeling/meshes/editing/vertex/rip_vertices.html). In above case I turned Off 'merge' option in [mirror modifier](https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/mirror.html), thus righ and left side are seen as separate islands. Or you could use [edge split modifier](https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html)</s> -->
+<!---->
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Rp7yGbxm7HI?si=yJ2HFURfNsbWvxDA&amp;start=904" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+<!-- *In video above I explained and showed how to fix the interpolation issue* -->
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../basic_examples/" class="btn btn-neutral float-left" title="Basic Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../hair_with_track_mesh/" class="btn btn-neutral float-right" title="Hair with Track Mesh">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../strands_from_profile/" class="btn btn-neutral float-right" title="Strands From Profile">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -230,7 +230,7 @@ Your browser does not support the video tag.
       <span><a href="../basic_examples/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../hair_with_track_mesh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../strands_from_profile/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

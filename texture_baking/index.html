@@ -60,12 +60,16 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/basic_examples/">Basic Examples</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_from_surface/">Curves from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../main_workflows/strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../main_workflows/hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -89,12 +93,18 @@
                   <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Baking Textures</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#loading-baking-template">Loading Baking Template</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#available-passes">Available Passes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tweaking-hair">Tweaking Hair</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#previewing-bake-result">Previewing Bake Result</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#video-tutorial">Video Tutorial</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#baking-textures">Baking Textures</a>
@@ -131,7 +141,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Texture creation</li>
+          <li class="breadcrumb-item">Baking Textures</li>
       <li class="breadcrumb-item active">Baking Textures</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -141,21 +151,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="texture-creation">Texture Creation<a class="headerlink" href="#texture-creation" title="Permanent link">&para;</a></h2>
-<p>Hair Tool comes with built-in texture baking blend file template, that can be used for baking curves to textures. You can bake following passes:</p>
+                <h2 id="baking-hair-textures">Baking Hair Textures<a class="headerlink" href="#baking-hair-textures" title="Permanent link">&para;</a></h2>
+<p><img alt="Texture baking panel" src="../img/texture_baking_panel.jpg" />
+<em>Built-in hair baking scene, that comes with Hair Tool. You can select output path, file name, resolution, bake quality etc.</em></p>
+<p>Baking Template consist of few objects with <a href="../main_workflows/hair_system/"><strong>Hair Systems</strong></a> attached to them. Tweak these Hair Systems, to get desired result.</p>
+<blockquote>
+<p><strong>Note</strong>: For proper bake, template uses <a href="../hair_profiles/#round-profile"><strong>Round Profile</strong></a> type.</p>
+</blockquote>
+<h4 id="loading-baking-template">Loading Baking Template<a class="headerlink" href="#loading-baking-template" title="Permanent link">&para;</a></h4>
+<p><img alt="Open Baking Scene" src="../img/open_baking_scene.jpeg" />
+<em>Load baking template using: right Sidebar &gt; Hair Tool &gt; Hair Bake panel</em></p>
+<p>There are two options to load baking template:</p>
+<ul>
+<li><strong>Open baking template</strong> as new file, and setup adjust hair there (save your current file before opening baking file)</li>
+<li><strong>Load baking template</strong> to your working file - using 'Import Baking Scene' button - this will add 'BakingHair' scene to your file</li>
+</ul>
+<h4 id="available-passes">Available Passes<a class="headerlink" href="#available-passes" title="Permanent link">&para;</a></h4>
+<p><img alt="Texture baking panel" src="../img/hair_bake_passes.jpg" />
+<em>Example of baked hair passes - diffuse, AO, opacity etc.</em></p>
 <ul>
 <li><strong>Diffuse</strong></li>
 <li><strong>AO</strong></li>
 <li><strong>Normal Map</strong></li>
 <li><strong>Opacity Mask</strong></li>
-<li><strong>Root Mask</strong> (gradient that goes from black to white along the strands length)</li>
-<li><strong>Random ID mask</strong> (give random gray value to each strand)</li>
-<li><strong>Flow Map</strong> (perturbs tangent vector - useful for driving anisotropic specular direction)</li>
-<li><strong>Direction</strong> Alternative to Flow Map. May give slightly better results</li>
-<li><strong>Depth Mask</strong></li>
+<li><strong>Root Mask</strong> - black to white gradient that goes from root to tip</li>
+<li><strong>Random ID</strong> - give random gray value to each strand</li>
+<li><strong>Random Parent</strong> - give random color based on strands Parent ID</li>
+<li><strong>Random ID</strong> - give random color to each strand</li>
+<li><strong>Flow Map</strong> - perturbs tangent vector - useful for driving anisotropic specular direction</li>
+<li><strong>Direction Map</strong> - alternative to Flow Map. May give slightly better results</li>
+<li><strong>Depth</strong> - use empty named 'Depth_Driver' to control depth range of the pass</li>
 </ul>
-<p><img alt="Texture baking panel" src="../img/texture_baking_panel.jpg" />
-<em>Built-in hair baking scene, that comes with Hair Tool. You can select output path and file name, resolution, bake quality etc.</em></p>
+<blockquote>
+<p><strong>Note</strong>: You can select multiple passes by shift clicking on them, to bake them all at once. All objects that are inside bake collection (by default it uses 'Hair For Bake' collection) will receive proper material pass automatically</p>
+</blockquote>
+<h4 id="tweaking-hair">Tweaking Hair<a class="headerlink" href="#tweaking-hair" title="Permanent link">&para;</a></h4>
+<video width="100%" height="100%" controls>
+  <source src="../video/baking_setup_geo.mp4" type="video/mp4">
+</video>
+<p><em>Example of tweaking hair systems in baking template</em></p>
+<p>Most of the hair objects are build from three Hair Systems (first and third are shared between most of the objects, so that you can tweak them all at once):</p>
+<ul>
+<li><strong>ClumpGen</strong> - Strands Generator &gt; bit of <a href="../main_workflows/hair_deformers/#noise">Noise</a> &gt; tiny bit of <a href="../main_workflows/hair_deformers/#clumps-child">Clump</a> (to compensate hair spreading due to noise)</li>
+<li><strong>Filter: Del</strong> - <a href="../main_workflows/hair_deformers/#delete-strands">remove some</a> of the strands generated above - to control how thick hair looks. This HSystem is different for each object, so you can adjust it to your liking.</li>
+<li><strong>SharedTrim</strong> - Finally, we trim some strands randomly and give the hair a more natural taper at the roots and ends.</li>
+</ul>
+<h4 id="previewing-bake-result">Previewing Bake Result<a class="headerlink" href="#previewing-bake-result" title="Permanent link">&para;</a></h4>
+<p>Baking file has hair curve object named 'Haircard_preview_curve', with <code>PreviewBakeMat</code> material assigned to its profile. After pressing 'Bake', the output textures will be automatically applied to this material, so you can preview baking output maps.</p>
+<video width="100%" height="100%" controls>
+    <source src="../video/bake_preview.mp4" type="video/mp4">
+</video>
+<p><em>On the left: hair curves used for bake; on the right: haircars with baked texture applied</em></p>
 <h3 id="video-tutorial">Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permanent link">&para;</a></h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3ATRZ-ox5s8?si=YdH40xR0hKwi0rvm&amp;start=2827" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -169,15 +215,13 @@
 <li>Set output path for baked textures, resolution, bake name etc.</li>
 <li>Press <strong>'Bake Hair'</strong> button to bake selected passes</li>
 </ul>
-<p><img alt="Texture baking panel" src="../img/hair_bake_passes.jpg" />
-<em>Example of baked hair passes - diffuse, AO, opacity etc.</em></p>
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/0UAxl549pNA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 <!-- *Texture baking in Blender 2.79 - not much has changed in Blender 2.8, except bake panel is now located on right* -->
 
 <p>You can customize suffix given to each pass output texture name in addon preferences -&gt; Baking Tab.</p>
 <h3 id="texture-channel-mixing">Texture channel mixing<a class="headerlink" href="#texture-channel-mixing" title="Permanent link">&para;</a></h3>
 <p><img alt="Texture channel mixing" src="../img/texture_channel_mixing.gif" />
-<em>Custom nodes similar to texture nodes - it will help you pack your bake results into new texture RGBA channels</em></p>
+<em>Custom texture node editor - where you can pack baked maps into new texture RGBA channels</em></p>
 <blockquote>
 <p><strong>Note</strong>:If you enable button '<strong>Composite channels</strong>', Hair Tool will automatically create node setup with input textures from baked images, after baking is finished.
 <img alt="Texture channel mixing" src="../img/composite_channels.jpg" /></p>
@@ -198,7 +242,7 @@ Your browser does not support the video tag.
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../baking_hair_setup/" class="btn btn-neutral float-left" title="Baking Blend File"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mesh_ribbons_ops/" class="btn btn-neutral float-left" title="Mesh tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../hair_library/" class="btn btn-neutral float-right" title="Hair Library">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -222,7 +266,7 @@ Your browser does not support the video tag.
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../baking_hair_setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../mesh_ribbons_ops/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../hair_library/" style="color: #fcfcfc">Next &raquo;</a></span>

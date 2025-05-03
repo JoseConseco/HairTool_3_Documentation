@@ -58,9 +58,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#color-attribute">Color Attribute</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#curve-masks">Curve Masks</a>
+    <li class="toctree-l2"><a class="reference internal" href="#influence-range-mask">Influence Range Mask</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#curve-influence-range">Curve Influence Range</a>
+    <li class="toctree-l3"><a class="reference internal" href="#influence-range-mask_1">Influence Range Mask</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#curve-attribute">Curve Attribute</a>
     </li>
@@ -102,12 +102,16 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../basic_examples/">Basic Examples</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Curves from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -131,10 +135,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
@@ -193,21 +195,26 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Color Attribute</strong>:  use vertex color attribute to mask hair effects. If multiple channels are used, then the average value is used for masking.</p>
 </blockquote>
-<h4 id="curve-masks">Curve Masks<a class="headerlink" href="#curve-masks" title="Permanent link">&para;</a></h4>
-<h5 id="curve-influence-range">Curve Influence Range<a class="headerlink" href="#curve-influence-range" title="Permanent link">&para;</a></h5>
-<p>Similar to <a href="#influence-range">Influence Range</a> mask but can be assigned to any type of deformer input property.</p>
+<h4 id="influence-range-mask">Influence Range Mask<a class="headerlink" href="#influence-range-mask" title="Permanent link">&para;</a></h4>
+<h5 id="influence-range-mask_1">Influence Range Mask<a class="headerlink" href="#influence-range-mask_1" title="Permanent link">&para;</a></h5>
+<p>Similar to <a href="#influence-range">Influence Range</a> mask but can be assigned to any input of deformer.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/curve_influence_range.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>We use Quadratic falloff to control <a href="../hair_deformers/#duplicate-strands">Duplicate Strands</a> deformer falloff on the curve</em></p>
+<p><em>We use Quadratic falloff mask to control <a href="../hair_deformers/#duplicate-strands">Duplicate Strands</a> deformer generation radius</em></p>
+<video style="width:100%" controls>
+<source src="../../video/influence_range_input_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In this example we use <code>Simple</code> falloff to adjust <a href="../hair_deformers/#noise">Noise</a> deformer frequency - we increase it towards the tip of the strand</em></p>
 <ul>
 <li><strong>Simple</strong> - gradually changes the mask falloff from 0 to 100%. Can be inverted.</li>
 <li><strong>Quadratic</strong> - gives you independent mask control on strand: beginning, center and end</li>
 <li><strong>BiDirectional</strong> - control mask falloff and value at both ends of the strand</li>
 </ul>
 <blockquote>
-<p><strong>Note:</strong> The main reason why <a href="#influence-range">Influence Range</a> still exist - is that it can use 'Profile Curve' type of mask, which is not available in Curve Mask</p>
+<p><strong>Note:</strong> <a href="#influence-range">Influence Range</a> remains useful because it allows you to use "Profile Curve" masks, a feature not found in Curve Mask.</p>
 </blockquote>
 <h5 id="curve-attribute">Curve Attribute<a class="headerlink" href="#curve-attribute" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
@@ -225,10 +232,11 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <blockquote>
-<p><strong>Border Edge Distance</strong>:  Mask an effect based on the distance of strand from the mesh border. Above <a href="../hair_deformers/#align-tilt-to-mesh-border">Aligned Tilt to Mesh Border</a> only on strands that are closest to mesh border. It has invert option.</p>
+<p><strong>Border Edge Distance</strong>:  Mask an effect based on the distance between: strand from the mesh border. In above video we used <a href="../hair_deformers/#align-tilt-to-mesh-border">Aligned Tilt to Mesh Border</a> to affect strands that are closest to mesh border.</p>
+<p><strong>Note:</strong> You will often want to use the 'Invert' option on this mask, so that the masking effect is strongest for strands closest to the border (those with the smallest distance to the border).</p>
 </blockquote>
 <h5 id="edge-attribute-distance">Edge Attribute Distance<a class="headerlink" href="#edge-attribute-distance" title="Permanent link">&para;</a></h5>
-<p>Same as above, but uses user selected edge attribute to calculate distance between: strand and edge with attribute.</p>
+<p>Same as above, but distance is calculated between: strand and edge with attribute (for example crease or sharp edges).</p>
 <hr />
 <h4 id="invert">Invert<a class="headerlink" href="#invert" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
@@ -250,8 +258,9 @@ Your browser does not support the video tag.
 <li>Swapping Min and Max values will invert the effect</li>
 </ul>
 <h4 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h4>
+<p>Can be used to <a href="../hair_deformers/#push-out">Push Out</a> every second strand, or to create a mask that will be applied to every N-th strand.</p>
 <video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/math_input_mask.mp4" type="video/mp4">
+<source src="../../video/math_input_mask.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <blockquote>
@@ -327,7 +336,7 @@ Can be used to reduce hair density in 3d viewport.</p>
 <source src="../../img/geo_nodes_hair/influence_range.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p>*Special mask that allows to modulate influence of deformer over strand length (e.g. taper only tip of strand).</p>
+<p><em>Special mask that allows to modulate influence of deformer over strand length (e.g. taper only tip of strand)</em></p>
 <p>Only available for some types of Deformers inputs - with 'Influence' in the name.</p>
 <p>Types of Influence range masks:</p>
 <ul>

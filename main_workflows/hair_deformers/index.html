@@ -76,6 +76,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#curls">Curls</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#delete-strands">Delete Strands</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#generators">Generators</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#duplicate-strands">Duplicate Strands</a>
@@ -122,7 +124,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#assign-tag">Assign Tag</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#delete-strands">Delete Strands</a>
+    <li class="toctree-l3"><a class="reference internal" href="#delete-tagged-strands">Delete Tagged Strands</a>
     </li>
         </ul>
     </li>
@@ -164,12 +166,16 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../presets/">Presets</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Modeling Methods</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../basic_examples/">Basic Examples</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Curves from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../strands_from_profile/">Strands From Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -193,10 +199,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../baking_hair_setup/">Baking Blend File</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking Textures</a>
                   </li>
               </ul>
@@ -290,13 +294,19 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>We add curls effect to second Hair System and play with the: Frequency and Phase. The amount of curls (and clumps) is determined by parent strand count. <a href="../hair_system/#child-parent-setup">Child-parent</a> setup is needed</em></p>
+<h4 id="delete-strands">Delete Strands<a class="headerlink" href="#delete-strands" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/delete_strands.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Remove strands based on input mask. In video above I used <a href="../input_masks/#randomize">Randomize</a> input mask to remove some % of hair</em></p>
 <h4 id="generators">Generators<a class="headerlink" href="#generators" title="Permanent link">&para;</a></h4>
 <h5 id="duplicate-strands">Duplicate Strands<a class="headerlink" href="#duplicate-strands" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/duplicate_strands.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Simple duplication of exisitng strands</em></p>
+<p><em>Simple duplication of existing strands</em></p>
 <h5 id="braid-generator">Braid Generator<a class="headerlink" href="#braid-generator" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/braid_gen.mp4" type="video/mp4">
@@ -334,19 +344,22 @@ Your browser does not support the video tag.
 <source src="../../img/geo_nodes_hair/push_out.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Push hair outside surface. Useful when wanting to push out layer of hair or to prevent hair clipping through character geometry</em></p>
+<p><em>Pushes hair strands away from the surface. Use to preventing clipping through character geometr or adding volume for layered hair styles</em></p>
 <h5 id="attach-to-surface">Attach To Surface<a class="headerlink" href="#attach-to-surface" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/attach_to_surface.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Attach hair to surface. Useful when wanting to 'glue' hair to character geometry (scalp)</em></p>
+<p><em>Attach hair to surface. Useful when wanting to 'glue' hair roots to character geometry (scalp)</em></p>
 <h5 id="move-to-border">Move to Border<a class="headerlink" href="#move-to-border" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/move_to_border.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In the video above, a source mesh is created using two half-sphere meshes. We use the "Move to Border" deformer to move the strands to the edge of this mesh. Then, we apply the 'Track To Mesh' deformer, to clump tips of strands together</em></p>
+<blockquote>
+<p><strong>Note</strong>: Often I like to move hair to border but only for strands that are within certain distance to the border. This can be done by using <a href="../input_masks/#border-edge-distance"><strong>Border Edge Distance</strong></a> input mask. This way we can keep some strands in the middle of the scalp, while moving others to the border.</p>
+</blockquote>
 <h5 id="snap">Snap<a class="headerlink" href="#snap" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/snap.webm" type="video/mp4">
@@ -361,10 +374,21 @@ Your browser does not support the video tag.
 <p><em>Lenghtens hair strands. Unlike simple scale - it will make hair extend from the tips</em></p>
 <h4 id="noise">Noise<a class="headerlink" href="#noise" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/noise.webm" type="video/mp4">
+  <source src="../../img/geo_nodes_hair/noise.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Add noise distortion to strands</em></p>
+<p><em>Adding Uniofomr noise, to break up the straightness of the strands and then bit of 'Per Strands' noise to add some randomness to the strands</em></p>
+<ul>
+<li><strong>Global Scale</strong> - Scales overall noise effect. Default value 1.0 is good for default cube (2 meters in size). For human head (which is around 1/10th of its size) set it to 0.1</li>
+<li><strong>Uniform Noise</strong> - it will give overall flow to the hair, breaking up the straightness of the strands.</li>
+<li><strong>Per Strands Noise</strong> - this will apply unique noise to each strand, giving it a more messy look.</li>
+<li><strong>Frequency</strong> - controls the detail of the noise. If set too high, it will make hair look 'bumpy' and unnatural.</li>
+<li><strong>Influence Range</strong> - Blend between original (straight) strand and the noise effect.</li>
+<li><strong>Flatten along Normal</strong> - it will remove the normal component of the noise, making it look more like than a 'wave'.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: Higher values of noise can push hair into the character head. To prevent this, use <a href="#push-out"><strong>Push Out</strong></a> deformer after the noise deformer.</p>
+</blockquote>
 <h4 id="radius-set">Radius Set<a class="headerlink" href="#radius-set" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/set_radius.webm" type="video/mp4">
@@ -411,7 +435,7 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: Assigning any tag e.g. X will create negative tag 'X, for example if we create tag <code>RIGHT</code> with some strands, then tag <code>'RIGHT</code> will contain opposite set of strands.</p>
 </blockquote>
-<h5 id="delete-strands">Delete Strands<a class="headerlink" href="#delete-strands" title="Permanent link">&para;</a></h5>
+<h5 id="delete-tagged-strands">Delete Tagged Strands<a class="headerlink" href="#delete-tagged-strands" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/tag_delete.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -452,31 +476,38 @@ Your browser does not support the video tag.
 <h4 id="track-to">Track To:<a class="headerlink" href="#track-to" title="Permanent link">&para;</a></h4>
 <p>It 'glues' hair tips to tracked (target) curve. You have control over tracking shape (straight or curved) and count of sampled points.</p>
 <h5 id="track-to-mesh">Track to Mesh<a class="headerlink" href="#track-to-mesh" title="Permanent link">&para;</a></h5>
+<p>'Glue' hair tips, to target mesh object. If <strong>Separate Target per Island</strong> is enabled then only strands from the nearest mesh island (based on target origin location) will be affected (see video below)</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/track_to_mesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Track to Mesh - Strands from closes mesh island will follow tracked mesh object. Use <code>Bind</code> button to prevets hair tips from 'sliding' on mesh surface</em></p>
+<p><em>With <code>Separate Target per Island</code> strands from one (closest) island will follow the guide. To prevent hair tips from 'sliding' use <code>Bind Track Mesh</code> button</em></p>
+<p>In deformer settings you have control over shape of 'glued' curves - they can go straight or bent toward the target mesh.</p>
 <blockquote>
-<p><strong>Note</strong>: Closest affected island is determined by Tracked object origin. Move it to change which island will be affected. After finding desired island, you can move tracked object in edit mode, so that affected strands won't change.</p>
-<p><strong>Note</strong>: If you want to 'Freeze' tracked points, use 'Bind Tracked Mesh' button. Now strands will follow point at which they were bound, rather than sliding around mesh surface.</p>
+<p><strong>Note</strong>: Closest active/affected island is determined by Tracked object origin. Move it to change 'active' island.</p>
+<p><strong>Note</strong>: It is good idea to create 'bind' shape-key, just after 'Bind Track Mesh' is pressed, on tracked mesh, and then work on extra 'Deform' shape-key. This way you can restore original 'bind' shape, re-run the 'Bind' and then switch back to 'Deform' shape-key.</p>
 </blockquote>
 <h5 id="track-to-curve">Track to Curve<a class="headerlink" href="#track-to-curve" title="Permanent link">&para;</a></h5>
+<p>Similar to 'Track to Mesh', but it will 'glue' hair tips to target curve object.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/track_to_curve.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Track to Curve - Strands from closes mesh island will follow tracked curve object. Use <code>Bind</code> button to prevets hair tips from 'sliding' on tracked surface surface</em></p>
+<p><em>Use <code>Bind</code> button to prevets hair tips from 'sliding' on tracked curve surface</em></p>
+<video style="width:100%" controls>
+  <source src="../../video/cornrows_example.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p><em>Demo of 'Cornrows' feature with Track to Curve deformer. In this case the 'Samples Count' parameter defines density of 'cornrows'</em></p>
 <blockquote>
-<p><strong>Note</strong>: Closest affected island is determined by Tracked object origin. Move curve origin to change closest affected island. Move tracked curve in edit mode, to move hair tips, without changing 'active' mesh island.</p>
-<p><strong>Note</strong>: If you want to 'Freeze' tracked points, use 'Bind Tracked Curve' button (this will convert 'old' curve to 'new' type). Now strands will follow point at which they were bound, rather than sliding around curve surface.</p>
-<p><strong>Note</strong>: <a href="../../curve_tool/#shape-keys">Curve Shape Keys</a> are great addition to Track To Curve deformer.</p>
+<p><strong>Note</strong>: Closest active/affected island is determined by Tracked object origin. Move it to change 'active' island.</p>
+<p><strong>Note</strong>: Hair Tool <a href="../../curve_tool/#shape-keys">Curve Shape Keys</a> can be used to switch between 'bind' and 'deform' shape. This way you can work on non-destructive way, and restore original 'bind' shape at any time.</p>
 </blockquote>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/corns.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Example of making 'Cornrows' hairstyle with Track to Curve deformer. Same curves is used for guiding the Braid and as Trackt To target for scalp hair</em></p>
+<p><em>Second example of making 'Cornrows' hairstyle with Track to Curve deformer</em></p>
 <h4 id="trim">Trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/trim.webm" type="video/mp4">
