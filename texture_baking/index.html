@@ -113,6 +113,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#flatten-to-uv-shape">Flatten to UV Shape</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#baking-scalp-mask">Baking scalp mask</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -238,6 +240,14 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note1</strong>: For baking flattened hair use baking scene setup.</p>
 </blockquote>
+<h3 id="baking-scalp-mask">Baking scalp mask<a class="headerlink" href="#baking-scalp-mask" title="Permanent link">&para;</a></h3>
+<p>There is no option in Blender to <strong>bake hair to mesh</strong> (it supports only mesh-to-mesh baking), and I could not find any for that purpose. So here is my custom solution, called <a href="https://bartoszstyperek.gumroad.com/l/BatchtoolsBaker">Cycles Baker</a>.<br>
+The setup:
+ * Install Cycles Baker as <strong>Extension</strong> from Blender Preferences &gt; Get Extensions &gt; Install From Disk (dropdown menu at the very top right corner)
+ * Right Sidebar &gt; Tools &gt; Cycles Baker tab: use 'Add Pair' button and pick low-poly scalp mesh and high-poly hair object
+ * Add needed baking passes (e.g. Diffuse, AO, Opacity, Depth etc)
+ * Make sure to set hair profile to <a href="../hair_profiles/#round-profile">Round</a>.
+ * Press 'Bake'</p>
               
             </div>
           </div><footer>
