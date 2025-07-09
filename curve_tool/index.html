@@ -249,13 +249,36 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note:</strong> AO modifier is heavy on performance, so use it only when needed.</p>
 </blockquote>
+<p>Parameters:</p>
+<ul>
+<li><strong>Samples</strong> - how many samples to use for AO calculation (more samples = better quality, but slower)</li>
+<li><strong>Base Color Value</strong> - bounced light color (default is black - full occlusion)</li>
+<li><strong>Spread Angle</strong> - how much to spread AO rays around vert normal (default 60 degrees)</li>
+<li><strong>Blur Steps</strong> - smooth out the generated vertex color AO attribute (default 1)</li>
+<li><strong>First Bounce Factor</strong> -- how much to mix first bounce AO with second bounce AO (default 0.6)</li>
+<li><strong>Second Bounce Factor</strong> - how much to mix second bounce AO with first bounce AO (default 0.4)</li>
+<li><strong>Use Additional Mesh</strong> - if enabled, you can select additional mesh object to use for AO calculation (useful when you want to bake shadows from character body onto hair)</li>
+<li><strong>Inflate External Object</strong> - helps avoid dark shadows on hair cast by 'Additional Mesh' by slightly shrinking that mesh (default -0.005 - shrinks character by 0.5 cm)</li>
+<li><strong>AO Attribute Name</strong> - name of the vertex color attribute to create (default is <code>AO</code>)</li>
+<li><strong>Write AO to Alpha</strong> - if enabled, it will write AO value to alpha channel of the vertex color attribute (default is disabled)</li>
+</ul>
 <p>For more details see <a href="https://youtu.be/W8zZygHCDEQ?t=149">this YT Video</a> (3 min length, starting at 2:30)</p>
 <h4 id="project-roots">Project Roots<a class="headerlink" href="#project-roots" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../video/project_roots.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>It will project hair roots onto target mesh surface</em></p>
+<p><em>This will add a modifier that projects hair profile (mesh) roots along the strand tangent direction onto the target mesh surface</em></p>
+<p>Parameters:</p>
+<ul>
+<li><strong>Target Object</strong> - object to project hair profile roots onto</li>
+<li><strong>Factor</strong> - how far to project roots (0.0 = no projection, 1.0 = full projection)</li>
+<li><strong>Push Out</strong> - helps to lift hair profile roots slightly above target mesh surface, to avoid clipping</li>
+<li><strong>Ray Length</strong> - how far to cast rays from hair profile roots to target mesh surface (along strand tangent direction)</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> This modifier works on mesh (hair profile). Its good idea to use <a href="../main_workflows/hair_deformers/#embed-roots">Embed Roots</a> deformer first, to move strand  roots closer to target mesh surface, before applying this modifier.</p>
+</blockquote>
 <h4 id="sample-normals">Sample Normals<a class="headerlink" href="#sample-normals" title="Permanent link">&para;</a></h4>
 <p>Use to sample normal's from mesh object and save them as a color attribute called <code>SAMPLED_NORM</code>. It support 'Blend Distance' parameter, which allows you to define the range of the effect<br>
 When hair is <a href="../convert_hair/#convert-hair-to-mesh">converted to mesh</a>, this attribute will be automatically converted into custom mesh normal.</p>
@@ -263,7 +286,13 @@ When hair is <a href="../convert_hair/#convert-hair-to-mesh">converted to mesh</
   <source src="../video/norm_sammple.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>To use 'SAMPLED_NORM' attribute in shader, you have to set 'Mix Sampled Normals' to 1 in 'HTool_Normal' node, in your hair material</em></p>
+<p><em>To use <code>SAMPLED_NORM</code> attribute in shader, you have to set 'Mix Sampled Normals' to 1 in 'HTool_Normal' node, in your hair material</em></p>
+<p>Parameters:</p>
+<ul>
+<li><strong>Object</strong> - object to sample normals from</li>
+<li><strong>Blend Distance</strong> - distance within which we should use sampled normals (default 0.1 - 10 cm)</li>
+<li><strong>Blend Fade</strong> - controls the transition between sampled normals and hair normals (default 1.0 - smooth transition)</li>
+</ul>
 <h3 id="select-tipsroots">Select Tips/Roots<a class="headerlink" href="#select-tipsroots" title="Permanent link">&para;</a></h3>
 <p>Available in Curve Edit mode at the bottom of Select menu</p>
 <video style="width:100%" controls>
