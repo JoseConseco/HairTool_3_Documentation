@@ -241,10 +241,11 @@ Your browser does not support the video tag.
 <h4 id="material-uv-refresh">Material / UV Refresh<a class="headerlink" href="#material-uv-refresh" title="Permanent link">&para;</a></h4>
 <p>Helper Button that will automatically assign last used Hair Material, and UVs. If they are not found, it will assign Default Hair Tool Material and UVs.</p>
 <h4 id="set-uv-region">Set UV region<a class="headerlink" href="#set-uv-region" title="Permanent link">&para;</a></h4>
-<p>After you <a href="#defining-hair-uvs">generated UVs</a>, you can <strong>assign individual UV Regions to 'real' hair strands using 'Set UV region' operator</strong>. If you selected multiple UV Regions (Shift+Click), then they will be distributed randomly to each selected strand.</p>
+<p>After your hair <a href="#defining-hair-uvs">received UVs</a>, you can <strong>pick which hair strands will use which texture spot (UV Region/Box) using 'Set UV region' operator</strong>. Pick multiple UV Regions, with [Shift+Click], so assign them randomly to selected strands.</p>
+<p>Depending on hair type (procedural or 'real' geometry strands) - operator will behave differently:</p>
 <ul>
-<li>If you have hair curve object selected, that contains 'real' geometry strands, then UV Region ID will be stored directly in curve attribute</li>
-<li>If selected object (mesh or curve) has <a href="../main_workflows/hair_system/">Hair System</a> attached, then <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Region Distribute</a> deformer will be created (unless one already exists) - to distribute UVs Boxes onto strands</li>
+<li>for 'real' geometry strands objects, UV Region ID will be stored directly in each curve attribute</li>
+<li>for procedurally generated <a href="../main_workflows/hair_system/">Hair System</a> objects, <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Region Distribute</a> deformer will be created (unless one already exists) - to distribute UVs Boxes onto strands</li>
 </ul>
 <video style="width:100%" controls>
   <source src="../video/set_uv_region.mp4" type="video/mp4">
