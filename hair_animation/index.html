@@ -229,16 +229,18 @@ Your browser does not support the video tag.
 <h4 id="baking-jiggle-animation">Baking Jiggle Animation<a class="headerlink" href="#baking-jiggle-animation" title="Permanent link">&para;</a></h4>
 <p>Jiggle physics can be baked to animation using following steps:</p>
 <ol>
-<li>select jiggle bones</li>
-<li>object mode &gt; animation &gt; bake action, with these settings:<ul>
+<li>Select jiggle bones and enable Simulation (in Animated mode)</li>
+<li>Pose mode &gt; Animation &gt; Bake Action, with these settings:<ul>
 <li>only selected bones</li>
 <li>visual keying</li>
 <li>overwrite current action</li>
 </ul>
 </li>
-<li>bake bones (not object)</li>
+<li>Bake Data: Pose Mode</li>
+<li>Channels: Rotation only</li>
+<li>Press OK</li>
 </ol>
-<p>Don't forget to turn simulation off after baking BEFORE rendering, or you will get unexpected results.</p>
+<p>Don't forget to turn simulation off after baking, to prevent running jiggle physics on top of baked jiggle animation.</p>
 <h4 id="collisions">Collisions<a class="headerlink" href="#collisions" title="Permanent link">&para;</a></h4>
 <p>Only bone to bone collisions are supported.
 You can add collision to selected bone using 'Add Collision' button. Other jiggle bones will bounce from it.</p>
