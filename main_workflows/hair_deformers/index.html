@@ -492,7 +492,11 @@ Your browser does not support the video tag.
   <source src="../../img/geo_nodes_hair/align_tilt.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Aligns tilt to hair source surface (hair normal will point outside of surface)</em></p>
+<p><em>Aligns hair normal to surface normal</em></p>
+<p><strong>Twist Fix</strong> if enabled, it will try to minimize twisting between two adjacent points, if their tilt angle is above 'Threshold' value.</p>
+<p><strong>Use Shortest Rotation</strong> attempts to minimize the rotation angle, but may cause some hair cards to face inward (see image below). This shouldn't be an issue if your hair shader is double-sided, though Blender has a known issue where back-faces render with flipped normals, making them appear darker.</p>
+<p><img alt="Use Shortest Rotation" src="../../img/geo_nodes_hair/align_tilt_shortest.jpg" />
+<em>No Tilt Alignment (left) | Align to Surface (middle) | Align with <code>Use Shortest Rotation</code>(right)</em></p>
 <h5 id="align-tilt-to-parent">Align Tilt to Parent<a class="headerlink" href="#align-tilt-to-parent" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/align_to_parent.mp4" type="video/mp4">
@@ -513,18 +517,22 @@ Your browser does not support the video tag.
 <p><em>Align strands tilt to border of source surface (usually scalp). Backfaces are shown in blue</em></p>
 <p><strong>Force Align</strong> if checked, it will align curve and force curve normal to point outside border edge. If unchecked, tilt will be aligned to border, but curve normal will point with the 'flow' - see video above.</p>
 <h4 id="track-to">Track To:<a class="headerlink" href="#track-to" title="Permanent link">&para;</a></h4>
-<p>It 'glues' hair tips to tracked (target) curve. You have control over tracking shape (straight or curved) and count of sampled points.</p>
+<p>They allow you to model hair by sculpting a guide mesh or curve, to which the hair tips will be 'glued'. Useful for shorter hairstyles: beards, eyebrows, shaved sides etc.</p>
 <h5 id="track-to-mesh">Track to Mesh<a class="headerlink" href="#track-to-mesh" title="Permanent link">&para;</a></h5>
-<p>'Glue' hair tips, to target mesh object. If <strong>Separate Target per Island</strong> is enabled then only strands from the nearest mesh island (based on target origin location) will be affected (see video below)</p>
+<p><strong>It 'Glues' hair tips, to target mesh object</strong>. First you need to position tracked mesh object (its origin) near hair. Then press <code>Bind Track Mesh</code> button (it prevents hair tips from 'sliding'). After that you can edit/sculpt tracked object and hair tips will follow it.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/track_to_mesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>With <code>Separate Target per Island</code> strands from one (closest) island will follow the guide. To prevent hair tips from 'sliding' use <code>Bind Track Mesh</code> button</em></p>
-<p>In deformer settings you have control over shape of 'glued' curves - they can go straight or bent toward the target mesh.</p>
+<p><em>If <code>Separate Target per Island</code> is enabled then only strands from the nearest mesh island (based on target origin location) will be affected</em></p>
+<p><strong>Settings</strong></p>
+<p><strong>Linear to Bend Mix</strong> - blends between linear (0.0) and bend (1.0) deformation modes. Linear mode will keep hair straight, while bend mode will allow hair to bend along mesh normal (or strand Tangent).<br>
+<strong>Bend Target</strong> - bends hair along mesh normal (default) or along strand Tangent.<br>
+<strong>Bend - Push Out</strong> - controls the strength of the bend effect.<br>
+<strong>Bend at Root/Tip Factor</strong> - controls how much bending occurs at the root vs tip of the hair strands. Use 0.5 for bending to happen at center of strand.<br></p>
 <blockquote>
 <p><strong>Note</strong>: Closest active/affected island is determined by Tracked object origin. Move it to change 'active' island.</p>
-<p><strong>Note</strong>: It is good idea to create 'bind' shape-key, just after 'Bind Track Mesh' is pressed, on tracked mesh, and then work on extra 'Deform' shape-key. This way you can restore original 'bind' shape, re-run the 'Bind' and then switch back to 'Deform' shape-key.</p>
+<p><strong>Note</strong>: For non-destructive workflow it is good idea to manually create 'bind' shape-key, just after 'Bind Track Mesh' button is pressed. Then work on new 'Deform' shape-key. If you do not like the edits, you can always go back to 'bind' shape-key.</p>
 </blockquote>
 <h5 id="track-to-curve">Track to Curve<a class="headerlink" href="#track-to-curve" title="Permanent link">&para;</a></h5>
 <p>Similar to 'Track to Mesh', but it will 'glue' hair tips to target curve object.</p>

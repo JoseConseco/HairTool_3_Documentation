@@ -66,13 +66,15 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#strands-filter">Strands Filter</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#strands-from-mesh-elements">Strands from Mesh Elements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#strands-from-2d-uv-pattern">Strands from 2D UV Pattern</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#strands-from-grid-surface">Strands From Grid Surface</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#interpolated-strands">Interpolated Strands</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#strands-from-prism-mesh-guide">Strands from Prism Mesh Guide</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#strands-on-mesh-parts">Strands on Mesh Parts</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#strands-on-mesh-border">Strands on Mesh Border</a>
     </li>
@@ -227,7 +229,7 @@ Click [+] to add Hair System to selected mesh (or curve) object.</p>
  <em>Example of two Hair Systems setup: <code>Parent</code> and <code>Child</code>. <code>Child</code> System is made from: Strand Generator, Noise, Clump, Set Radius etc. deformers. <code>Parent</code> system is guided by: HairCurve guide (second input at very top)</em></p>
 <hr />
 <h3 id="sub-systems-types">Sub-Systems Types<a class="headerlink" href="#sub-systems-types" title="Permanent link">&para;</a></h3>
-<p>After adding a hair (sub)system, the first slot in the deformers stack is automatically added, with its type determined by the selected hair sub-system type.</p>
+<p>When a hair (sub)system is added, the first deformer slot is automatically created, with its type determined by the selected hair sub-system type. Below is list of the available hair sub-system types:</p>
 <h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
 <p>It will grow strands, from Base Mesh surface. You can control parameters like: resolution, density, length, interpolation (<a href="./#child-parent-setup">Parent Child relation must be set</a>) etc. These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
@@ -272,6 +274,28 @@ All type of strands can be modified:</p>
 Your browser does not support the video tag.
 </video>
 <p><em>Demo of applying 'Scale' deformer to strands generated with <code>Right</code> and 'Left' Hair Systems. When no filter Tag is set, then all strands are scaled</em></p>
+<h4 id="strands-from-mesh-elements">Strands from Mesh Elements<a class="headerlink" href="#strands-from-mesh-elements" title="Permanent link">&para;</a></h4>
+<p>It will allow you to generate strands on base mesh: vertices, edges and (or) faces.</p>
+<video style="width:100%" controls>
+<source src="../../video/strands_on_mesh_parts.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>When used on edges it looks similar to <a href="../short_hair/">Short Hair</a>. Especially if you combine it with <a href="../hair_deformers/#track-to-mesh">Track to Mesh</a> deformer</em></p>
+<h4 id="strands-from-2d-uv-pattern">Strands from 2D UV Pattern<a class="headerlink" href="#strands-from-2d-uv-pattern" title="Permanent link">&para;</a></h4>
+<p>Strands will be distributed in 2D UV space based on one of 5 selected preset patterns. Mesh (scalp) with UVs is required for it to work. Useful for creating feathers, scales and uniformly distributed hair (beards and other short hair).</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/strands_on_uv_feathers.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Demo of 'Strand from UV' + <a href="../hair_deformers/#track-to-mesh">Track to Mesh deformer</a>. Base 'Strand Generator' is no good. It is too random for feathers, which typically follow a more regular, tile-like distribution pattern</em></p>
+<p><img alt="UV points distributions" src="../../img/geo_nodes_hair/strands_uv_distribution_list.jpg" />
+<em>Hex | Fibonacci Disk | Fibonacci Square | Grid | Plastic</em></p>
+<p><strong>Parameters:</strong></p>
+<p><strong>Noise Amount</strong> - randomize position of strands to break the uniform look<br>
+<strong>Relax Iterations</strong> - Adding noise may cause some strands to be too close to each other. Relax option will help to spread them out more evenly. See <a href="#relax-distribution">relax</a> demo<br></p>
+<blockquote>
+<p><strong>Note</strong>: You can control density of strands by resizing UVs in UV editor. Scaling mesh island up (lets say Head) will result in it covering more UV points, thus more strands being generated on that particular mesh part. I also like to use 'Proportional Editing' in UV editor to get smooth density transition.</p>
+</blockquote>
 <h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
 <p>This type of Strand Generator, will guide strands using guide mesh (grid mesh, made of quads only).
 Root of strands will be placed:</p>
@@ -313,13 +337,6 @@ Your browser does not support the video tag.
 <p><strong>Note1</strong>: Extruding faces, in the way that was done in video above, creates non-manifold mesh, and the resulting prism 'Wall' faces normal's will be messed up (some face out, some in). You can unify them using: Ctrl+N &gt; Recalculate Normal's operator.</p>
 <p><strong>Note2</strong>: You can use Ctrl+Shift+H &gt; <code>Strands from Prism Mesh</code> operator to: create new (separated) hair object and switch your base mesh display mode to 'WIRE' automatically. This will help you to see both hair-cards and base (prism guide) mesh at the same time.</p>
 </blockquote>
-<h4 id="strands-on-mesh-parts">Strands on Mesh Parts<a class="headerlink" href="#strands-on-mesh-parts" title="Permanent link">&para;</a></h4>
-<p>It will allow you to generate strands on base mesh: vertices, edges and (or) faces.</p>
-<video style="width:100%" controls>
-<source src="../../video/strands_on_mesh_parts.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>When used on edges it looks similar to <a href="../short_hair/">Short Hair</a>. Especially if you combine it with <a href="../hair_deformers/#track-to-mesh">Track to Mesh</a> deformer</em></p>
 <h4 id="strands-on-mesh-border">Strands on Mesh Border<a class="headerlink" href="#strands-on-mesh-border" title="Permanent link">&para;</a></h4>
 <p>It will allow you to generate strands on base mesh border edges (or on custom edge attribute)</p>
 <video style="width:100%" controls>
