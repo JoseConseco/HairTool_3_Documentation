@@ -288,13 +288,14 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Demo of 'Strand from UV' + <a href="../hair_deformers/#track-to-mesh">Track to Mesh deformer</a>. Base 'Strand Generator' is no good. It is too random for feathers, which typically follow a more regular, tile-like distribution pattern</em></p>
+<p><strong>Parameters:</strong></p>
+<p><strong>Distribution Pattern</strong> - 5 preset patterns to choose from:</p>
 <p><img alt="UV points distributions" src="../../img/geo_nodes_hair/strands_uv_distribution_list.jpg" />
 <em>Hex | Fibonacci Disk | Fibonacci Square | Grid | Plastic</em></p>
-<p><strong>Parameters:</strong></p>
 <p><strong>Noise Amount</strong> - randomize position of strands to break the uniform look<br>
 <strong>Relax Iterations</strong> - Adding noise may cause some strands to be too close to each other. Relax option will help to spread them out more evenly. See <a href="#relax-distribution">relax</a> demo<br></p>
 <blockquote>
-<p><strong>Note</strong>: You can control density of strands by resizing UVs in UV editor. Scaling mesh island up (lets say Head) will result in it covering more UV points, thus more strands being generated on that particular mesh part. I also like to use 'Proportional Editing' in UV editor to get smooth density transition.</p>
+<p><strong>Note</strong>: You can control density of strands by resizing UVs in UV editor. Stretching and deforming UV island will result in it covering more/less UV points, thus it will affect strand density. Use UV 'Proportional Editing' mode, to get smooth density transition.</p>
 </blockquote>
 <h4 id="strands-from-grid-surface">Strands From Grid Surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h4>
 <p>This type of Strand Generator, will guide strands using guide mesh (grid mesh, made of quads only).
