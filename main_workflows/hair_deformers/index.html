@@ -112,21 +112,29 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#radius-set">Radius Set</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resample">Resample</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#simplify-strands">Simplify Strands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplify-by-angle">Simplify by Angle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplify-strands-hq">Simplify Strands HQ</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#subdivide-at-angle">Subdivide at Angle</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resample-adaptive">Resample Adaptive</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#roll-strands">Roll Strands</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#scale">Scale</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simplify-strands">Simplify Strands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simplify-strands-hq">Simplify Strands HQ</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#slide-points">Slide Points</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#smooth-strands">Smooth Strands</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#straighten-strands">Straighten Strands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#subdivide-at-angle">Subdivide at Angle</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#tag">Tag</a>
         <ul>
@@ -424,30 +432,51 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Set Radius - for hair tapering, strand width randomization, etc. Can also guide Curls amplitude or Braid size - for child Hair Systems</em></p>
+<h4 id="resample">Resample<a class="headerlink" href="#resample" title="Permanent link">&para;</a></h4>
+<p>Increase or decrease number of points per strand. Useful for optimizing hair, or adding more resolution to give hair smoother look.</p>
+<h5 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/simplify_strands.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Assigns less points to shorter strands. Usually provide best results</em></p>
+<h5 id="simplify-by-angle">Simplify by Angle<a class="headerlink" href="#simplify-by-angle" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/simplify_by_angle.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p><em>Simplify strands by angle between two segments. If angle is below 'Angle Threshold' value, then point will be removed</em></p>
+<h5 id="simplify-strands-hq">Simplify Strands HQ<a class="headerlink" href="#simplify-strands-hq" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/simplify_hq.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>High Quality Strands Simplification (based on modified version of Visvalingam–Whyatt algorithm) - it should preserve overall shape of the strand better than 'Simplify Strands', however in practice basic <a href="#simplify-strands">Simplify Strands</a> works quite well</em></p>
+<h5 id="subdivide-at-angle">Subdivide at Angle<a class="headerlink" href="#subdivide-at-angle" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/subdivide_at_angle.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Add more points to strands, where angle between two segments is above 'Angle Threshold' value</em></p>
+<h5 id="resample-adaptive">Resample Adaptive<a class="headerlink" href="#resample-adaptive" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/resample_adaptive.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>It uses <code>Resolution Multiplier</code>. For example value 2.0 will double the points count of each strand. Above I combined it with <a href="../input_masks/#length-mask">Length Mask</a> to give more resolution to longer strands</em></p>
 <h4 id="roll-strands">Roll Strands<a class="headerlink" href="#roll-strands" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/roll_strands.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Basically the same as blender build-in Roll</em></p>
+<p><em>Similar to Blender build-in Roll. It has option to roll along sampled surface normal</em></p>
 <h4 id="scale">Scale<a class="headerlink" href="#scale" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/scale.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Scale hair up or down. With trim deformer we can reduce length of hair, but Scale deformer helps to make them longer.</em></p>
-<h4 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h4>
-<video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/simplify_strands.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Simplify strands - assigning lower points count to shorter strands</em></p>
-<h4 id="simplify-strands-hq">Simplify Strands HQ<a class="headerlink" href="#simplify-strands-hq" title="Permanent link">&para;</a></h4>
-<video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/simplify_hq.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>High Quality Strands Simplification - it will optimize and reduce straight hair segments more</em></p>
 <h4 id="slide-points">Slide Points<a class="headerlink" href="#slide-points" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/slide_points.webm" type="video/mp4">
@@ -466,12 +495,6 @@ Your browser does not support the video tag.
         Your browser does not support the video tag.
 </video>
 <p><em>Straighten out the strands</em></p>
-<h4 id="subdivide-at-angle">Subdivide at Angle<a class="headerlink" href="#subdivide-at-angle" title="Permanent link">&para;</a></h4>
-<video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/subdivide_at_angle.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Add more points to strands, where angle between two segments is above 'Angle Threshold' value. It has also optional curve resolution multiplier slider</em></p>
 <h4 id="tag">Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h4>
 <h5 id="assign-tag">Assign Tag<a class="headerlink" href="#assign-tag" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
