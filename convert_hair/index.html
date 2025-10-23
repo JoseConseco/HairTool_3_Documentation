@@ -88,7 +88,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#finalize-hair">Finalize Hair</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#haircards-to-mesh-loops">Haircards to Mesh Loops</a>
+    <li class="toctree-l2"><a class="reference internal" href="#cards-to-curves">Cards to Curves</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-to-curves">Particle Hairs to Curves</a>
     </li>
@@ -168,18 +168,25 @@ Use:</p>
 <ul>
 <li><strong>Join Instances</strong> - join result of 'Finalize Hair' into one object.</li>
 </ul>
-<h3 id="haircards-to-mesh-loops">Haircards to Mesh Loops<a class="headerlink" href="#haircards-to-mesh-loops" title="Permanent link">&para;</a></h3>
-<p>You can <strong>convert existing haircards to mesh loops</strong> (and then to curves), with this operator.<br></p>
+<h3 id="cards-to-curves">Cards to Curves<a class="headerlink" href="#cards-to-curves" title="Permanent link">&para;</a></h3>
+<p>It allows you to <strong>extract curves from existing hair-cards (mesh)</strong>.<br></p>
 <video style="width:100%" controls>
-  <source src="../video/haircard_to_mesh.mp4" type="video/mp4">
+  <source src="../video/haircard_to_curves.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Existing Haircards have to have 'nice' uv's &gt; going from root (top) to tip (bottom) of the card. Conversion will work even on triangulated mesh</em></p>
+<p><em>Conversion will work even on triangulated, non-uniform mesh</em></p>
+<p>Modal operator <strong>Properties</strong>:</p>
+<ul>
+<li><strong>Guide UVs</strong> - these UVs orientation will be used to determine hair root to tip direction. Make sure your source mesh have nice UVs going from top (root) to bottom (tip).</li>
+<li><strong>UV Threshold [Ctrl+Mouse Wheel]</strong> -  it defines how to simplify hair-cards mesh. The higher the threshold, the more simplified the resulting curves will be.</li>
+<li><strong>Smooth Factor [Shift+Mouse Wheel]</strong> - smooth resulting curves,</li>
+<li><strong>Reverse Direction [R - key]</strong> - flip hair root to tip direction. 'Cards to Curves' operator will draw overlay with hair roots marked in <span style="color: red;">Red</span> and tips in <span style="color: green;">Green</span> color.</li>
+</ul>
 <blockquote>
-<p><strong>Note:</strong> You can convert generated mesh loops to curves using built-in Blender operator: Object menu (W - key) &gt; Convert to &gt; Curve, and then Convert to &gt; Curves, to generate new hair curves. After that you can <a href="../hair_profiles/#flat-profile">assign Profile</a> to the result.</p>
-<p><strong>Note:</strong> After converting mesh loops to curves, you can resample them - with Hair Tool: Ctrl+Shift+H &gt; Resample operator.</p>
+<p><strong>Note1:</strong> <a href="../hair_animation/">Generate Bones</a> operator uses similar algorithm for extracting hair curves from mesh haircards. See <a href="../faq/#how-do-generate-bones-for-custom-cards">this video</a> to learn how to setup proper <code>Guide Uvs</code></p>
+<p><strong>Note2:</strong> After converting mesh to curves, you can resample them using: Ctrl+Shift+H &gt; Resample operator. Use 'Add Profile', from same pie menu, to assign hair profile to new curves.</p>
 </blockquote>
-<p><strong>Keywords:</strong> Hair cards to curves, hair to 3d curves loops, mesh to curves,</p>
+<p><strong>Keywords:</strong> Hair cards to curves, hair to 3d curves, mesh to curves,</p>
 <h3 id="particle-hairs-to-curves">Particle Hairs to Curves<a class="headerlink" href="#particle-hairs-to-curves" title="Permanent link">&para;</a></h3>
 <video style="width:100%" controls>
   <source src="../img/curvesfromparticles.mp4" type="video/mp4">
