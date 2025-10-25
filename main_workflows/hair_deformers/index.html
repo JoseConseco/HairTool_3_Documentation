@@ -72,15 +72,19 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#braids-child">Braids (Child)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#color-set-system">Color Set (System)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#color">Color</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#systemcolor-set">'SystemColor' Set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#factor-set">'Factor' Set</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#clumps-child">Clumps (Child)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#curls">Curls</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#delete-strands">Delete Strands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#factor-set">Factor Set</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#generators">Generators</a>
         <ul>
@@ -307,12 +311,22 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Clump child strands to Guide/Parent strands (FIRST tag) in shape of Braids. Set Hair System <a href="../hair_system/#child-parent-setup">as child</a> first</em></p>
-<h4 id="color-set-system">Color Set (System)<a class="headerlink" href="#color-set-system" title="Permanent link">&para;</a></h4>
+<h4 id="color">Color<a class="headerlink" href="#color" title="Permanent link">&para;</a></h4>
+<h5 id="systemcolor-set">'SystemColor' Set<a class="headerlink" href="#systemcolor-set" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/system_color.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>It will allow your to colorize haircards material with generated <code>SystemColor</code> <a href="../../uv_material/#attributes">attribute</a>. You can enable `Use HSV sliders' and combine them with <a href="../input_masks/">Input Masks</a> to create some nice effects</em></p>
+<p><em>It will allow your to colorize haircards material with generated <code>SystemColor</code> <a href="../../uv_material/#attributes">attribute</a>. You can use: Color, HSV or RGB mode and combine it with <a href="../input_masks/">Input Masks</a> to create some nice effects</em></p>
+<h5 id="factor-set">'Factor' Set<a class="headerlink" href="#factor-set" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/factor_set.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>It allows to adjust <code>Factor</code> <a href="../../uv_material/#attributes">attribute</a>, which is used in Hair Shader as mask to blender between root and tip color</em></p>
+<blockquote>
+<p><strong>Note for old Hair Tool users (before HT 4.4.2)</strong>: on old blend files, this change may break <code>Factor</code> attribute generation. In that case run update on: Hair System Setup, Strand Generator and (Whole) Hair Profile. <strong>There is no need to do anything on new projects</strong>.</p>
+</blockquote>
 <h4 id="clumps-child">Clumps (Child)<a class="headerlink" href="#clumps-child" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/clump.webm" type="video/mp4">
@@ -331,15 +345,6 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Remove strands based on input mask. In video above I used <a href="../input_masks/#randomize">Randomize</a> input mask to remove some % of hair</em></p>
-<h4 id="factor-set">Factor Set<a class="headerlink" href="#factor-set" title="Permanent link">&para;</a></h4>
-<video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/factor_set.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>It allows to adjust <code>Factor</code> attribute, which is used in Hair Shader to blender between root and tip color</em></p>
-<blockquote>
-<p><strong>Note for old Hair Tool users (before HT 4.4.2)</strong>: on old blend files, this change may break <code>Factor</code> attribute generation. In that case run update on: Hair System Setup, Strand Generator and (Whole) Hair Profile. <strong>There is no need to do anything on new projects</strong>.</p>
-</blockquote>
 <h4 id="generators">Generators<a class="headerlink" href="#generators" title="Permanent link">&para;</a></h4>
 <h5 id="duplicate-strands">Duplicate Strands<a class="headerlink" href="#duplicate-strands" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
