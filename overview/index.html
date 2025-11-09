@@ -49,7 +49,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#setup-section">Setup Section</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hair-sub-systems">Hair Sub-Systems</a>
+    <li class="toctree-l2"><a class="reference internal" href="#hair-systems">Hair Systems</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-profile">Hair Profile</a>
     </li>
@@ -143,60 +143,58 @@
                 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair Tool" src="../img/hair_example_2.jpg" />
 <em>Art by <a href="https://www.artstation.com/ellimoren">Ellinor Morén</a></em></p>
-<p>Hair Tool uses a series of geometry-nodes based modifiers, called <strong>Hair Systems</strong>. Few available <a href="../main_workflows/hair_system/#sub-systems-types">Hair Systems types</a> include:</p>
+<p>Hair Tool provides a set of tools for various hair related tasks, including but not limited to:</p>
 <ul>
-<li><a href="../main_workflows/hair_system/#strands-generator">Strand Generator</a> - to generate hair strands from base mesh, guided by hair curves</li>
-<li><a href="../main_workflows/hair_system/#strands-filter">Strand Filter</a> - to modify existing strands</li>
-<li><a href="../main_workflows/hair_system/#strands-from-grid-surface">Strand From Grid Surface</a> - to generate strands from guide grid mesh surface</li>
-</ul>
-<p>General structure of Hair Tool modifier stacks looks like this:</p>
-<ul>
-<li>A <a href="#setup-section">Setup section</a> where guide curve and source mesh are assigned</li>
-<li>One or more <a href="../main_workflows/hair_system/#sub-systems-types">Hair (sub)systems</a>, each made from <a href="../main_workflows/hair_deformers/#hair-deformers">Deformers</a></li>
-<li>A <a href="../hair_profiles/">Hair Profile</a> where hair curves are meshed, UVs and materials are assigned and where you can sample UV/Color attributes from base mesh.</li>
-</ul>
-<p>On top of that, Hair Tool provides a set of tools for:</p>
-<ul>
-<li>manual <a href="../hair_modeling/">Modeling</a>,</li>
-<li><a href="../hair_sculpting/#selection-groups">Selection Groups</a> - for storing and reusing selection sets,</li>
-<li>hair simplification,</li>
+<li><a href="../main_workflows/hair_deformers/#hair-deformers">procedural</a> or <a href="../hair_modeling/">manual</a> modeling,</li>
+<li>multiple ways to generate hair: <a href="../main_workflows/shell_hair/">Shell Hair</a>, <a href="../main_workflows/short_hair/">Short</a> or <a href="../main_workflows/hair_from_surface/">Long</a> hair generators, etc</li>
+<li>Automated <a href="../uv_material/#defining-hair-uvs">UVs management</a>,</li>
+<li><a href="../texture_baking/">texture baking</a> for hair cards,</li>
+<li><a href="../hair_sculpting/#selection-groups">Selection Groups</a> for saving and loading hair selections,</li>
+<li><a href="../main_workflows/hair_drawing/">Hair Drawing</a> with option to extend multiple strands at once,</li>
+<li><a href="../presets/">Hair Presets</a> for Deformers, Hair Systems so you can save and reuse your favorite setups,</li>
+<li><a href="../hair_library/">Hair Library</a> with 30+ of ready to use hairstyles and sub-components,</li>
 <li><a href="../hair_animation/">Hair Animation</a>,</li>
-<li><a href="../uv_material/#defining-hair-uvs">generating UVs</a>,</li>
-<li>baking textures</li>
 </ul>
 <p>and more.</p>
+<p>In procedural workflow Hair Tool uses a three main, geometry-nodes based, modifiers to create and manage hair on 3D models:</p>
+<ul>
+<li>A <a href="#setup-section">Setup</a> modifier where base mesh and guide curve are connected,</li>
+<li>One or more <a href="../main_workflows/hair_system/#sub-systems-types">Hair Systems</a>, each made from stack of <a href="../main_workflows/hair_deformers/#hair-deformers">Deformers</a> (nodes inside that modifier) where strands are generated and modified (deformed),</li>
+<li>A <a href="../hair_profiles/">Hair Profile</a> where hair curves are meshed, UVs and materials are assigned,</li>
+</ul>
 <p><img alt="Hair System Diagram" src="../img/hsystem_diagram.jpeg" />
 <em>You can attach a Hair System to either a mesh object (like a scalp) or a guide curve</em></p>
 <blockquote>
 <p><strong>Note</strong>: <a href="../main_workflows/shell_hair/">Shell Hair</a> and <a href="../main_workflows/short_hair/">Short Hair</a> are not using Hair System workflow</p>
 </blockquote>
 <h4 id="setup-section">Setup Section<a class="headerlink" href="#setup-section" title="Permanent link">&para;</a></h4>
-<p>This panel shows you two important things:</p>
+<p>In this section Guide Curve and Source Mesh are assigned to Hair System.</p>
 <ul>
-<li><strong>Guide Curve:</strong> This is like a roadmap for child hair. It's a greyed-out if your Hair System is assigned to curve.</li>
-<li><strong>Source Mesh:</strong> This is where the hair starts growing from, usually the scalp. It's also greyed-out if your hair is already connected to it.</li>
+<li><strong>Guide Curve:</strong> It's a greyed-out if your Hair System is already assigned to guide curve.</li>
+<li><strong>Source Mesh:</strong> from which hair grows from, usually the scalp. It's also greyed-out if your hair system is already connected to it.</li>
 </ul>
 <p><img alt="Setup Example" src="../img/hsystem_setup.jpeg" />
-<em>In Image above Hair System is attached to guide curve <code>Suzanne_curve_hair</code> (yellow), and strands are spawned from Source Surface: <code>Suzanne_Scalp</code> mesh</em></p>
-<p>Setup modifier allows to move your hair from one object to another, like from a curve to a 3D model, using the <a href="../main_workflows/hair_system/#transfer-hair-system">Transfer Hair System</a> button.</p>
-<p>When you assign Hair System to an object, this panel will automatically be filled with the right information.</p>
+<em>In Image above Hair System is attached to guide curve <span style="color: green;">punk_guide_curve</span> (Green), and strands are spawned from Source Surface: <code>punk_base_mesh</code> mesh</em></p>
+<p>The Setup modifier enables you to transfer hair between objects, such as from a Base Mesh to a Guide Curve, using the <a href="../main_workflows/hair_system/#transfer-hair-system">Transfer Hair System</a> button.</p>
+<p>When you assign a Hair System to an object, this panel will automatically populate with the appropriate information.</p>
 <blockquote>
-<p><strong>Note</strong>: You don't always need to use a setup modifier.  For example, you don't need it when drawing hair with the <a href="../main_workflows/hair_drawing/">Hair Drawing</a> tool.</p>
+<p><strong>Note</strong>: Setup modifiers is not always needed.  For example <a href="../main_workflows/hair_drawing/">Hair Drawing</a> tool does not use it.</p>
 </blockquote>
-<h4 id="hair-sub-systems">Hair Sub-Systems<a class="headerlink" href="#hair-sub-systems" title="Permanent link">&para;</a></h4>
-<p><strong>Sub-Systems</strong> are responsible for hair curves generation and modification by <a href="../main_workflows/hair_deformers/#hair-deformers">Deformers</a>. To add Hair Sub-System click [+] icon in Sub-System tab</p>
-<p><img alt="Hair System Diagram" src="../img/sub_systems.jpeg" />
-<em><strong>Sub-System</strong>: Users Count | Name | Tag | Parent Tag | Visibility</em></p>
-<p><img alt="Hair System UI" src="../img/geo_nodes_hair/hair_system_nodal.jpg" />
- <em>On image above we have Two Hair Sub-Systems named: <code>Parent</code>, <code>Child</code>. You can see <code>Child</code> system is made from: Strand Generator, Noise, Clump, etc. deformers. Whole system is guided by: HairCurve guide - second input at very top</em></p>
-<p>Currently, there are three types of sub-systems:</p>
+<h4 id="hair-systems">Hair Systems<a class="headerlink" href="#hair-systems" title="Permanent link">&para;</a></h4>
+<p>Hair System is geometry-nodes based <strong>modifier where strands are generated and modified (deformed)</strong>. Each Hair System modifier is made from stack of <a href="../main_workflows/hair_deformers/#hair-deformers">Deformers</a> (nodes inside that modifier). First Deformer cannot be removed - it is always set to some kind of Strand Generator - see list below:</p>
 <ul>
-<li><strong>Strands Generator</strong> - it will generate strands from mesh (usually scalp) - mesh is required and has to be assigned in Setup Section (usually done automatically, by Hair Tool)</li>
-<li><strong>Strands Filter</strong> - it is not generating strands, but it can affect strands generated by other sub-systems placed above in stack (you can affect only selected strand by using 'Tag' field)</li>
-<li><strong>Strands From Grid Surface</strong> - it will generate strands from guide grid surface - grid has to have one border loop marked as 'sharp' (Ctrl+E -&gt; Mark Sharp) - this will tell addon where the hair roots should be placed</li>
+<li><strong><a href="../main_workflows/hair_system/#strands-generator">Strand Generator</a></strong> - the basic generator that spawns strands from the base mesh, guided by hair curves,</li>
+<li><strong><a href="../main_workflows/hair_system/#strands-from-mesh-elements">Strands From Mesh Elements</a></strong> - similar to Strand Generator, but spawns strands from specific mesh elements: vertices, edges, and/or faces,</li>
+<li><strong><a href="../main_workflows/hair_system/#strands-from-2d-uv-pattern">Strands from 2D UV Pattern</a></strong> - spawns strands in highly uniform preset patterns (grid, hex, etc.) based on the 2D UV layout of the base mesh,</li>
+<li><strong><a href="../main_workflows/hair_system/#strands-filter">Strand Filter</a></strong> - does not generate new strands but can modify existing ones generated by a previous Hair System,</li>
+<li><strong><a href="../main_workflows/hair_system/#strands-from-grid-surface">Strand From Grid Surface</a></strong> - uses a grid mesh as a guide for strand generation,</li>
+<li><strong><a href="../main_workflows/hair_system/#strands-from-prism-mesh-guide">Strands from Prism Mesh</a></strong> - uses a prism mesh (e.g., cylinder or cone) to spawn strands at its base and guide them along its walls,</li>
+<li><strong><a href="../main_workflows/hair_system/#interpolated-strands">Interpolated Strands</a></strong> - generates new strands between existing strands,</li>
 </ul>
-<p>First Deformer cannot be removed - and its type is set based in Hair System type you added<br>
-List of available deformers can be found <a href="../main_workflows/hair_deformers/#hair-deformers">here</a>.</p>
+<p><img alt="Hair System Diagram" src="../img/sub_systems.jpeg" />
+<em>Hair System list columns: Users Count | Name | Tag | Parent Tag | Visibility. First (Parent) and second (Child) system are linked together by Tag: <code>A</code>, which allows Child system to use Parent Strands as 'input' for interpolation or other effects</em></p>
+<p><img alt="Hair System UI" src="../img/geo_nodes_hair/hair_system_nodal.jpg" />
+ <em>Above we have two Hair Systems: <code>Parent</code>, <code>Child</code>. <code>Child</code> system is made from: Strand Generator, Noise, Clump, etc. Deformers. Fist system is guided by: HairCurve guide - see <code>GUIDE</code> tag.</em></p>
 <blockquote>
 <p><strong>Note</strong>: Similarly to Setup modifier, Hair Sub-Systems are optional - for example it is not used when drawing hair curves with <a href="../main_workflows/hair_drawing/">Hair Drawing</a> tool. But you can add them at any time to any curve by clicking [+] icon in Sub-System tab.</p>
 </blockquote>
