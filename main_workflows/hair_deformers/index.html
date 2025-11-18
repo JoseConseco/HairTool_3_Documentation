@@ -116,6 +116,18 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#noise">Noise</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#profile-parameters">Profile Parameters:</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#roundness-set">Roundness Set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-tiling-set">UV Tiling Set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#profile-distribute">Profile Distribute</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uv-region-distribute">UV Region Distribute</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#radius-set">Radius Set</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#resample">Resample</a>
@@ -177,10 +189,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#trim-by-mesh">Trim by Mesh</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#twist">Twist</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#profile-distribute">Profile Distribute</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#uv-region-distribute">UV Region Distribute</a>
     </li>
     </ul>
                   </li>
@@ -442,6 +450,40 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: Higher values of noise can push hair into the character head. To prevent this, use <a href="#push-out"><strong>Push Out</strong></a> deformer after the noise deformer.</p>
 </blockquote>
+<h4 id="profile-parameters">Profile Parameters:<a class="headerlink" href="#profile-parameters" title="Permanent link">&para;</a></h4>
+<p>These deformers allow you to modify various parameters of the <a href="../../hair_profiles/"><strong>Hair Profile</strong></a> modifier.</p>
+<h5 id="roundness-set">Roundness Set<a class="headerlink" href="#roundness-set" title="Permanent link">&para;</a></h5>
+<p>Set Profile roundness parameter. 0 - flat/squashed profile, 1 - rounder profile.</p>
+<h5 id="uv-tiling-set">UV Tiling Set<a class="headerlink" href="#uv-tiling-set" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/uv_tiling_set.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Define how many times hair profile UV will be repeated along the strand length</em></p>
+<blockquote>
+<p><strong>Note</strong>: <code>Use UV Tiling</code> option must be enabled in Profile settings, to see effect of this deformer.</p>
+</blockquote>
+<h5 id="profile-distribute">Profile Distribute<a class="headerlink" href="#profile-distribute" title="Permanent link">&para;</a></h5>
+<p><a href="../../hair_profiles/#mesh-profile"><strong>Mesh Profile</strong></a> or <a href="../../hair_profiles/#multi-curve-profile"><strong>Multi Curve Profile</strong></a> holds profile objects list for instancing on strands, but it does not tell which strand will receive which profile object. This is where 'Profile Distribute' deformer comes in.</p>
+<p>It will tell which strand will receive which profile object, based 'Profile_ID' attribute, assigned to each strand.</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/profile_distribute.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>You can use multiple 'Profile Distribute' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <span style="color: red;">RED</span> and <span style="color: green;">GREEN</span> profile objects as base layer, then added <span style="color: purple;">PURPLE</span> on top - masked by vertex group</em></p>
+<h5 id="uv-region-distribute">UV Region Distribute<a class="headerlink" href="#uv-region-distribute" title="Permanent link">&para;</a></h5>
+<p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV Boxes/Regions amount and dimensions, but it does not tell which strand will receive which UV Region. This is where 'UV Region Distribute' deformer comes in - it will assign random (or masked) UV Region to each strand.</p>
+<blockquote>
+<p><strong>Note</strong>: use multiple 'UV Region Distribute' deformers + <a href="../input_masks/">Input Masks</a>, to achieve layered UVs effect (see video below),</p>
+</blockquote>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Example use of multiple 'UV Regions Distribute' Deformers, to stack them on top of each other (as layers). <span style="color: green;">Region ID_2</span> as base layer + <span style="color: purple;">Region ID_0</span> on top - masked by vertex group</em></p>
+<blockquote>
+<p><strong>Note</strong>: <code>UV Region Distribute</code> is often created automatically when hair system is added</p>
+</blockquote>
 <h4 id="radius-set">Radius Set<a class="headerlink" href="#radius-set" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/set_radius.webm" type="video/mp4">
@@ -629,27 +671,6 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Twist effect requires to set Hair System to be <a href="../hair_system/#child-parent-setup">set as child</a>. For best effect is is good idea to place it after Clump deformer</em></p>
-<h4 id="profile-distribute">Profile Distribute<a class="headerlink" href="#profile-distribute" title="Permanent link">&para;</a></h4>
-<p><a href="../../hair_profiles/#mesh-profile"><strong>Mesh Profile</strong></a> or <a href="../../hair_profiles/#multi-curve-profile"><strong>Multi Curve Profile</strong></a> holds profile objects list for instancing on strands, but it does not tell which strand will receive which profile object. This is where 'Profile Distribute' deformer comes in.</p>
-<p>It will tell which strand will receive which profile object, based 'Profile_ID' attribute, assigned to each strand.</p>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/profile_distribute.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>You can use multiple 'Profile Distribute' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <span style="color: red;">RED</span> and <span style="color: green;">GREEN</span> profile objects as base layer, then added <span style="color: purple;">PURPLE</span> on top - masked by vertex group</em></p>
-<h4 id="uv-region-distribute">UV Region Distribute<a class="headerlink" href="#uv-region-distribute" title="Permanent link">&para;</a></h4>
-<p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV Boxes/Regions amount and dimensions, but it does not tell which strand will receive which UV Region. This is where 'UV Region Distribute' deformer comes in - it will assign random (or masked) UV Region to each strand.</p>
-<blockquote>
-<p><strong>Note</strong>: use multiple 'UV Region Distribute' deformers + <a href="../input_masks/">Input Masks</a>, to achieve layered UVs effect (see video below),</p>
-</blockquote>
-<video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Example use of multiple 'UV Regions Distribute' Deformers, to stack them on top of each other (as layers). <span style="color: green;">Region ID_2</span> as base layer + <span style="color: purple;">Region ID_0</span> on top - masked by vertex group</em></p>
-<blockquote>
-<p><strong>Note</strong>: <code>UV Region Distribute</code> is often created automatically when hair system is added</p>
-</blockquote>
               
             </div>
           </div><footer>
