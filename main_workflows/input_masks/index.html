@@ -92,6 +92,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#randomize">Randomize</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remap">Remap</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#procedural-mask">Procedural Mask</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#viewport-mask">Viewport Mask</a>
@@ -178,17 +180,34 @@
             <div class="section" itemprop="articleBody">
               
                 <h3 id="input-masks">Input Masks<a class="headerlink" href="#input-masks" title="Permanent link">&para;</a></h3>
-<p>You can mask most of the <a href="../hair_deformers/">Hair Deformers</a> input properties with various types of masks. Theirs value is clamped to: 0.0 - 1.0 range, thus if you have Noise Amplitude value set to 5, and mask is 0.5, then it will result in Amplitude of 2.5.<br>
-Masks can be stacked on top of each other, to create complex effects.</p>
+<p>You can change <a href="../hair_deformers/">Deformers</a> input properties with various types of masks like:</p>
+<ul>
+<li>Vertex Group/Texture</li>
+<li>Length</li>
+<li>Randomize</li>
+<li>Border Edge Distance</li>
+<li>Mesh Distance</li>
+<li>and more (see list below)</li>
+</ul>
+<p>Mask values are clamped to: 0.0 - 1.0 range. For example if your strand Radius is set to 2.0 and mask value is 0.5, then effective Radius will be 1.0.</p>
 <blockquote>
 <p><strong>Note</strong>:
-The order matters: first top mask is evaluated then next to the bottom</p>
+The order of multiple masks applied to single input matters! Adding Vertex Group mask followed by Randomize mask will give different result than adding Randomize first and then Vertex Group mask.</p>
 </blockquote>
 <video style="width:100%" controls>
-<<source src="../../img/geo_nodes_hair/input_masks.webm" type="video/mp4">
+<<source src="../../img/geo_nodes_hair/input_masks.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>To add mask click drop down menu icon on right and pick mask type</em></p>
+<p>In video above I show how you can:</p>
+<ul>
+<li>Add multiple masks to single input (Vertex Group + Remap + Randomize)</li>
+<li>Change mask order by using Up/Down arrows</li>
+<li>Preview mask strength by enabling 'Show Mask' (Lightbulb) option</li>
+<li>Disable/Enable mask</li>
+<li>Remove mask by clicking 'X' icon</li>
+</ul>
+<p>There is also 'Refresh' button that allows you to update Mask geo-nodes setup to latest version (can be used after updating the add-on, and when you are working on old files).</p>
 <h4 id="color-attribute">Color Attribute<a class="headerlink" href="#color-attribute" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../../video/color_attr_mask.mp4" type="video/mp4">
@@ -306,6 +325,7 @@ Your browser does not support the video tag.
 </video>
 <blockquote>
 <p><strong>Mask Offset Gain</strong>: Not useful by itself, but placed after another mask, it can increase the mask contrast (gain) or brightness (offset)</p>
+<p><strong>Randomize</strong>: Outputs random value for each strand.</p>
 </blockquote>
 <h4 id="randomize">Randomize<a class="headerlink" href="#randomize" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
@@ -323,6 +343,16 @@ You can disable lower/upper bound using <code>&lt;</code>/<code>&gt;</code> butt
 <li><strong>Variance</strong> == 0.5 all random values are drawn uniformly, from within given range,</li>
 <li><strong>Variance</strong> &lt; 0.5 outputs mostly bigger values, from within given range,</li>
 <li><strong>Use Parent IDs</strong> - if enabled each child strand will inherit random value from its closest parent.</li>
+</ul>
+<h4 id="remap">Remap<a class="headerlink" href="#remap" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/remap_input_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Reamp input mask values to different range</em></p>
+<ul>
+<li><strong>From Min/Max</strong> - clamps input mask to given range,</li>
+<li><strong>To Min/Max</strong> - remaps clamped input to given output range</li>
 </ul>
 <h4 id="procedural-mask">Procedural Mask<a class="headerlink" href="#procedural-mask" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
