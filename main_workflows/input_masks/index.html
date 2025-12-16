@@ -218,7 +218,7 @@ Your browser does not support the video tag.
 </blockquote>
 <h4 id="influence-range-mask">Influence Range Mask<a class="headerlink" href="#influence-range-mask" title="Permanent link">&para;</a></h4>
 <h5 id="influence-range-mask_1">Influence Range Mask<a class="headerlink" href="#influence-range-mask_1" title="Permanent link">&para;</a></h5>
-<p>Similar to <a href="#influence-range">Influence Range</a> mask but can be assigned to any input of deformer.</p>
+<p>Similar to <a href="#influence-range">Influence Range</a> input mask but can be assigned to any parameter of deformer.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/curve_influence_range.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -377,13 +377,21 @@ Your browser does not support the video tag.
 </video>
 <p><em>In video above we affect hair density with 'Viewport Display' mask. This way we render (and process) less hair strands in the 3d viewport and more in the final render</em></p>
 <h4 id="influence-range">Influence Range<a class="headerlink" href="#influence-range" title="Permanent link">&para;</a></h4>
+<p>Special inputs that are named <code>Influence Range</code> allow to modulate influence of deformer over strand length. For example you can:</p>
+<ul>
+<li>Add Noise only to the tips of the strands</li>
+<li>Taper strand Radius towards the tip or root of the strands</li>
+<li>Affect Clump strength only in the middle part of the strands</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> To affect any available deformer input parameter use <a href="#influence-range-mask">Influence Range Input Mask</a></p>
+</blockquote>
 <video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/influence_range.webm" type="video/mp4">
+<source src="../../img/geo_nodes_hair/influence_range.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Special mask that allows to modulate influence of deformer over strand length (e.g. taper only tip of strand)</em></p>
-<p>Only available for some types of Deformers inputs - with 'Influence' in the name.</p>
-<p>Types of Influence range masks:</p>
+<p><em>Example of using Influence Range mask on 'Radius Set' deformer to customize hair taper</em></p>
+<p>Types of <code>Influence Range</code> masks:</p>
 <ul>
 <li><strong>Constant</strong> - the effect is uniform along the whole strand length</li>
 <li><strong>Simple</strong> - gradually changes the mask from 0 to 100% with adjustable falloff. Can be inverted.</li>
