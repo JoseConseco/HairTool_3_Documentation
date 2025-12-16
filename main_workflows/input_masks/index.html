@@ -230,9 +230,10 @@ Your browser does not support the video tag.
 </video>
 <p><em>In this example we use <code>Simple</code> falloff to adjust <a href="../hair_deformers/#noise">Noise</a> deformer frequency - we increase it towards the tip of the strand</em></p>
 <ul>
-<li><strong>Simple</strong> - gradually changes the mask falloff from 0 to 100%. Can be inverted.</li>
-<li><strong>Quadratic</strong> - gives you independent mask control on strand: beginning, center and end</li>
-<li><strong>BiDirectional</strong> - control mask falloff and value at both ends of the strand</li>
+<li><strong>Simple</strong> - gradient that goes from 0 to 1, with customizable blend falloff. Can be inverted.</li>
+<li><strong>Root to Tip</strong> - Simple linear blend between: Root value and Tip value</li>
+<li><strong>Root to Tip with Falloff</strong> - like above, but with additional falloff control (blend is no longer linear)</li>
+<li><strong>Root &gt; Center &gt; Tip</strong> - gives you independent control over Root, Center and Tip values</li>
 </ul>
 <blockquote>
 <p><strong>Note:</strong> <a href="#influence-range">Influence Range</a> remains useful because it allows you to use "Profile Curve" masks, a feature not found in Curve Mask.</p>
@@ -385,8 +386,10 @@ Your browser does not support the video tag.
 <p>Types of Influence range masks:</p>
 <ul>
 <li><strong>Constant</strong> - the effect is uniform along the whole strand length</li>
-<li><strong>Simple</strong> - gradually changes the mask falloff from 0 to 100%. Can be inverted.</li>
-<li><strong>Quadratic</strong> - gives more detailed control. Modulate effect independently at strand beginning, center and end</li>
+<li><strong>Simple</strong> - gradually changes the mask from 0 to 100% with adjustable falloff. Can be inverted.</li>
+<li><strong>Root to Tip</strong> - Simple linear blend between: Root value and Tip value</li>
+<li><strong>Root to Tip with Falloff</strong> - like above, but with additional falloff control (blend is no longer linear)</li>
+<li><strong>Root &gt; Center &gt; Tip</strong> - gives you independent control over Root, Center and Tip values</li>
 <li><strong>Profile Curve</strong> - most detailed control using profile curve<br></li>
 </ul>
 <hr />
