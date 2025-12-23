@@ -147,7 +147,9 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Strands from Grid Surface</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../strands_from_profile/">Strands From Profile</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../strands_from_grid_profile/">Strands From Grid Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../strands_from_prism_profile/">Strands From Prism Profile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../hair_with_track_mesh/">Hair with Track Mesh</a>
                   </li>
@@ -328,16 +330,28 @@ Your browser does not support the video tag.
 <p><strong>Note</strong>: If order of your strands is wrong, and <strong>Automatic Spline Sorting</strong> option fails, you can use <strong>Sort Strands by Stroke</strong> operator to manually fix the order (see video above)</p>
 </blockquote>
 <h4 id="strands-from-prism-mesh-guide">Strands from Prism Mesh Guide<a class="headerlink" href="#strands-from-prism-mesh-guide" title="Permanent link">&para;</a></h4>
-<p>It will allow you to generate strands on base mesh along 'walls' of prism like mesh. Bottom face has to be separated from 'wall' using  sharp edge (see video below)</p>
+<p>It will allow you to generate strands in whole volume of prism like mesh. Bottom faces will be use to grow strands, and side faces (prism walls) will guide hair flow. Separation between bottom and wall faces is done using sharp edges.</p>
 <video style="width:100%" controls>
 <source src="../../video/strands_from_prism_mesh_guide.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In this example I had marked sharp edges to create face groups/islands (no edge split modifier was used though). Then I extruded these edges, to create valid mesh for 'Strands from Prism Mesh Guide' generator</em></p>
-<blockquote>
-<p><strong>Note1</strong>: Extruding faces, in the way that was done in video above, creates non-manifold mesh, and the resulting prism 'Wall' faces normal's will be messed up (some face out, some in). You can unify them using: Ctrl+N &gt; Recalculate Normal's operator.</p>
-<p><strong>Note2</strong>: You can use Ctrl+Shift+H &gt; <code>Strands from Prism Mesh</code> operator to: create new (separated) hair object and switch your base mesh display mode to 'WIRE' automatically. This will help you to see both hair-cards and base (prism guide) mesh at the same time.</p>
-</blockquote>
+<p>Extruding faces, in the way that was done in video above, may result in some of the prism 'Wall' faces normal's being flipped inside. You can fix them by:</p>
+<ul>
+<li>selecting wall faces</li>
+<li>use: Ctrl+N &gt; Recalculate Normal's (built in blender operator).</li>
+</ul>
+<p><img alt="Valid Prism Meshes" src="../../img/geo_nodes_hair/prism_meshes_valid.jpg" />
+<em>Examples of valid prism meshes for <code>Strands from Prism Mesh</code> generator. Sharp edges (marked with Purple color) separate bottom face from walls/guide faces. Top face has to be removed</em></p>
+<p>To better see both hair-cards and prism mesh at the same time, use Ctrl+Shift+H &gt; <code>Strands from Prism Mesh</code> operator. It will: create new (separated) hair object and switch your prism mesh display mode to 'WIRE' automatically.<br>
+If you select existing hair object with profile, then you can use <a href="../strands_from_prism_profile/"><strong>Strands from Prism Profile</strong></a> operator (profile needs to support 'Use Root Caps' option), to grow hair from that profile mesh.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>Density</strong> - number of strands per face area unit<br>
+<strong>Length</strong> - length of strands<br>
+<strong>Seed</strong> - random seed for strand distribution<br>
+<strong>Align Tilt to Prism Walls</strong> - aligns strand tilt to prism wall face normal (it uses Free facing normal type!)<br>
+<strong>Split welded Prism Meshes</strong> - useful only in rare cases when multiple prism meshes are joined into one object and their bases are welded together (like on video above). Enabling this option will try to separate these prisms meshes, so that strands can be generated correctly on each prism mesh island<br>
+<strong>Equal strand density per Prism Mesh</strong> - when enabled, it will try to roughly generate same number of strands per each prism mesh island (separated by sharp edges). When disabled, strand density will depend on island area (larger area = more strands)<br></p>
 <h4 id="strands-on-mesh-border">Strands on Mesh Border<a class="headerlink" href="#strands-on-mesh-border" title="Permanent link">&para;</a></h4>
 <p>It will allow you to generate strands on base mesh border edges (or on custom edge attribute)</p>
 <video style="width:100%" controls>
