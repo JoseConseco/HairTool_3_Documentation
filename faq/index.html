@@ -114,6 +114,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#texture-looks-wrong">Texture looks wrong</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hair-geometry-looks-wrong-after-updating-blender">Hair geometry looks wrong after updating Blender</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#greyed-out-parameters-panel">Greyed out parameters panel</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#reducing-gaps-between-hair-roots-and-character">Reducing gaps between hair roots and character</a>
@@ -231,6 +233,23 @@ If your <code>UV_Data</code> object is missing, you can create it by using <a hr
 </li>
 </ol>
 <p><img alt="Profile Update" src="../img/faq/profile_update.jpg" /></p>
+<h3 id="hair-geometry-looks-wrong-after-updating-blender">Hair geometry looks wrong after updating Blender<a class="headerlink" href="#hair-geometry-looks-wrong-after-updating-blender" title="Permanent link">&para;</a></h3>
+<p>In some cases, after updating Hair Tool add-on, your old blend files, may no longer work correctly:</p>
+<ul>
+<li>Missing textures or UVs</li>
+<li>Hair geometry not generated correctly</li>
+</ul>
+<p>This is probably caused by using old geometry-nodes setups mixed with new add-on version. Fix it using Update buttons as show on image below. Or use it, if you want to get latest nodes setups (with bug fixes and improvements).</p>
+<p><img alt="Updating Hair Nodes" src="../img/faq/updating_hair_nodes.jpg" />
+<em>There are three places where potentially you may need to update you hair: in Setup panel, Hair System panel, and Hair Profile panel</em></p>
+<p>There is also option to update/reset hair material using: Ctrl+Shift+H &gt; <code>Update Default Hair Material</code> operator. It has two options:</p>
+<ul>
+<li>Update <strong>Only shader nodes</strong> - it will update only main shader node and UV node inside your hair material (your custom textures will be kept).</li>
+<li>Update <strong>Whole material</strong> - it will reload whole hair material from scratch, so any custom changes you made to it will be lost.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: Running Update operators is not needed when working on new files, since in that case newest hair nodes will be used/loaded automatically.</p>
+</blockquote>
 <h3 id="greyed-out-parameters-panel">Greyed out parameters panel<a class="headerlink" href="#greyed-out-parameters-panel" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair UV" src="../img/faq/greyed_out_settings.jpg" />
 Go to Preferences &gt; System &gt; Enable 'Global Undo'. You may need to restart blender after saving settings. It looks like blender bug, and from time to time this option is disabled for no reason.</p>
