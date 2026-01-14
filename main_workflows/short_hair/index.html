@@ -81,6 +81,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How To use</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-get-better-results">How to get better results</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#remeshing-modes">Remeshing Modes:</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#defining-uvs">Defining UVs</a>
@@ -209,6 +211,17 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong> To finalize Short hair use 'Convert Short Hair to Mesh' from Hair Tool Ctrl+Shift+H menu. This will correctly tranfser UVs from modifier to mesh data</p>
 </blockquote>
+<h4 id="how-to-get-better-results">How to get better results<a class="headerlink" href="#how-to-get-better-results" title="Permanent link">&para;</a></h4>
+<p>To get best results from Short Hair modeling, you should groom your guide mesh in specific way:</p>
+<ul>
+<li>Use 'Nudge' brush, which creates most natural hair combing like effect (though any brush can be used)</li>
+<li>Try to make hair lay flat against character surface to hide haircards edges, which would be visible otherwise</li>
+<li>Try to increase hair length, until they start to overlap each other - this will hide gaps between cards</li>
+</ul>
+<p><img alt="Groom vs no groom" src="../../img/short_hair/nice_vs_bad_groom.jpg" />
+ <em>Left: with groomed guide mesh. Right: exactly same setup but without grooming</em></p>
+<p><img alt="Groom vs no groom" src="../../img/short_hair/good_vs_wrong_groom.jpg" />
+ <em>Try to make hair lay flat against character surface - like on the left. Also their length should be big enough to overlap each other</em></p>
 <h4 id="remeshing-modes">Remeshing Modes:<a class="headerlink" href="#remeshing-modes" title="Permanent link">&para;</a></h4>
 <p>When you use 'Setup Short Hair' operator, you will have option to remesh base geometry (or leave it as it is). Since haircards are spawned on each mesh edge, then source mesh topology has big influence on Short Hair look</p>
 <p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_remeshing_modes.jpg" />
