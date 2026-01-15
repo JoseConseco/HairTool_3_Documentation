@@ -176,21 +176,21 @@
   <source src="../../img/short_hair/short_hair_demo.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In video above I'm grooming short hair by sculpting proxy <code>Guide Mesh</code> (hidden for clarity)</em></p>
-<p>In this modeling technique <strong>haircards are generated from each base mesh edge</strong> (haircard count will be the same as your character mesh edges count). <strong>Grooming is done by sculpting a proxy mesh called <code>Guide Mesh</code></strong>, which is generated automatically when you run 'Setup Short Hair' command (it will be drawn in Wire mode, with bounding box enabled).<br>
+<p><em>In video above I'm grooming short hair by sculpting proxy <code>Groom Guide Mesh</code> (hidden for clarity)</em></p>
+<p>In this modeling technique <strong>haircards are generated from each base mesh edge</strong> (haircard count will be the same as your character mesh edges count). <strong>Grooming is done by sculpting a proxy mesh called <code>Groom Guide Mesh</code></strong>, which is generated automatically when you run 'Setup Short Hair' command (it will be drawn in Wire mode, with bounding box enabled).<br>
 Useful for: short hair and fur.</p>
 <p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_example1.jpg" />
 <em>Example of 'Short hair' by <a href="https://www.artstation.com/artwork/L42l0K">Ellinor Morén</a></em></p>
 <p>The main advantages:</p>
 <ul>
-<li>groomed in non-destructive by sculpting proxy <code>Guide Mesh</code></li>
+<li>groomed in non-destructive by sculpting proxy <code>Groom Guide Mesh</code></li>
 <li>haircards density is linked character mesh topology density - which is often what you want (denser hair in more important areas: head, hands)</li>
 </ul>
 <p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_side_panel.jpeg" /></p>
 <p>The main cons:</p>
 <ul>
 <li>no easy way to control density. Density is based on your character mesh topology (it can not be faded with e.g. vertex group)</li>
-<li>hair source mesh, from which hair grows from, has to have same topology as proxy (sculpted) Guide Mesh. If you change base mesh topology then Guide Mesh has to be re-generated (but there is workaround I will show later)</li>
+<li>hair source mesh, from which hair grows from, has to have same topology as proxy Groom Guide Mesh. If you change base mesh topology then proxy Mesh has to be re-generated (but there is workaround I will show later)</li>
 </ul>
 <blockquote>
 <p><strong>Note</strong>: The only way to control density is at very beginning of hair generation. You could duplicate character mesh, subdivide (or remesh) it to get desired density, and use that as base for Short Hair generation. Also see <a href="#remeshing-modes">Remeshing Modes</a> section below</p>
@@ -199,11 +199,9 @@ Useful for: short hair and fur.</p>
 <ul>
 <li>Select your character. Let's assume it is named: <strong>Body</strong>
 <img alt="Short Hair Setup" src="../../img/short_hair/short_hair_setup.jpg" /></li>
-<li>Use Ctrl+Shift+H menu -&gt; 'Setup Short Hair'</li>
-<li>Alternatively you can use: right sidebar (N key) -&gt; Hair Tool Tab -&gt; Short Hair panel -&gt; 'Setup Short Hair'</li>
-<li>Two new objects will be added: <strong>Body_short_hair</strong> (hair object) and <strong>Body_hair_guide</strong> (drawn as bounding box)</li>
-<li>Select hair guide object (bounding box) and go into sculpt mode</li>
-<li>that is it, you can now sculpt hair by sculpting guide mesh (polygonal modeling can be used too)</li>
+<li>Ctrl+Shift+H pie menu &gt; 'Setup Short Hair' (or right sidebar (N key) &gt; Hair Tool Tab &gt; Short Hair panel &gt; 'Setup Short Hair')</li>
+<li>Two new objects will be added: hair object (<strong>Body_short_hair</strong>) and proxy Groom Guide Mesh (<strong>Body_hair_guide</strong>) - drawn in wire mode with bounding box</li>
+<li>Select proxy Groom Guide Mesh and sculpt it to define hair flow</li>
 </ul>
 <blockquote>
 <p><strong>Note</strong> To finalize Short hair use 'Convert Short Hair to Mesh' from Hair Tool Ctrl+Shift+H menu. This will correctly tranfser UVs from modifier to mesh data</p>
@@ -283,7 +281,7 @@ Your browser does not support the video tag.
 <source src="../../img/short_hair/deformer_mesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Guide Object</strong> - Haircards will follow Guide Object deformations. It does not matter if you modify Deformer object in sculpt mode or in Edit mode, but you <b>can't change Deformer object topology</b>. Deformer object topology has to be the same as base hair object, but shape can (and should) be different. In video above all modification performed on Deformer object are stored in Shape Key - this gives you more control on the shape of the mesh in non destructive way</em>
+<p><em><strong>Groom Guide Object</strong> - Haircards tips will follow Guide Object deformations. It does not matter if you modify Deformer object in sculpt mode or in Edit mode, but you <b>can't change Deformer object topology</b>. Deformer object topology has to be the same as base hair object, but shape can (and should) be different. In video above all modification performed on Deformer object are stored in Shape Key - this gives you more control on the shape of the mesh in non destructive way</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/short_hair_res.mp4" type="video/mp4">
@@ -301,7 +299,7 @@ Your browser does not support the video tag.
   <source src="../../img/short_hair/short_hair_length.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
-<p><em><strong>Puff</strong> - Push hair outside of surface. Helps to draw haircards when guide mesh is exactly the same as base mesh, thus haircards would have zero length and they would be invisible</em>
+<p><em><strong>Puff</strong> - Push hair outside of surface. Helps to draw haircards when Groom Guide mesh is exactly the same as base mesh, thus haircards would have zero length and appear broken (twisted)</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
   <source src="../../img/short_hair/straight_vs_bent.mp4" type="video/mp4">
