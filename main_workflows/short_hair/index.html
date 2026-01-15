@@ -171,32 +171,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="short-hair-modeling-tool">Short Hair Modeling Tool<a class="headerlink" href="#short-hair-modeling-tool" title="Permanent link">&para;</a></h2>
+                <h2 id="short-hair-modeling">Short Hair Modeling<a class="headerlink" href="#short-hair-modeling" title="Permanent link">&para;</a></h2>
 <video style="width:100%" controls autoplay loop>
   <source src="../../img/short_hair/short_hair_demo.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-
-<p>In this modeling technique we are instancing haircards on mesh edges (haircard count will be the same as character mesh edges count). Useful for creation of fur.</p>
-<blockquote>
-<p><strong>Note</strong> Short Hair modeling requires <strong>Blender 3.3</strong> or above.</p>
-</blockquote>
+<p><em>In video above I'm grooming short hair by sculpting proxy <code>Guide Mesh</code> (hidden for clarity)</em></p>
+<p>In this modeling technique <strong>haircards are generated from each base mesh edge</strong> (haircard count will be the same as your character mesh edges count). <strong>Grooming is done by sculpting a proxy mesh called <code>Guide Mesh</code></strong>, which is generated automatically when you run 'Setup Short Hair' command (it will be drawn in Wire mode, with bounding box enabled).<br>
+Useful for: short hair and fur.</p>
 <p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_example1.jpg" />
 <em>Example of 'Short hair' by <a href="https://www.artstation.com/artwork/L42l0K">Ellinor Morén</a></em></p>
 <p>The main advantages:</p>
 <ul>
-<li>easy to setup - one click solution</li>
-<li>easy to tweak with blender sculpting tools (or with poly modeling)</li>
-<li>haircards distribution based on source character mesh topology - you will automatically get denser hair in more important areas: head, hands  (but this can be con - depending on situation)</li>
+<li>groomed in non-destructive by sculpting proxy <code>Guide Mesh</code></li>
+<li>haircards density is linked character mesh topology density - which is often what you want (denser hair in more important areas: head, hands)</li>
 </ul>
 <p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_side_panel.jpeg" /></p>
 <p>The main cons:</p>
 <ul>
-<li>no easy way to control density - since density is based on source character mesh topology (you cant drive it with e.g. vertex group)</li>
-<li>hair source mesh has to have same topology as hair guide mesh. This mean you may have to start combing from scratch if change base mesh topology (but there is workaround I will show later)</li>
+<li>no easy way to control density. Density is based on your character mesh topology (it can not be faded with e.g. vertex group)</li>
+<li>hair source mesh, from which hair grows from, has to have same topology as proxy (sculpted) Guide Mesh. If you change base mesh topology then Guide Mesh has to be re-generated (but there is workaround I will show later)</li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: You can tweak haircards density by changing base mesh topology - eg. by using remesh modifier or adaptive tessellation in blender sculpt mode.</p>
+<p><strong>Note</strong>: The only way to control density is at very beginning of hair generation. You could duplicate character mesh, subdivide (or remesh) it to get desired density, and use that as base for Short Hair generation. Also see <a href="#remeshing-modes">Remeshing Modes</a> section below</p>
 </blockquote>
 <h4 id="how-to-use">How To use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h4>
 <ul>
@@ -223,17 +220,20 @@ Your browser does not support the video tag.
 <p><img alt="Groom vs no groom" src="../../img/short_hair/good_vs_wrong_groom.jpg" />
  <em>Try to make hair lay flat against character surface - like on the left. Also their length should be big enough to overlap each other</em></p>
 <h4 id="remeshing-modes">Remeshing Modes:<a class="headerlink" href="#remeshing-modes" title="Permanent link">&para;</a></h4>
-<p>When you use 'Setup Short Hair' operator, you will have option to remesh base geometry (or leave it as it is). Since haircards are spawned on each mesh edge, then source mesh topology has big influence on Short Hair look</p>
+<p>Remeshing of the base geometry can be used, at the very beginning of 'Short Hair' generation, which will affect mesh topology, thus edge (and generated haircards) density. Available remeshing modes:</p>
+<ul>
+<li>Diamond Topology - fewest edges, but repeating haircards pattern can be visible</li>
+<li>Triangulated Diamonds - medium edge count, less visible repeating pattern</li>
+<li>Triangulated Cells - highest poly-count but gives organic hair flow</li>
+</ul>
 <p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_remeshing_modes.jpg" />
 <em>Three main modes of remeshing starting from left: Diamonds, Triangulated Diamonds, Triangulated Cells</em></p>
-<p>Base Suzanne is made from around 1000 edges. Meaning Short Hair will spawn 1000 haircards (planes or ribbons)</p>
+<p>Example numbers of edges for remeshing Suzanne, which is made from around 1000 base edges:</p>
 <ul>
 <li>Diamond Topology will create 2000 edges</li>
 <li>Diamond Triangulated will create 3000 edges</li>
-<li>Triangulated Cells will output 4600 edges!</li>
+<li>Triangulated Cells will output 4600 edges</li>
 </ul>
-<p>Cells remeshing - gives highest poly-count but the resulting topology is organic and thanks to this haircards will also be distributed in natural way.
-Diamonds topology, on the other hand, has visible repeating pattern and it may show through on generated haircards. Triangulation of Diamonds helps slightly, but it is not as good as Cells Topology</p>
 <p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_example_wire.jpg" />
 <em>Example of Short Hair generated with <code>Triangulated Diamonds</code> Remeshing</em></p>
 <blockquote>
