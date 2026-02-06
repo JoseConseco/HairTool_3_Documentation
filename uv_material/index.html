@@ -68,9 +68,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-system-uvs">Hair System UV's</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#defining-hair-uvs">Defining Hair UV's</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#material-uv-refresh">Material / UV Refresh</a>
+    <li class="toctree-l2"><a class="reference internal" href="#editing-hair-uvs">Editing Hair UV's</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#set-uv-region">Set UV region</a>
     </li>
@@ -190,7 +188,7 @@ Your browser does not support the video tag.
 <em>SampledUV   |   SampledColor   |   SystemColor</em></p>
 <p>Require: Profile &gt; <a href="../hair_profiles/#profile-other-settings">Other</a> &gt; UV Debug Colors</p>
 <ul>
-<li><strong>UVDebugCol</strong> - Visualize UV Boxes by colors. You can set uv box color using <a href="#defining-hair-uvs">Hair UV</a> operator.</li>
+<li><strong>UVDebugCol</strong> - Visualize UV Boxes by colors. You can set uv box color using <a href="#editing-hair-uvs">Hair UV</a> operator.</li>
 </ul>
 <p>Requires <a href="../main_workflows/hair_deformers/#systemcolor-set">Color Set</a> deformer</p>
 <ul>
@@ -203,51 +201,53 @@ Your browser does not support the video tag.
 <p><img alt="Material Attributes" src="../img/material_uvs/mat_attribs_3.jpg" />
 <em>AO attribute</em></p>
 <h4 id="hair-system-uvs">Hair System UV's<a class="headerlink" href="#hair-system-uvs" title="Permanent link">&para;</a></h4>
-<p>UV data <strong>holds information about: number and shapes of rectangular UV Boxes/Regions</strong> that describes where to sample the texture.<br>
-UV Data <strong>does not tell which UV Regions should be assigned to which hair strand</strong> - for that use <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Regions Distribute</a> deformer (for procedural strands) or <a href="#set-uv-region">Set UV Regions</a> operator (for 'real' strands).<br></p>
+<p>In Hair Tool, <strong>information about the number and shape of UV Regions/Boxes is stored in the <code>UV_data</code></strong> helper object (see image below). The shape of UV regions determines which areas of the texture to sample from.</p>
+<p>Use the <a href="#editing-hair-uvs"><strong>Hair UV</strong></a> operator in the UV Image Editor to edit the shape of UV regions.</p>
 <p><img alt="Hair Colors" src="../img/hsystem_setup_profile.jpeg" />
-In Hair Tool, <strong>UV Data is attached to <a href="../overview/#hair-profile">Hair System Profile</a></strong>.<br></p>
-<p>Compared to Blender mesh object, where each mesh holds its own UV map, Hair Tool <strong>UV Data</strong> can be shared (instanced) between multiple hair objects.  This means you don't have to create the same UV map over and over again if you want to use it on multiple hair objects.</p>
+<em>In Hair Tool, <code>UV Data</code> is attached to <a href="../overview/#hair-profile">Hair System Profile</a></em></p>
+<p><strong><code>UV_data</code>does not tell which UV Regions should be assigned to which hair strand</strong> - for that use <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Regions Distribute</a> deformer (for procedural strands) or <a href="#set-uv-region">Set UV Regions</a> operator (for 'real' strands).<br></p>
 <blockquote>
-<p><strong>Note1:</strong> Do not use Blender's built-in 'Convert To Mesh' operator on curve hair, or your output mesh UVs will be messed up. Instead, use <a href="../convert_hair/#convert-hair-to-mesh"><strong>Curve ribbons to mesh ribbons</strong></a>. This way curve Material UVs will be properly, converted to mesh UVs.</p>
+<p><strong>Note:</strong> Unlike Blender mesh objects, where each mesh holds its own UV map, Hair Tool <strong>UV Data</strong> can be shared (instanced) across multiple hair objects. This means you don't have to recreate the same UV map layout repeatedly—simply create it once and reuse it on multiple hair objects using the <strong>Copy UV data to selected</strong> button located in menu next to the 'UV Data' input. On the image above menu is marked as [40], indicating that 40 hair objects are using and sharing the same UV layout.</p>
+<p><strong>Note:</strong> Do not use Blender's built-in 'Convert To Mesh' operator on curve hair, or your output mesh UVs will be messed up. Instead, use <a href="../convert_hair/#convert-hair-to-mesh"><strong>Curve ribbons to mesh ribbons</strong></a>. This way curve Material UVs will be properly, converted to mesh UVs.</p>
 </blockquote>
-<!-- [**Hair UV**](#defining-hair-uvs) operator will automatically add [UV Region Set](./main_workflows/hair_deformers.md#assigning-uv-regions) Deformer (to Hair System) or assign UV Region index to 'real' curves - see in video below - there is no need to manually call [**Set UV region**](#set-uv-region) -->
-
-<h4 id="defining-hair-uvs">Defining Hair UV's<a class="headerlink" href="#defining-hair-uvs" title="Permanent link">&para;</a></h4>
+<h4 id="editing-hair-uvs">Editing Hair UV's<a class="headerlink" href="#editing-hair-uvs" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../img/geo_nodes_hair/hsys_define_uvs.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Using <code>Hair UV</code> button in UV image editor</em></p>
-<p>To add/modify Hair System UVs:</p>
+<p><em>Using <code>Hair UV</code> button in UV image editor to edit HairCard UV layout</em></p>
+<p>To edit Hair UV layout:</p>
 <ul>
 <li>open UV Image Editor and press <strong>Hair UV</strong> button located in top header bar - on far right</li>
-<li>Left Click and drag to define UV rectangular shape, for texture mapping. Drag corners of existing UV box to adjust its shape.</li>
-<li>[G,S] - keys to move and scale uvs boxes. [Delete] - do delete UV Box, [ENTER] - save and finish</li>
-<li>
-<p>[Shift + Delete] To reset all UVs</p>
-</li>
-<li>
-<p>Make sure Material is assigned in 'Profile' panel (or use <a href="#default-hair-material"><strong>Import Default Material</strong></a>)</p>
-</li>
-<li><strong>Material should contain<code>HTool_UV</code> node and be linked to your texture</strong> - without it UVs won't work (transparent hair). After converting Hair System to mesh, you can use 'normal' mesh uvs</li>
+<li>Left Click and drag to define rectangular UV box. Drag corners of existing UV boxes to adjust their shape.</li>
+<li>[ENTER] - save and finish</li>
 </ul>
-<p>If you are generating hair procedurally - make sure <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Region Distribute</a> Deformer has been added</p>
-<!-- > **Note2:** If you want to flip strand texture in Y direction, just hover your mouse over UV box and press 'F'! -->
-
+<p>Other useful hotkeys while editing UVs:</p>
+<ul>
+<li>[G,S] - keys to move and scale uvs boxes.</li>
+<li>[Delete] - do delete UV Box,</li>
+<li>[Shift + Delete] to reset all UVs to one sigle box (full texture)</li>
+</ul>
+<p>If you cannot see Texture in viewport, then check the following:</p>
+<ul>
+<li>Make sure Material is assigned in 'Profile' panel (or use <a href="#default-hair-material"><strong>Import Default Material</strong></a>)</li>
+<li><strong>Material should contain<code>HTool_UV</code> node and be linked to your texture</strong> - without it UVs won't work (transparent hair). After converting Hair System to mesh, you can use 'normal' mesh uvs</li>
+<li>If you are generating hair procedurally - make sure <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Region Distribute</a> Deformer has been added</li>
+<li>For more info check <a href="../faq/#texture-looks-wrong">FAQ - why my texture looks wrong</a>,</li>
+</ul>
+<p><strong>Note2:</strong> If you want to flip strand texture in Y direction (top/down), just hover your mouse over UV box and press 'F'</p>
 <video style="width:100%" controls>
   <source src="../video/offset_uvs.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>To use <code>UV Offset</code> hover you mouse over UV box and scroll with MMB.</em></p>
-<h4 id="material-uv-refresh">Material / UV Refresh<a class="headerlink" href="#material-uv-refresh" title="Permanent link">&para;</a></h4>
-<p>Helper Button that will automatically assign last used Hair Material, and UVs. If they are not found, it will assign Default Hair Tool Material and UVs.</p>
+<p><em>Demo of <code>UV Offset</code> feature, which allows you to increase UV density toward root or tip of hair strands</em></p>
 <h4 id="set-uv-region">Set UV region<a class="headerlink" href="#set-uv-region" title="Permanent link">&para;</a></h4>
-<p>After your hair <a href="#defining-hair-uvs">received UVs</a>, you can <strong>pick which hair strands will use which texture spot (UV Region/Box) using 'Set UV region' operator</strong>. Pick multiple UV Regions, with [Shift+Click], so assign them randomly to selected strands.</p>
+<p>After <a href="#editing-hair-uvs">editing Hair UVs</a>, you can <strong>assign selected hair strands to particular texture regions, on your UV layout, using the <code>Set UV Region</code> modal operator</strong>.<br>
+While running <code>Set UV Regions</code> operator, use [Shift+Click] to select multiple UV Regions which will randomly distribute them among the selected strands.</p>
 <p>Depending on hair type (procedural or 'real' geometry strands) - operator will behave differently:</p>
 <ul>
 <li>for 'real' geometry strands objects, UV Region ID will be stored directly in each curve attribute</li>
-<li>for procedurally generated <a href="../main_workflows/hair_system/">Hair System</a> objects, <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Region Distribute</a> deformer will be created (unless one already exists) - to distribute UVs Boxes onto strands</li>
+<li>for procedurally generated <a href="../main_workflows/hair_system/#sub-systems-types">Hair Strands</a> objects, <a href="../main_workflows/hair_deformers/#uv-region-distribute">UV Region Distribute</a> deformer will be created (unless one already exists) - to distribute UVs Boxes onto strands</li>
 </ul>
 <video style="width:100%" controls>
   <source src="../video/set_uv_region.mp4" type="video/mp4">
@@ -259,7 +259,7 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: This operator is not strictly linked to the hair material or UVs, but its purpose is similar to the <strong>set UV region</strong> operator<br></p>
 </blockquote>
-<p>When using <a href="../hair_profiles/#mesh-profile"><strong>Mesh Profile</strong></a> or <a href="../hair_profiles/#multi-curve-profile"><strong>Multi Curve Profile</strong></a> you can tell which strand will receive which profile object with <strong>Set Profile IDs</strong> operator. It will assign 'Profile_ID' attribute to each strand and so it will then be meshed with matching profile object.</p>
+<p>When using <a href="../hair_profiles/#mesh-profile"><strong>Mesh Profile</strong></a> or <a href="../hair_profiles/#multi-curve-profile"><strong>Multi Curve Profile</strong></a> you can assign particular profile object to selected with <strong>Set Profile IDs</strong> operator. It will assign integer 'Profile_ID' attribute, to each selected strand and this in turn will tell Hair Tool which profile object to use for these strands.</p>
 <video style="width:100%" controls>
   <source src="../video/set_profile_ids.mp4" type="video/mp4">
 Your browser does not support the video tag.
