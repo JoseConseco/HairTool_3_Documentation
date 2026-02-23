@@ -482,15 +482,15 @@ Your browser does not support the video tag.
 </video>
 <p><em>You can use multiple 'Profile Distribute' Deformers, and stack them on top of each other (think of them as layers). In video above, I used <span style="color: red;">RED</span> and <span style="color: green;">GREEN</span> profile objects as base layer, then added <span style="color: purple;">PURPLE</span> on top - masked by vertex group</em></p>
 <h5 id="uv-region-distribute">UV Region Distribute<a class="headerlink" href="#uv-region-distribute" title="Permanent link">&para;</a></h5>
-<p><a href="../../overview/#hair-profile">Hair Profile</a> holds UV Boxes/Regions amount and dimensions, but it does not tell which strand will receive which UV Region. This is where 'UV Region Distribute' deformer comes in - it will assign random (or masked) UV Region to each strand.</p>
+<p>UV Layout is stored in the <a href="../../overview/#hair-profile">Hair Profile</a> under the UV_Data object. It describes the shapes and dimensions of UV Boxes, but does not specify which UV Region is assigned to which strand. This is where the <strong>UV Region Distribute</strong> modifier comes in: it assigns random (or selected) UV Regions to hair strand.</p>
 <blockquote>
-<p><strong>Note</strong>: use multiple 'UV Region Distribute' deformers + <a href="../input_masks/">Input Masks</a>, to achieve layered UVs effect (see video below),</p>
+<p><strong>Note</strong>: to achieve layered UVs effect, use multiple 'UV Region Distribute' deformers + <a href="../input_masks/">Input Masks</a> (see video below),</p>
 </blockquote>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/hsys_uv_regions.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Example use of multiple 'UV Regions Distribute' Deformers, to stack them on top of each other (as layers). <span style="color: green;">Region ID_2</span> as base layer + <span style="color: purple;">Region ID_0</span> on top - masked by vertex group</em></p>
+<p><em>Example use of multiple 'UV Regions Distribute' Deformers, to stack them on top of each other (as layers): <span style="color: green;">Green UV</span> as base layer + <span style="color: purple;">Purple UV</span> as second top layer (masked by vertex group)</em></p>
 <blockquote>
 <p><strong>Note</strong>: <code>UV Region Distribute</code> is often created automatically when hair system is added</p>
 </blockquote>
