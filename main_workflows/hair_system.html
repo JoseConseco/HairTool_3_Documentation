@@ -235,7 +235,7 @@ Click [+] to add Hair System to selected mesh (or curve) object.</p>
 <h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
 <p>It will grow strands, from Base Mesh surface. You can control parameters like: resolution, density, length, interpolation (<a href="hair_system.html#child-parent-setup">Parent Child relation must be set</a>) etc. These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/strands_gen.mp4" type="video/mp4">
+  <source src="../img/geo_nodes_hair/strands_gen.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Set parent <a href="#tags">Tags</a> and enable <a href="hair_system.html#hair-interpolation">interplation</a> option, so that generated strands will follow these Tagged strands. See <a href="hair_system.html#child-parent-setup"><strong>Child Parent Setup</strong></a></em></p>
@@ -257,14 +257,14 @@ Your browser does not support the video tag.
 <b>Right</b>: Increase <code>Density</code> parameter to fill up the empty spots</em></p>
 <h5 id="relax-distribution">Relax Distribution<a class="headerlink" href="#relax-distribution" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
-  <source src="../../video/strand_gen_relax.mp4" type="video/mp4">
+  <source src="../video/strand_gen_relax.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Relax option - useful when you masked Density input - e.g. with vertex group (masking Density results in non uniform strands distribution)</em></p>
 <h4 id="strands-filter">Strands Filter<a class="headerlink" href="#strands-filter" title="Permanent link">&para;</a></h4>
 <p>It does not generate new strands. Instead, it allows you to modify existing strands, both 'real' or procedural.</p>
 <video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/strands_filter.mp4" type="video/mp4">
+<source src="../img/geo_nodes_hair/strands_filter.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Demo of applying 'Scale' deformer to two Hair System (<code>L</code>eft and <code>R</code>ight) with 'Strand Filter'</em></p>
@@ -279,14 +279,14 @@ Your browser does not support the video tag.
 <h4 id="strands-from-mesh-elements">Strands from Mesh Elements<a class="headerlink" href="#strands-from-mesh-elements" title="Permanent link">&para;</a></h4>
 <p>It will allow you to generate strands on base mesh: vertices, edges and (or) faces.</p>
 <video style="width:100%" controls>
-<source src="../../video/strands_on_mesh_parts.mp4" type="video/mp4">
+<source src="../video/strands_on_mesh_parts.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>When used on edges it looks similar to <a href="short_hair.html">Short Hair</a>. Especially if you combine it with <a href="hair_deformers.html#track-to-mesh">Track to Mesh</a> deformer</em></p>
 <h4 id="strands-from-2d-uv-pattern">Strands from 2D UV Pattern<a class="headerlink" href="#strands-from-2d-uv-pattern" title="Permanent link">&para;</a></h4>
 <p>Strands will be distributed in 2D UV space based on one of 5 selected preset patterns. Mesh (scalp) with UVs is required for it to work. Useful for creating feathers, scales and uniformly distributed hair (beards and other short hair).</p>
 <video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/strands_on_uv_feathers.mp4" type="video/mp4">
+<source src="../img/geo_nodes_hair/strands_on_uv_feathers.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Demo of 'Strand from UV' + <a href="hair_deformers.html#track-to-mesh">Track to Mesh deformer</a>. Base 'Strand Generator' is no good. It is too random for feathers, which typically follow a more regular, tile-like distribution pattern</em></p>
@@ -308,7 +308,7 @@ Root of strands will be placed:</p>
 </ul>
 <p>These strands can be affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/hsystem_curves_from_grid.mp4" type="video/mp4">
+<source src="../img/geo_nodes_hair/hsystem_curves_from_grid.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In video above - top, boundary edge loop was <code>marked as sharp</code></em></p>
@@ -322,7 +322,7 @@ Your browser does not support the video tag.
 <h4 id="interpolated-strands">Interpolated Strands<a class="headerlink" href="#interpolated-strands" title="Permanent link">&para;</a></h4>
 <p>This Strand Generator, will use existing curves add extra strands in between them. In that case order of strand matter!</p>
 <video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/interpolated_strands.mp4" type="video/mp4">
+<source src="../img/geo_nodes_hair/interpolated_strands.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In video above I used drawn strands to guide the 'Interpolated Strands' generator (video is narrated)</em></p>
@@ -332,7 +332,7 @@ Your browser does not support the video tag.
 <h4 id="strands-from-prism-mesh-guide">Strands from Prism Mesh Guide<a class="headerlink" href="#strands-from-prism-mesh-guide" title="Permanent link">&para;</a></h4>
 <p>It will allow you to generate strands in whole volume of prism like mesh. Bottom faces will be use to grow strands, and side faces (prism walls) will guide hair flow. Separation between bottom and wall faces is done using sharp edges.</p>
 <video style="width:100%" controls>
-<source src="../../video/strands_from_prism_mesh_guide.mp4" type="video/mp4">
+<source src="../video/strands_from_prism_mesh_guide.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In this example I had marked sharp edges to create face groups/islands (no edge split modifier was used though). Then I extruded these edges, to create valid mesh for 'Strands from Prism Mesh Guide' generator</em></p>
@@ -355,7 +355,7 @@ If you select existing hair object with profile, then you can use <a href="stran
 <h4 id="strands-on-mesh-border">Strands on Mesh Border<a class="headerlink" href="#strands-on-mesh-border" title="Permanent link">&para;</a></h4>
 <p>It will allow you to generate strands on base mesh border edges (or on custom edge attribute)</p>
 <video style="width:100%" controls>
-<source src="../../video/gen_strands_on_mesh_border.mp4" type="video/mp4">
+<source src="../video/gen_strands_on_mesh_border.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In video above we combine this strand generator with <a href="hair_deformers.html#track-to-curve">Track To Curve</a> deformer. Scalp mesh is using Mirror modifier - that is why the strands are also spawned on center line</em></p>
@@ -446,7 +446,7 @@ User cases when you want to use Transfer Hair System:</p>
 <p>Linking two Hair SubSystems, with Child-Parent relation, enables capabilities such as: interpolation, clumping, curls, braids, twist and others.<br>
 Use <a href="#tags">Tags</a> to link two <a href="hair_system.html#sub-systems-types">Hair SubSystems</a>, establishing a parent-child relationship.</p>
 <video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/parent_setup.mp4" type="video/mp4">
+  <source src="../img/geo_nodes_hair/parent_setup.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In the video above, I show how to make the <FONT COLOR="RED">red</FONT> strands (called "ParentSys") the parent  (guide) for the <FONT COLOR="#DAAA00">yellow</FONT> strands (named "Child"). You can use any tag name you want. In this example, I used "RED".</em></p>
@@ -458,7 +458,7 @@ Your browser does not support the video tag.
 You'll see the 'Use Interpolation' button appear in the settings for the first hair deformer - <a href="hair_system.html#strands-generator"><strong>Strands Generator</strong></a>.</p>
 <h5 id="align-to-surface-normal">Align to Surface Normal<a class="headerlink" href="#align-to-surface-normal" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
-  <source src="../../video/strand_gen_align.webm" type="video/mp4">
+  <source src="../video/strand_gen_align.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Align to Surface Normal - useful for shorter hair. Do not confuse with <a href="hair_deformers.html#align-tilt">Align Tilt To Source Surface</a></em></p>
@@ -468,7 +468,7 @@ Your browser does not support the video tag.
 <p><strong>Note</strong>: instead of splitting the edges physically, you can use the <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html"><strong>Edges split</strong></a> modifier</p>
 </blockquote>
 <video style="width:100%" controls>
-<source src="../../img/geo_nodes_hair/parting_by_island.mp4" type="video/mp4">
+<source src="../img/geo_nodes_hair/parting_by_island.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>In video above I have cut mesh in 4 parts (visualised with 4 colors). Strands won't cross islands boundaries</em></p>
@@ -498,7 +498,7 @@ Your browser does not support the video tag.
 <p><strong>Note</strong>: Baking works only if Hair System is attached to hair curve type of objects! If not the use: Ctr+Shift+H &gt; <a href="hair_system.html#transfer-hair-system">Transfer Hair System</a> &gt; to Empty Curve or to Guide Curve)</p>
 </blockquote>
 <video style="width:100%" controls>
-<source src="../../video/bake_curves.mp4" type="video/mp4">
+<source src="../video/bake_curves.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Curves in video cannot be groomed, since they are generated procedurally. After baking, you can groom them without issues</em></p>
@@ -508,7 +508,7 @@ Your browser does not support the video tag.
 <p><strong>Copy Hair System</strong> settings from: Active Hair sub-System or All sub-Systems</p>
 <p><strong>Paste Hair System</strong> settings to: Active Hair sub-System or to All sub-Systems</p>
 <video style="width:100%" controls>
-<source src="../../video/copy_paste_all_subsystems.mp4" type="video/mp4">
+<source src="../video/copy_paste_all_subsystems.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Copying All SubSystems (and profile settings) from one object to another. Receiving object has to have at least one Hair subSystem attached. Also make sure both objects share same vertex groups, similar sharp (or crease) edges - if you copy <a href="hair_system.html#strands-from-grid-surface">Curves From Grid</a> type of setup</em></p>
@@ -541,7 +541,7 @@ Your browser does not support the video tag.
 </ul>
 <h4 id="tags-panel">Tags Panel<a class="headerlink" href="#tags-panel" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
-  <source src="../../img/geo_nodes_hair/tag_panel.webm" type="video/mp4">
+  <source src="../img/geo_nodes_hair/tag_panel.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
