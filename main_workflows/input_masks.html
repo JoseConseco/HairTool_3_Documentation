@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Input Masks - Hair Tool 4</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Input Masks";
+        var mkdocs_page_input_path = "main_workflows/input_masks.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Hair Tool 4
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Main Concepts</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="hair_system.html">Hair System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_deformers.html">Hair Deformers</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Input Masks</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#color-attribute">Color Attribute</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#influence-range-mask">Influence Range Mask</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#influence-range-mask_1">Influence Range Mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#curve-attribute">Curve Attribute</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#edge-mask">Edge Mask</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#border-edge-distance">Border Edge Distance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#edge-attribute-distance">Edge Attribute Distance</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#invert">Invert</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#length-mask">Length Mask</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#math">Math</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mesh-distance">Mesh Distance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vertex-grouptexture">Vertex Group/Texture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#object-vertex-grouptexture">Object Vertex Group/Texture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#radius-mask">Radius Mask</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#offsetgain">Offset/Gain</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#randomize">Randomize</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remap">Remap</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#procedural-mask">Procedural Mask</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#viewport-mask">Viewport Mask</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#influence-range">Influence Range</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_profiles.html">Hair Profiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../uv_material.html">Material and UV</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../presets.html">Presets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modeling Methods</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_from_surface.html">Strands from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="strands_from_grid_profile.html">Strands From Grid Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="strands_from_prism_profile.html">Strands From Prism Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_with_track_mesh.html">Hair with Track Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_drawing.html">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="short_hair.html">Short Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="shell_hair.html">Shell Hair</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../convert_hair.html">Convert Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_modeling.html">Hair Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_sculpting.html">Hair Sculpting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../curve_tool.html">Curve tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops.html">Mesh tools</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../texture_baking.html">Baking Textures</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_library.html">Hair Library</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_animation.html">Rigging and Animation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../character_creator_workflow.html">Character Creator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Hair Tool 4</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Main Concepts</li>
+      <li class="breadcrumb-item active">Input Masks</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h3 id="input-masks">Input Masks<a class="headerlink" href="#input-masks" title="Permanent link">&para;</a></h3>
+<p>You can change <a href="hair_deformers.html">Deformers</a> input properties with various types of masks like:</p>
+<ul>
+<li>Vertex Group/Texture</li>
+<li>Length</li>
+<li>Randomize</li>
+<li>Border Edge Distance</li>
+<li>Mesh Distance</li>
+<li>and more (see list below)</li>
+</ul>
+<p>Mask values are clamped to: 0.0 - 1.0 range. For example if your strand Radius is set to 2.0 and mask value is 0.5, then effective Radius will be 1.0.</p>
+<blockquote>
+<p><strong>Note</strong>:
+The order of multiple masks applied to single input matters! Adding Vertex Group mask followed by Randomize mask will give different result than adding Randomize first and then Vertex Group mask.</p>
+</blockquote>
+<video style="width:100%" controls>
+<<source src="../../img/geo_nodes_hair/input_masks.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>To add mask click drop down menu icon on right and pick mask type</em></p>
+<p>In video above I show how you can:</p>
+<ul>
+<li>Add multiple masks to single input (Vertex Group + Remap + Randomize)</li>
+<li>Change mask order by using Up/Down arrows</li>
+<li>Preview mask strength by enabling 'Show Mask' (Lightbulb) option</li>
+<li>Disable/Enable mask</li>
+<li>Remove mask by clicking 'X' icon</li>
+</ul>
+<p>There is also 'Refresh' button that allows you to update Mask geo-nodes setup to latest version (can be used after updating the add-on, and when you are working on old files).</p>
+<h4 id="color-attribute">Color Attribute<a class="headerlink" href="#color-attribute" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../video/color_attr_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Color Attribute</strong>:  use vertex color attribute to mask hair effects. If multiple channels are used, then the average value is used for masking.</p>
+</blockquote>
+<h4 id="influence-range-mask">Influence Range Mask<a class="headerlink" href="#influence-range-mask" title="Permanent link">&para;</a></h4>
+<h5 id="influence-range-mask_1">Influence Range Mask<a class="headerlink" href="#influence-range-mask_1" title="Permanent link">&para;</a></h5>
+<p>Similar to <a href="#influence-range">Influence Range</a> input mask but can be assigned to any parameter of deformer.</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/curve_influence_range.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>We use Quadratic falloff mask to control <a href="hair_deformers.html#duplicate-strands">Duplicate Strands</a> deformer generation radius</em></p>
+<video style="width:100%" controls>
+<source src="../../video/influence_range_input_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In this example we use <code>Simple</code> falloff to adjust <a href="hair_deformers.html#noise">Noise</a> deformer frequency - we increase it towards the tip of the strand</em></p>
+<ul>
+<li><strong>Simple</strong> - gradient that goes from 0 to 1, with customizable blend falloff. Can be inverted.</li>
+<li><strong>Root to Tip</strong> - Simple linear blend between: Root value and Tip value</li>
+<li><strong>Root to Tip with Falloff</strong> - like above, but with additional falloff control (blend is no longer linear)</li>
+<li><strong>Root &gt; Center &gt; Tip</strong> - gives you independent control over Root, Center and Tip values</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> <a href="#influence-range">Influence Range</a> remains useful because it allows you to use "Profile Curve" masks, a feature not found in Curve Mask.</p>
+</blockquote>
+<h5 id="curve-attribute">Curve Attribute<a class="headerlink" href="#curve-attribute" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../video/attribute_edition.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Curve Attribute</strong>: Use Curve attribute to mask hair effect. This is intended to be used with <a href="../hair_sculpting.html">Edit Curve Attribute</a> feature in HTool</p>
+</blockquote>
+<hr />
+<h4 id="edge-mask">Edge Mask<a class="headerlink" href="#edge-mask" title="Permanent link">&para;</a></h4>
+<h5 id="border-edge-distance">Border Edge Distance<a class="headerlink" href="#border-edge-distance" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../video/border_edge_dist_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Border Edge Distance</strong>:  Mask an effect based on the distance between: strand from the mesh border. In above video we used <a href="hair_deformers.html#align-tilt-to-mesh-border">Aligned Tilt to Mesh Border</a> to affect strands that are closest to mesh border.</p>
+<p><strong>Note:</strong> You will often want to use the 'Invert' option on this mask, so that the masking effect is strongest for strands closest to the border (those with the smallest distance to the border).</p>
+</blockquote>
+<h5 id="edge-attribute-distance">Edge Attribute Distance<a class="headerlink" href="#edge-attribute-distance" title="Permanent link">&para;</a></h5>
+<p>Same as above, but distance is calculated between: strand and edge with attribute (for example crease or sharp edges).</p>
+<hr />
+<h4 id="invert">Invert<a class="headerlink" href="#invert" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_invert.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Invert</strong>: Not useful by itself, but placed after another mask, it will invert the previous mask effect</p>
+</blockquote>
+<h4 id="length-mask">Length Mask<a class="headerlink" href="#length-mask" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_length.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<ul>
+<li>Assigns <strong>Min</strong> value to the shortest strands,</li>
+<li>Assigns <strong>Max</strong> value to the longest strands.</li>
+<li>Swapping Min and Max values will invert the effect</li>
+</ul>
+<h4 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h4>
+<p>Can be used to <a href="hair_deformers.html#push-out">Push Out</a> every second strand, or to create a mask that will be applied to every N-th strand.</p>
+<video style="width:100%" controls>
+<source src="../../video/math_input_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Math Mask</strong>: Mostly useful for sorted strands, e.g.  <a href="hair_system.html#strands-from-grid-surface">Strands From Grid Surface</a></p>
+</blockquote>
+<ul>
+<li><strong>Select N-th</strong> - select every N-th strand periodically: _ | _ | _</li>
+<li><strong>Wrap</strong> - slowly increase the mask value from 0 to 1, repeat periodically: /|/|/|</li>
+<li><strong>Ping-Pong</strong> - change mask value from 0 to 1 and back to 0, repeat periodically: /\/\/\</li>
+</ul>
+<h4 id="mesh-distance">Mesh Distance<a class="headerlink" href="#mesh-distance" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_mesh_distance.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Mesh Distance</strong>: Mask an effect based on the distance between: strand and another mesh</p>
+</blockquote>
+<h4 id="vertex-grouptexture">Vertex Group/Texture<a class="headerlink" href="#vertex-grouptexture" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_vg.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Vertex Group/Texture</strong>: Use vertex group or texture for input masking</p>
+</blockquote>
+<h4 id="object-vertex-grouptexture">Object Vertex Group/Texture<a class="headerlink" href="#object-vertex-grouptexture" title="Permanent link">&para;</a></h4>
+<p>Same as above, but samples vertex group/texture from custom object</p>
+<h4 id="radius-mask">Radius Mask<a class="headerlink" href="#radius-mask" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/radius_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Radius Mask</strong>: Mask an effect based on strand radius. In video above I reduced noise on braids, at thinner places.</p>
+</blockquote>
+<h4 id="offsetgain">Offset/Gain<a class="headerlink" href="#offsetgain" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_offset_gain.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Mask Offset Gain</strong>: Not useful by itself, but placed after another mask, it can increase the mask contrast (gain) or brightness (offset)</p>
+<p><strong>Randomize</strong>: Outputs random value for each strand.</p>
+</blockquote>
+<h4 id="randomize">Randomize<a class="headerlink" href="#randomize" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_randomize.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Randomize</strong>: Outputs random value for each strand.</p>
+</blockquote>
+<p>Random value will be picked from within <strong>[x-RandRange; x+RandRange]</strong> bounds, where x - is any input value - e.g. from vertex group mask<br>
+You can disable lower/upper bound using <code>&lt;</code>/<code>&gt;</code> buttons, thus limiting Random value range.</p>
+<ul>
+<li><strong>Rand Range</strong> - 0 - no randomization; 1 - maximum randomization</li>
+<li><strong>Variance</strong> &lt; 0.5 outputs mostly smaller values, from within given range,</li>
+<li><strong>Variance</strong> == 0.5 all random values are drawn uniformly, from within given range,</li>
+<li><strong>Variance</strong> &lt; 0.5 outputs mostly bigger values, from within given range,</li>
+<li><strong>Use Parent IDs</strong> - if enabled each child strand will inherit random value from its closest parent.</li>
+</ul>
+<h4 id="remap">Remap<a class="headerlink" href="#remap" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/remap_input_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Reamp input mask values to different range</em></p>
+<ul>
+<li><strong>From Min/Max</strong> - clamps input mask to given range,</li>
+<li><strong>To Min/Max</strong> - remaps clamped input to given output range</li>
+</ul>
+<h4 id="procedural-mask">Procedural Mask<a class="headerlink" href="#procedural-mask" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_procedural.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Procedural Mask</strong>: Use procedural noise texture to randomize hair look. No need for UVs</p>
+</blockquote>
+<ul>
+<li>Min, Max - bring these values closer together to get sharper noise transition,</li>
+<li>Scale - the bigger scale the more detailed the texture will be,</li>
+<li>Distort - distorts the noise,</li>
+<li>Offset - offset the noise sampling position</li>
+</ul>
+<h4 id="viewport-mask">Viewport Mask<a class="headerlink" href="#viewport-mask" title="Permanent link">&para;</a></h4>
+<p>You can mask hair effects based on whether the object is displayed in the viewport or rendered in the final image.</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/viewport_display_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above we affect hair density with 'Viewport Display' mask. This way we render (and process) less hair strands in the 3d viewport and more in the final render</em></p>
+<h4 id="influence-range">Influence Range<a class="headerlink" href="#influence-range" title="Permanent link">&para;</a></h4>
+<p>Special inputs that are named <code>Influence Range</code> allow to modulate influence of deformer over strand length. For example you can:</p>
+<ul>
+<li>Add Noise only to the tips of the strands</li>
+<li>Taper strand Radius towards the tip or root of the strands</li>
+<li>Affect Clump strength only in the middle part of the strands</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> To affect any available deformer input parameter use <a href="#influence-range-mask">Influence Range Input Mask</a></p>
+</blockquote>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/influence_range.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Example of using Influence Range mask on 'Radius Set' deformer to customize hair taper</em></p>
+<p>Types of <code>Influence Range</code> masks:</p>
+<ul>
+<li><strong>Constant</strong> - the effect is uniform along the whole strand length</li>
+<li><strong>Simple</strong> - gradually changes the mask from 0 to 100% with adjustable falloff. Can be inverted.</li>
+<li><strong>Root to Tip</strong> - Simple linear blend between: Root value and Tip value</li>
+<li><strong>Root to Tip with Falloff</strong> - like above, but with additional falloff control (blend is no longer linear)</li>
+<li><strong>Root &gt; Center &gt; Tip</strong> - gives you independent control over Root, Center and Tip values</li>
+<li><strong>Profile Curve</strong> - most detailed control using profile curve<br></li>
+</ul>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="hair_deformers.html" class="btn btn-neutral float-left" title="Hair Deformers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_profiles.html" class="btn btn-neutral float-right" title="Hair Profiles">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="hair_deformers.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../hair_profiles.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

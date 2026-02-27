@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Hair with Track Mesh - Hair Tool 4</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Hair with Track Mesh";
+        var mkdocs_page_input_path = "main_workflows/hair_with_track_mesh.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Hair Tool 4
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Main Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_system.html">Hair System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_deformers.html">Hair Deformers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="input_masks.html">Input Masks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_profiles.html">Hair Profiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../uv_material.html">Material and UV</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../presets.html">Presets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modeling Methods</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_from_surface.html">Strands from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="strands_from_grid_profile.html">Strands From Grid Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="strands_from_prism_profile.html">Strands From Prism Profile</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Hair with Track Mesh</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#video-tutorial">Video Tutorial</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_drawing.html">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="short_hair.html">Short Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="shell_hair.html">Shell Hair</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../convert_hair.html">Convert Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_modeling.html">Hair Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_sculpting.html">Hair Sculpting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../curve_tool.html">Curve tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops.html">Mesh tools</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../texture_baking.html">Baking Textures</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_library.html">Hair Library</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_animation.html">Rigging and Animation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../character_creator_workflow.html">Character Creator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Hair Tool 4</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Modeling Methods</li>
+      <li class="breadcrumb-item active">Hair with Track Mesh</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="hair-with-track-mesh">Hair With Track Mesh<a class="headerlink" href="#hair-with-track-mesh" title="Permanent link">&para;</a></h2>
+<p><strong>Hair with Track Mesh</strong> operator will setup <a href="hair_system.html">Hair System</a> with <a href="hair_deformers.html#track-to-mesh">Track to Mesh</a> deformer with one click.</p>
+<video style="width:100%" controls>
+  <source src="../../video/track_to_mesh_preset.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Use F9 key -&gt; to adjust initial offset of Track Mesh from base mesh</em></p>
+<p>The main idea is <strong>to sculpt or edit guide mesh</strong>, rather than comb the hair curves. This is especially useful for short hair, beard, eyebrows, etc. when you want to work in non-destructive way.</p>
+<p>In my test I was surprised how easy it is to sculpt hair with this setup and the resulting hair was very uniform giving me much better look for beard of eyebrows compared to traditional curves grooming, with interpolated children.</p>
+<video style="width:100%" controls>
+  <source src="../../video/track_to_mesh_preset_sculpting.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Example of sculpting Track Mesh. See how simple it is to modify all the strand</em></p>
+<blockquote>
+<p><strong>Note</strong>: It is often good idea to add shapekey to your Guide mesh, and work on it with shapekey enabled. This way you can always go back to original shape of guide mesh</p>
+</blockquote>
+<h4 id="video-tutorial">Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permanent link">&para;</a></h4>
+<p>In first 13 minutes of this video I show how to use this <strong>Hair with Track Mesh</strong> feature (rest of video is about how to use it for actual hair - can be skipped if you are interested only in basics, of how 'Hair with Track Mesh' works)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TvBw2eGsky4?start=28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<p>The only initial parameter you can control is under <code>F9</code> key - <code>Offset</code> - it will offset track mesh from base mesh. <br>
+All the other parameters are controlled by Hair System: <a href="hair_deformers.html#track-to-mesh">Track To Mesh</a> and other <a href="hair_deformers.html#hair-deformers">deformers</a></p>
+<blockquote>
+<p><strong>Note</strong>: The reason why there on only one parameter available under <code>F9</code> key is that, when I tried to draw popup panel with all the parameters it was crashing the Blender every time. Crashes means, that there is bug in blender itself, but I was unable to create bug report (the code and setup for Track to Mesh is very complicated, thus it is hard to simplify and provide bug report to blender devs)</p>
+</blockquote>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="strands_from_prism_profile.html" class="btn btn-neutral float-left" title="Strands From Prism Profile"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="hair_drawing.html" class="btn btn-neutral float-right" title="Drawing hair">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="strands_from_prism_profile.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="hair_drawing.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

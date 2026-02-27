@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Strands from Grid Surface - Hair Tool 4</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Strands from Grid Surface";
+        var mkdocs_page_input_path = "main_workflows/hair_from_surface.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Hair Tool 4
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Main Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_system.html">Hair System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_deformers.html">Hair Deformers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="input_masks.html">Input Masks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_profiles.html">Hair Profiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../uv_material.html">Material and UV</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../presets.html">Presets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modeling Methods</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="basic_examples.html">Basic Examples</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Strands from Grid Surface</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#video-tutorial">Video Tutorial</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#proper-grid-mesh">Proper grid mesh</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="strands_from_grid_profile.html">Strands From Grid Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="strands_from_prism_profile.html">Strands From Prism Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_with_track_mesh.html">Hair with Track Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_drawing.html">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="short_hair.html">Short Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="shell_hair.html">Shell Hair</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../convert_hair.html">Convert Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_modeling.html">Hair Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_sculpting.html">Hair Sculpting</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../curve_tool.html">Curve tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mesh_ribbons_ops.html">Mesh tools</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../texture_baking.html">Baking Textures</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_library.html">Hair Library</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_animation.html">Rigging and Animation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../character_creator_workflow.html">Character Creator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Hair Tool 4</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Modeling Methods</li>
+      <li class="breadcrumb-item active">Strands from Grid Surface</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="strands-from-grid-surface">Strands from grid surface<a class="headerlink" href="#strands-from-grid-surface" title="Permanent link">&para;</a></h2>
+<p>It uses <a href="hair_system.html#strands-from-grid-surface">Strands from Grid Surface</a> Hair Generator, where active mesh will be used as guide for strands flow. Guide mesh has to have grid topology: made of quads,</p>
+<p><img alt="Hair Tool" src="../img/bannerhairtool2.jpg" /></p>
+<p>Useful for: <strong>long hair, eyelashes, hair buns, layered type of hair</strong> etc. It's designed to generate low poly mesh, so it runs smoothly mobile games.</p>
+<video style="width:100%" controls>
+  <source src="../../video/curve_from_grid.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Use Ctrl+Shift+H &gt; <code>Curves from grid surface</code> to add Hair System preset, where active mesh will guide generated strands</em></p>
+<blockquote>
+<p><strong>Note</strong>: In older Hair Tool 2.4x series, you could directly edit generated curves (in edit mode). In HTool 3.x these curves are generated procedurally in geometry nodes, thus you cannot edit them directly. First use <a href="hair_system.html#bake">Bake</a> option to convert these procedural curves to real geometry.</p>
+<p><strong>Note</strong>: If you want to cover head scalp uniformly with hair, then use standard Hair System with <a href="hair_system.html#strands-generator">Strand Generator</a> instead.</p>
+</blockquote>
+<h4 id="video-tutorial">Video Tutorial<a class="headerlink" href="#video-tutorial" title="Permanent link">&para;</a></h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Rp7yGbxm7HI?start=39"
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p><em>First 12 minutes shows how to use 'Curves from Grid Surface'. Rest is about creation of actual hair - can be skipped</em></p>
+<h4 id="proper-grid-mesh">Proper grid mesh<a class="headerlink" href="#proper-grid-mesh" title="Permanent link">&para;</a></h4>
+<p>The guide mesh must be made from quads, and one border edge loop must be marked as sharp (or crease) - this edge will become the growth point for hair strands.
+<img alt="Sharp Edge Loop" src="../img/marksharp.jpg" />
+<em>Select border edge loop &gt; Ctrl+E &gt; Mark Sharp (or Crease)</em></p>
+<p>Examples of <strong>proper topology</strong>
+<img alt="Good Grid Mesh" src="../img/faq/good_grid_meshes.jpg" />
+<em>A torus is acceptable as long as you break one of the loops to create a border edge</em></p>
+<p>If we flatten these 3D meshes, we would get a regular grid like this:
+<img alt="Grid Mesh" src="../img/flat_grid_example.jpg" /></p>
+<p>For actual hair, you would want to model these meshes more carefully - following the main hair masses and hair flow.</p>
+<p>Examples of <strong>bad topology</strong>:
+<img alt="Bad Grid Mesh" src="../img/faq/bad_grid_meshes.jpg" /></p>
+<blockquote>
+<p><strong>Note</strong>: The first mesh is bad because it has no subdivision. The last torus does not have any border edge that could be used as a marker for the roots of hair.</p>
+</blockquote>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<p>You can adjust strands count, number of points per spline etc. Guide mesh topology can be used to affect density of generated strands: in places where grid surface is denser more strands (or more points) may be generated.</p>
+<p><img alt="Points per strand" src="../img/grid_surface/strands_count.gif" />
+<em><strong>Strands count</strong> - number of strands to generate</em></p>
+<p><img alt="Uniform Strands" src="../img/grid_surface/uniform_strands.gif" />
+<em><strong>Uniform Strands Spacing</strong> - Distribute strands uniformly. If not, then more strands will be placed at denser grid surface areas (in this case - more on right)</em></p>
+<p><img alt="Uniorm Points" src="../img/grid_surface/uniform_points.gif" />
+<em><strong>Uniform Points Spacing</strong> - Distribute points uniformly along each strand. If not, then more points will be placed at denser grid surface areas (in this case - more on right)</em></p>
+<p><img alt="Randomize Spacing" src="../img/grid_surface/random_spacing.gif" />
+<em><strong>Randomize Spacing</strong> - Randomize spacing between strands</em></p>
+<p><em><strong>Use Crease Edge</strong> - by default strands will be generated from edge marked as sharp. You can use crease edge instead, if you want to generate strands from creased edges</em></p>
+<video style="width:100%" controls>
+  <source src="../../img/grid_surface/hook_frist_segment.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Hook First Segment</strong> - use if you want to 'glue' first segment of each strand to the first two loops of grid surface. This helps with embedding hair strand roots into scalp, without hair clipping through head</em></p>
+<!-- #### Limitations -->
+<!---->
+<!--  > **Update**: This issue if fixed in Hair Tool 4.x, where instead of using Blender built-in hair interpolation, I implemented my own interpolation algorithm. -->
+<!---->
+<!-- ![Ugly Interpolation example](../img/grid_surface/new_grid_interpolation_problem.jpeg) -->
+<!-- <s>*Strands do not go to left/right and instead fall in the middle*</s> -->
+<!---->
+<!-- ![Reason of ugly interpolation](../img/grid_surface/ugly_grid_reason.jpeg) -->
+<!-- <s>*The reason: imagine new strand (marked with <span style="color: green;">green</span> X above) follows 2 closest <span style="color: purple;">purple</span> guides. It is causing the strand to go to the center (average of both guides)*</s> -->
+<!---->
+<!-- ![Ugly interpolation fix](../img/grid_surface/ugly_grid_fix.jpeg) -->
+<!-- <s>*The fix: split base mesh into two islands (marked with black and white) and enable 'Use mesh Islands Splits'. Now new strand will follow guides from one side (white or black) - resulting in clean interpolation on right*</s> -->
+
+<!-- > **Note**: <s>You do not have to split base mesh by [ripping geometry](https://docs.blender.org/manual/en/latest/modeling/meshes/editing/vertex/rip_vertices.html). In above case I turned Off 'merge' option in [mirror modifier](https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/mirror.html), thus righ and left side are seen as separate islands. Or you could use [edge split modifier](https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html)</s> -->
+<!---->
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Rp7yGbxm7HI?si=yJ2HFURfNsbWvxDA&amp;start=904" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+<!-- *In video above I explained and showed how to fix the interpolation issue* -->
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="basic_examples.html" class="btn btn-neutral float-left" title="Basic Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="strands_from_grid_profile.html" class="btn btn-neutral float-right" title="Strands From Grid Profile">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="basic_examples.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="strands_from_grid_profile.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

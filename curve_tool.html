@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Curve tools - Hair Tool 4</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Curve tools";
+        var mkdocs_page_input_path = "curve_tool.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> Hair Tool 4
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Main Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_system.html">Hair System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_deformers.html">Hair Deformers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/input_masks.html">Input Masks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_profiles.html">Hair Profiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="uv_material.html">Material and UV</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="presets.html">Presets</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Modeling Methods</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/basic_examples.html">Basic Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_from_surface.html">Strands from Grid Surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/strands_from_grid_profile.html">Strands From Grid Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/strands_from_prism_profile.html">Strands From Prism Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_with_track_mesh.html">Hair with Track Mesh</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/hair_drawing.html">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/short_hair.html">Short Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="main_workflows/shell_hair.html">Shell Hair</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="convert_hair.html">Convert Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_modeling.html">Hair Modeling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_sculpting.html">Hair Sculpting</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Curve tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#radius-section">Radius Section</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tilt-section">Tilt Section</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utils-section">Utils Section</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-section">Other Section</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#separate-join-curves">Separate / Join Curves</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#slice-using-mesh">Slice Using Mesh</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generate-ambient-occlusion">Generate Ambient Occlusion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-roots">Project Roots</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-normals">Sample Normals</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#select-tipsroots">Select Tips/Roots</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shape-keys">Shape Keys</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#curves-shape-keys">Curves Shape Keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transfer-shape-keys-to-mesh">Transfer Shape Keys to Mesh</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="mesh_ribbons_ops.html">Mesh tools</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baking Textures</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="texture_baking.html">Baking Textures</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_library.html">Hair Library</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_animation.html">Rigging and Animation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="character_creator_workflow.html">Character Creator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Hair Tool 4</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Tools</li>
+      <li class="breadcrumb-item active">Curve tools</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="curves-operations">Curves operations:<a class="headerlink" href="#curves-operations" title="Permanent link">&para;</a></h2>
+<p>Here I will describe all operators that are available in the bottom part of Hair Tool pie menu (Ctrl+Shift+H - by default). Or from right Sidebar in Hair Operations tab.</p>
+<blockquote>
+<p><strong>Note1:</strong> All these tools will work with selections made with <a href="hair_modeling.html"><strong>Hair Modeling</strong></a> tools
+<strong>Note2:</strong> Quite often all hair curves are generated procedurally. This mean tools below wont work, since there are no real curves to operate on. There is option in Hair System to <a href="main_workflows/hair_system.html#bake">Bake generated Curves to real geometry</a></p>
+</blockquote>
+<h3 id="radius-section">Radius Section<a class="headerlink" href="#radius-section" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/Radius_section.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+
+<p><strong>Radius Multiply</strong> multiply radius of selected curves by given value
+<strong>Set Multiply</strong> set radius of selected curves to given value
+<strong>Taper Curve</strong> use curve mapping to change radius of selected curves</p>
+<h3 id="tilt-section">Tilt Section<a class="headerlink" href="#tilt-section" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/tilt_tools.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+
+<p><strong>Tilt Add</strong> adds titl to existing curve tilt value
+<strong>Set Tilt</strong> set tilt of selected curves to given value
+<strong>Align Tilt</strong> Align Tilt (to Target - if set, or to curves Surface object)
+<strong>Randomize Tilt</strong> Randomize tilt of selected curves (between 'Max Tilt Angle', and 'Min Tilt')</p>
+<h3 id="utils-section">Utils Section<a class="headerlink" href="#utils-section" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/utils_section.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+
+<p><strong>Smooth Attribute</strong> smooth: radius, tilt or position of selected curves</p>
+<p><strong>Hair Straighten</strong> straighten selected curves (with adjustable transition)</p>
+<p><strong>Adjust Length</strong> set length of selected curves to given value (they can be extended above 100% too)</p>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/curve_simplify.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+<p><em><strong>Curve Simplify</strong> Allows to reduce point count. Good for reducing polycount on hairs</em></p>
+<p><img alt="Resample Curve" src="img/resamplecurve_new.gif" />
+<em><strong>Resample Curve</strong>. Allows to increase/decrease number of points each curve is made of</em></p>
+<p><strong>Parameters (F9):</strong></p>
+<ul>
+<li><strong>Points per strand</strong> - How many points each spline will have after resampling</li>
+<li><strong>Offset to tip</strong> - Move spline points more toward tip</li>
+<li><strong>Offset to root</strong> - Move spline points more toward root</li>
+<li><strong>Equal point count</strong> - When disabled, shorter splines will have less points</li>
+<li><strong>Uniform Spacing</strong> - Equalize distance between points when resampling</li>
+</ul>
+<video style="width:100%" controls>
+  <source src="../video/hair_straighten.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Straighten Curve</strong> old demo from HTool 2.46 (works same way in HT 3.0 - except on new hair curves)</em></p>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/interpolate_strands.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+<p><em><strong>Interpolate Strands</strong> Generate extra strands in between selected curves</em></p>
+<h3 id="other-section">Other Section<a class="headerlink" href="#other-section" title="Permanent link">&para;</a></h3>
+<h4 id="separate-join-curves">Separate / Join Curves<a class="headerlink" href="#separate-join-curves" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+  <source src="../img/curve_tools/separate_join.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p><em><strong>Separate / Join Curves</strong> - This works in Object Mode, Curve Edit mode and Sculpt Mode</em></p>
+<h4 id="slice-using-mesh">Slice Using Mesh<a class="headerlink" href="#slice-using-mesh" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+  <source src="../video/SliceWithMesh.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p><em><strong>Slice Using Mesh</strong> - you can cut curves using mesh (same as in HTool 2.46)</em></p>
+<h4 id="generate-ambient-occlusion">Generate Ambient Occlusion<a class="headerlink" href="#generate-ambient-occlusion" title="Permanent link">&para;</a></h4>
+<p>It will add, geometry-nodes based, Ambient Occlusion vertex color attribute, called <code>AO</code>, to your object.</p>
+<video style="width:100%" controls>
+  <source src="../video/ao_gen.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>By default, <code>AO</code> attribute node is connected into 'Vert Color AO' input in <a href="uv_material.html#attributes">HairShader</a>. To see the effect set 'AO Mix Factor' to 1</em></p>
+<blockquote>
+<p><strong>Note:</strong> AO modifier is heavy on performance, so use it only when needed.</p>
+</blockquote>
+<p>Parameters:</p>
+<ul>
+<li><strong>Samples</strong> - how many samples to use for AO calculation (more samples = better quality, but slower)</li>
+<li><strong>Base Color Value</strong> - bounced light color (default is black - full occlusion)</li>
+<li><strong>Spread Angle</strong> - how much to spread AO rays around vert normal (default 60 degrees)</li>
+<li><strong>Blur Steps</strong> - smooth out the generated vertex color AO attribute (default 1)</li>
+<li><strong>First Bounce Factor</strong> -- how much to mix first bounce AO with second bounce AO (default 0.6)</li>
+<li><strong>Second Bounce Factor</strong> - how much to mix second bounce AO with first bounce AO (default 0.4)</li>
+<li><strong>Use Additional Mesh</strong> - if enabled, you can select additional mesh object to use for AO calculation (useful when you want to bake shadows from character body onto hair)</li>
+<li><strong>Inflate External Object</strong> - helps avoid dark shadows on hair cast by 'Additional Mesh' by slightly shrinking that mesh (default -0.005 - shrinks character by 0.5 cm)</li>
+<li><strong>AO Attribute Name</strong> - name of the vertex color attribute to create (default is <code>AO</code>)</li>
+<li><strong>Write AO to Alpha</strong> - if enabled, it will write AO value to alpha channel of the vertex color attribute (default is disabled)</li>
+</ul>
+<p>For more details see <a href="https://youtu.be/W8zZygHCDEQ?t=149">this YT Video</a> (3 min length, starting at 2:30)</p>
+<h4 id="project-roots">Project Roots<a class="headerlink" href="#project-roots" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+  <source src="../video/project_roots.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>This will add a modifier that projects hair profile (mesh) roots along the strand tangent direction onto the target mesh surface</em></p>
+<p>Parameters:</p>
+<ul>
+<li><strong>Target Object</strong> - object to project hair profile roots onto</li>
+<li><strong>Factor</strong> - how far to project roots (0.0 = no projection, 1.0 = full projection)</li>
+<li><strong>Push Out</strong> - helps to lift hair profile roots slightly above target mesh surface, to avoid clipping</li>
+<li><strong>Ray Length</strong> - how far to cast rays from hair profile roots to target mesh surface (along strand tangent direction)</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> This modifier works on mesh (hair profile). Its good idea to use <a href="main_workflows/hair_deformers.html#embed-roots">Embed Roots</a> deformer first, to move strand  roots closer to target mesh surface, before applying this modifier.</p>
+</blockquote>
+<h4 id="sample-normals">Sample Normals<a class="headerlink" href="#sample-normals" title="Permanent link">&para;</a></h4>
+<p>Use to sample normal's from mesh object and save them as a color attribute called <code>SAMPLED_NORM</code>. It support 'Blend Distance' parameter, which allows you to define the range of the effect<br>
+When hair is <a href="convert_hair.html#convert-hair-to-mesh">converted to mesh</a>, this attribute will be automatically converted into custom mesh normal.</p>
+<video style="width:100%" controls>
+  <source src="../video/norm_sammple.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>To use <code>SAMPLED_NORM</code> attribute in shader, you have to set 'Mix Sampled Normals' to 1 in 'HTool_Normal' node, in your hair material</em></p>
+<p>Parameters:</p>
+<ul>
+<li><strong>Object</strong> - object to sample normals from</li>
+<li><strong>Blend Distance</strong> - distance within which we should use sampled normals (default 0.1 - 10 cm)</li>
+<li><strong>Blend Fade</strong> - controls the transition between sampled normals and hair normals (default 1.0 - smooth transition)</li>
+</ul>
+<h3 id="select-tipsroots">Select Tips/Roots<a class="headerlink" href="#select-tipsroots" title="Permanent link">&para;</a></h3>
+<p>Available in Curve Edit mode at the bottom of Select menu</p>
+<video style="width:100%" controls>
+  <source src="../video/select_tips.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Select Tips/Roots</strong> - lets you select first/last points on curves. You have option to randomize selection, or limit it by strand length.</em></p>
+<h3 id="shape-keys">Shape Keys<a class="headerlink" href="#shape-keys" title="Permanent link">&para;</a></h3>
+<h4 id="curves-shape-keys">Curves Shape Keys<a class="headerlink" href="#curves-shape-keys" title="Permanent link">&para;</a></h4>
+<p>Hair Tool comes with feature that resembles mesh Shape Keys, but for hair curves. It is targeted for new hair curves, and it creates snapshots of curve points positions. These snapshots can be loaded at any time using checkbox icon.</p>
+<p>Location: curve 'Data' tab &gt; 'Curves Shape Keys' panel.</p>
+<video style="width:100%" controls>
+  <source src="../video/ht_shapes.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><a href="main_workflows/hair_deformers.html#track-to-curve">Track To Curve</a> deformer, is automatically creating bind position shapshot. With it you can bring your curve back to original (bind) shape at any time. Similar workflow is possible with built-in mesh shapekeys and <a href="main_workflows/hair_deformers.html#track-to-mesh">Track to Mesh</a></em></p>
+<h4 id="transfer-shape-keys-to-mesh">Transfer Shape Keys to Mesh<a class="headerlink" href="#transfer-shape-keys-to-mesh" title="Permanent link">&para;</a></h4>
+<p>Location: curve 'Data' tab &gt; 'Curves Shape Keys' panel.</p>
+<video style="width:100%" controls>
+  <source src="../video/transfer_shape_keys.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p><em>Select <code>Mesh hair</code>, then <code>Curve Hair</code> object (they have to have same topology - vert, edge, face count) and then  click 'Transfer Shape Keys' to bake hair deformation into mesh shape-key</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="hair_sculpting.html" class="btn btn-neutral float-left" title="Hair Sculpting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="mesh_ribbons_ops.html" class="btn btn-neutral float-right" title="Mesh tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="hair_sculpting.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="mesh_ribbons_ops.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
