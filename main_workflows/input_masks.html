@@ -96,6 +96,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#procedural-mask">Procedural Mask</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uv-scale-difference">UV Scale Difference</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#viewport-mask">Viewport Mask</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#influence-range">Influence Range</a>
@@ -371,6 +373,16 @@ Your browser does not support the video tag.
 <li>Distort - distorts the noise,</li>
 <li>Offset - offset the noise sampling position</li>
 </ul>
+<h4 id="uv-scale-difference">UV Scale Difference<a class="headerlink" href="#uv-scale-difference" title="Permanent link">&para;</a></h4>
+<p>This is very specyfic input mask that should be only used with <a href="hair_system.html#strands-from-2d-uv-pattern">Strands From UV</a> generator. This generator allows you to increase hair density in places where UV was scaled up. We can use the same UV scale information to reduce radius of strands in denser places using <strong>UV Scale Difference</strong> mask.<br>
+Second helper UV map is needed, with uniformly scaled faces, to calculate size difference between scaled up and 'uniform' uvs.</p>
+<video style="width:100%" controls>
+ <source src="../img/geo_nodes_hair/uv_diff_input_mask.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+ </video>
+<blockquote>
+<p><strong>UV Scale Difference</strong>: Mask an effect based on the difference of two UV map areas: <code>UVMap</code> and <code>UNIFORM</code></p>
+</blockquote>
 <h4 id="viewport-mask">Viewport Mask<a class="headerlink" href="#viewport-mask" title="Permanent link">&para;</a></h4>
 <p>You can mask hair effects based on whether the object is displayed in the viewport or rendered in the final image.</p>
 <video style="width:100%" controls>
