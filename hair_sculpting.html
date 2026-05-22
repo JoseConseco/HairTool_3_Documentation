@@ -96,9 +96,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#selection-by-island">Selection By Island</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#helpers-unhide">Helpers (un)Hide</a>
-    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hide-reveal-strands">Hide / Reveal Strands</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#editing-curve-attributes">Editing Curve Attributes</a>
     </li>
@@ -149,7 +149,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="manual-hair-modeling">Manual Hair Modeling<a class="headerlink" href="#manual-hair-modeling" title="Permanent link">&para;</a></h2>
+                <h3 id="manual-hair-modeling">Manual Hair Modeling<a class="headerlink" href="#manual-hair-modeling" title="Permanent link">&para;</a></h3>
 <p>Blender has built-in 'Sculpt Mode' for hair modeling (better name for it would be 'Groom Mode').<br>
 In this mode you can select and edit hair strands. To access brush tools: use [T] - key.</p>
 <p>Hair Tool <a href="hair_modeling.html">Hair Modeling</a> tool is also available in 'Sculpt Mode' (search for last icon in the [T] toolbar)</p>
@@ -159,8 +159,8 @@ Your browser does not support the video tag.
 </video>
 <p><em>Editing may bit slow, since on every edit, whole hair system is being reevaluated</em></p>
 <p>This combined with Selection Groups, allows for very powerful and flexible workflow.</p>
-<h3 id="strands-selection">Strands Selection<a class="headerlink" href="#strands-selection" title="Permanent link">&para;</a></h3>
-<h4 id="selection-groups">Selection Groups<a class="headerlink" href="#selection-groups" title="Permanent link">&para;</a></h4>
+<h4 id="strands-selection">Strands Selection<a class="headerlink" href="#strands-selection" title="Permanent link">&para;</a></h4>
+<h5 id="selection-groups">Selection Groups<a class="headerlink" href="#selection-groups" title="Permanent link">&para;</a></h5>
 <p>Selection Groups allow you to assign a unique identifier to individual strands, making it easy to re-select them later.</p>
 <video style="width:100%" controls>
 <source src="./img/geo_nodes_hair/selection_groups.mp4" type="video/mp4">
@@ -175,7 +175,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Selection Group From Island - it will assign group ID to each strand, where ID will depend on the mesh island strands originated from.</em></p>
-<h4 id="selection-by-island">Selection By Island<a class="headerlink" href="#selection-by-island" title="Permanent link">&para;</a></h4>
+<h5 id="selection-by-island">Selection By Island<a class="headerlink" href="#selection-by-island" title="Permanent link">&para;</a></h5>
 <p>If hair source surface (scalp) is divided into several sections, you can select hair strands that come from a specific section (mesh island).</p>
 <video style="width:100%" controls>
 <source src="./img/geo_nodes_hair/select_by_island.mp4" type="video/mp4">
@@ -185,7 +185,7 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: instead of splitting the edges physically, you can use the <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html"><strong>Edges split</strong></a> modifier. First <a href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/edge/edge_data.html#bpy-ops-mesh-mark-sharp">mark edge as sharp</a></p>
 </blockquote>
-<h4 id="helpers-unhide">Helpers (un)Hide<a class="headerlink" href="#helpers-unhide" title="Permanent link">&para;</a></h4>
+<h4 id="hide-reveal-strands">Hide / Reveal Strands<a class="headerlink" href="#hide-reveal-strands" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="./img/geo_nodes_hair/hsystem_un_hide.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -196,7 +196,7 @@ Your browser does not support the video tag.
 <li>Alt+H - will reveal hidden strands</li>
 </ul>
 <hr />
-<h3 id="editing-curve-attributes">Editing Curve Attributes<a class="headerlink" href="#editing-curve-attributes" title="Permanent link">&para;</a></h3>
+<h4 id="editing-curve-attributes">Editing Curve Attributes<a class="headerlink" href="#editing-curve-attributes" title="Permanent link">&para;</a></h4>
 <p>Hair Tool brings you ability to edit curve attributes using built-in 'Paint Selection' brush.</p>
 <p><img alt="Edit Curve Attribute" src="img/edit_curve_attr.jpeg" />
     <em>Editing curve attributes in curve sculpt mode (under Ctrl+Shift+H pie menu)</em></p>
