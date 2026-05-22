@@ -58,13 +58,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#color-attribute">Color Attribute</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#influence-range-mask">Influence Range Mask</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#influence-range-mask_1">Influence Range Mask</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#curve-attribute">Curve Attribute</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#curve-attribute">Curve Attribute</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#edge-mask">Edge Mask</a>
         <ul>
@@ -73,6 +67,8 @@
     <li class="toctree-l3"><a class="reference internal" href="#edge-attribute-distance">Edge Attribute Distance</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#influence-range-mask">Influence Range Mask</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#invert">Invert</a>
     </li>
@@ -220,29 +216,7 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Color Attribute</strong>:  use vertex color attribute to mask hair effects. If multiple channels are used, then the average value is used for masking.</p>
 </blockquote>
-<h4 id="influence-range-mask">Influence Range Mask<a class="headerlink" href="#influence-range-mask" title="Permanent link">&para;</a></h4>
-<h5 id="influence-range-mask_1">Influence Range Mask<a class="headerlink" href="#influence-range-mask_1" title="Permanent link">&para;</a></h5>
-<p>Similar to <a href="#influence-range">Influence Range</a> input mask but can be assigned to any parameter of deformer.</p>
-<video style="width:100%" controls>
-<source src="../img/geo_nodes_hair/curve_influence_range.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>We use Quadratic falloff mask to control <a href="hair_deformers.html#duplicate-strands">Duplicate Strands</a> deformer generation radius</em></p>
-<video style="width:100%" controls>
-<source src="../video/influence_range_input_mask.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>In this example we use <code>Simple</code> falloff to adjust <a href="hair_deformers.html#noise">Noise</a> deformer frequency - we increase it towards the tip of the strand</em></p>
-<ul>
-<li><strong>Simple</strong> - gradient that goes from 0 to 1, with customizable blend falloff. Can be inverted.</li>
-<li><strong>Root to Tip</strong> - Simple linear blend between: Root value and Tip value</li>
-<li><strong>Root to Tip with Falloff</strong> - like above, but with additional falloff control (blend is no longer linear)</li>
-<li><strong>Root &gt; Center &gt; Tip</strong> - gives you independent control over Root, Center and Tip values</li>
-</ul>
-<blockquote>
-<p><strong>Note:</strong> <a href="#influence-range">Influence Range</a> remains useful because it allows you to use "Profile Curve" masks, a feature not found in Curve Mask.</p>
-</blockquote>
-<h5 id="curve-attribute">Curve Attribute<a class="headerlink" href="#curve-attribute" title="Permanent link">&para;</a></h5>
+<h4 id="curve-attribute">Curve Attribute<a class="headerlink" href="#curve-attribute" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../video/attribute_edition.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -263,6 +237,28 @@ Your browser does not support the video tag.
 </blockquote>
 <h5 id="edge-attribute-distance">Edge Attribute Distance<a class="headerlink" href="#edge-attribute-distance" title="Permanent link">&para;</a></h5>
 <p>Same as above, but distance is calculated between: strand and edge with attribute (for example crease or sharp edges).</p>
+<hr />
+<h4 id="influence-range-mask">Influence Range Mask<a class="headerlink" href="#influence-range-mask" title="Permanent link">&para;</a></h4>
+<p>Similar to <a href="#influence-range">Influence Range</a> input mask but can be assigned to any parameter of deformer.</p>
+<video style="width:100%" controls>
+<source src="../img/geo_nodes_hair/curve_influence_range.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>We use Quadratic falloff mask to control <a href="hair_deformers.html#duplicate-strands">Duplicate Strands</a> deformer generation radius</em></p>
+<video style="width:100%" controls>
+<source src="../video/influence_range_input_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In this example we use <code>Simple</code> falloff to adjust <a href="hair_deformers.html#noise">Noise</a> deformer frequency - we increase it towards the tip of the strand</em></p>
+<ul>
+<li><strong>Simple</strong> - gradient that goes from 0 to 1, with customizable blend falloff. Can be inverted.</li>
+<li><strong>Root to Tip</strong> - Simple linear blend between: Root value and Tip value</li>
+<li><strong>Root to Tip with Falloff</strong> - like above, but with additional falloff control (blend is no longer linear)</li>
+<li><strong>Root &gt; Center &gt; Tip</strong> - gives you independent control over Root, Center and Tip values</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> <a href="#influence-range">Influence Range</a> remains useful because it allows you to use "Profile Curve" masks, a feature not found in Curve Mask.</p>
+</blockquote>
 <hr />
 <h4 id="invert">Invert<a class="headerlink" href="#invert" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
@@ -374,7 +370,7 @@ Your browser does not support the video tag.
 <li>Offset - offset the noise sampling position</li>
 </ul>
 <h4 id="uv-scale-difference">UV Scale Difference<a class="headerlink" href="#uv-scale-difference" title="Permanent link">&para;</a></h4>
-<p>This is very specyfic input mask that should be only used with <a href="hair_system.html#strands-from-2d-uv-pattern">Strands From UV</a> generator. This generator allows you to increase hair density in places where UV was scaled up. We can use the same UV scale information to reduce radius of strands in denser places using <strong>UV Scale Difference</strong> mask.<br>
+<p>This is very specific input mask that should be only used with <a href="hair_system.html#strands-from-2d-uv-pattern">Strands From UV</a> generator. This generator allows you to increase hair density in places where UV was scaled up. We can use the same UV scale information to reduce radius of strands in denser places using <strong>UV Scale Difference</strong> mask.<br>
 Second helper UV map is needed, with uniformly scaled faces, to calculate size difference between scaled up and 'uniform' uvs.</p>
 <video style="width:100%" controls>
  <source src="../img/geo_nodes_hair/uv_diff_input_mask.mp4" type="video/mp4">
