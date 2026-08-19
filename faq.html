@@ -122,6 +122,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-do-i-export-hair">How do I export hair?</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#invalid-asset-metadata-error">Invalid Asset Metadata error</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-do-i-export-hair_1">How do I export hair?</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-do-i-export-hair-texture">How do I export hair texture?</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-do-i-animate-hair">How do I animate Hair?</a>
@@ -261,6 +265,17 @@ Your browser does not support the video tag.
 </video>
 <p><em>Usee <a href="main_workflows/hair_deformers.html#embed-roots">Embed Roots</a> deformer to move hair-curves roots closer to character mesh. Then usee <a href="curve_tool.html#project-roots">Project Roots</a> deformer to project hair profile (mesh) roots onto character surface</em></p>
 <h3 id="how-do-i-export-hair">How do I export hair?<a class="headerlink" href="#how-do-i-export-hair" title="Permanent link">&para;</a></h3>
+<p>Hair generated in Hair Tool can be exported just like any other mesh (File &gt; Export &gt; FBX). Just make sure to <a href="convert_hair.html#convert-hair-to-mesh">Convert Curves to Mesh</a> hair first.</p>
+<h3 id="invalid-asset-metadata-error">Invalid Asset Metadata error<a class="headerlink" href="#invalid-asset-metadata-error" title="Permanent link">&para;</a></h3>
+<p>Hair Tool uses few geometry-node based operators. By default these operators are stored in addon folder:</p>
+<ul>
+<li>./addons/hair_tool/ht_nodes_tools/hair_operators.blend.</li>
+</ul>
+<p>To make Blender 'see' these assets we have to go to add then in: Preferences &gt; Asset Libraries &gt; Add Library and point it to this folder.
+Hair Tool will add this entry automatically, but sometimes, for example after Blender update, this library may become invalid. In that case you can fix that path by going to Hair Tool Preferences &gt; Options and use:</p>
+<p><img alt="Invalid Asset Metadata error" src="img/faq/hair_assets_fix.jpg" />
+<em>This will reset the Asset Library path to the default one</em></p>
+<h3 id="how-do-i-export-hair_1">How do I export hair?<a class="headerlink" href="#how-do-i-export-hair_1" title="Permanent link">&para;</a></h3>
 <p>Hair generated in Hair Tool can be exported just like any other mesh (File &gt; Export &gt; FBX). Just make sure to <a href="convert_hair.html#convert-hair-to-mesh">Convert Curves to Mesh</a> hair first.</p>
 <h3 id="how-do-i-export-hair-texture">How do I export hair texture?<a class="headerlink" href="#how-do-i-export-hair-texture" title="Permanent link">&para;</a></h3>
 <p>If you are using default Hair Tool hair material, then it is using just one texture - alpha mask. You can export it from UV Editor (or Image Editor) &gt; Image menu &gt; Save as:
