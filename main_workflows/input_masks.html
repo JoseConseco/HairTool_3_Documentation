@@ -86,6 +86,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#offsetgain">Offset/Gain</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#periodic-selection">Periodic Selection</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#randomize">Randomize</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#remap">Remap</a>
@@ -288,19 +290,14 @@ Your browser does not support the video tag.
 <li>Swapping Min and Max values will invert the effect</li>
 </ul>
 <h4 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h4>
-<p>Can be used to <a href="hair_deformers.html#push-out">Push Out</a> every second strand, or to create a mask that will be applied to every N-th strand.</p>
+<p>Use Power function to affect mask transition in non-linear way (unlike <a href="#offsetgain">Offset Gain</a> - where gain behaves as simple multiplier)</p>
 <video style="width:100%" controls>
 <source src="../video/math_input_mask.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <blockquote>
-<p><strong>Math Mask</strong>: Mostly useful for sorted strands, e.g.  <a href="hair_system.html#strands-from-grid-surface">Strands From Grid Surface</a></p>
+<p>Here we adjust boundary brightness using  <strong>Math Mask</strong> together with <a href="#border-edge-distance">Border Edge Distance</a> input mask.</p>
 </blockquote>
-<ul>
-<li><strong>Select N-th</strong> - select every N-th strand periodically: _ | _ | _</li>
-<li><strong>Wrap</strong> - slowly increase the mask value from 0 to 1, repeat periodically: /|/|/|</li>
-<li><strong>Ping-Pong</strong> - change mask value from 0 to 1 and back to 0, repeat periodically: /\/\/\</li>
-</ul>
 <h4 id="mesh-distance">Mesh Distance<a class="headerlink" href="#mesh-distance" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../img/geo_nodes_hair/mask_mesh_distance.mp4" type="video/mp4">
@@ -334,8 +331,21 @@ Your browser does not support the video tag.
 </video>
 <blockquote>
 <p><strong>Mask Offset Gain</strong>: Not useful by itself, but placed after another mask, it can increase the mask contrast (gain) or brightness (offset)</p>
-<p><strong>Randomize</strong>: Outputs random value for each strand.</p>
 </blockquote>
+<h4 id="periodic-selection">Periodic Selection<a class="headerlink" href="#periodic-selection" title="Permanent link">&para;</a></h4>
+<p>Can be used to <a href="hair_deformers.html#push-out">Push Out</a> every second strand, or to create a mask that will be applied to every N-th strand.</p>
+<video style="width:100%" controls>
+<source src="../video/periodic_selection_input_mask.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Periodic Selection</strong>: Mostly useful for sorted strands, e.g.  <a href="hair_system.html#strands-from-grid-surface">Strands From Grid Surface</a></p>
+</blockquote>
+<ul>
+<li><strong>Select N-th</strong> - select every N-th strand periodically: _ _ . _ _ . _ _ .</li>
+<li><strong>Wrap</strong> - slowly increase the mask value from 0 to 1, repeat periodically: /|/|/|</li>
+<li><strong>Ping-Pong</strong> - change mask value from 0 to 1 and back to 0, repeat periodically: /\/\/\</li>
+</ul>
 <h4 id="randomize">Randomize<a class="headerlink" href="#randomize" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
 <source src="../img/geo_nodes_hair/mask_randomize.webm" type="video/mp4">
