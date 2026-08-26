@@ -151,7 +151,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="strands_from_prism_profile.html">Strands From Prism Profile</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="hair_with_track_mesh.html">Hair with Track Mesh</a>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_with_track_mesh.html">Glue Strands to Guide Mesh</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="hair_drawing.html">Drawing hair</a>
                   </li>
@@ -282,14 +282,14 @@ Your browser does not support the video tag.
 <source src="../video/strands_on_mesh_parts.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>When used on edges it looks similar to <a href="short_hair.html">Short Hair</a>. Especially if you combine it with <a href="hair_deformers.html#track-to-mesh">Track to Mesh</a> deformer</em></p>
+<p><em>When used on edges it looks similar to <a href="short_hair.html">Short Hair</a>. Especially if you combine it with <a href="hair_deformers.html#glue-to-mesh">Glue to Mesh</a> deformer</em></p>
 <h4 id="strands-from-2d-uv-pattern">Strands from 2D UV Pattern<a class="headerlink" href="#strands-from-2d-uv-pattern" title="Permanent link">&para;</a></h4>
 <p>Strands will be distributed in 2D UV space based on one of 5 selected preset patterns. Mesh (scalp) with UVs is required for it to work. Useful for creating feathers, scales and uniformly distributed hair (beards and other short hair).</p>
 <video style="width:100%" controls>
 <source src="../img/geo_nodes_hair/strands_on_uv_feathers.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>Demo of 'Strand from UV' + <a href="hair_deformers.html#track-to-mesh">Track to Mesh deformer</a>. Base 'Strand Generator' is no good. It is too random for feathers, which typically follow a more regular, tile-like distribution pattern</em></p>
+<p><em>Demo of 'Strand from UV' + <a href="hair_deformers.html#glue-to-mesh">Glue to Mesh deformer</a>. Base 'Strand Generator' is no good. It is too random for feathers, which typically follow a more regular, tile-like distribution pattern</em></p>
 <p><strong>Parameters:</strong></p>
 <p><strong>Distribution Pattern</strong> - 5 preset patterns to choose from:</p>
 <p><img alt="UV points distributions" src="../img/geo_nodes_hair/strands_uv_distribution_list.jpg" />
@@ -358,7 +358,7 @@ If you select existing hair object with profile, then you can use <a href="stran
 <source src="../video/gen_strands_on_mesh_border.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In video above we combine this strand generator with <a href="hair_deformers.html#track-to-curve">Track To Curve</a> deformer. Scalp mesh is using Mirror modifier - that is why the strands are also spawned on center line</em></p>
+<p><em>In video above we combine this strand generator with <a href="hair_deformers.html#glue-to-curve">Glue To Curve</a> deformer. Scalp mesh is using Mirror modifier - that is why the strands are also spawned on center line</em></p>
 <p><strong>Border Offset</strong> move strands away from the border edge. You can randomize it to get more natural hairline look<br>
 <strong>Trim Ends</strong> - use to prevent strands spawning on the border edges endings - see 'Split Corner Angle' parameter below<br>
 <strong>Split Corner Angle</strong> - scalp from video above has some sharp corners. This parameter will help to split these corners into two edges, so that you can trim them with 'Trim Ends' parameter.<br>

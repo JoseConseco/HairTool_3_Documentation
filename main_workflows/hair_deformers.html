@@ -94,6 +94,14 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#glue-to">Glue To:</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#glue-to-mesh">Glue to Mesh</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#glue-to-curve">Glue to Curve</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#instance-on-strand">Instance on Strand</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#merge-strands">Merge Strands</a>
@@ -148,6 +156,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#roll-strands">Roll Strands</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sample-mesh-island">Sample Mesh Island</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#scale">Scale</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#slide-points">Slide Points</a>
@@ -178,14 +188,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#track-to">Track To:</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#track-to-mesh">Track to Mesh</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#track-to-curve">Track to Curve</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#trim">Trim</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#trim-by-mesh">Trim by Mesh</a>
@@ -213,7 +215,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="strands_from_prism_profile.html">Strands From Prism Profile</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="hair_with_track_mesh.html">Hair with Track Mesh</a>
+                  <li class="toctree-l1"><a class="reference internal" href="hair_with_track_mesh.html">Glue Strands to Guide Mesh</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="hair_drawing.html">Drawing hair</a>
                   </li>
@@ -382,6 +384,54 @@ Your browser does not support the video tag.
 <li>Add some randomization with <a href="hair_deformers.html#noise">Noise</a> deformer and <a href="hair_deformers.html#uv-region-distribute">UV Region Distribute</a> deformer</li>
 </ul>
 <p>This should make it more volumetric looking, since braid will be made from multiple textured haircards, rather than single one.</p>
+<h4 id="glue-to">Glue To:<a class="headerlink" href="#glue-to" title="Permanent link">&para;</a></h4>
+<p>These modifiers allow you to model hair by sculpting a guide mesh or curve, to which the hair tips will be attached/glued. This is particularly useful for shorter hairstyles such as beards, eyebrows, and shaved sides.</p>
+<h5 id="glue-to-mesh">Glue to Mesh<a class="headerlink" href="#glue-to-mesh" title="Permanent link">&para;</a></h5>
+<p><strong>This feature 'glues' hair tips to a target mesh object</strong>. First, position the Glueed mesh object (its origin) near the hair. Then press the <code>Bind Glue Mesh</code> button to prevent hair tips from sliding and attach hair tips to guide mesh. After binding, you can edit or sculpt the Glueed object, and the hair tips will follow it.</p>
+<video style="width:100%" controls>
+<source src="../img/geo_nodes_hair/track_to_mesh.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>If <code>Separate Target per Island</code> is enabled then only strands from the nearest mesh island (based on target origin location) will be affected</em></p>
+<p><strong>Settings</strong></p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../img/short_hair/straight_vs_bent.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<p><em><strong>Bend Factor</strong> - Controls whether strands are straight (0) or bent (1). Bending direction, length, and origin can be adjusted using the parameters below</em></p>
+<p><strong>Bend Target</strong> - Use: mesh normal (default) or strand tangent, to define the bending direction<br>
+<strong>Bend - Push Out</strong> - Controls the length of the <code>Bend Target</code> vector. Higher values increase the amount of bending<br></p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../img/short_hair/bent_shape.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<p><em><strong>Bend at Root/Tip Factor</strong> - place Bending Target vector origin at: root (0) or tip (1). Default: 0.5 bending is applied at center of strand</em>
+&nbsp;</p>
+<blockquote>
+<p><strong>Note</strong>: Closest active/affected island is determined by Glueed object origin. Move it to change 'active' island.</p>
+<p><strong>Note</strong>: For non-destructive workflow it is good idea to manually create 'bind' shape-key, just after 'Bind Glue Mesh' button is pressed. Then work on new 'Deform' shape-key. If you do not like the edits, you can always go back to 'bind' shape-key.</p>
+</blockquote>
+<h5 id="glue-to-curve">Glue to Curve<a class="headerlink" href="#glue-to-curve" title="Permanent link">&para;</a></h5>
+<p>Similar to 'Glue to Mesh', but it will 'glue' hair tips to target curve object.</p>
+<video style="width:100%" controls>
+<source src="../img/geo_nodes_hair/track_to_curve.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Use <code>Bind</code> button to prevets hair tips from 'sliding' on Glueed curve surface</em></p>
+<video style="width:100%" controls>
+  <source src="../video/cornrows_example.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p><em>Demo of 'Cornrows' feature with Glue to Curve deformer. In this case the 'Samples Count' parameter defines density of 'cornrows'</em></p>
+<blockquote>
+<p><strong>Note</strong>: Closest active/affected island is determined by Glueed object origin. Move it to change 'active' island.</p>
+<p><strong>Note</strong>: Hair Tool <a href="../curve_tool.html#shape-keys">Curve Shape Keys</a> can be used to switch between 'bind' and 'deform' shape. This way you can work on non-destructive way, and restore original 'bind' shape at any time.</p>
+</blockquote>
+<video style="width:100%" controls>
+<source src="../img/geo_nodes_hair/corns.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Second example of making 'Cornrows' hairstyle with Glue to Curve deformer</em></p>
 <h4 id="instance-on-strand">Instance on Strand<a class="headerlink" href="#instance-on-strand" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../img/geo_nodes_hair/hsys_instance_on_strand.mp4" type="video/mp4">
@@ -400,6 +450,15 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Mirror hair, with optional option of bisect (remove one half of hair first, then mirror the remaining part)</em></p>
+<ul>
+<li><strong>Bisect</strong>: Remove one half of hair (left or right) before mirroring</li>
+<li><strong>Flip</strong>: Flip the Bisect direction</li>
+<li><strong>Bisect Distance</strong>: Distance from the center line to remove hair</li>
+<li><strong>Bisect Clear Mode</strong>: Clear hair from the bisect area, otherwise move it exactly onto center line</li>
+<li><strong>Mirror Target</strong> Use Custom Object for mirroring axis.</li>
+<li><strong>Recalculate Parent</strong> Mirror can break the parent relationship, so this option will try to recalculate and find new closest parent strand.</li>
+<li><strong>Recalculate Source Mesh Island</strong>: See <a href="#sample-mesh-island">Sample Mesh Island</a></li>
+</ul>
 <h4 id="move-inout-of-surface">Move in/out of Surface<a class="headerlink" href="#move-inout-of-surface" title="Permanent link">&para;</a></h4>
 <h5 id="embed-roots">Embed Roots<a class="headerlink" href="#embed-roots" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
@@ -416,6 +475,10 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Pushes hair strands away from the surface. Use to preventing clipping through character geometr or adding volume for layered hair styles</em></p>
+<ul>
+<li><strong>Use Custom Target</strong> Instead of using the hair source mesh, use a custom mesh to push hair out of.</li>
+<li><strong>Mask by Source Island</strong>: Only push strands out of the mesh island surface they originally grew from. See <a href="#sample-mesh-island">Sample Mesh Island</a></li>
+</ul>
 <h5 id="attach-to-surface">Attach To Surface<a class="headerlink" href="#attach-to-surface" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
 <source src="../img/geo_nodes_hair/attach_to_surface.mp4" type="video/mp4">
@@ -427,7 +490,7 @@ Your browser does not support the video tag.
   <source src="../img/geo_nodes_hair/move_to_border.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In the video above, a source mesh is created using two half-sphere meshes. We use the "Move to Border" deformer to move the strands to the edge of this mesh. Then, we apply the 'Track To Mesh' deformer, to clump tips of strands together</em></p>
+<p><em>In the video above, a source mesh is created using two half-sphere meshes. We use the "Move to Border" deformer to move the strands to the edge of this mesh. Then, we apply the 'Glue To Mesh' deformer, to clump tips of strands together</em></p>
 <blockquote>
 <p><strong>Note</strong>: Often I like to move hair to border but only for strands that are within certain distance to the border. This can be done by using <a href="input_masks.html#border-edge-distance"><strong>Border Edge Distance</strong></a> input mask. This way we can keep some strands in the middle of the scalp, while moving others to the border.</p>
 </blockquote>
@@ -456,6 +519,7 @@ Your browser does not support the video tag.
 <p><em>Adding Uniofomr noise, to break up the straightness of the strands and then bit of 'Per Strands' noise to add some randomness to the strands</em></p>
 <ul>
 <li><strong>Global Scale</strong> - Scales overall noise effect. Default value 1.0 is good for default cube (2 meters in size). For human head (which is around 1/10th of its size) set it to 0.1</li>
+<li><strong>Noise Mask</strong> - Mask to control where the noise (both uniform and per-strand one) is applied.</li>
 <li><strong>Uniform Noise</strong> - it will give overall flow to the hair, breaking up the straightness of the strands.</li>
 <li><strong>Per Strands Noise</strong> - this will apply unique noise to each strand, giving it a more messy look.</li>
 <li><strong>Frequency</strong> - controls the detail of the noise. If set too high, it will make hair look 'bumpy' and unnatural.</li>
@@ -544,6 +608,22 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Similar to Blender build-in Roll. It has option to roll along sampled surface normal</em></p>
+<h4 id="sample-mesh-island">Sample Mesh Island<a class="headerlink" href="#sample-mesh-island" title="Permanent link">&para;</a></h4>
+<p>Use only if your Source mesh (scalp) is made from multiple, split mesh islands.</p>
+<p>Sampling Source Mesh Island ID is done automatically and this deformer usually is no needed.
+But in few rare occasions e.g. after using <a href="#mirror">Mirror Deformer</a> this attribute has to be resampled again - see example below.
+<img alt="Mirror vs Strand Source Mesh ID" src="../img/geo_nodes_hair/sample_mesh_islands.jpg" />
+<em>On Left we have scalp made from two mesh Islands left (1) and right (0). Strands growing from each side will receive corresponding Mesh Island ID. On Right: after using Mirror Deformer on strands, this attribute has become symmetrical, making it look like both strands grew from same Mesh Island number 1. Using <code>Sample Mesh Island</code> node we can fix this, and make strand source mesh ID match the original mesh island</em></p>
+<blockquote>
+<p><strong>Note</strong>: For convenience <a href="#mirror">Mirror Deformer</a> has now built-in option 'Recalculate Mesh Islands ID' making this Deformer not needed in this particular case.</p>
+</blockquote>
+<p>Few examples of things that can break if Source Mesh Island on hair strands to not match the Mesh Island ID from mesh (scalp) they originated from:</p>
+<ul>
+<li><strong>Push Out</strong> with 'Mask by Source Island' option</li>
+<li><strong>Align Tilt</strong> with 'Mask by Source Island' option</li>
+<li>Strand Generator Interpolation - if 'Use Mesh Islands Splits' is used.</li>
+</ul>
+<p>In all these cases the result will probably look wrong.</p>
 <h4 id="scale">Scale<a class="headerlink" href="#scale" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../img/geo_nodes_hair/scale.webm" type="video/mp4">
@@ -599,6 +679,7 @@ Your browser does not support the video tag.
 <p><em>Aligns hair normal to surface normal</em></p>
 <p><strong>Twist Fix</strong> if enabled, it will try to minimize twisting between two adjacent points, if their tilt angle is above 'Threshold' value.</p>
 <p><strong>Use Shortest Rotation</strong> attempts to minimize the rotation angle, but may cause some hair cards to face inward (see image below). This shouldn't be an issue if your hair shader is double-sided, though Blender has a known issue where back-faces render with flipped normals, making them appear darker.</p>
+<p><strong>Mask by Source Island</strong>: Only align strands to surface mesh island they originally grew from. See <a href="#sample-mesh-island">Sample Mesh Island</a></p>
 <p><img alt="Use Shortest Rotation" src="../img/geo_nodes_hair/align_tilt_shortest.jpg" />
 <em>No Tilt Alignment (left) | Align to Surface (middle) | Align with <code>Use Shortest Rotation</code>(right)</em></p>
 <h5 id="align-tilt-to-parent">Align Tilt to Parent<a class="headerlink" href="#align-tilt-to-parent" title="Permanent link">&para;</a></h5>
@@ -620,54 +701,6 @@ Your browser does not support the video tag.
 </video>
 <p><em>Align strands tilt to border of source surface (usually scalp). Backfaces are shown in blue</em></p>
 <p><strong>Force Align</strong> if checked, it will align curve and force curve normal to point outside border edge. If unchecked, tilt will be aligned to border, but curve normal will point with the 'flow' - see video above.</p>
-<h4 id="track-to">Track To:<a class="headerlink" href="#track-to" title="Permanent link">&para;</a></h4>
-<p>These modifiers allow you to model hair by sculpting a guide mesh or curve, to which the hair tips will be attached/glued. This is particularly useful for shorter hairstyles such as beards, eyebrows, and shaved sides.</p>
-<h5 id="track-to-mesh">Track to Mesh<a class="headerlink" href="#track-to-mesh" title="Permanent link">&para;</a></h5>
-<p><strong>This feature 'glues' hair tips to a target mesh object</strong>. First, position the tracked mesh object (its origin) near the hair. Then press the <code>Bind Track Mesh</code> button to prevent hair tips from sliding and attach hair tips to guide mesh. After binding, you can edit or sculpt the tracked object, and the hair tips will follow it.</p>
-<video style="width:100%" controls>
-<source src="../img/geo_nodes_hair/track_to_mesh.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>If <code>Separate Target per Island</code> is enabled then only strands from the nearest mesh island (based on target origin location) will be affected</em></p>
-<p><strong>Settings</strong></p>
-<video style="width:100%" controls autoplay loop>
-  <source src="../img/short_hair/straight_vs_bent.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-<p><em><strong>Bend Factor</strong> - Controls whether strands are straight (0) or bent (1). Bending direction, length, and origin can be adjusted using the parameters below</em></p>
-<p><strong>Bend Target</strong> - Use: mesh normal (default) or strand tangent, to define the bending direction<br>
-<strong>Bend - Push Out</strong> - Controls the length of the <code>Bend Target</code> vector. Higher values increase the amount of bending<br></p>
-<video style="width:100%" controls autoplay loop>
-  <source src="../img/short_hair/bent_shape.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-<p><em><strong>Bend at Root/Tip Factor</strong> - place Bending Target vector origin at: root (0) or tip (1). Default: 0.5 bending is applied at center of strand</em>
-&nbsp;</p>
-<blockquote>
-<p><strong>Note</strong>: Closest active/affected island is determined by Tracked object origin. Move it to change 'active' island.</p>
-<p><strong>Note</strong>: For non-destructive workflow it is good idea to manually create 'bind' shape-key, just after 'Bind Track Mesh' button is pressed. Then work on new 'Deform' shape-key. If you do not like the edits, you can always go back to 'bind' shape-key.</p>
-</blockquote>
-<h5 id="track-to-curve">Track to Curve<a class="headerlink" href="#track-to-curve" title="Permanent link">&para;</a></h5>
-<p>Similar to 'Track to Mesh', but it will 'glue' hair tips to target curve object.</p>
-<video style="width:100%" controls>
-<source src="../img/geo_nodes_hair/track_to_curve.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Use <code>Bind</code> button to prevets hair tips from 'sliding' on tracked curve surface</em></p>
-<video style="width:100%" controls>
-  <source src="../video/cornrows_example.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<p><em>Demo of 'Cornrows' feature with Track to Curve deformer. In this case the 'Samples Count' parameter defines density of 'cornrows'</em></p>
-<blockquote>
-<p><strong>Note</strong>: Closest active/affected island is determined by Tracked object origin. Move it to change 'active' island.</p>
-<p><strong>Note</strong>: Hair Tool <a href="../curve_tool.html#shape-keys">Curve Shape Keys</a> can be used to switch between 'bind' and 'deform' shape. This way you can work on non-destructive way, and restore original 'bind' shape at any time.</p>
-</blockquote>
-<video style="width:100%" controls>
-<source src="../img/geo_nodes_hair/corns.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Second example of making 'Cornrows' hairstyle with Track to Curve deformer</em></p>
 <h4 id="trim">Trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
   <source src="../img/geo_nodes_hair/trim.webm" type="video/mp4">
