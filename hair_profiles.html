@@ -85,14 +85,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#profile-menu">Profile Menu</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#profile-other-settings">Profile Other Settings</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#generate-attributes">Generate Attributes</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#simplify-strands">Simplify Strands</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#draw-source-mesh">Draw Source Mesh</a>
-    </li>
-        </ul>
     </li>
     </ul>
                   </li>
@@ -184,7 +176,7 @@ Your browser does not support the video tag.
 <li>receive profile geometry,</li>
 <li>UV data,</li>
 <li>Material,</li>
-<li><a href="#generate-attributes">UVs and vertex Colors</a> are sampled from source surface mesh,</li>
+<li><a href="#profile-other-settings">UVs and vertex Colors</a> are sampled from source surface mesh,</li>
 </ul>
 <p>Hair Tool will automatically assign default UVs and Material to new profile.</p>
 <p><img alt="Hair System UI" src="img/hsystem_setup_profile.jpeg" />
@@ -345,25 +337,37 @@ Your browser does not support the video tag.
 <p><em><strong>Mesh From UV Boxes</strong> Create multiple mesh objects, based on Hair System UV boxes/regions. Use these objects as target in: Hair System &gt; Profile Tab : <a href="#mesh-profile">Mesh Profile</a></em></p>
 <p><strong>UVs Menu</strong> - helper for copying and pasting profile UV_data, between Hair System profiles</p>
 <h3 id="profile-other-settings">Profile Other Settings<a class="headerlink" href="#profile-other-settings" title="Permanent link">&para;</a></h3>
-<p>This sub-section of Profile panel contains extra profile options (UV and Color Sampling, profile simplification etc.)</p>
-<h5 id="generate-attributes">Generate Attributes<a class="headerlink" href="#generate-attributes" title="Permanent link">&para;</a></h5>
-<p>Generate extra attributes that can be used in <a href="uv_material.html#default-hair-material">hair material</a>:</p>
+<p>This subsection contains extra Profile options like:</p>
 <ul>
-<li><strong>Tangent</strong> - required for proper specular highlights (only if you use Hair Tool hair material)</li>
-<li><strong>Factor</strong> - black and white gradient attribute along each strand length</li>
-<li><strong>Random</strong> - each haircard will get random grayscale color attribute</li>
-<li><strong>Sample UV</strong> - pick name of UV channel, that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair Material using <strong>Attribute Node</strong> with name <strong>SampledUV</strong></li>
-<li><strong>Sample Color</strong> - pick name of vertex Color that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair material using <strong>Attribute Node</strong> with name <strong>SampledColor</strong></li>
+<li><code>HT_Defautl_Material</code> material which will be used by haircards,</li>
+<li><code>UV_Data</code> object which holds UV Layout for haircards (see <a href="uv_material.html#editing-hair-uvs">Edit UV Layout</a>),</li>
+<li>Sampling for UV and Vertex Color,</li>
 </ul>
+<!-- ##### Generate Attributes -->
+<!---->
+<!-- Generate extra attributes that can be used in [hair material](uv_material.md#default-hair-material): -->
+<!---->
+<!--  * **Tangent** - required for proper specular highlights (only if you use Hair Tool hair material) -->
+<!--  * **Factor** - black and white gradient attribute along each strand length -->
+<!--  * **Random** - each haircard will get random grayscale color attribute -->
+<!--  * **Sample UV** - pick name of UV channel, that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair Material using **Attribute Node** with name **SampledUV** -->
+<!--  * **Sample Color** - pick name of vertex Color that you want transfer from Source Surface mesh to strands. This attribute can be then accessed in Hair material using **Attribute Node** with name **SampledColor** -->
+
+<p>Example of UV sampling from your base mesh to haircards:</p>
 <p><img alt="Generate Attributes" src="img/geo_nodes_hair/generate_attributes.jpg" />
 <em>In setup above we sample <code>UVMap</code> from sphere. This generates attribute named <code>SampledUV</code>, which can be used to color strands with same texture as character body</em></p>
-<h5 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-<source src="./img/geo_nodes_hair/simpilfy_strands.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Simplify Strands optimizes polycount of generated hair geometry, by assigning less points to shorter strands. This can easily cut polycount in half!</em></p>
-<h5 id="draw-source-mesh">Draw Source Mesh<a class="headerlink" href="#draw-source-mesh" title="Permanent link">&para;</a></h5>
+<p>Sampled Color is available in <a href="uv_material.html#default-hair-material">hair material</a> as <code>SampledColor</code> attribute</br>
+Sampled UV is available in <a href="uv_material.html#default-hair-material">hair material</a> as <code>SampledUV</code> attribute</p>
+<!-- ##### Simplify Strands -->
+<!-- <video style="width:100%" controls> -->
+<!-- <source src="./img/geo_nodes_hair/simpilfy_strands.webm" type="video/mp4"> -->
+<!-- Your browser does not support the video tag. -->
+<!-- </video> -->
+<!-- *Simplify Strands optimizes polycount of generated hair geometry, by assigning less points to shorter strands. This can easily cut polycount in half!* -->
+
+<ul>
+<li><strong>Draw Source Mesh</strong> - for hiding/revealing scalp mesh</li>
+</ul>
 <video style="width:100%" controls>
 <source src="./img/geo_nodes_hair/draw_source_mesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
