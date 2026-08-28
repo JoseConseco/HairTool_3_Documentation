@@ -94,6 +94,8 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Mesh tools</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#grid-deform-using-curves">Grid Deform Using Curves</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#add-weights">Add Weights</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#generate-gradient">Generate gradient</a>
@@ -151,13 +153,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="mesh-ribbon-operations">Mesh Ribbon operations:<a class="headerlink" href="#mesh-ribbon-operations" title="Permanent link">&para;</a></h2>
+                <h2 id="mesh-operations">Mesh operations:<a class="headerlink" href="#mesh-operations" title="Permanent link">&para;</a></h2>
+<h3 id="grid-deform-using-curves">Grid Deform Using Curves<a class="headerlink" href="#grid-deform-using-curves" title="Permanent link">&para;</a></h3>
+<p>This tool will allow you to deform your mesh using temporary curve guides. It works only on grid like meshes, where one of edges is marked as sharp, from which guides will grow. Very useful for tweaking:</p>
+<ul>
+<li><a href="main_workflows/hair_from_surface.html">Strands From Grid Guides</a> meshes,</li>
+<li>walls for <a href="main_workflows/strands_from_prism_profile.html">Strands From Prism Profile</a> prism meshes (do not select base of prism mesh though),</li>
+<li>mesh hair-cards themselves,</li>
+<li>it will work on any grid like mesh with sharp edges</li>
+</ul>
+<video style="width:100%" controls>
+<source src="./video/mesh_deform.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>It will create guides, that grow from sharp edge of mesh and which can defomr selected part of your mesh</em></p>
+<p>Option:</p>
+<ul>
+<li><strong>Grow From:</strong> Sharp or Creased edges loop,</li>
+<li><strong>Guide Generation mode:</strong> Uniform - guides grow evenly spaced, On Corners - guides grow from corners only, Manual - you can pick verts from which guides will grow from</li>
+<li><strong>Guides Count</strong> Number of generated guides. If set to 1 - then mesh is deformed in spine like mode (similar to how Blender's build in Curve Deform modifier works)</li>
+<li><strong>Control Points</strong> number of points per control guide</li>
+</ul>
 <h3 id="add-weights">Add Weights<a class="headerlink" href="#add-weights" title="Permanent link">&para;</a></h3>
 <p><img alt="Add Ribbon Weights" src="img/addribbonweights.gif" />
 <em><strong>Add Ribbon Weights</strong> - create vertex weight gradient from strand root to tip</em></p>
 <h3 id="generate-gradient">Generate gradient<a class="headerlink" href="#generate-gradient" title="Permanent link">&para;</a></h3>
-<p><img alt="Generate gradient" src="img/addribbonvertexcolor.gif" />
+<blockquote>
+<p><strong>Note:</strong> Old and it is better to use <a href="main_workflows/hair_deformers.html#factor-set">Set Factor</a> Deformer
+<img alt="Generate gradient" src="img/addribbonvertexcolor.gif" />
 <em><strong>Add vertex colors gradient</strong> - create black and white color gradient from strand root to tip</em></p>
+</blockquote>
 <h3 id="bake-ao">Bake AO<a class="headerlink" href="#bake-ao" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>Note:</strong>
@@ -168,6 +193,9 @@ This is old method of baking AO. There is now new, geometry nodes based, AO baki
 <p><img alt="Bake AO" src="img/ao_blend.gif" />
 <em>If you select multiple objects they will occlude the last mesh (good for receiving shadows from head to hair -&gt; select head mesh then hair and bake)</em></p>
 <h3 id="generate-random-vertex-colors">Generate random vertex colors<a class="headerlink" href="#generate-random-vertex-colors" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Note:</strong> Old and it is better to use <a href="main_workflows/hair_deformers.html#systemcolor-set">System Color</a> Deformer in HSV mode - with randomized Hue.</p>
+</blockquote>
 <p><img alt="Generate random vertex colors" src="img/random_vertex_color.gif" />
 <em><strong>Add random vertex colors</strong> - assign different color for each mesh ribbon strand.</em></p>
 <blockquote>
@@ -176,8 +204,9 @@ This is old method of baking AO. There is now new, geometry nodes based, AO baki
 <h3 id="sample-uv-from-target">Sample UV from Target<a class="headerlink" href="#sample-uv-from-target" title="Permanent link">&para;</a></h3>
 <p><img alt="Sample UV operator" src="img/uv_pick_target.gif" />
 <em>Samples UV from target object, and write it to new hair UV layer. Samples are placed at root of each haircard. With this new Uv you can sample color texture from character body</em></p>
-<p><img alt="Sample UV operator" src="img/uv_pick_modes.jpg" />
-<em>Sampling Modes (starting from left): root center, root profile, projected</em></p>
+<p><strong>Sampling Modes</strong>
+<img alt="Sample UV operator" src="img/uv_pick_modes.jpg" />
+<em>Sampling Modes starting from left: Root center, Root profile and Projected</em></p>
 <h3 id="sample-vert-color-from-target">Sample Vert Color from Target<a class="headerlink" href="#sample-vert-color-from-target" title="Permanent link">&para;</a></h3>
 <video style="width:100%" controls>
 <source src="./video/sample_col.mp4" type="video/mp4">
@@ -186,7 +215,8 @@ Your browser does not support the video tag.
 
 <p><em>Same as Sample UV from target object, except it samples selected vertex color layer from target object (usually character body). Sampled Vert color can be then used to tint haircards color</em></p>
 <h3 id="sample-weights-from-target">Sample Weights from Target<a class="headerlink" href="#sample-weights-from-target" title="Permanent link">&para;</a></h3>
-<p>Same as Sample UV from target object, except it samples target object weights. This way, after parenting hair to body armature, hair can follow target object animation</p>
+<p>Same as <a href="#sample-uv-from-target">Sample UV</a> from target object, except it samples target object weights.</br>
+This way, after parenting haircards to armature, hair will exactly follow character body deformation.</p>
 <p>It supports same sampling modes as UV Sampling operator above.</p>
               
             </div>
