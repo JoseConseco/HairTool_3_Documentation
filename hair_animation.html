@@ -106,21 +106,31 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Rigging and Animation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#bones-setup">Bones Setup</a>
+    <li class="toctree-l2"><a class="reference internal" href="#generate-bones">Generate Bones</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#guide-strips-cache">Guide Strips Cache</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#guide-strips-cache">Guide Strips Cache</a>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bones-setup-parameters">Bones Setup - parameters</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hair-skinning">Hair Skinning</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#jiggle-physics-setup">Jiggle Physics Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#simulation-mode">Simulation Mode</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#simulation-mode">Simulation Mode</a>
+    <li class="toctree-l3"><a class="reference internal" href="#physics-presets">Physics presets</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#physics-presets">Physics presets</a>
+    <li class="toctree-l3"><a class="reference internal" href="#baking-jiggle-animation">Baking Jiggle Animation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#baking-jiggle-animation">Baking Jiggle Animation</a>
+    <li class="toctree-l3"><a class="reference internal" href="#collisions">Collisions</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#collisions">Collisions</a>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -153,29 +163,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="hair-rigging">Hair Rigging<a class="headerlink" href="#hair-rigging" title="Permanent link">&para;</a></h2>
+                <h2 id="hair-animation">Hair Animation<a class="headerlink" href="#hair-animation" title="Permanent link">&para;</a></h2>
 <video style="width:100%" controls>
   <source src="./video/hair_rigging.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-<p>Hair Tool give you easy option, to generate bones and weight paint data for your hair cards. You can animate generated bones using simple jiggle physics.</p>
+<p>Hair Tool give you option to both:</p>
+<ul>
+<li>generate bones and skin mesh with weight paint data for your hair cards.</li>
+<li>ability to animate generated bones using simple jiggle physics.</li>
+</ul>
 <blockquote>
 <p><strong>Note</strong>: This only works on mesh hair (there is no way to rig curves in blender).</p>
 </blockquote>
-<h4 id="bones-setup">Bones Setup<a class="headerlink" href="#bones-setup" title="Permanent link">&para;</a></h4>
-<p>To create bones for selected mesh strands (islands):</p>
+<h4 id="generate-bones">Generate Bones<a class="headerlink" href="#generate-bones" title="Permanent link">&para;</a></h4>
+<p>In mesh edit mode: Ctrl+Shift+H &gt; <strong>Generate Bones</strong> will create bone chains for selected mesh strands (islands) and assign weights to them. Setup Steps:</p>
 <ul>
 <li>convert curve hair to mesh using <a href="convert_hair.html#convert-hair-to-mesh">convert hair to mesh</a></li>
-<li>In mesh edit mode select hair strands (mesh islands) that you want to animate.</li>
-<li>Open Hair Tool Pie menu using Ctrl+Shift+H -&gt; select 'Generate Bones'</li>
-<li>now you can tweak option for bone generation  (bones count, starting position, etc)</li>
+<li><strong>in mesh edit mode</strong> select hair strands (mesh islands) that you want to animate.</li>
+<li>use: Ctrl+Shift+H &gt; <strong>Generate Bones</strong></li>
+<li>in operator properties panel (F9) can tweak <a href="#parameters">options</a> like: bones count, starting position offset etc</li>
 </ul>
-<p>If you already have armature object assigned to your character it is recommended that you point Hair Tool to it by setting <strong>'Target Rig'</strong> property. With that, generated bones will be automatically assigned to your character rig.</p>
-<p>Also remember to setup <strong>'Pin bone'</strong> - this bone will be automatically set as parent for generated hair bone chains.</p>
+<p>Two other important option under Ctrl+Shift+H &gt; 'Generate Bones' operator is</p>
+<ul>
+<li><strong>Target Rig</strong> if set then, generated bones will be automatically inserted to your character rig.</li>
+<li><strong>Parent bone</strong> - usually head bone of your character rig, to which generated bones will be parented. Hair deformations won't look good if it is not set.</li>
+</ul>
 <p><img alt="Bones Start" src="img/hair_anim/pin_bone.jpg" />
-<em>Usually character 'head' bone can be used as 'pin bone' (hair bones parent)</em></p>
-<h4 id="guide-strips-cache">Guide Strips Cache<a class="headerlink" href="#guide-strips-cache" title="Permanent link">&para;</a></h4>
+<em>Usually character 'head' bone can be used as 'Parent bone' (hair bones parent)</em></p>
+<h5 id="guide-strips-cache">Guide Strips Cache<a class="headerlink" href="#guide-strips-cache" title="Permanent link">&para;</a></h5>
 <p>Bones are generated based on mesh haircard, that are simplified into strips which then guide bone placement.
 Guide strips generation is done automatically when you generate bones, but you can also do it manually using 'Generate Mesh Cache' button - placed next to 'Generate Bones' - visible as Refresh icon. With it you have manual control over 'strips' simplification (Ctrl+MMB Scroll) and smoothing (Shift+MMB Scroll)</p>
 <video style="width:100%" controls>
@@ -186,7 +203,7 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: For performance reasons guide strips are generated once, and then reused for each bone generation. If you modified hair mesh and bone generation does not seem to follow your changed mesh - try to regenerate guide strips using Refresh icon.</p>
 </blockquote>
-<h4 id="bones-setup-parameters">Bones Setup - parameters<a class="headerlink" href="#bones-setup-parameters" title="Permanent link">&para;</a></h4>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
 <p><img alt="Bones Start" src="img/hair_anim/bones_start.gif" />
 <em><strong>Bones Start</strong> - Place first bone at some start distance from strand root location</em></p>
 <p><img alt="Offset To Tip" src="img/hair_anim/offset_to_tip.gif" />
@@ -198,6 +215,26 @@ Your browser does not support the video tag.
 <em><strong>Bones Count</strong> - Bones Count</em></p>
 <p><img alt="Bones Generation Mode" src="img/hair_anim/all_vs_active_stripe.gif" />
 <em><strong>Bones Generation Mode</strong> - Generate separate bone chain for each selected mesh strand, or generate only one chain for mesh island with active face/edge/face (other selected islands will use active chain for skining - good for clumps)</em></p>
+<h4 id="hair-skinning">Hair Skinning<a class="headerlink" href="#hair-skinning" title="Permanent link">&para;</a></h4>
+<p>This operator will automatically assign weights to <a href="#generate-bones">bone chains</a> giving more natural, hair like results, compared to Blender's built-in 'Automatic Weights' option. Each haircard will receive weighted which will make it move as one piece of geometry (its vertices won't stretch apart).<br>
+This operator is available under Ctrl+Shift+H &gt; <strong>Skin Haircards to Bone Chains</strong> in: object, edit and weight paint mode. If executed in edit mode or weight paint mode, then only selected haircards can be skinned to bones.</p>
+<video style="width:100%" controls>
+  <source src="./video/hair_skining.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In this demo we generate weights to one of the Hair Presets from <a href="hair_library.html">Hair Tool Library</a></em></p>
+<blockquote>
+<p><strong>Note</strong>: This operator requires Head bone to be set. Usually it should be detected automatically.</p>
+<p><strong>Note</strong>: You can skin only selected haircards to selected bone chains by running this operator in edit mode or weight paint mode. And in <strong>Bone Source</strong> pick: <code>Selected Pose Bones</code> option. This way you can force one hair clump to follow one bone chain.</p>
+</blockquote>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Armature</strong> - target armature from which hair bones chains will be picked from. By default it will use selected mesh object's armature modifier target.</li>
+<li><strong>Head bone</strong> - head bone of your character rig,</li>
+<li><strong>Bone Source</strong> - Collection or Selected pose bones,</li>
+<li><strong>Split Strands</strong> - if enabled it will try to skin each haircard as one piece of geometry (its vertices won't stretch apart). Default: On</li>
+<li><strong>Smooth Factor</strong> - Additional post processing smoothing of generated weights. Default: 0.5</li>
+</ul>
 <h4 id="jiggle-physics-setup">Jiggle Physics Setup<a class="headerlink" href="#jiggle-physics-setup" title="Permanent link">&para;</a></h4>
 <p>If you enabled '<strong>Assign Jiggle</strong>' when creating bones, then HT will automatically add jiggle physics to new bones. You can edit jiggle physics in armature <strong>POSE MODE</strong>:</p>
 <ul>
@@ -205,14 +242,14 @@ Your browser does not support the video tag.
 <li>add collision to selected bones (other bones will bounce from collision bone)</li>
 <li>create jiggle physics presets (with various mass, stiffness, damping, gravity parameters) and assign these presets to selected bones</li>
 </ul>
-<h4 id="simulation-mode">Simulation Mode<a class="headerlink" href="#simulation-mode" title="Permanent link">&para;</a></h4>
+<h5 id="simulation-mode">Simulation Mode<a class="headerlink" href="#simulation-mode" title="Permanent link">&para;</a></h5>
 <p>Jiggle Physics can be run in two Modes:</p>
 <ul>
 <li><strong>Interactive</strong> - good for mouse interaction with jiggle bones, but it won't work when rendering animation</li>
 <li><strong>Animated</strong> - only works when animation playback is enabled. Useful when rendering animation.</li>
 </ul>
 <p>There is also option to bake jiggle sim into animation using <a href="#baking-jiggle-animation">those steps</a></p>
-<h4 id="physics-presets">Physics presets<a class="headerlink" href="#physics-presets" title="Permanent link">&para;</a></h4>
+<h5 id="physics-presets">Physics presets<a class="headerlink" href="#physics-presets" title="Permanent link">&para;</a></h5>
 <p>You can create multiple physics presets in Hair Tool using [+] icon.</p>
 <video style="width:100%" controls>
   <source src="./img/hair_anim/assign_physics.mp4" type="video/mp4">
@@ -228,7 +265,7 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: If you have any bones selected when creating new physics preset, then those bones will be automatically assigned to new physics preset.</p>
 </blockquote>
-<h4 id="baking-jiggle-animation">Baking Jiggle Animation<a class="headerlink" href="#baking-jiggle-animation" title="Permanent link">&para;</a></h4>
+<h5 id="baking-jiggle-animation">Baking Jiggle Animation<a class="headerlink" href="#baking-jiggle-animation" title="Permanent link">&para;</a></h5>
 <p>Jiggle physics can be baked to animation using following steps:</p>
 <ol>
 <li>Select jiggle bones and enable Simulation (in Animated mode)</li>
@@ -243,7 +280,7 @@ Your browser does not support the video tag.
 <li>Press OK</li>
 </ol>
 <p>Don't forget to turn simulation off after baking, to prevent running jiggle physics on top of baked jiggle animation.</p>
-<h4 id="collisions">Collisions<a class="headerlink" href="#collisions" title="Permanent link">&para;</a></h4>
+<h5 id="collisions">Collisions<a class="headerlink" href="#collisions" title="Permanent link">&para;</a></h5>
 <p>Only bone to bone collisions are supported.
 You can add collision to selected bone using 'Add Collision' button. Other jiggle bones will bounce from it.</p>
 <video style="width:100%" controls>
