@@ -120,7 +120,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#jiggle-physics-setup">Jiggle Physics Setup</a>
+    <li class="toctree-l2"><a class="reference internal" href="#jiggle-physics">Jiggle Physics</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#simulation-mode">Simulation Mode</a>
     </li>
@@ -171,7 +171,8 @@ Your browser does not support the video tag.
 
 <p>Hair Tool give you option to both:</p>
 <ul>
-<li>generate bones and skin mesh with weight paint data for your hair cards.</li>
+<li>bone chains generation,</li>
+<li>adjust automatic skinning,</li>
 <li>ability to animate generated bones using simple jiggle physics.</li>
 </ul>
 <blockquote>
@@ -222,7 +223,7 @@ This operator is available under Ctrl+Shift+H &gt; <strong>Skin Haircards to Bon
   <source src="./video/hair_skining.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In this demo we generate weights to one of the Hair Presets from <a href="hair_library.html">Hair Tool Library</a></em></p>
+<p><em>In this demo we generate weights to one of the Hair Presets from <a href="hair_library.html">Hair Tool Library</a>. I used <a href="https://bartoszstyperek.gumroad.com/l/wobbly_wiggler">Wobbly Wiggler</a> addon but HTool has its own (simpler) simulator see <a href="#jiggle-physics">here</a></em></p>
 <blockquote>
 <p><strong>Note</strong>: This operator requires Head bone to be set. Usually it should be detected automatically.</p>
 <p><strong>Note</strong>: You can skin only selected haircards to selected bone chains by running this operator in edit mode or weight paint mode. And in <strong>Bone Source</strong> pick: <code>Selected Pose Bones</code> option. This way you can force one hair clump to follow one bone chain.</p>
@@ -235,7 +236,11 @@ Your browser does not support the video tag.
 <li><strong>Split Strands</strong> - if enabled it will try to skin each haircard as one piece of geometry (its vertices won't stretch apart). Default: On</li>
 <li><strong>Smooth Factor</strong> - Additional post processing smoothing of generated weights. Default: 0.5</li>
 </ul>
-<h4 id="jiggle-physics-setup">Jiggle Physics Setup<a class="headerlink" href="#jiggle-physics-setup" title="Permanent link">&para;</a></h4>
+<h4 id="jiggle-physics">Jiggle Physics<a class="headerlink" href="#jiggle-physics" title="Permanent link">&para;</a></h4>
+<p>Hair Tool comes with built-in jiggle physics system that can be used to animate hair bone chains.</p>
+<blockquote>
+<p><strong>Note</strong>: From this simple built-in jiggle simulator I created a separate addon called <a href="https://bartoszstyperek.gumroad.com/l/wobbly_wiggler">Wobbly Wiggler</a> which support: collisions, mouse interaction with any bone, simplified baking, making simulation result cyclic etc.</p>
+</blockquote>
 <p>If you enabled '<strong>Assign Jiggle</strong>' when creating bones, then HT will automatically add jiggle physics to new bones. You can edit jiggle physics in armature <strong>POSE MODE</strong>:</p>
 <ul>
 <li>change time step</li>
